@@ -2,18 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Networking;
-using Unity.Netcode;
-using Unity.Netcode.Transports.UTP;
+
 
 public class UI_MainMenu : MonoBehaviour
 {
-    public NetworkManager networkManager;
-    public UnityTransport transport;
-    public GameObject MenuCanvas;
-    [Space(10)]
-    public GameObject ipWindow;
-    public Text ipField;
+    [SerializeField] GameObject menuCanvas;
+    [SerializeField] UI_Window menuWindow;
+    [SerializeField] UI_Window playWindow;
+    [SerializeField] UI_Window optionsWindow;
+    [SerializeField] UI_Window exitWindow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,16 +24,16 @@ public class UI_MainMenu : MonoBehaviour
         
     }
 
-    public void BTN_StartHost()
+    public void BTN_Play()
     {
-        networkManager.StartHost();
+        playWindow.OpenWindow();
     }
-    public void BTN_JoinGame()
+    public void BTN_Options()
     {
-        networkManager.StartClient();
+
     }
 
-    public void BTN_Join()
+    public void BTN_Exit()
     {
     }
 }
