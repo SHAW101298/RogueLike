@@ -37,6 +37,5 @@ public class UI_MainMenu : MonoBehaviour
 
     public void BTN_Join()
     {
-        transport.ConnectionData.
     }
 }
