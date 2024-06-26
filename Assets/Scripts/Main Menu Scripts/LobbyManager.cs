@@ -20,8 +20,9 @@ public class LobbyManager : MonoBehaviour
     public TMP_InputField idField;
     public TMP_InputField codeField;
     public TMP_InputField passwordField;
-    [Space(20)]
+    [Header("Current Lobby")]
     Lobby currentLobby;
+    public TMP_Text lobbyName;
     async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -68,7 +69,8 @@ public class LobbyManager : MonoBehaviour
     }
     async void ListLobbies()
     {
-        await Lobbies.Instance.QueryLobbiesAsync();
+        QueryResponse queryResponse =  await Lobbies.Instance.QueryLobbiesAsync();
+        
     }
     async void JoinLobbyByCode()
     {
@@ -83,6 +85,7 @@ public class LobbyManager : MonoBehaviour
     void OnPlayerSignIn()
     {
         Debug.Log("Player Signed in with id = " + AuthenticationService.Instance.PlayerId);
+        
     }
     public void ResetInputData()
     {

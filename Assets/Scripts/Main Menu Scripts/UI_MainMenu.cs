@@ -17,6 +17,8 @@ public class UI_MainMenu : MonoBehaviour
     [Space(10)]
     [SerializeField] UI_Window createLobbyWindow;
     [SerializeField] UI_Window joinLobbyWindow;
+    [SerializeField] UI_Window joinLobbyByCodeWindow;
+    [SerializeField] UI_Window joinLobbyFromListWindow;
 
 
 
@@ -89,13 +91,39 @@ public class UI_MainMenu : MonoBehaviour
         joinLobbyWindow.OpenWindow();
         joinLobbyWindow.parent.CloseWindow();
     }
-    public void BTN_JoinLobbyJOIN()
-    {
-        lobbyManager.CallJoinLobby();
-    }
     public void BTN_JoinLobbyReturn()
     {
         joinLobbyWindow.CloseWindow();
         joinLobbyWindow.parent.OpenWindow();
     }
+
+    public void BTN_JoinLobbyFromList()
+    {
+        joinLobbyFromListWindow.OpenWindow();
+        joinLobbyFromListWindow.parent.CloseWindow();
+    }
+    public void BTN_JoinLobbyFromListJOIN()
+    {
+
+    }
+    public void BTN_JoinLobbyFromListReturn()
+    {
+        joinLobbyFromListWindow.CloseWindow();
+        joinLobbyFromListWindow.parent.OpenWindow();
+    }
+    public void BTN_JoinLobbyByCode()
+    {
+        joinLobbyByCodeWindow.OpenWindow();
+        joinLobbyByCodeWindow.parent.CloseWindow();
+    }
+    public void BTN_JoinLobbyByCodeJOIN()
+    {
+        lobbyManager.CallJoinLobby();
+    }
+    public void BTN_JoinLobbyByCodeReturn()
+    {
+        joinLobbyByCodeWindow.CloseWindow();
+        joinLobbyByCodeWindow.parent.OpenWindow();
+    }
+    
 }
