@@ -4,18 +4,24 @@ using UnityEngine;
 using Unity.Services.Core;
 using Unity.Services.Authentication;
 using Unity.Services.Lobbies;
+using Unity.Services.Lobbies.Models;
 using TMPro;
 using UnityEngine.UI;
 using System;
 
 public class LobbyManager : MonoBehaviour
 {
+    [Header("CREATE LOBBY")]
     public TMP_InputField lobbyNameField;
     public TMP_InputField maxPlayersField;
     public Toggle privateLobbyToggle;
     public TMP_InputField lobbyPasswordField;
-
-
+    [Header("JOIN LOBBY")]
+    public TMP_InputField idField;
+    public TMP_InputField codeField;
+    public TMP_InputField passwordField;
+    [Space(20)]
+    Lobby currentLobby;
     async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -27,6 +33,10 @@ public class LobbyManager : MonoBehaviour
     {
         CreateLobby();
     }
+    public void CallJoinLobby()
+    {
+        JoinLobbyByCode();
+    }
 
     async void CreateLobby()
     {
@@ -37,19 +47,37 @@ public class LobbyManager : MonoBehaviour
 
             CreateLobbyOptions options = new CreateLobbyOptions();
             options.IsPrivate = privateLobbyToggle.isOn;
-            options.Password = lobbyPasswordField.text;
+            string password = lobbyPasswordField.text;
+            if(password.Length > 0)
+            {
+                if (password.Length < 8)
+                    return;
 
-            await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
+                options.Password = password;
+
+            }
+
+            currentLobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
             // Modyfikator obra¿eñ dla poziomu trudnoœci
-            Debug.Log("Created Lobby! ");
+            Debug.Log("Created Lobby! " + currentLobby.Name + "  " +  currentLobby.LobbyCode);
         }
         catch(LobbyServiceException e)
         {
             Debug.Log(e);
         }
-
     }
-
+    async void ListLobbies()
+    {
+        await Lobbies.Instance.QueryLobbiesAsync();
+    }
+    async void JoinLobbyByCode()
+    {
+        await Lobbies.Instance.JoinLobbyByCodeAsync(codeField.text);
+    }
+    async void JoinLobbyById()
+    {
+        await Lobbies.Instance.JoinLobbyByIdAsync(idField.text);
+    }
 
 
     void OnPlayerSignIn()

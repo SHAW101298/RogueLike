@@ -91,7 +91,7 @@ public class UI_MainMenu : MonoBehaviour
     }
     public void BTN_JoinLobbyJOIN()
     {
-
+        lobbyManager.CallJoinLobby();
     }
     public void BTN_JoinLobbyReturn()
     {
