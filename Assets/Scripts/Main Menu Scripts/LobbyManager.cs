@@ -8,6 +8,7 @@ using Unity.Services.Lobbies.Models;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using System.Threading;
 
 public class LobbyManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class LobbyManager : MonoBehaviour
     [Header("Current Lobby")]
     Lobby currentLobby;
     public TMP_Text lobbyName;
+    float timer;
     [Header("LOBBY LIST")]
     public Transform lobbiesContent;
     public GameObject lobbyDataPrefab;
@@ -32,7 +34,23 @@ public class LobbyManager : MonoBehaviour
         AuthenticationService.Instance.SignedIn += OnPlayerSignIn;
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
+    private void Update()
+    {
+        HandleLobbyHeartBeat();
+    }
 
+    async void HandleLobbyHeartBeat()
+    {
+        if (currentLobby != null)
+        {
+            timer += Time.deltaTime;
+            if (timer >= 14)
+            {
+                timer = 0;
+                await LobbyService.Instance.SendHeartbeatPingAsync(currentLobby.Id);
+            }
+        }
+    }
     public void CallCreateLobby()
     {
         CreateLobby();
