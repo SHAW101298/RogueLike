@@ -866,7 +866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &187918477
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1907,7 +1907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &419866088
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8967,8 +8967,9 @@ MonoBehaviour:
   codeField: {fileID: 0}
   passwordField: {fileID: 0}
   lobbyName: {fileID: 0}
-  lobbiesContent: {fileID: 0}
-  lobbyDataPrefab: {fileID: 0}
+  lobbiesContent: {fileID: 1944679417}
+  lobbyDataPrefab: {fileID: 5075239671757667770, guid: e4f579139df80914595f66e618377525,
+    type: 3}
 --- !u!4 &1548225283
 Transform:
   m_ObjectHideFlags: 0

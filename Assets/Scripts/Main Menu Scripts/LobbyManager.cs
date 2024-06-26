@@ -101,6 +101,7 @@ public class LobbyManager : MonoBehaviour
         QueryResponse queryResponse =  await Lobbies.Instance.QueryLobbiesAsync();
         GameObject tempGO;
         UI_LobbyData tempData;
+        Debug.Log("Found " + queryResponse.Results.Count + " lobbies.");
         foreach(Lobby lobby in queryResponse.Results)
         {
             tempGO = Instantiate(lobbyDataPrefab);
@@ -113,11 +114,19 @@ public class LobbyManager : MonoBehaviour
                 tempData.passwordProtected.SetActive(true);
             }
             tempGO.transform.SetParent(lobbiesContent);
+            tempGO.transform.localScale = Vector3.one;
         }
     }
     async void JoinLobbyByCode()
     {
-        await Lobbies.Instance.JoinLobbyByCodeAsync(codeField.text);
+        try
+        {
+            await Lobbies.Instance.JoinLobbyByCodeAsync(codeField.text);
+        }
+        catch(LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
     }
     async void JoinLobbyById()
     {
