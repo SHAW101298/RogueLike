@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UI_Window : MonoBehaviour
 {
-    [SerializeField] UI_Window parent;
+    public UI_Window parent;
 
     public void OpenWindow()
     {
@@ -13,10 +13,5 @@ public class UI_Window : MonoBehaviour
     public void CloseWindow()
     {
         gameObject.SetActive(false);
-        if(parent == null)
-        {
-            return;
-        }
-            parent.OpenWindow();
     }
 }
