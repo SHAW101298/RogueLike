@@ -18,7 +18,6 @@ public class LobbyManager : MonoBehaviour
     public Toggle privateLobbyToggle;
     public TMP_InputField lobbyPasswordField;
     [Header("JOIN LOBBY")]
-    public TMP_InputField idField;
     public TMP_InputField codeField;
     public TMP_InputField passwordField;
     [Header("Current Lobby")]
@@ -55,9 +54,13 @@ public class LobbyManager : MonoBehaviour
     {
         CreateLobby();
     }
-    public void CallJoinLobby()
+    public void CallJoinLobbyByCode()
     {
         JoinLobbyByCode();
+    }
+    public void CallJoinLobbyByID(string lobbyId)
+    {
+        JoinLobbyById(lobbyId);
     }
     public void CallListLobbies()
     {
@@ -122,15 +125,17 @@ public class LobbyManager : MonoBehaviour
         try
         {
             await Lobbies.Instance.JoinLobbyByCodeAsync(codeField.text);
+            Debug.Log("Joined Lobby with code " + codeField.text);
         }
         catch(LobbyServiceException e)
         {
             Debug.Log(e);
         }
     }
-    async void JoinLobbyById()
+    async void JoinLobbyById(string lobbyId)
     {
-        await Lobbies.Instance.JoinLobbyByIdAsync(idField.text);
+        await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId);
+        Debug.Log("Joined Lobby with id " + lobbyId);
     }
 
 

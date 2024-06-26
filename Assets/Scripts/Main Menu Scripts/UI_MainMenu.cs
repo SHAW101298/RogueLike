@@ -134,7 +134,7 @@ public class UI_MainMenu : MonoBehaviour
     {
         if (selectedLobby == "-1")
             return;
-
+        lobbyManager.CallJoinLobbyByID(selectedLobby);
 
     }
     public void BTN_JoinLobbyFromListReturn()
@@ -150,7 +150,7 @@ public class UI_MainMenu : MonoBehaviour
     }
     public void BTN_JoinLobbyByCodeJOIN()
     {
-        lobbyManager.CallJoinLobby();
+        lobbyManager.CallJoinLobbyByCode();
     }
     public void BTN_JoinLobbyByCodeReturn()
     {
