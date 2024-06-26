@@ -23,6 +23,9 @@ public class LobbyManager : MonoBehaviour
     [Header("Current Lobby")]
     Lobby currentLobby;
     public TMP_Text lobbyName;
+    [Header("LOBBY LIST")]
+    public Transform lobbiesContent;
+    public GameObject lobbyDataPrefab;
     async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -37,6 +40,14 @@ public class LobbyManager : MonoBehaviour
     public void CallJoinLobby()
     {
         JoinLobbyByCode();
+    }
+    public void CallListLobbies()
+    {
+        foreach(Transform child in lobbiesContent)
+        {
+            Destroy(child.gameObject);
+        }
+        ListLobbies();
     }
 
     async void CreateLobby()
@@ -70,7 +81,21 @@ public class LobbyManager : MonoBehaviour
     async void ListLobbies()
     {
         QueryResponse queryResponse =  await Lobbies.Instance.QueryLobbiesAsync();
-        
+        GameObject tempGO;
+        UI_LobbyData tempData;
+        foreach(Lobby lobby in queryResponse.Results)
+        {
+            tempGO = Instantiate(lobbyDataPrefab);
+            tempData = tempGO.GetComponent<UI_LobbyData>();
+            tempData.id = lobby.Id;
+            tempData.lobbyName.text = lobby.Name;
+            tempData.slots.text = lobby.Players.Count + "/" + lobby.MaxPlayers;
+            if(lobby.HasPassword == true)
+            {
+                tempData.passwordProtected.SetActive(true);
+            }
+            tempGO.transform.SetParent(lobbiesContent);
+        }
     }
     async void JoinLobbyByCode()
     {

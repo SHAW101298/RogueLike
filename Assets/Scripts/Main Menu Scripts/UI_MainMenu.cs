@@ -6,6 +6,20 @@ using UnityEngine.UI;
 
 public class UI_MainMenu : MonoBehaviour
 {
+    #region
+    public static UI_MainMenu instance;
+    public void Awake()
+    {
+        if(instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+    #endregion
     [Header("REF")]
     [SerializeField] LobbyManager lobbyManager;
     [Header("Windows")]
@@ -20,12 +34,18 @@ public class UI_MainMenu : MonoBehaviour
     [SerializeField] UI_Window joinLobbyByCodeWindow;
     [SerializeField] UI_Window joinLobbyFromListWindow;
 
+    public string selectedLobby = "-1";
+
+    public void SelectLobby(string id)
+    {
+        selectedLobby = id;
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -86,6 +106,9 @@ public class UI_MainMenu : MonoBehaviour
         lobbyManager.ResetInputData();
         createLobbyWindow.parent.OpenWindow();
     }
+
+    // ====================================
+
     public void BTN_JoinLobby()
     {
         joinLobbyWindow.OpenWindow();
@@ -96,14 +119,22 @@ public class UI_MainMenu : MonoBehaviour
         joinLobbyWindow.CloseWindow();
         joinLobbyWindow.parent.OpenWindow();
     }
-
+    // ====================================
     public void BTN_JoinLobbyFromList()
     {
         joinLobbyFromListWindow.OpenWindow();
         joinLobbyFromListWindow.parent.CloseWindow();
     }
+    public void BTN_JoinLobbyFromListRefresh()
+    {
+        lobbyManager.CallListLobbies();
+        selectedLobby = "-1";
+    }
     public void BTN_JoinLobbyFromListJOIN()
     {
+        if (selectedLobby == "-1")
+            return;
+
 
     }
     public void BTN_JoinLobbyFromListReturn()
@@ -111,6 +142,7 @@ public class UI_MainMenu : MonoBehaviour
         joinLobbyFromListWindow.CloseWindow();
         joinLobbyFromListWindow.parent.OpenWindow();
     }
+    // ====================================
     public void BTN_JoinLobbyByCode()
     {
         joinLobbyByCodeWindow.OpenWindow();
