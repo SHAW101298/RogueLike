@@ -10,53 +10,64 @@ using UnityEngine.UI;
 using System;
 using System.Threading;
 
+
 public class LobbyManager : MonoBehaviour
 {
-    [Header("CREATE LOBBY")]
-    public TMP_InputField lobbyNameField;
-    public TMP_InputField maxPlayersField;
-    public Toggle privateLobbyToggle;
-    public TMP_InputField lobbyPasswordField;
-    [Header("JOIN LOBBY")]
-    public TMP_InputField codeField;
-    public TMP_InputField passwordField;
+    [Header("REF")]
+    public UI_MainMenu ui_MainMenu;
     [Header("Current Lobby")]
     Lobby currentLobby;
-    public TMP_Text lobbyName;
-    float timer;
-    [Header("LOBBY LIST")]
-    public Transform lobbiesContent;
-    public GameObject lobbyDataPrefab;
+    Player currentPlayer;
+    //public TMP_Text lobbyName;
+    float heartBeatTimer;
+    float poolUpdateTimer;
     async void Start()
     {
         await UnityServices.InitializeAsync();
         AuthenticationService.Instance.SignedIn += OnPlayerSignIn;
+
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
     private void Update()
     {
         HandleLobbyHeartBeat();
+        HandleLobbyPoolUpdate();
     }
 
     async void HandleLobbyHeartBeat()
     {
         if (currentLobby != null)
         {
-            timer += Time.deltaTime;
-            if (timer >= 14)
+            heartBeatTimer += Time.deltaTime;
+            if (heartBeatTimer >= 14)
             {
-                timer = 0;
+                heartBeatTimer = 0;
                 await LobbyService.Instance.SendHeartbeatPingAsync(currentLobby.Id);
             }
         }
     }
-    public void CallCreateLobby()
+    async void HandleLobbyPoolUpdate()
     {
-        CreateLobby();
+        if (currentLobby == null)
+            return;
+
+        poolUpdateTimer += Time.deltaTime;
+        if(poolUpdateTimer >= 1.1f)
+        {
+            poolUpdateTimer = 0;
+            Lobby lobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
+            currentLobby = lobby;
+            ui_MainMenu.UpdateLobbyWindow(lobby);
+        }
+
     }
-    public void CallJoinLobbyByCode()
+    public void CallCreateLobby(string name, string players, bool isPrivate, string password)
     {
-        JoinLobbyByCode();
+        CreateLobby(name, players, isPrivate, password);
+    }
+    public void CallJoinLobbyByCode(string code, string password)
+    {
+        JoinLobbyByCode(code, password);
     }
     public void CallJoinLobbyByID(string lobbyId)
     {
@@ -64,23 +75,40 @@ public class LobbyManager : MonoBehaviour
     }
     public void CallListLobbies()
     {
-        foreach(Transform child in lobbiesContent)
-        {
-            Destroy(child.gameObject);
-        }
         ListLobbies();
     }
+    public async void CallChangeName(string newName)
+    {
+        UpdatePlayerOptions options = new UpdatePlayerOptions()
+        {
+            Data = new Dictionary<string, PlayerDataObject>
+            {
+                { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, newName) }
+            }
+        };
+        Debug.Log("Current player id is " + currentPlayer.Id);
+        Debug.Log("New Name is " + options.Data["PlayerName"].Value);
+        Lobby lobby = await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, currentPlayer.Id, options);
+        currentLobby = lobby;
+    }
+    public async void CallLeaveLobby()
+    {
+        await LobbyService.Instance.RemovePlayerAsync(currentLobby.Id, currentPlayer.Id);
+        Debug.Log("Left Lobby " + currentLobby.Name + " | " + currentLobby.Id);
+        currentLobby = null;
+    }
 
-    async void CreateLobby()
+    async void CreateLobby(string lobbyName, string players, bool isPrivate, string password)
     {
         try
         {
-            string lobbyName = lobbyNameField.text;
-            int maxPlayers = Convert.ToInt32(maxPlayersField.text);
+            int maxPlayers = Convert.ToInt32(players);
+
+            currentPlayer = GetPlayer();
 
             CreateLobbyOptions options = new CreateLobbyOptions();
-            options.IsPrivate = privateLobbyToggle.isOn;
-            string password = lobbyPasswordField.text;
+            options.IsPrivate = isPrivate;
+            options.Player = currentPlayer;
             if(password.Length > 0)
             {
                 if (password.Length < 8)
@@ -90,9 +118,11 @@ public class LobbyManager : MonoBehaviour
 
             }
 
-            currentLobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
+            Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
+            currentLobby = lobby;
             // Modyfikator obra¿eñ dla poziomu trudnoœci
             Debug.Log("Created Lobby! " + currentLobby.Name + "  " +  currentLobby.LobbyCode);
+            ui_MainMenu.ShowLobbyWindow(lobby);
         }
         catch(LobbyServiceException e)
         {
@@ -102,30 +132,16 @@ public class LobbyManager : MonoBehaviour
     async void ListLobbies()
     {
         QueryResponse queryResponse =  await Lobbies.Instance.QueryLobbiesAsync();
-        GameObject tempGO;
-        UI_LobbyData tempData;
-        Debug.Log("Found " + queryResponse.Results.Count + " lobbies.");
-        foreach(Lobby lobby in queryResponse.Results)
-        {
-            tempGO = Instantiate(lobbyDataPrefab);
-            tempData = tempGO.GetComponent<UI_LobbyData>();
-            tempData.id = lobby.Id;
-            tempData.lobbyName.text = lobby.Name;
-            tempData.slots.text = lobby.Players.Count + "/" + lobby.MaxPlayers;
-            if(lobby.HasPassword == true)
-            {
-                tempData.passwordProtected.SetActive(true);
-            }
-            tempGO.transform.SetParent(lobbiesContent);
-            tempGO.transform.localScale = Vector3.one;
-        }
+        Debug.Log("Found " + queryResponse.Results.Count + " lobbies.");     
+        ui_MainMenu.PrintAvailableLobbies(queryResponse);
     }
-    async void JoinLobbyByCode()
+    async void JoinLobbyByCode(string code, string password)
     {
         try
         {
-            await Lobbies.Instance.JoinLobbyByCodeAsync(codeField.text);
-            Debug.Log("Joined Lobby with code " + codeField.text);
+            Lobby lobby = await Lobbies.Instance.JoinLobbyByCodeAsync(code);
+            currentLobby = lobby;
+            Debug.Log("Joined Lobby with code " + code);
         }
         catch(LobbyServiceException e)
         {
@@ -134,21 +150,27 @@ public class LobbyManager : MonoBehaviour
     }
     async void JoinLobbyById(string lobbyId)
     {
-        await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId);
+        Lobby lobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId);
+        currentLobby = lobby;
         Debug.Log("Joined Lobby with id " + lobbyId);
+        
     }
 
 
     void OnPlayerSignIn()
     {
         Debug.Log("Player Signed in with id = " + AuthenticationService.Instance.PlayerId);
-        
     }
-    public void ResetInputData()
+
+    Player GetPlayer()
     {
-        lobbyNameField.text = "";
-        maxPlayersField.text = "";
-        privateLobbyToggle.isOn = false;
-        lobbyPasswordField.text = "";
+        Player newPlayer = new Player(AuthenticationService.Instance.PlayerId)
+        {
+            Data = new Dictionary<string, PlayerDataObject>
+            {
+                { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "BaseName") }
+            }
+        };
+        return newPlayer;
     }
 }
