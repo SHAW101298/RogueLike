@@ -181,9 +181,15 @@ public class LobbyManager : MonoBehaviour
     {
         try
         {
-            Lobby lobby = await Lobbies.Instance.JoinLobbyByCodeAsync(code);
+            currentPlayer = GetPlayer();
+            JoinLobbyByCodeOptions options = new JoinLobbyByCodeOptions
+            {
+                Player = currentPlayer
+            };
+            Lobby lobby = await Lobbies.Instance.JoinLobbyByCodeAsync(code,options);
             currentLobby = lobby;
             Debug.Log("Joined Lobby with code " + code);
+            ui_Lobby.ShowLobbyWindow();
         }
         catch(LobbyServiceException e)
         {
@@ -192,19 +198,42 @@ public class LobbyManager : MonoBehaviour
     }
     async void JoinLobbyById(string lobbyId)
     {
-        Lobby lobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId);
-        currentLobby = lobby;
-        Debug.Log("Joined Lobby with id " + lobbyId);
+        try
+        {
+            currentPlayer = GetPlayer();
+            JoinLobbyByIdOptions options = new JoinLobbyByIdOptions()
+            {
+                Player = currentPlayer
+            };
+            Lobby lobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId, options);
+            currentLobby = lobby;
+            Debug.Log("Joined Lobby with id " + lobbyId);
+            ui_Lobby.ShowLobbyWindow();
+        }
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+        
     }
     async void JoinLobbyById(string lobbyId, string password)
     {
-        JoinLobbyByIdOptions options = new JoinLobbyByIdOptions()
+        try
         {
-            Password = password,
-            Player = currentPlayer
-        };
-        Lobby lobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId, options);
-        currentLobby = lobby;
+            currentPlayer = GetPlayer();
+            JoinLobbyByIdOptions options = new JoinLobbyByIdOptions()
+            {
+                Password = password,
+                Player = currentPlayer
+            };
+            Lobby lobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId, options);
+            currentLobby = lobby;
+            ui_Lobby.ShowLobbyWindow();
+        }
+        catch(LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
     }
 
 

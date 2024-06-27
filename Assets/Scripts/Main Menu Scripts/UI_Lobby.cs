@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.Services.Lobbies.Models;
-using UnityEditor.PackageManager.UI;
 
 public class UI_Lobby : MonoBehaviour
 {
@@ -42,6 +41,8 @@ public class UI_Lobby : MonoBehaviour
         UI_PlayerDataInLobby tempDATA;
         bool isHost = false;
 
+        //Debug.Log("Host id == " + lobbyManager.currentLobby.HostId);
+        //Debug.Log("CurrentPlayer id == " + lobbyManager.currentPlayer.Id);
         if (lobbyManager.currentLobby.HostId == lobbyManager.currentPlayer.Id)
         {
             isHost = true;
