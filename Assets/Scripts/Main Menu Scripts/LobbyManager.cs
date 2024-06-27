@@ -15,8 +15,10 @@ public class LobbyManager : MonoBehaviour
 {
     [Header("REF")]
     public UI_MainMenu ui_MainMenu;
+    public UI_Lobby ui_Lobby;
+    public UI_LobbyList ui_LobbyList;
     [Header("Current Lobby")]
-    Lobby currentLobby;
+    public Lobby currentLobby;
     Player currentPlayer;
     //public TMP_Text lobbyName;
     float heartBeatTimer;
@@ -57,7 +59,7 @@ public class LobbyManager : MonoBehaviour
             poolUpdateTimer = 0;
             Lobby lobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
             currentLobby = lobby;
-            ui_MainMenu.UpdateLobbyWindow(lobby);
+            ui_Lobby.UpdateLobbyWindow();
         }
 
     }
@@ -122,7 +124,7 @@ public class LobbyManager : MonoBehaviour
             currentLobby = lobby;
             // Modyfikator obra¿eñ dla poziomu trudnoœci
             Debug.Log("Created Lobby! " + currentLobby.Name + "  " +  currentLobby.LobbyCode);
-            ui_MainMenu.ShowLobbyWindow(lobby);
+            ui_Lobby.ShowLobbyWindow();
         }
         catch(LobbyServiceException e)
         {
@@ -133,7 +135,7 @@ public class LobbyManager : MonoBehaviour
     {
         QueryResponse queryResponse =  await Lobbies.Instance.QueryLobbiesAsync();
         Debug.Log("Found " + queryResponse.Results.Count + " lobbies.");     
-        ui_MainMenu.PrintAvailableLobbies(queryResponse);
+        ui_LobbyList.PrintAvailableLobbies(queryResponse);
     }
     async void JoinLobbyByCode(string code, string password)
     {

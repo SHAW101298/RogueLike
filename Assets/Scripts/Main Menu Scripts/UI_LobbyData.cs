@@ -11,6 +11,6 @@ public class UI_LobbyData : MonoBehaviour
     public GameObject passwordProtected;
     public void ClickedOnLobby()
     {
-        UI_MainMenu.instance.SelectLobby(id);
+        UI_LobbyList.instance.SelectLobby(id);
     }
 }
