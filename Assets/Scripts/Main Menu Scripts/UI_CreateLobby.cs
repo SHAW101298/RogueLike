@@ -23,7 +23,7 @@ public class UI_CreateLobby : MonoBehaviour
         createLobbyWindow.parent.OpenWindow();
         ResetInputData();
     }
-    void ResetInputData()
+    public void ResetInputData()
     {
         lobbyNameField.text = "";
         maxPlayersField.text = "";

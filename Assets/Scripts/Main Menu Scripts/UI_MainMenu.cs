@@ -29,8 +29,8 @@ public class UI_MainMenu : MonoBehaviour
     [SerializeField] UI_Lobby ui_Lobby;
     [SerializeField] UI_LobbyList ui_LobbyList;
     [SerializeField] UI_JoinLobbyByCode ui_JoinByCode;
-    public Transform lobbiesContent;
-    public GameObject lobbyDataPrefab;
+    [SerializeField] UI_CreateLobby ui_CreateLobby;
+
     [Header("Windows")]
     [SerializeField] GameObject menuCanvas;
     [SerializeField] UI_Window menuWindow;
@@ -44,19 +44,6 @@ public class UI_MainMenu : MonoBehaviour
     [SerializeField] UI_Window joinLobbyWindow;
     [SerializeField] UI_Window joinLobbyByCodeWindow;
     [SerializeField] UI_Window joinLobbyFromListWindow;
-    [Header("Create Lobby Fields")]
-    [SerializeField] TMP_InputField ClobbyNameField;
-    [SerializeField] TMP_InputField CmaxPlayersField;
-    [SerializeField] Toggle CprivateLobbyToggle;
-    [SerializeField] TMP_InputField ClobbyPasswordField;
-    [Header("Join Lobby Fields")]
-    [SerializeField] TMP_InputField JcodeField;
-    [SerializeField] TMP_InputField JpasswordField;
-
-
-
-
-
     public void BTN_Play()
     {
         playWindow.OpenWindow();
@@ -98,6 +85,7 @@ public class UI_MainMenu : MonoBehaviour
     {
         createLobbyWindow.OpenWindow();
         createLobbyWindow.parent.CloseWindow();
+        ui_CreateLobby.ResetInputData();
     }
 
     // ====================================

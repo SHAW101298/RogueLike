@@ -7,6 +7,20 @@ using UnityEditor.PackageManager.UI;
 
 public class UI_Lobby : MonoBehaviour
 {
+    #region
+    public static UI_Lobby instance;
+    private void Awake()
+    {
+        if(instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+    #endregion
     [SerializeField] LobbyManager lobbyManager;
     [SerializeField] UI_MainMenu ui_MainMenu;
     [SerializeField] GameObject playerDataPrefab;
@@ -26,6 +40,13 @@ public class UI_Lobby : MonoBehaviour
         }
         GameObject tempGO;
         UI_PlayerDataInLobby tempDATA;
+        bool isHost = false;
+
+        if (lobbyManager.currentLobby.HostId == lobbyManager.currentPlayer.Id)
+        {
+            isHost = true;
+        }
+
 
         //Debug.Log("Players in lobby = " + lobbyData.Players.Count);
         foreach (Player player in lobbyManager.currentLobby.Players)
@@ -34,8 +55,14 @@ public class UI_Lobby : MonoBehaviour
             tempGO = Instantiate(playerDataPrefab);
             tempDATA = tempGO.GetComponent<UI_PlayerDataInLobby>();
             tempDATA.playerName.text = player.Data["PlayerName"].Value;
+            tempDATA.playerID = player.Id;
             tempGO.transform.SetParent(currentPlayersContent);
             tempGO.transform.localScale = Vector3.one;
+
+            if(isHost == false)
+            {
+                tempDATA.DisableKickButton();
+            }
         }
     }
 
@@ -62,5 +89,14 @@ public class UI_Lobby : MonoBehaviour
         lobbyWindow.gameObject.SetActive(true);
         ui_MainMenu.HideJoiningWindows();
         UpdateLobbyWindow();
+    }
+    public void CallKickPlayer(string id)
+    {
+        lobbyManager.CallKickPlayer(id);
+    }
+    public void CloseLobbyWindow()
+    {
+        lobbyWindow.CloseWindow();
+        ui_MainMenu.ShowMenuWindow();
     }
 }

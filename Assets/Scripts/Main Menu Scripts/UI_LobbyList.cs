@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.Services.Lobbies.Models;
+using Unity.Services.Lobbies;
 
 public class UI_LobbyList : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class UI_LobbyList : MonoBehaviour
     [SerializeField] Transform lobbyListContent;
     [SerializeField] GameObject lobbyPrefab;
     [SerializeField] UI_Window joinLobbyFromListWindow;
+    [Space(15)]
+    [SerializeField] GameObject passwordRequest;
+    [SerializeField] TMP_InputField passwordField;
+    
 
     public string selectedLobby = "-1";
 
@@ -64,12 +69,22 @@ public class UI_LobbyList : MonoBehaviour
         lobbyManager.CallListLobbies();
         selectedLobby = "-1";
     }
-    public void BTN_Join()
+    public async void BTN_Join()
     {
         if (selectedLobby == "-1")
             return;
-        lobbyManager.CallJoinLobbyByID(selectedLobby);
 
+        Lobby lobby = await LobbyService.Instance.GetLobbyAsync(selectedLobby);
+        if(lobby.HasPassword == true)
+        {
+            passwordRequest.SetActive(true);
+            return;
+        }
+        lobbyManager.CallJoinLobbyByID(selectedLobby);
+    }
+    public void BTN_JoinWithPassword()
+    {
+        lobbyManager.CallJoinLobbyByID(selectedLobby, passwordField.text);
     }
     public void BTN_Return()
     {

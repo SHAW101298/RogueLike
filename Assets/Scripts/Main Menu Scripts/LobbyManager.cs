@@ -19,7 +19,7 @@ public class LobbyManager : MonoBehaviour
     public UI_LobbyList ui_LobbyList;
     [Header("Current Lobby")]
     public Lobby currentLobby;
-    Player currentPlayer;
+    public Player currentPlayer;
     //public TMP_Text lobbyName;
     float heartBeatTimer;
     float poolUpdateTimer;
@@ -75,29 +75,69 @@ public class LobbyManager : MonoBehaviour
     {
         JoinLobbyById(lobbyId);
     }
+    public void CallJoinLobbyByID(string lobbyiD, string password)
+    {
+        JoinLobbyById(lobbyiD, password);
+    }
     public void CallListLobbies()
     {
         ListLobbies();
     }
     public async void CallChangeName(string newName)
     {
-        UpdatePlayerOptions options = new UpdatePlayerOptions()
+        try
         {
-            Data = new Dictionary<string, PlayerDataObject>
+            UpdatePlayerOptions options = new UpdatePlayerOptions()
+            {
+                Data = new Dictionary<string, PlayerDataObject>
             {
                 { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, newName) }
             }
-        };
-        Debug.Log("Current player id is " + currentPlayer.Id);
-        Debug.Log("New Name is " + options.Data["PlayerName"].Value);
-        Lobby lobby = await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, currentPlayer.Id, options);
-        currentLobby = lobby;
+            };
+            Debug.Log("Current player id is " + currentPlayer.Id);
+            Debug.Log("New Name is " + options.Data["PlayerName"].Value);
+
+            Lobby lobby = await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, currentPlayer.Id, options);
+            currentLobby = lobby;
+        }
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+        
     }
     public async void CallLeaveLobby()
     {
-        await LobbyService.Instance.RemovePlayerAsync(currentLobby.Id, currentPlayer.Id);
-        Debug.Log("Left Lobby " + currentLobby.Name + " | " + currentLobby.Id);
-        currentLobby = null;
+        try
+        {
+            await LobbyService.Instance.RemovePlayerAsync(currentLobby.Id, currentPlayer.Id);
+            Debug.Log("Left Lobby " + currentLobby.Name + " | " + currentLobby.Id);
+            currentLobby = null;
+        }
+        catch(LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+        
+    }
+    public async void CallKickPlayer(string id)
+    {
+        try
+        {
+            await LobbyService.Instance.RemovePlayerAsync(currentLobby.Id, id);
+            Debug.Log("Kicking player " + id);
+            if (id == currentPlayer.Id)
+            {
+                currentLobby = null;
+                UI_Lobby.instance.CloseLobbyWindow();
+                UI_ErrorHandler.instance.ShowErrorMessage("You left as a host. Host migrated.");
+            }
+        }
+        catch( LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+        
     }
 
     async void CreateLobby(string lobbyName, string players, bool isPrivate, string password)
@@ -155,7 +195,16 @@ public class LobbyManager : MonoBehaviour
         Lobby lobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId);
         currentLobby = lobby;
         Debug.Log("Joined Lobby with id " + lobbyId);
-        
+    }
+    async void JoinLobbyById(string lobbyId, string password)
+    {
+        JoinLobbyByIdOptions options = new JoinLobbyByIdOptions()
+        {
+            Password = password,
+            Player = currentPlayer
+        };
+        Lobby lobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId, options);
+        currentLobby = lobby;
     }
 
 
