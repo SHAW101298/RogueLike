@@ -67,9 +67,9 @@ public class LobbyManager : MonoBehaviour
     {
         CreateLobby(name, players, isPrivate, password);
     }
-    public void CallJoinLobbyByCode(string code, string password)
+    public void CallJoinLobbyByCode(string code)
     {
-        JoinLobbyByCode(code, password);
+        JoinLobbyByCode(code);
     }
     public void CallJoinLobbyByID(string lobbyId)
     {
@@ -177,7 +177,7 @@ public class LobbyManager : MonoBehaviour
         Debug.Log("Found " + queryResponse.Results.Count + " lobbies.");     
         ui_LobbyList.PrintAvailableLobbies(queryResponse);
     }
-    async void JoinLobbyByCode(string code, string password)
+    async void JoinLobbyByCode(string code)
     {
         try
         {

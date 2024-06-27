@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.Services.Lobbies;
 
 public class UI_JoinLobbyByCode : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class UI_JoinLobbyByCode : MonoBehaviour
 
     public void BTN_Join()
     {
-        lobbyManager.CallJoinLobbyByCode(codeField.text, passwordField.text);
+        lobbyManager.CallJoinLobbyByCode(codeField.text);
     }
     public void BTN_Return()
     {
