@@ -10,6 +10,10 @@ using UnityEngine.UI;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Unity.Services.Relay;
+using Mono.Cecil.Cil;
+using Unity.Mathematics;
+using System.Security.Cryptography;
 
 public class LobbyManager : MonoBehaviour
 {
@@ -30,6 +34,7 @@ public class LobbyManager : MonoBehaviour
 
     [Header("REF")]
     [SerializeField] RelayManager relayManager;
+    [SerializeField] GameSetup gameSetup;
     public UI_MainMenu ui_MainMenu;
     public UI_Lobby ui_Lobby;
     public UI_LobbyList ui_LobbyList;
@@ -39,8 +44,10 @@ public class LobbyManager : MonoBehaviour
     //public TMP_Text lobbyName;
     float heartBeatTimer;
     float poolUpdateTimer;
+    bool inGame;
     async void Start()
     {
+        gameSetup = GameSetup.Instance;
         DontDestroyOnLoad(this);
 
         await UnityServices.InitializeAsync();
@@ -54,7 +61,8 @@ public class LobbyManager : MonoBehaviour
         HandleLobbyHeartBeat();
         HandleLobbyPoolUpdate();
     }
-
+    
+    
     async void HandleLobbyHeartBeat()
     {
         if (currentLobby != null)
@@ -134,7 +142,7 @@ public class LobbyManager : MonoBehaviour
             {
                 Data = new Dictionary<string, PlayerDataObject>
             {
-                { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, newName) }
+                ["PlayerName"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, newName)
             }
             };
             Debug.Log("Current player id is " + currentPlayer.Id);
@@ -213,6 +221,7 @@ public class LobbyManager : MonoBehaviour
             // Modyfikator obra¿eñ dla poziomu trudnoœci
             Debug.Log("Created Lobby! " + currentLobby.Name + "  " +  currentLobby.LobbyCode);
             ui_Lobby.ShowLobbyWindow();
+            await RegisterToLobbyEvents();
         }
         catch(LobbyServiceException e)
         {
@@ -289,6 +298,27 @@ public class LobbyManager : MonoBehaviour
             Debug.Log(e);
         }
     }
+    public async void ChangeLobbyOptions()
+    {
+        try
+        {
+            int number = RandomNumberGenerator.GetInt32(15);
+            UpdateLobbyOptions options = new UpdateLobbyOptions();
+
+            
+            options.Data = new Dictionary<string, DataObject>()
+            {
+                ["TestValue"] = new DataObject(DataObject.VisibilityOptions.Member, number.ToString()),
+            };
+            Lobby lobby = await LobbyService.Instance.UpdateLobbyAsync(currentLobby.Id, options);
+            currentLobby = lobby;
+            Debug.Log("Changed Lobby Options to " + number);
+        }
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+    }
 
 
     void OnPlayerSignIn()
@@ -337,9 +367,17 @@ public class LobbyManager : MonoBehaviour
     private async Task RegisterToLobbyEvents()
     {
         LobbyEventCallbacks callback = new LobbyEventCallbacks();
-        await LobbyService.Instance.SubscribeToLobbyEventsAsync(currentLobby.Id, callback);
         callback.KickedFromLobby += OnPlayerKicked;
-        Debug.Log("Registered to Lobby Events");
+        callback.DataChanged += GameSetup.Instance.LobbyDataChanged;
+        try
+        {
+            ILobbyEvents lobbyEvents = await LobbyService.Instance.SubscribeToLobbyEventsAsync(currentLobby.Id, callback);
+            Debug.Log("Registered to Lobby Events");
+        }
+        catch(LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
     }
     public void OnPlayerKicked()
     {

@@ -8,6 +8,7 @@ public class ToDOList : MonoBehaviour
 
     private void Start()
     {
+        doZrobienia.Add("W scenie Main Menu powinien być już gracz stworzony. Podchodząc do portalu (warframe !) jest ustawiany Ready-Check");
         doZrobienia.Add("Odporności na obrażenia");
         doZrobienia.Add("LifeSteal");
         doZrobienia.Add("Ai");

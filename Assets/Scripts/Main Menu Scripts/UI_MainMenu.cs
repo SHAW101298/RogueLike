@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using TMPro;
+using Unity.Netcode;
 
 
 
@@ -45,6 +46,14 @@ public class UI_MainMenu : MonoBehaviour
     [SerializeField] UI_Window joinLobbyWindow;
     [SerializeField] UI_Window joinLobbyByCodeWindow;
     [SerializeField] UI_Window joinLobbyFromListWindow;
+
+
+    private void Start()
+    {
+        lobbyManager = LobbyManager.Instance;
+        relayManager = RelayManager.Instance;
+    }
+
     public void BTN_Play()
     {
         playWindow.OpenWindow();
@@ -137,7 +146,6 @@ public class UI_MainMenu : MonoBehaviour
                 return;
             }
             lobbyManager.UpdateLobbyWithRelayCode(relayCode);
-
         }
     }
     public void HideLobbyWindow()
