@@ -14,11 +14,6 @@ public class RelayManager : MonoBehaviour
     [SerializeField] LobbyManager lobbyManager;
 
 
-    public void CalLJoinRelay(string code)
-    {
-        JoinRelay(code);
-    }
-
     // Update is called once per frame
     public async Task<string> CreateRelay()
     {

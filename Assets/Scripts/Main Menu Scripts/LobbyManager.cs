@@ -72,6 +72,8 @@ public class LobbyManager : MonoBehaviour
                     relayManager.JoinRelay(currentLobby.Data["Key_Game_Start"].Value);
                 }  
                 currentLobby = null; // Will destroy current lobby after 30 seconds
+                ui_MainMenu.HideLobbyWindow();
+                ui_MainMenu.ShowMenuWindow();
             }
         }
 
