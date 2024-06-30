@@ -39,6 +39,7 @@ public class GameSetup : MonoBehaviour
         // Relay code uploaded
         //Debug.Log("data = "+ data);
         //Debug.Log("values = " + data.Values);
+        /*
         foreach( string info in data.Keys)
         {
             Debug.Log("Present key = " + info);
@@ -47,7 +48,18 @@ public class GameSetup : MonoBehaviour
         {
             Debug.Log("Present value = " + info.Value.Value);
         }
-        /*
+
+        Debug.Log("============");
+        foreach (string info in lobbyManager.currentLobby.Data.Keys)
+        {
+            Debug.Log("Present key = " + info);
+        }
+        foreach (DataObject info in lobbyManager.currentLobby.Data.Values)
+        {
+            Debug.Log("Present value = " + info.Value);
+        }
+        */
+        
         if (data["Key_Game_Start"].Value.Value != "0")
         {
             // Im not a host
@@ -59,7 +71,7 @@ public class GameSetup : MonoBehaviour
             ui_MainMenu.HideLobbyWindow();
             ui_MainMenu.ShowMenuWindow();
         }
-        */
+        
 
 
         //if (currentLobby.Data["Key_Game_Start"].Value != "0")

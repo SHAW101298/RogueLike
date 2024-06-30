@@ -222,6 +222,7 @@ public class LobbyManager : MonoBehaviour
             Debug.Log("Created Lobby! " + currentLobby.Name + "  " +  currentLobby.LobbyCode);
             ui_Lobby.ShowLobbyWindow();
             await RegisterToLobbyEvents();
+            //Debug.Log("Print keygamestart = " + currentLobby.Data["Key_Game_Start"].Value);
         }
         catch(LobbyServiceException e)
         {
