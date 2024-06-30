@@ -358,6 +358,7 @@ public class LobbyManager : MonoBehaviour
             };
             Lobby lobby = await LobbyService.Instance.UpdateLobbyAsync(currentLobby.Id, options);
             currentLobby = lobby;
+            GameSetup.Instance.BeginStartingGame();
         }
         catch(LobbyServiceException e)
         {
@@ -369,7 +370,7 @@ public class LobbyManager : MonoBehaviour
     {
         LobbyEventCallbacks callback = new LobbyEventCallbacks();
         callback.KickedFromLobby += OnPlayerKicked;
-        callback.DataChanged += GameSetup.Instance.LobbyDataChanged;
+        //callback.DataChanged += GameSetup.Instance.LobbyDataChanged;
         try
         {
             ILobbyEvents lobbyEvents = await LobbyService.Instance.SubscribeToLobbyEventsAsync(currentLobby.Id, callback);
