@@ -9,11 +9,13 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 
 
 public class LobbyManager : MonoBehaviour
 {
     [Header("REF")]
+    [SerializeField] RelayManager relayManager;
     public UI_MainMenu ui_MainMenu;
     public UI_Lobby ui_Lobby;
     public UI_LobbyList ui_LobbyList;
@@ -29,6 +31,7 @@ public class LobbyManager : MonoBehaviour
         AuthenticationService.Instance.SignedIn += OnPlayerSignIn;
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
+
     }
     private void Update()
     {
@@ -60,9 +63,20 @@ public class LobbyManager : MonoBehaviour
             Lobby lobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
             currentLobby = lobby;
             ui_Lobby.UpdateLobbyWindow();
+
+            if (currentLobby.Data["Key_Game_Start"].Value != "0")
+            {
+                // THE GAME IS STARTING
+                if(ReturnIsHost() == false) // Host is already in the relay
+                {
+                    relayManager.JoinRelay(currentLobby.Data["Key_Game_Start"].Value);
+                }  
+                currentLobby = null; // Will destroy current lobby after 30 seconds
+            }
         }
 
     }
+    
     public void CallCreateLobby(string name, string players, bool isPrivate, string password)
     {
         CreateLobby(name, players, isPrivate, password);
@@ -82,6 +96,17 @@ public class LobbyManager : MonoBehaviour
     public void CallListLobbies()
     {
         ListLobbies();
+    }
+    public void CallStartGame()
+    {
+        try
+        {
+            // CREATE SEPERATE CLASS FOR RELAY CONTROL
+        }
+        catch(LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
     }
     public async void CallChangeName(string newName)
     {
@@ -151,6 +176,11 @@ public class LobbyManager : MonoBehaviour
             CreateLobbyOptions options = new CreateLobbyOptions();
             options.IsPrivate = isPrivate;
             options.Player = currentPlayer;
+
+            options.Data = new Dictionary<string, DataObject>()
+            {
+                ["Key_Game_Start"] = new DataObject(DataObject.VisibilityOptions.Member, "0"),
+            };
             if(password.Length > 0)
             {
                 if (password.Length < 8)
@@ -186,16 +216,20 @@ public class LobbyManager : MonoBehaviour
             {
                 Player = currentPlayer
             };
-            Lobby lobby = await Lobbies.Instance.JoinLobbyByCodeAsync(code,options);
+            Lobby lobby = await Lobbies.Instance.JoinLobbyByCodeAsync(code, options);
             currentLobby = lobby;
             Debug.Log("Joined Lobby with code " + code);
             ui_Lobby.ShowLobbyWindow();
+            await RegisterToLobbyEvents();
         }
-        catch(LobbyServiceException e)
+        catch (LobbyServiceException e)
         {
             Debug.Log(e);
         }
     }
+
+    
+
     async void JoinLobbyById(string lobbyId)
     {
         try
@@ -209,6 +243,7 @@ public class LobbyManager : MonoBehaviour
             currentLobby = lobby;
             Debug.Log("Joined Lobby with id " + lobbyId);
             ui_Lobby.ShowLobbyWindow();
+            await RegisterToLobbyEvents();
         }
         catch (LobbyServiceException e)
         {
@@ -229,6 +264,7 @@ public class LobbyManager : MonoBehaviour
             Lobby lobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId, options);
             currentLobby = lobby;
             ui_Lobby.ShowLobbyWindow();
+            await RegisterToLobbyEvents();
         }
         catch(LobbyServiceException e)
         {
@@ -252,5 +288,46 @@ public class LobbyManager : MonoBehaviour
             }
         };
         return newPlayer;
+    }
+    public bool ReturnIsHost()
+    {
+        if(currentLobby.HostId == AuthenticationService.Instance.PlayerId)
+        {
+            return true;
+        }
+        return false;
+    }
+    public async void UpdateLobbyWithRelayCode(string code)
+    {
+        try
+        {
+            UpdateLobbyOptions options = new UpdateLobbyOptions();
+
+            options.Data = new Dictionary<string, DataObject>()
+            {
+                ["Key_Game_Start"] = new DataObject(DataObject.VisibilityOptions.Member, code),
+            };
+            Lobby lobby = await LobbyService.Instance.UpdateLobbyAsync(currentLobby.Id, options);
+            currentLobby = lobby;
+        }
+        catch(LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+        
+    }
+    private async Task RegisterToLobbyEvents()
+    {
+        LobbyEventCallbacks callback = new LobbyEventCallbacks();
+        await LobbyService.Instance.SubscribeToLobbyEventsAsync(currentLobby.Id, callback);
+        callback.KickedFromLobby += OnPlayerKicked;
+        Debug.Log("Registered to Lobby Events");
+    }
+    public void OnPlayerKicked()
+    {
+        Debug.Log("Player has been kicked");
+        currentLobby = null;
+        ui_MainMenu.ShowMenuWindow();
+        ui_MainMenu.HideLobbyWindow();
     }
 }

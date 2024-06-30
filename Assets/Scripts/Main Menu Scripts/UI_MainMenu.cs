@@ -26,6 +26,7 @@ public class UI_MainMenu : MonoBehaviour
     #endregion
     [Header("REF")]
     [SerializeField] LobbyManager lobbyManager;
+    [SerializeField] RelayManager relayManager;
     [SerializeField] UI_Lobby ui_Lobby;
     [SerializeField] UI_LobbyList ui_LobbyList;
     [SerializeField] UI_JoinLobbyByCode ui_JoinByCode;
@@ -124,5 +125,23 @@ public class UI_MainMenu : MonoBehaviour
     public void ShowMenuWindow()
     {
         menuWindow.OpenWindow();
+    }
+    public async void BTN_StartGame()
+    {
+        if(lobbyManager.ReturnIsHost() == true)
+        {     
+            string relayCode = await relayManager.CreateRelay();
+            if(relayCode == "")
+            {
+                UI_ErrorHandler.instance.ShowErrorMessage("Relay code not returned. Relay couldn't be created");
+                return;
+            }
+            lobbyManager.UpdateLobbyWithRelayCode(relayCode);
+
+        }
+    }
+    public void HideLobbyWindow()
+    {
+        lobbyWindow.CloseWindow();
     }
 }
