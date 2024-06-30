@@ -11,6 +11,22 @@ using UnityEngine;
 
 public class RelayManager : MonoBehaviour
 {
+    #region
+    public static RelayManager Instance;
+    public void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    #endregion
+
+
     [SerializeField] LobbyManager lobbyManager;
 
 
@@ -44,6 +60,7 @@ public class RelayManager : MonoBehaviour
 
             RelayServerData relayServerData = new RelayServerData(allocation, "dtls");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
+            NetworkManager.Singleton.StartClient();
 
         }
         catch(RelayServiceException e)

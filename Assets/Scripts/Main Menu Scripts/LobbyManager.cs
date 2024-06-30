@@ -11,9 +11,23 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-
 public class LobbyManager : MonoBehaviour
 {
+    #region
+    public static LobbyManager Instance;
+    private void Awake()
+    {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    #endregion
+
     [Header("REF")]
     [SerializeField] RelayManager relayManager;
     public UI_MainMenu ui_MainMenu;
@@ -27,6 +41,8 @@ public class LobbyManager : MonoBehaviour
     float poolUpdateTimer;
     async void Start()
     {
+        DontDestroyOnLoad(this);
+
         await UnityServices.InitializeAsync();
         AuthenticationService.Instance.SignedIn += OnPlayerSignIn;
 
