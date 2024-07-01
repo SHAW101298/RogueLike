@@ -46,6 +46,7 @@ public class GameSetup : MonoBehaviour
                 Debug.Log("Loading New Scene");
                 timer = 0;
                 NetworkManager.Singleton.SceneManager.LoadScene("SampleScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
+                
                 countdown = false;
             }
         }
@@ -53,6 +54,9 @@ public class GameSetup : MonoBehaviour
 
     void CheckForRelayCode()
     {
+        if (lobbyManager.currentLobby == null)
+            return;
+
         if (LobbyManager.Instance.currentLobby.Data["Key_Game_Start"].Value != "0")
         {
             // Im not a host

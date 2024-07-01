@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GunPickupInteract : InteractableBase
 {
-    public override void Interact(PlayerData data)
+    public override void Interact(PlayerData2 data)
     {
         Debug.Log("WE INTERACTING BOIS");
         Gun thisGun = GetComponent<Gun>();

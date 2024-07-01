@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class PlayerData : UnitData
+public class PlayerData2 : UnitData
 {
     public PlayerStats stats;
-    public PlayerMovement movement;
-    public PlayerRotation rotation;
+    public PlayerMovement2 movement;
+    public PlayerRotation2 rotation;
     public PlayerShooting shooting;
     public PlayerUI ui;
     

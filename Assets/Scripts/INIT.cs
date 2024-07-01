@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class INIT : MonoBehaviour
@@ -31,4 +32,10 @@ public class INIT : MonoBehaviour
         damageUpgrade.Roll();
         Debug.Log(damageUpgrade.ToString());
     }
+
+    private void OnPlayerConnected()
+    {
+        
+    }
+
 }

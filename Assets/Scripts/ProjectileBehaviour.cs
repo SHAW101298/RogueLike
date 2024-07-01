@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileBehaviour : MonoBehaviour
 {
-    public PlayerData owningPlayer;
+    public PlayerData2 owningPlayer;
     public Vector3 direction;
     public Rigidbody rb;
 

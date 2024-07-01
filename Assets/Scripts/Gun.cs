@@ -24,7 +24,7 @@ public class Gun : MonoBehaviour
     public GameObject projectilePrefab;
     public GameObject nozzle;
     public PlayerShooting playerShooting;
-    public PlayerData playerData;
+    public PlayerData2 playerData;
 
     [Header("Debug")]
     public bool ForceGun1 = true;

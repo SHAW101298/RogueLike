@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerRotation : MonoBehaviour
+public class PlayerRotation2 : MonoBehaviour
 {
     public GameObject body;
     public GameObject camera;

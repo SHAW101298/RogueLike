@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteractBeam : MonoBehaviour
 {
-    [SerializeField] PlayerData playerData;
+    [SerializeField] PlayerData2 playerData;
     [SerializeField] Transform cameraPosition;
     [SerializeField] Transform centerOfView;
     [SerializeField] float rayDistance;

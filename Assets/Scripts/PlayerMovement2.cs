@@ -3,15 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum ENUM_PlayerMoveState
-{
-    idle,
-    walking,
-    running,
-    jumping,
-    dashing
-}
-public class PlayerMovement : MonoBehaviour
+
+public class PlayerMovement2 : MonoBehaviour
 {
     [Header("Basic Data")]
     [SerializeField] float gravityValue = -9.81f;
@@ -42,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Reference")]
     public CharacterController controller;
     public PlayerStats stats;
-    public PlayerData data;
+    public PlayerData2 data;
     public LayerMask groundLayer;
 
     [Header("Debug")]
