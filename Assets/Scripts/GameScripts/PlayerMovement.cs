@@ -57,10 +57,11 @@ public class PlayerMovement : NetworkBehaviour
 
         GroundCheck();
         ActAccordingToState();
+        DashCooldownTimer();
     }
     void ActAccordingToState()
     {
-        Debug.Log("Acting According to State");
+        //Debug.Log("Acting According to State");
         switch (moveState)
         {
             case ENUM_PlayerMoveState.idle:
@@ -119,7 +120,7 @@ public class PlayerMovement : NetworkBehaviour
             isRunning = false;
         }
     }
-    public void ActionJump()
+    public void ActionJump(InputAction.CallbackContext context)
     {
         if (groundedPlayer == false)
             return;
@@ -133,16 +134,27 @@ public class PlayerMovement : NetworkBehaviour
         //Debug.Log("Velocity = " + velocity.y);
         TryToChangeState(ENUM_PlayerMoveState.jumping);
     }
-    public void ActionDash()
+    public void ActionDash(InputAction.CallbackContext context)
     {
+        if(context.phase != InputActionPhase.Performed)
+        {
+            Debug.Log("Dash not performed");
+            return;
+        }
+
+        Debug.Log("Trying to Dash");
         if (dashOnCooldown == true)
         {
             //Debug.LogWarning("Implement icon flash, to show its on CD");
+            Debug.Log("Dash on CD");
             return;
         }
 
         if (stats.CheckIfCanUseStamina(dashStaminaCost) == false)
+        {
+            Debug.Log("Not enough Stamina");
             return;
+        }
 
         if (input == Vector2.zero)
         {
@@ -157,8 +169,11 @@ public class PlayerMovement : NetworkBehaviour
 
         dashDirection = transform.TransformDirection(dashDirection);
         dashDirection *= dashStrength;
+        dashDirection *= Time.deltaTime;
+        Debug.Log("dash direction = " + dashDirection);
         dashTimer = 0;
         dashOnCooldown = true;
+        TryToChangeState(ENUM_PlayerMoveState.dashing);
     }
 
     void Idle()
@@ -210,5 +225,17 @@ public class PlayerMovement : NetworkBehaviour
     {
         velocity.y += gravityValue * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+    void DashCooldownTimer()
+    {
+        if (dashOnCooldown == true)
+        {
+            dashCooldownTimer += Time.deltaTime;
+            if (dashCooldownTimer >= dashCooldown)
+            {
+                dashCooldownTimer = 0;
+                dashOnCooldown = false;
+            }
+        }
     }
 }

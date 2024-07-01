@@ -107,6 +107,7 @@ public class PlayerMovement2 : MonoBehaviour
             dashDirection *= dashStrength;
             dashTimer = 0;
             dashOnCooldown = true;
+            Debug.Log("Dash direction = " + dashDirection);
             //Debug.Log("Dash Direction = " + input);
             TryToChangeState(ENUM_PlayerMoveState.dashing);
         }

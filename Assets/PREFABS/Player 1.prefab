@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 2887878876220076217}
   - component: {fileID: 2208149460399325530}
   - component: {fileID: 352069269834671975}
-  - component: {fileID: 2208149460399325540}
+  - component: {fileID: 2228351277760984574}
   - component: {fileID: 2208149460399325531}
   - component: {fileID: 2208149460399325528}
   - component: {fileID: 2208149460399325538}
@@ -288,6 +288,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1cf19f1dbe61b418c8f7a3249f7d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 0}
+  movement: {fileID: 352069269834671975}
+  rotation: {fileID: 2228351277760984574}
+  shooting: {fileID: 0}
+  ui: {fileID: 2208149460399325528}
 --- !u!114 &2208149460399325530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,8 +333,8 @@ MonoBehaviour:
   jumpHeight: 1
   jumpStaminaCost: 4
   input: {x: 0, y: 0}
-  dashDuration: 0.3
-  dashStrength: 0.1
+  dashDuration: 0.25
+  dashStrength: 4
   dashCooldown: 6
   dashStaminaCost: 10
   controller: {fileID: 2208149460399325538}
@@ -338,16 +343,16 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &2208149460399325540
+--- !u!114 &2228351277760984574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2208149460399325539}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b52e3a2cf67e4e046a2f56af668c1fd0, type: 3}
+  m_Script: {fileID: 11500000, guid: dddecebf8b1b00a4582354c0fbb5a78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 2208149460399325539}
@@ -454,8 +459,8 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2208149460399325540}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 2228351277760984574}
+        m_TargetAssemblyTypeName: PlayerRotation, Assembly-CSharp
         m_MethodName: ActionLook
         m_Mode: 0
         m_Arguments:
@@ -486,9 +491,9 @@ MonoBehaviour:
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2208149460399325539}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 352069269834671975}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: ActionDash
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -542,22 +547,6 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: ActionRunning
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 762053a5-9d29-4407-9754-e02bba615917
-    m_ActionName: Player/Run[/Keyboard/leftShift]
-  - m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 2208149460399325539}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
@@ -574,7 +563,7 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2208149460399325540}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: EscapeButton
         m_Mode: 0
@@ -682,7 +671,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490568c2fe6393146910e4237d2ba406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 352069269834671975}
   playerData: {fileID: 2887878876220076217}
 --- !u!1 &2208149460440039655
 GameObject:

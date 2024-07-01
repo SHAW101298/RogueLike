@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class PlayerData : NetworkBehaviour
 {
-
+    public PlayerStats stats;
+    public PlayerMovement movement;
+    public PlayerRotation rotation;
+    public PlayerShooting shooting;
+    public PlayerUI ui;
     // Start is called before the first frame update
     void Start()
     {
