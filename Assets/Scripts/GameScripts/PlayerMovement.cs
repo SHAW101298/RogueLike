@@ -25,7 +25,7 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float runSpeedMultiplier;
     [SerializeField] float runningStaminaCost;
-    bool isRunning;
+    [SerializeField] bool isRunning;
     [Header("Jumping")]
     [SerializeField] float jumpHeight = 1.0f;
     [SerializeField] float jumpStaminaCost;
@@ -72,6 +72,9 @@ public class PlayerMovement : NetworkBehaviour
             case ENUM_PlayerMoveState.jumping:
                 
                 break;
+            case ENUM_PlayerMoveState.dashing:
+                Dashing();
+                break;
             default:
                 break;
         }
@@ -105,6 +108,17 @@ public class PlayerMovement : NetworkBehaviour
             TryToChangeState(ENUM_PlayerMoveState.idle);
         }
     }
+    public void ActionRunning(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Performed)
+        {
+            isRunning = true;
+        }
+        if(context.phase == InputActionPhase.Canceled)
+        {
+            isRunning = false;
+        }
+    }
     public void ActionJump()
     {
         if (groundedPlayer == false)
@@ -119,7 +133,39 @@ public class PlayerMovement : NetworkBehaviour
         //Debug.Log("Velocity = " + velocity.y);
         TryToChangeState(ENUM_PlayerMoveState.jumping);
     }
+    public void ActionDash()
+    {
+        if (dashOnCooldown == true)
+        {
+            //Debug.LogWarning("Implement icon flash, to show its on CD");
+            return;
+        }
 
+        if (stats.CheckIfCanUseStamina(dashStaminaCost) == false)
+            return;
+
+        if (input == Vector2.zero)
+        {
+            dashDirection.x = 0;
+            dashDirection.z = 1;
+        }
+        else
+        {
+            dashDirection.x = input.x;
+            dashDirection.z = input.y;
+        }
+
+        dashDirection = transform.TransformDirection(dashDirection);
+        dashDirection *= dashStrength;
+        dashTimer = 0;
+        dashOnCooldown = true;
+    }
+
+    void Idle()
+    {
+        MoveAccordingToGravity();
+        return;
+    }
     void Walking()
     {
         dir.x = input.x;
@@ -127,13 +173,33 @@ public class PlayerMovement : NetworkBehaviour
         dir *= moveSpeed * Time.deltaTime;
         dir = transform.TransformDirection(dir);
 
+        if(isRunning == true)
+        {
+            dir *= runSpeedMultiplier;
+        }
+
         controller.Move(dir);
         MoveAccordingToGravity();
     }
-    void Idle()
+    void Dashing()
     {
-        MoveAccordingToGravity();
-        return;
+        dashTimer += Time.deltaTime;
+        //Debug.Log("Dir = " + dashDirection);
+        controller.Move(dashDirection);
+        //controller.SimpleMove(dashDirection);
+        if (dashTimer >= dashDuration)
+        {
+            dashTimer = 0;
+            //CompleteCurrentState(ENUM_PlayerMoveState.walking);
+            if (input == Vector2.zero)
+            {
+                TryToChangeState(ENUM_PlayerMoveState.idle);
+            }
+            else
+            {
+                TryToChangeState(ENUM_PlayerMoveState.walking);
+            }
+        }
     }
 
     void GroundCheck()

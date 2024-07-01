@@ -324,6 +324,7 @@ MonoBehaviour:
   moveSpeed: 2
   runSpeedMultiplier: 2
   runningStaminaCost: 0.02
+  isRunning: 0
   jumpHeight: 1
   jumpStaminaCost: 4
   input: {x: 0, y: 0}
@@ -336,7 +337,7 @@ MonoBehaviour:
   data: {fileID: 0}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
 --- !u!114 &2208149460399325540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,9 +486,9 @@ MonoBehaviour:
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2208149460399325539}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ActionDash
+        m_MethodName: 
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
