@@ -199,6 +199,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
         type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -850,6 +855,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
         type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -932,6 +942,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor 2X2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f6fed0c614b4f94496f8afbbe28238b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f6fed0c614b4f94496f8afbbe28238b, type: 3}
@@ -1055,6 +1070,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor 2X2 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f6fed0c614b4f94496f8afbbe28238b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f6fed0c614b4f94496f8afbbe28238b, type: 3}
 --- !u!1001 &339940992
@@ -1128,6 +1148,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Murek 2X1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c1f80119c07c40d4babc39eb34692f01,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c1f80119c07c40d4babc39eb34692f01,
         type: 3}
@@ -1448,6 +1473,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
         type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1525,6 +1555,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor 2X2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f6fed0c614b4f94496f8afbbe28238b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f6fed0c614b4f94496f8afbbe28238b, type: 3}
 --- !u!1 &516523766
@@ -1536,7 +1571,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 516523767}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Map 3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1652,6 +1687,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
         type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1728,6 +1768,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor 2X2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f6fed0c614b4f94496f8afbbe28238b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f6fed0c614b4f94496f8afbbe28238b, type: 3}
@@ -1905,6 +1950,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Slupek (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01f62cab650482647835b38223582802,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 01f62cab650482647835b38223582802,
         type: 3}
@@ -2275,6 +2325,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
         type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -2440,6 +2495,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor 2X2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f6fed0c614b4f94496f8afbbe28238b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f6fed0c614b4f94496f8afbbe28238b, type: 3}
 --- !u!4 &779590019 stripped
@@ -2563,6 +2623,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor 2X2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f6fed0c614b4f94496f8afbbe28238b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f6fed0c614b4f94496f8afbbe28238b, type: 3}
@@ -2899,6 +2964,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
         type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -2975,6 +3045,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor 2X2 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f6fed0c614b4f94496f8afbbe28238b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f6fed0c614b4f94496f8afbbe28238b, type: 3}
@@ -3313,6 +3388,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor 2X2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f6fed0c614b4f94496f8afbbe28238b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f6fed0c614b4f94496f8afbbe28238b, type: 3}
 --- !u!4 &1438842819 stripped
@@ -3423,6 +3503,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall 2X2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
         type: 3}
@@ -3593,6 +3678,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 01f62cab650482647835b38223582802,
         type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01f62cab650482647835b38223582802,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -3752,6 +3842,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Murek 2X1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c1f80119c07c40d4babc39eb34692f01,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c1f80119c07c40d4babc39eb34692f01,
         type: 3}
@@ -4263,6 +4358,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall 2X2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 20886dc35efe7b644a5dc62eac45566c,
         type: 3}

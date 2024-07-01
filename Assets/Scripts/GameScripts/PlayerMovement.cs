@@ -18,7 +18,8 @@ public class PlayerMovement : NetworkBehaviour
     [Header("Basic Data")]
     [SerializeField] float gravityValue = -9.81f;
     public ENUM_PlayerMoveState moveState;
-    bool groundedPlayer;
+    [SerializeField] bool groundedPlayer;
+    [SerializeField] float groundCheckDistance;
     Vector3 velocity;
     Vector3 dir;
     [Header("Movement")]
@@ -71,7 +72,7 @@ public class PlayerMovement : NetworkBehaviour
                 Walking();
                 break;
             case ENUM_PlayerMoveState.jumping:
-                
+                Jumping();
                 break;
             case ENUM_PlayerMoveState.dashing:
                 Dashing();
@@ -87,13 +88,36 @@ public class PlayerMovement : NetworkBehaviour
             return;
 
         //Debug.Log("New state = " + newState);
-        moveState = newState;
+        //moveState = newState;
 
+        /*
+        if(moveState != ENUM_PlayerMoveState.dashing)
+        {
+            moveState = newState;
+        }
+        */
+        
         if (moveState != ENUM_PlayerMoveState.dashing && moveState != ENUM_PlayerMoveState.jumping)
         {
             //Debug.Log("New state = " + newState);
             moveState = newState;
         }
+        if(moveState == ENUM_PlayerMoveState.jumping && newState == ENUM_PlayerMoveState.dashing)
+        {
+            moveState = newState;
+        }
+        if(moveState == ENUM_PlayerMoveState.dashing && newState == ENUM_PlayerMoveState.jumping)
+        {
+            //velocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue) - 6;
+            velocity.y = 4;
+            //Jumping();
+        }
+        
+        
+    }
+    void FinishCurrentState(ENUM_PlayerMoveState newState)
+    {
+        moveState = newState;
     }
 
     public void ActionMoving(InputAction.CallbackContext context)
@@ -131,8 +155,10 @@ public class PlayerMovement : NetworkBehaviour
 
         velocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
 
-        //Debug.Log("Velocity = " + velocity.y);
+        Debug.Log("Velocity = " + velocity.y);
         TryToChangeState(ENUM_PlayerMoveState.jumping);
+        Jumping();
+        Debug.Log("After Jumping Called");
     }
     public void ActionDash(InputAction.CallbackContext context)
     {
@@ -208,18 +234,51 @@ public class PlayerMovement : NetworkBehaviour
             //CompleteCurrentState(ENUM_PlayerMoveState.walking);
             if (input == Vector2.zero)
             {
-                TryToChangeState(ENUM_PlayerMoveState.idle);
+                FinishCurrentState(ENUM_PlayerMoveState.idle);
+                //TryToChangeState(ENUM_PlayerMoveState.idle);
             }
             else
             {
-                TryToChangeState(ENUM_PlayerMoveState.walking);
+                FinishCurrentState(ENUM_PlayerMoveState.walking);
+                //TryToChangeState(ENUM_PlayerMoveState.walking);
+            }
+        }
+        MoveAccordingToGravity();
+    }
+    void Jumping()
+    {
+        dir.x = input.x;
+        dir.z = input.y;
+        dir *= moveSpeed * Time.deltaTime;
+        dir = transform.TransformDirection(dir);
+
+        controller.Move(dir);
+        MoveAccordingToGravity();
+
+        //if(groundedPlayer == true)
+        if(velocity.y <= 0 && groundedPlayer)
+        {
+            Debug.Log("Jumping finished,");
+            if (input == Vector2.zero)
+            {
+                FinishCurrentState(ENUM_PlayerMoveState.idle);
+                //TryToChangeState(ENUM_PlayerMoveState.idle);
+            }
+            else
+            {
+                FinishCurrentState(ENUM_PlayerMoveState.walking);
+                //TryToChangeState(ENUM_PlayerMoveState.walking);
             }
         }
     }
 
     void GroundCheck()
     {
-        groundedPlayer = Physics.Raycast(transform.position, Vector3.down, 1.35f, groundLayer);
+        groundedPlayer = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundLayer);
+        if(groundedPlayer == true && velocity.y <= 0)
+        {
+            velocity.y = 0;
+        }
     }
     void MoveAccordingToGravity()
     {
