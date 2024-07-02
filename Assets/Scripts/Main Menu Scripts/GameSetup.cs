@@ -25,9 +25,10 @@ public class GameSetup : MonoBehaviour
     [SerializeField] LobbyManager lobbyManager;
     [SerializeField] RelayManager relayManager;
     [SerializeField] UI_MainMenu ui_MainMenu;
+    [SerializeField] AudioListener oldListener;
     bool countdown;
     [SerializeField]float timer;
-    [SerializeField] float timerMax = 3;
+    [SerializeField] float timerMax = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,10 @@ public class GameSetup : MonoBehaviour
             }
         }
     }
+    public void DisableAudioListener()
+    {
+        oldListener.enabled = false;
+    }
 
     void CheckForRelayCode()
     {
@@ -59,6 +64,7 @@ public class GameSetup : MonoBehaviour
 
         if (LobbyManager.Instance.currentLobby.Data["Key_Game_Start"].Value != "0")
         {
+            
             // Im not a host
             if (lobbyManager.ReturnIsHost() == false)
             {

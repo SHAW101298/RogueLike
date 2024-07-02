@@ -44,6 +44,7 @@ public class RelayManager : MonoBehaviour
             RelayServerData relayServerData = new RelayServerData(allocation,"dtls");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
             Debug.Log("Starting a host");
+            GameSetup.Instance.DisableAudioListener();
             NetworkManager.Singleton.StartHost();
 
         }

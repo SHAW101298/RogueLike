@@ -25,14 +25,4 @@ public class UI_HookUpScript : MonoBehaviour
     public Text ammoCurrent;
     public Image staminaBar;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

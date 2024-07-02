@@ -12,11 +12,13 @@ public class PlayerInitialization : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        NetworkManager.Singleton.SceneManager.OnLoadComplete += IntializePlayerScripts;
     }
 
-    private void IntializePlayerScripts(ulong clientId, string sceneName, LoadSceneMode loadSceneMode)
+    private void InitializePlayerScripts()
     {
+        Debug.Log("Player Initialization");
+        Debug.Log("Current scene = " + SceneManager.GetActiveScene().name);
+        Debug.Log("is owner = " + IsOwner);
         if(IsOwner == true)
         {
             playerData.movement.enabled = true;
@@ -24,13 +26,28 @@ public class PlayerInitialization : NetworkBehaviour
             playerData.ui.ammoCurrent = UI_HookUpScript.Instance.ammoCurrent;
             playerData.ui.magazineCurrent = UI_HookUpScript.Instance.magazineCurrent;
             playerData.ui.staminaBar = UI_HookUpScript.Instance.staminaBar;
+            Debug.Log("Enabled my scripts");
         }
         else
         {
-            Destroy(playerData.movement);
-            Destroy(playerData.rotation);
-            Destroy(playerData.ui);
-            Destroy(playerData.gameObject.GetComponent<PlayerInput>());
+            playerData.movement.enabled = false;
+            playerData.rotation.enabled = false;
+            playerData.ui.enabled = false;
+            playerData.rotation.camera.SetActive(false);
+            //Destroy(playerData.movement);
+            //Destroy(playerData.rotation);
+            //Destroy(playerData.ui);
+            //Destroy(playerData.gameObject.GetComponent<PlayerInput>());
+            //Destroy(playerData.rotation.camera);
+            Debug.Log("Disabled other player scripts");
+        }
+    }
+    private void Update()
+    {
+        if(SceneManager.GetActiveScene().name.Equals("SampleScene"))
+        {
+            InitializePlayerScripts();
+            enabled = false;
         }
     }
 
