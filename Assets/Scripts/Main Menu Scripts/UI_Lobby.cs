@@ -35,6 +35,7 @@ public class UI_Lobby : MonoBehaviour
     [Header("Colors")]
     [SerializeField] Color redColor;
     [SerializeField] Color greenColor;
+    [SerializeField] GameObject optionsButton;
 
 
 
@@ -42,6 +43,10 @@ public class UI_Lobby : MonoBehaviour
     {
         lobbyWindow.gameObject.SetActive(true);
         currentLobbyName.text = lobbyManager.currentLobby.Name;
+        if(lobbyManager.ReturnIsHost() == false)
+        {
+            optionsButton.SetActive(false);
+        }
     }
     public void DeactivateLobbyWindow()
     {
@@ -98,11 +103,32 @@ public class UI_Lobby : MonoBehaviour
 
     public void BTN_Ready()
     {
-        lobbyManager.CallMarkMeReady();
+        if(lobbyManager.ReturnIsHost() == false)
+        {
+            lobbyManager.CallMarkMeReady();
+        }
+        else
+        {
+            lobbyManager.CallMarkMeReady("1");
+            bool readyCheck = true;
+            foreach(Player player in lobbyManager.currentLobby.Players)
+            {
+                if (player.Data["Ready"].Value == "0")
+                {
+                    readyCheck = false;
+                }
+            }
+
+            if(readyCheck == true)
+            {
+                ui_MainMenu.BTN_StartGame();
+            }
+        }
     }
     public void BTN_Leave()
     {
-
+        lobbyManager.CallLeaveLobby();
+        DeactivateLobbyWindow();
     }
     public void BTN_Show()
     {
@@ -122,7 +148,7 @@ public class UI_Lobby : MonoBehaviour
     }
     public void CallKickPlayer(string playerId)
     {
-        
+        lobbyManager.CallKickPlayer(playerId);
     }
 
     /*

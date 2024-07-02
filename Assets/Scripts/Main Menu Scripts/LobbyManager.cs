@@ -152,6 +152,19 @@ public class LobbyManager : MonoBehaviour
         Lobby lobby = await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, currentPlayer.Id, options);
         currentLobby = lobby;
     }
+    public async void CallMarkMeReady(string val)
+    {
+        UpdatePlayerOptions options = new UpdatePlayerOptions()
+        {
+            Data = new Dictionary<string, PlayerDataObject>
+            {
+                ["Ready"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, val)
+            }
+        };
+        currentPlayer.Data["Ready"].Value = val;
+        Lobby lobby = await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, currentPlayer.Id, options);
+        currentLobby = lobby;
+    }
     public void CallStartGame()
     {
         try
@@ -358,11 +371,12 @@ public class LobbyManager : MonoBehaviour
 
     Player GetPlayer()
     {
+        string randomName = NameRandomizer.Instance.GetRandomName();
         Player newPlayer = new Player(AuthenticationService.Instance.PlayerId)
         {
             Data = new Dictionary<string, PlayerDataObject>
             {
-                ["PlayerName"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "BaseName"),
+                ["PlayerName"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, randomName),
                 ["Ready"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "0")
                 //{ "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "BaseName") }
             }
