@@ -34,6 +34,7 @@ public class PlayerInitialization : NetworkBehaviour
             playerData.rotation.enabled = false;
             playerData.ui.enabled = false;
             playerData.rotation.camera.SetActive(false);
+            playerData.gameObject.GetComponent<PlayerInput>().enabled = false;
             //Destroy(playerData.movement);
             //Destroy(playerData.rotation);
             //Destroy(playerData.ui);
@@ -50,6 +51,5 @@ public class PlayerInitialization : NetworkBehaviour
             enabled = false;
         }
     }
-
 
 }
