@@ -173,7 +173,7 @@ public class PlayerMovement : NetworkBehaviour
             return;
         }
 
-        Debug.Log("Action Jump Approved");
+        //Debug.Log("Action Jump Approved");
         if (groundedPlayer == false)
             return;
         if (moveState == ENUM_PlayerMoveState.jumping)
@@ -182,35 +182,35 @@ public class PlayerMovement : NetworkBehaviour
             return;
 
 
-        Debug.Log("Current Velocity = " + velocity.y);
+        //Debug.Log("Current Velocity = " + velocity.y);
         bool check = TryToChangeState(ENUM_PlayerMoveState.jumping);
         if (check == false)
             return;
         velocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        Debug.Log("Bew Velocity = " + velocity.y);
+        //Debug.Log("New Velocity = " + velocity.y);
         stats.ReduceStamina(jumpStaminaCost);
         Jumping();
-        Debug.Log("After Jumping Called");
+        //Debug.Log("After Jumping Called");
     }
     public void ActionDash(InputAction.CallbackContext context)
     {
         if(context.phase != InputActionPhase.Performed)
         {
-            Debug.Log("Dash not performed");
+            //Debug.Log("Dash not performed");
             return;
         }
 
-        Debug.Log("Trying to Dash");
+        //Debug.Log("Trying to Dash");
         if (dashOnCooldown == true)
         {
             //Debug.LogWarning("Implement icon flash, to show its on CD");
-            Debug.Log("Dash on CD");
+            //Debug.Log("Dash on CD");
             return;
         }
 
         if (stats.CheckIfCanUseStamina(dashStaminaCost) == false)
         {
-            Debug.Log("Not enough Stamina");
+            //Debug.Log("Not enough Stamina");
             return;
         }
 
@@ -236,7 +236,7 @@ public class PlayerMovement : NetworkBehaviour
         if (check == false)
             return;
         stats.ReduceStamina(dashStaminaCost);
-        Debug.Log("dash direction = " + dashDirection);
+        //Debug.Log("dash direction = " + dashDirection);
     }
 
     void Idle()
@@ -296,7 +296,7 @@ public class PlayerMovement : NetworkBehaviour
         //if(groundedPlayer == true)
         if(velocity.y <= 0 && groundedPlayer)
         {
-            Debug.Log("Jumping finished,");
+            //Debug.Log("Jumping finished,");
             if (input == Vector2.zero)
             {
                 FinishCurrentState(ENUM_PlayerMoveState.idle);
@@ -337,7 +337,7 @@ public class PlayerMovement : NetworkBehaviour
         //if(groundedPlayer == true)
         if (velocity.y <= 0 && groundedPlayer && dashTimer == 0)
         {
-            Debug.Log("JumpDash finished,");
+            //Debug.Log("JumpDash finished,");
             if (input == Vector2.zero)
             {
                 FinishCurrentState(ENUM_PlayerMoveState.idle);
