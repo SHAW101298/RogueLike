@@ -10,7 +10,8 @@ public enum ENUM_PlayerMoveState
     walking,
     running,
     jumping,
-    dashing
+    dashing,
+    jumpDash
 }
 
 public class PlayerMovement : NetworkBehaviour
@@ -20,7 +21,7 @@ public class PlayerMovement : NetworkBehaviour
     public ENUM_PlayerMoveState moveState;
     [SerializeField] bool groundedPlayer;
     [SerializeField] float groundCheckDistance;
-    Vector3 velocity;
+    [SerializeField]Vector3 velocity;
     Vector3 dir;
     [Header("Movement")]
     [SerializeField] float moveSpeed;
@@ -38,7 +39,7 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] float dashStaminaCost;
     float dashCooldownTimer;
     Vector3 dashDirection;
-    float dashTimer;
+    [SerializeField]float dashTimer;
     bool dashOnCooldown;
 
     [Header("Reference")]
@@ -77,6 +78,9 @@ public class PlayerMovement : NetworkBehaviour
             case ENUM_PlayerMoveState.dashing:
                 Dashing();
                 break;
+            case ENUM_PlayerMoveState.jumpDash:
+                JumpDash();
+                break;
             default:
                 break;
         }
@@ -102,6 +106,18 @@ public class PlayerMovement : NetworkBehaviour
             //Debug.Log("New state = " + newState);
             moveState = newState;
         }
+
+
+        if (moveState == ENUM_PlayerMoveState.jumping && newState == ENUM_PlayerMoveState.dashing)
+        {
+            moveState = ENUM_PlayerMoveState.jumpDash;
+        }
+        if(moveState == ENUM_PlayerMoveState.dashing && newState == ENUM_PlayerMoveState.jumping)
+        {
+            moveState = ENUM_PlayerMoveState.jumpDash;
+            //velocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        }
+        /*
         if(moveState == ENUM_PlayerMoveState.jumping && newState == ENUM_PlayerMoveState.dashing)
         {
             moveState = newState;
@@ -112,8 +128,8 @@ public class PlayerMovement : NetworkBehaviour
             velocity.y = 4;
             //Jumping();
         }
-        
-        
+        */
+
     }
     void FinishCurrentState(ENUM_PlayerMoveState newState)
     {
@@ -153,10 +169,10 @@ public class PlayerMovement : NetworkBehaviour
         if (stats.CheckIfCanUseStamina(jumpStaminaCost) == false)
             return;
 
-        velocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
 
         Debug.Log("Velocity = " + velocity.y);
         TryToChangeState(ENUM_PlayerMoveState.jumping);
+        velocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         Jumping();
         Debug.Log("After Jumping Called");
     }
@@ -259,6 +275,47 @@ public class PlayerMovement : NetworkBehaviour
         if(velocity.y <= 0 && groundedPlayer)
         {
             Debug.Log("Jumping finished,");
+            if (input == Vector2.zero)
+            {
+                FinishCurrentState(ENUM_PlayerMoveState.idle);
+                //TryToChangeState(ENUM_PlayerMoveState.idle);
+            }
+            else
+            {
+                FinishCurrentState(ENUM_PlayerMoveState.walking);
+                //TryToChangeState(ENUM_PlayerMoveState.walking);
+            }
+        }
+    }
+    void JumpDash()
+    {
+        // Czy wciaz mozna Dashowac
+        if(dashTimer < dashDuration && dashOnCooldown == false)
+        {
+            Debug.Log("robimy dash w powietrzu");
+            dashTimer += Time.deltaTime;
+            controller.Move(dashDirection);
+        }
+        // Koniec Dasha
+        if (dashTimer >= dashDuration)
+        {
+            dashTimer = 0;
+            dashOnCooldown = true;
+        }
+        // Skok wciaz ciagnie w dó³
+        MoveAccordingToGravity();
+
+        // Ruch podczas skoku
+        dir.x = input.x;
+        dir.z = input.y;
+        dir *= moveSpeed * Time.deltaTime;
+        dir = transform.TransformDirection(dir);
+        controller.Move(dir);
+
+        //if(groundedPlayer == true)
+        if (velocity.y <= 0 && groundedPlayer && dashTimer == 0)
+        {
+            Debug.Log("JumpDash finished,");
             if (input == Vector2.zero)
             {
                 FinishCurrentState(ENUM_PlayerMoveState.idle);
