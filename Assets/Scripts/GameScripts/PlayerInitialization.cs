@@ -16,7 +16,8 @@ public class PlayerInitialization : NetworkBehaviour
 
     private void InitializePlayerScripts()
     {
-        Debug.Log("Player Initialization");
+        Debug.LogWarning("Dodac zczytywanie nazw graczy. ");
+        Debug.Log("Player Initialization for " + playerData.name);
         Debug.Log("Current scene = " + SceneManager.GetActiveScene().name);
         Debug.Log("is owner = " + IsOwner);
         if(IsOwner == true)
