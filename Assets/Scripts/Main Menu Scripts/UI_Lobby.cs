@@ -20,6 +20,112 @@ public class UI_Lobby : MonoBehaviour
         }
     }
     #endregion
+
+    [SerializeField] LobbyManager lobbyManager;
+    [SerializeField] UI_MainMenu ui_MainMenu;
+    [SerializeField] GameObject playerDataPrefab;
+    [SerializeField] Transform currentPlayersContent;
+    [Header("Windows")]
+    [SerializeField] GameObject lobbyWindow;
+    [SerializeField] GameObject joinCodeWindow;
+    [SerializeField] GameObject characterSelectWindow;
+    [Header("Text Fields")]
+    [SerializeField] TMP_Text currentLobbyName;
+    [SerializeField] TMP_Text lobbyJoinCode;
+    [Header("Colors")]
+    [SerializeField] Color redColor;
+    [SerializeField] Color greenColor;
+
+
+
+    public void ActivateLobbyWindow()
+    {
+        lobbyWindow.gameObject.SetActive(true);
+        currentLobbyName.text = lobbyManager.currentLobby.Name;
+    }
+    public void DeactivateLobbyWindow()
+    {
+        lobbyWindow.gameObject.SetActive(false);
+    }
+    public void UpdatePlayersInLobby()
+    {
+        foreach (Transform child in currentPlayersContent)
+        {
+            Destroy(child.gameObject);
+        }
+        GameObject tempGO;
+        UI_PlayerDataInLobby tempDATA;
+        bool isHost = false;
+
+        //Debug.Log("Host id == " + lobbyManager.currentLobby.HostId);
+        //Debug.Log("CurrentPlayer id == " + lobbyManager.currentPlayer.Id);
+        if (lobbyManager.currentLobby.HostId == lobbyManager.currentPlayer.Id)
+        {
+            isHost = true;
+        }
+
+
+        //Debug.Log("Players in lobby = " + lobbyData.Players.Count);
+        foreach (Player player in lobbyManager.currentLobby.Players)
+        {
+            //Debug.Log("PLayer name = " + player.Data["PlayerName"].Value);
+            Debug.Log("PLayer id = " + player.Id);
+            tempGO = Instantiate(playerDataPrefab);
+            tempDATA = tempGO.GetComponent<UI_PlayerDataInLobby>();
+            tempDATA.playerName.text = player.Data["PlayerName"].Value;
+            tempDATA.playerID = player.Id;
+            tempGO.transform.SetParent(currentPlayersContent);
+            tempGO.transform.localScale = Vector3.one;
+
+            //Debug.Log("Ready status = " + player.Data["Ready"].Value);
+            if (player.Data["Ready"].Value == "0")
+            {
+                tempDATA.readyImage.color = redColor;
+            }
+            else
+            {
+                tempDATA.readyImage.color = greenColor;
+            }
+            
+
+            if (isHost == false)
+            {
+                tempDATA.DisableKickButton();
+            }
+        }
+        //Debug.LogWarning("Not finished");
+    }
+
+    public void BTN_Ready()
+    {
+        lobbyManager.CallMarkMeReady();
+    }
+    public void BTN_Leave()
+    {
+
+    }
+    public void BTN_Show()
+    {
+
+    }
+    public void BTN_Hide()
+    {
+
+    }
+    public void BTN_ChooseCharacter()
+    {
+
+    }
+    public void BTN_Options()
+    {
+
+    }
+    public void CallKickPlayer(string playerId)
+    {
+        
+    }
+
+    /*
     [SerializeField] LobbyManager lobbyManager;
     [SerializeField] UI_MainMenu ui_MainMenu;
     [SerializeField] GameObject playerDataPrefab;
@@ -100,4 +206,5 @@ public class UI_Lobby : MonoBehaviour
         lobbyWindow.CloseWindow();
         ui_MainMenu.ShowMenuWindow();
     }
+    */
 }

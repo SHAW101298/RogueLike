@@ -67,6 +67,9 @@ public class LobbyManager : MonoBehaviour
     {
         if (currentLobby != null)
         {
+            if (currentLobby.HostId != currentPlayer.Id)
+                return;
+
             heartBeatTimer += Time.deltaTime;
             if (heartBeatTimer >= 14)
             {
@@ -86,7 +89,7 @@ public class LobbyManager : MonoBehaviour
             poolUpdateTimer = 0;
             Lobby lobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
             currentLobby = lobby;
-            ui_Lobby.UpdateLobbyWindow();
+            ui_Lobby.UpdatePlayersInLobby();
 
             if (currentLobby.Data["Key_Game_Start"].Value != "0")
             {
@@ -122,6 +125,32 @@ public class LobbyManager : MonoBehaviour
     public void CallListLobbies()
     {
         ListLobbies();
+    }
+    public async void CallMarkMeReady()
+    {
+        
+        string status = currentPlayer.Data["Ready"].Value;
+        Debug.Log("Player id = " + currentPlayer.Id);
+        Debug.Log("status = " + status);
+        if (status == "0")
+        {
+            status = "1";
+        }
+        else
+        {
+            status = "0";
+        }
+        UpdatePlayerOptions options = new UpdatePlayerOptions()
+        {
+            Data = new Dictionary<string, PlayerDataObject>
+            {
+                ["Ready"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, status)
+            }
+        };
+        currentPlayer.Data["Ready"].Value = status;
+
+        Lobby lobby = await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, currentPlayer.Id, options);
+        currentLobby = lobby;
     }
     public void CallStartGame()
     {
@@ -180,7 +209,7 @@ public class LobbyManager : MonoBehaviour
             if (id == currentPlayer.Id)
             {
                 currentLobby = null;
-                UI_Lobby.instance.CloseLobbyWindow();
+                UI_Lobby.instance.DeactivateLobbyWindow();
                 UI_ErrorHandler.instance.ShowErrorMessage("You left as a host. Host migrated.");
             }
         }
@@ -220,7 +249,7 @@ public class LobbyManager : MonoBehaviour
             currentLobby = lobby;
             // Modyfikator obra¿eñ dla poziomu trudnoœci
             Debug.Log("Created Lobby! " + currentLobby.Name + "  " +  currentLobby.LobbyCode);
-            ui_Lobby.ShowLobbyWindow();
+            ui_Lobby.ActivateLobbyWindow();
             await RegisterToLobbyEvents();
             //Debug.Log("Print keygamestart = " + currentLobby.Data["Key_Game_Start"].Value);
         }
@@ -247,7 +276,7 @@ public class LobbyManager : MonoBehaviour
             Lobby lobby = await Lobbies.Instance.JoinLobbyByCodeAsync(code, options);
             currentLobby = lobby;
             Debug.Log("Joined Lobby with code " + code);
-            ui_Lobby.ShowLobbyWindow();
+            ui_Lobby.ActivateLobbyWindow();
             await RegisterToLobbyEvents();
         }
         catch (LobbyServiceException e)
@@ -270,7 +299,7 @@ public class LobbyManager : MonoBehaviour
             Lobby lobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId, options);
             currentLobby = lobby;
             Debug.Log("Joined Lobby with id " + lobbyId);
-            ui_Lobby.ShowLobbyWindow();
+            ui_Lobby.ActivateLobbyWindow();
             await RegisterToLobbyEvents();
         }
         catch (LobbyServiceException e)
@@ -291,7 +320,7 @@ public class LobbyManager : MonoBehaviour
             };
             Lobby lobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId, options);
             currentLobby = lobby;
-            ui_Lobby.ShowLobbyWindow();
+            ui_Lobby.ActivateLobbyWindow();
             await RegisterToLobbyEvents();
         }
         catch(LobbyServiceException e)
@@ -333,7 +362,9 @@ public class LobbyManager : MonoBehaviour
         {
             Data = new Dictionary<string, PlayerDataObject>
             {
-                { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "BaseName") }
+                ["PlayerName"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "BaseName"),
+                ["Ready"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "0")
+                //{ "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "BaseName") }
             }
         };
         return newPlayer;

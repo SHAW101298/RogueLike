@@ -36,4 +36,12 @@ Tworzenie ulozenia pomieszczen
 Prefaby przeciwników zapisane są w Prefab List, więc wystarczy wygenerować u hosta odpowiednią kombinację.
 Aasb
  */
+/*
+ Lobby:
+Przycisk pozwalajacy pokazac i schowac okno Lobby ( jezeli jest sie do jakiegos podlaczonym )
+Ikony z postaciami podswietlaja sie na czerwono / zielono, zaleznie od przycisku przygotowania
+Po schowaniu lobby, pokazane sa tylko ikony postaci wraz z statusem przygotowania
+
+
+ */
 
