@@ -33,6 +33,13 @@ public class PlayerStats : MonoBehaviour
         ui.UpdateStaminaBar(staminaCurrent / staminaMax);
         return true;
     }
+    public void ReduceStamina(float val)
+    {
+        staminaCurrent -= val;
+        regenerateStamina = true;
+        staminaRegenTimer = staminaRegenDelay;
+        ui.UpdateStaminaBar(staminaCurrent / staminaMax);
+    }
 
     private void Update()
     {

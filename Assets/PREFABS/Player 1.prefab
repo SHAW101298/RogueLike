@@ -328,6 +328,7 @@ MonoBehaviour:
   moveState: 0
   groundedPlayer: 0
   groundCheckDistance: 0.1
+  velocity: {x: 0, y: 0, z: 0}
   moveSpeed: 2
   runSpeedMultiplier: 2
   runningStaminaCost: 0.02
@@ -337,8 +338,9 @@ MonoBehaviour:
   input: {x: 0, y: 0}
   dashDuration: 0.25
   dashStrength: 4
-  dashCooldown: 6
-  dashStaminaCost: 10
+  dashCooldown: 1
+  dashStaminaCost: 0.1
+  dashTimer: 0
   controller: {fileID: 2208149460399325538}
   stats: {fileID: 2208149460399325530}
   data: {fileID: 0}

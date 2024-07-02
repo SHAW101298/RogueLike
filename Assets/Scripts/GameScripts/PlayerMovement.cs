@@ -86,10 +86,12 @@ public class PlayerMovement : NetworkBehaviour
         }
 
     }
-    void TryToChangeState(ENUM_PlayerMoveState newState)
+    bool TryToChangeState(ENUM_PlayerMoveState newState)
     {
         if (moveState == newState)
-            return;
+        {
+            return false;
+        }
 
         //Debug.Log("New state = " + newState);
         //moveState = newState;
@@ -105,18 +107,22 @@ public class PlayerMovement : NetworkBehaviour
         {
             //Debug.Log("New state = " + newState);
             moveState = newState;
+            return true;
         }
 
 
         if (moveState == ENUM_PlayerMoveState.jumping && newState == ENUM_PlayerMoveState.dashing)
         {
             moveState = ENUM_PlayerMoveState.jumpDash;
+            return true;
         }
         if(moveState == ENUM_PlayerMoveState.dashing && newState == ENUM_PlayerMoveState.jumping)
         {
             moveState = ENUM_PlayerMoveState.jumpDash;
+            return true;
             //velocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
+        return false;
         /*
         if(moveState == ENUM_PlayerMoveState.jumping && newState == ENUM_PlayerMoveState.dashing)
         {
@@ -162,6 +168,12 @@ public class PlayerMovement : NetworkBehaviour
     }
     public void ActionJump(InputAction.CallbackContext context)
     {
+        if(context.phase != InputActionPhase.Performed)
+        {
+            return;
+        }
+
+        Debug.Log("Action Jump Approved");
         if (groundedPlayer == false)
             return;
         if (moveState == ENUM_PlayerMoveState.jumping)
@@ -170,9 +182,13 @@ public class PlayerMovement : NetworkBehaviour
             return;
 
 
-        Debug.Log("Velocity = " + velocity.y);
-        TryToChangeState(ENUM_PlayerMoveState.jumping);
+        Debug.Log("Current Velocity = " + velocity.y);
+        bool check = TryToChangeState(ENUM_PlayerMoveState.jumping);
+        if (check == false)
+            return;
         velocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        Debug.Log("Bew Velocity = " + velocity.y);
+        stats.ReduceStamina(jumpStaminaCost);
         Jumping();
         Debug.Log("After Jumping Called");
     }
@@ -209,13 +225,18 @@ public class PlayerMovement : NetworkBehaviour
             dashDirection.z = input.y;
         }
 
+        // Dane do dasha ustawione
         dashDirection = transform.TransformDirection(dashDirection);
         dashDirection *= dashStrength;
         dashDirection *= Time.deltaTime;
-        Debug.Log("dash direction = " + dashDirection);
         dashTimer = 0;
-        dashOnCooldown = true;
-        TryToChangeState(ENUM_PlayerMoveState.dashing);
+
+        // Jeœli przesz³o pomyœlnie test, rozpoczyna siê dasz
+        bool check = TryToChangeState(ENUM_PlayerMoveState.dashing);
+        if (check == false)
+            return;
+        stats.ReduceStamina(dashStaminaCost);
+        Debug.Log("dash direction = " + dashDirection);
     }
 
     void Idle()
@@ -247,6 +268,7 @@ public class PlayerMovement : NetworkBehaviour
         if (dashTimer >= dashDuration)
         {
             dashTimer = 0;
+            dashOnCooldown = true;
             //CompleteCurrentState(ENUM_PlayerMoveState.walking);
             if (input == Vector2.zero)
             {
@@ -292,7 +314,7 @@ public class PlayerMovement : NetworkBehaviour
         // Czy wciaz mozna Dashowac
         if(dashTimer < dashDuration && dashOnCooldown == false)
         {
-            Debug.Log("robimy dash w powietrzu");
+            //Debug.Log("robimy dash w powietrzu");
             dashTimer += Time.deltaTime;
             controller.Move(dashDirection);
         }
