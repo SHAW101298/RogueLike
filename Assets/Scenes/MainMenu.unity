@@ -8652,7 +8652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1407964887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10686,7 +10686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   relayManager: {fileID: 1033113179}
-  gameSetup: {fileID: 0}
+  gameSetup: {fileID: 705998588}
   ui_MainMenu: {fileID: 1564222164}
   ui_Lobby: {fileID: 1564222166}
   ui_LobbyList: {fileID: 1564222167}
@@ -10717,8 +10717,6 @@ GameObject:
   - component: {fileID: 1564222164}
   - component: {fileID: 1564222166}
   - component: {fileID: 1564222167}
-  - component: {fileID: 1564222169}
-  - component: {fileID: 1564222168}
   - component: {fileID: 1564222170}
   m_Layer: 0
   m_Name: UI Manager
@@ -10821,40 +10819,6 @@ MonoBehaviour:
   newLobbyPrivate: {fileID: 1474230152}
   newLobbyPassword: {fileID: 1969733875}
   selectedLobby: -1
---- !u!114 &1564222168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564222163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba184b83fe01dd4ab593a099ca275f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lobbyManager: {fileID: 1548225282}
-  codeField: {fileID: 0}
-  passwordField: {fileID: 0}
-  joinLobbyByCodeWindow: {fileID: 0}
---- !u!114 &1564222169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564222163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f158fd5f56420d04b861fca5429dab97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lobbyManager: {fileID: 1548225282}
-  lobbyNameField: {fileID: 0}
-  maxPlayersField: {fileID: 0}
-  privateLobbyToggle: {fileID: 0}
-  lobbyPasswordField: {fileID: 0}
-  createLobbyWindow: {fileID: 0}
 --- !u!114 &1564222170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11172,11 +11136,11 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 1652183394}
-    PlayerPrefab: {fileID: 2208149460399325539, guid: 06ba26869ed636d48b0cb4a388b2ab5d,
+    PlayerPrefab: {fileID: 2208149460399325539, guid: c90e16316993b524490fd52da6e716b5,
       type: 3}
     NetworkPrefabs:
     - Override: 0
-      Prefab: {fileID: 2208149460399325539, guid: 06ba26869ed636d48b0cb4a388b2ab5d,
+      Prefab: {fileID: 2208149460399325539, guid: c90e16316993b524490fd52da6e716b5,
         type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0

@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class CharactersList : MonoBehaviour
@@ -21,7 +20,7 @@ public class CharactersList : MonoBehaviour
     }
     #endregion
     public List<GameObject> characters;
-    public List<AnimatorController> controllers;
+    public List<RuntimeAnimatorController> controllers;
 
     public GameObject GetCharacter(string val)
     {
@@ -29,7 +28,7 @@ public class CharactersList : MonoBehaviour
 
         return characters[tempChar];
     }
-    public AnimatorController GetController(string val)
+    public RuntimeAnimatorController GetController(string val)
     {
         int tempChar = Convert.ToInt32(val);
 

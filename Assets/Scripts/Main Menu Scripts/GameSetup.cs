@@ -71,6 +71,7 @@ public class GameSetup : MonoBehaviour
                 relayManager.JoinRelay(lobbyManager.currentLobby.Data["Key_Game_Start"].Value);
             }
             Debug.Log("Proceeding with Game Start");
+            Debug.LogWarning("Destroying Lobby here");
             lobbyManager.currentLobby = null; // Destroyes current lobby after 30 seconds
             ui_MainMenu.HideLobbyWindow();
             ui_MainMenu.ShowMenuWindow();
@@ -94,6 +95,7 @@ public class GameSetup : MonoBehaviour
                 relayManager.JoinRelay(lobbyManager.currentLobby.Data["Key_Game_Start"].Value);
             }
             Debug.Log("Proceeding with Game Start");
+            Debug.LogWarning("Destroying Lobby here");
             lobbyManager.currentLobby = null; // Destroyes current lobby after 30 seconds
             ui_MainMenu.HideLobbyWindow();
             ui_MainMenu.ShowMenuWindow();

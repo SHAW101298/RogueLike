@@ -278,7 +278,9 @@ public class LobbyManager : MonoBehaviour
         {
             int maxPlayers = Convert.ToInt32(players);
 
+            // Mark ready as Host
             currentPlayer = GetPlayer();
+            currentPlayer.Data["Ready"].Value = "1";
 
             CreateLobbyOptions options = new CreateLobbyOptions();
             options.IsPrivate = isPrivate;
@@ -295,7 +297,6 @@ public class LobbyManager : MonoBehaviour
                     options.Password = password;
                 }
             }
-
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
             currentLobby = lobby;
             // Modyfikator obra¿eñ dla poziomu trudnoœci

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.Services.Lobbies.Models;
+using System.Runtime.CompilerServices;
 
 public class UI_Lobby : MonoBehaviour
 {
@@ -105,6 +106,7 @@ public class UI_Lobby : MonoBehaviour
     {
         if(lobbyManager.ReturnIsHost() == false)
         {
+            Debug.Log("Im not host");
             lobbyManager.CallMarkMeReady();
         }
         else
@@ -115,6 +117,7 @@ public class UI_Lobby : MonoBehaviour
             {
                 if (player.Data["Ready"].Value == "0")
                 {
+                    Debug.Log("Player  |  " + player.Data["PlayerName"].Value + "  |  is not Ready");
                     readyCheck = false;
                 }
             }

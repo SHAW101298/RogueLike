@@ -58,9 +58,10 @@ public class PlayerInitialization : NetworkBehaviour
 
     void CreateGameCharacter()
     {
+        Debug.Log("Creating Game Character");
         string charID = LobbyManager.Instance.currentPlayer.Data["Character"].Value;
-        GameObject tempGO = CharactersList.Instance.GetCharacter(charID);
-        tempGO = Instantiate(tempGO);
+        GameObject tempRef = CharactersList.Instance.GetCharacter(charID);
+        GameObject tempGO = Instantiate(tempRef);
         tempGO.transform.SetParent(playerData.gameObject.transform);
         tempGO.transform.localEulerAngles = Vector3.zero;
         Animator tempAnim = playerData.gameObject.GetComponent<Animator>();
