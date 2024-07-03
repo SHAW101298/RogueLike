@@ -63,6 +63,14 @@ public class LobbyManager : MonoBehaviour
     }
     
     
+    public void MarkAsInGame()
+    {
+        inGame = true;
+    }
+    public void MarkAsOutOfGame()
+    {
+        inGame = false;
+    }
     async void HandleLobbyHeartBeat()
     {
         if (currentLobby != null)
@@ -84,25 +92,42 @@ public class LobbyManager : MonoBehaviour
             return;
 
         poolUpdateTimer += Time.deltaTime;
-        if(poolUpdateTimer >= 1.1f)
-        {
-            poolUpdateTimer = 0;
-            Lobby lobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
-            currentLobby = lobby;
-            ui_Lobby.UpdatePlayersInLobby();
 
-            if (currentLobby.Data["Key_Game_Start"].Value != "0")
+        if(inGame == true)
+        {
+            // Update lobby only once per 10 seconds
+            if(poolUpdateTimer >= 10f)
             {
-                // THE GAME IS STARTING
-                if(ReturnIsHost() == false) // Host is already in the relay
-                {
-                    relayManager.JoinRelay(currentLobby.Data["Key_Game_Start"].Value);
-                }  
-                currentLobby = null; // Will destroy current lobby after 30 seconds
-                ui_MainMenu.HideLobbyWindow();
-                ui_MainMenu.ShowMenuWindow();
+                poolUpdateTimer = 0;
+                Lobby lobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
+                currentLobby = lobby;
             }
         }
+        else
+        {
+            if (poolUpdateTimer >= 1.1f)
+            {
+                poolUpdateTimer = 0;
+                Lobby lobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
+                currentLobby = lobby;
+                ui_Lobby.UpdatePlayersInLobby();
+
+                // Lobby Updated with Relay Code
+                if (currentLobby.Data["Key_Game_Start"].Value != "0")
+                {
+                    // THE GAME IS STARTING
+                    if (ReturnIsHost() == false) // Host is already in the relay
+                    {
+                        relayManager.JoinRelay(currentLobby.Data["Key_Game_Start"].Value);
+                    }
+                    //currentLobby = null; // Will destroy current lobby after 30 seconds
+                    ui_MainMenu.HideLobbyWindow();
+                    ui_MainMenu.ShowMenuWindow();
+                    MarkAsInGame();
+                }
+            }
+        }
+        
 
     }
     

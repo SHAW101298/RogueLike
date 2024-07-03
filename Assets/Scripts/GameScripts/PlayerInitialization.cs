@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.Services.Lobbies;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,7 @@ using UnityEngine.SceneManagement;
 public class PlayerInitialization : NetworkBehaviour
 {
     [SerializeField] PlayerData playerData;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,7 @@ public class PlayerInitialization : NetworkBehaviour
             //Destroy(playerData.rotation.camera);
             Debug.Log("Disabled other player scripts");
         }
+        CreateGameCharacter();
     }
     private void Update()
     {
@@ -51,6 +54,18 @@ public class PlayerInitialization : NetworkBehaviour
             InitializePlayerScripts();
             enabled = false;
         }
+    }
+
+    void CreateGameCharacter()
+    {
+        string charID = LobbyManager.Instance.currentPlayer.Data["Character"].Value;
+        GameObject tempGO = CharactersList.Instance.GetCharacter(charID);
+        tempGO = Instantiate(tempGO);
+        tempGO.transform.SetParent(playerData.gameObject.transform);
+        tempGO.transform.localEulerAngles = Vector3.zero;
+        Animator tempAnim = playerData.gameObject.GetComponent<Animator>();
+        tempAnim.runtimeAnimatorController = CharactersList.Instance.GetController(charID);
+        tempAnim.enabled = true;
     }
 
 }
