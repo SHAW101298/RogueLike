@@ -128,42 +128,56 @@ public class LobbyManager : MonoBehaviour
     }
     public async void CallMarkMeReady()
     {
-        
-        string status = currentPlayer.Data["Ready"].Value;
-        Debug.Log("Player id = " + currentPlayer.Id);
-        Debug.Log("status = " + status);
-        if (status == "0")
+        try
         {
-            status = "1";
-        }
-        else
-        {
-            status = "0";
-        }
-        UpdatePlayerOptions options = new UpdatePlayerOptions()
-        {
-            Data = new Dictionary<string, PlayerDataObject>
+            string status = currentPlayer.Data["Ready"].Value;
+            Debug.Log("Player id = " + currentPlayer.Id);
+            Debug.Log("status = " + status);
+            if (status == "0")
             {
-                ["Ready"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, status)
+                status = "1";
             }
-        };
-        currentPlayer.Data["Ready"].Value = status;
+            else
+            {
+                status = "0";
+            }
+            UpdatePlayerOptions options = new UpdatePlayerOptions()
+            {
+                Data = new Dictionary<string, PlayerDataObject>
+                {
+                    ["Ready"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, status)
+                }
+            };
+            currentPlayer.Data["Ready"].Value = status;
 
-        Lobby lobby = await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, currentPlayer.Id, options);
-        currentLobby = lobby;
+            Lobby lobby = await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, currentPlayer.Id, options);
+            currentLobby = lobby;
+        }
+        catch(LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
     }
     public async void CallMarkMeReady(string val)
     {
-        UpdatePlayerOptions options = new UpdatePlayerOptions()
+        try
         {
-            Data = new Dictionary<string, PlayerDataObject>
+            UpdatePlayerOptions options = new UpdatePlayerOptions()
             {
-                ["Ready"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, val)
-            }
-        };
-        currentPlayer.Data["Ready"].Value = val;
-        Lobby lobby = await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, currentPlayer.Id, options);
-        currentLobby = lobby;
+                Data = new Dictionary<string, PlayerDataObject>
+                {
+                    ["Ready"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, val)
+                }
+            };
+            currentPlayer.Data["Ready"].Value = val;
+            Lobby lobby = await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, currentPlayer.Id, options);
+            currentLobby = lobby;
+        }
+        catch(LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+        
     }
     public void CallStartGame()
     {
@@ -272,9 +286,17 @@ public class LobbyManager : MonoBehaviour
     }
     async void ListLobbies()
     {
-        QueryResponse queryResponse =  await Lobbies.Instance.QueryLobbiesAsync();
-        Debug.Log("Found " + queryResponse.Results.Count + " lobbies.");     
-        ui_LobbyList.PrintAvailableLobbies(queryResponse);
+        try
+        {
+            QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
+            Debug.Log("Found " + queryResponse.Results.Count + " lobbies.");
+            ui_LobbyList.PrintAvailableLobbies(queryResponse);
+        }
+        catch(LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+        
     }
     async void JoinLobbyByCode(string code)
     {
@@ -296,9 +318,6 @@ public class LobbyManager : MonoBehaviour
             Debug.Log(e);
         }
     }
-
-    
-
     async void JoinLobbyById(string lobbyId)
     {
         try
@@ -362,7 +381,7 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
-
+    // =============================================================================================
     void OnPlayerSignIn()
     {
         Debug.Log("Player Signed in with id = " + AuthenticationService.Instance.PlayerId);
@@ -376,7 +395,8 @@ public class LobbyManager : MonoBehaviour
             Data = new Dictionary<string, PlayerDataObject>
             {
                 ["PlayerName"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, randomName),
-                ["Ready"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "0")
+                ["Ready"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "0"),
+                ["Character"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "0")
                 //{ "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "BaseName") }
             }
         };
