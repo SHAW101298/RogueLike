@@ -74,7 +74,7 @@ public class UI_Lobby : MonoBehaviour
         foreach (Player player in lobbyManager.currentLobby.Players)
         {
             //Debug.Log("PLayer name = " + player.Data["PlayerName"].Value);
-            Debug.Log("PLayer id = " + player.Id);
+            //Debug.Log("PLayer id = " + player.Id);
             tempGO = Instantiate(playerDataPrefab);
             tempDATA = tempGO.GetComponent<UI_PlayerDataInLobby>();
             tempDATA.playerName.text = player.Data["PlayerName"].Value;

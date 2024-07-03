@@ -125,6 +125,9 @@ public class UI_LobbyList : MonoBehaviour
         //lobbyManager.CallCreateLobby(newLobbyName.text, newLobbyPlayers.text, newLobbyPrivate.isOn, newLobbyPassword.text);
         ResetCreateLobbyData();
         lobbyManager.CallCreateLobby(lobbyName, players, isPrivate, password);
+        createLobbyWindow.SetActive(false);
+        lobbyListWindow.SetActive(true);
+        ui_MainMenu.BTN_MultiplayerReturn();
     }
     void ResetCreateLobbyData()
     {

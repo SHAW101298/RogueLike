@@ -30,22 +30,21 @@ public class UI_MainMenu : MonoBehaviour
     [SerializeField] RelayManager relayManager;
     [SerializeField] UI_Lobby ui_Lobby;
     [SerializeField] UI_LobbyList ui_LobbyList;
-    [SerializeField] UI_JoinLobbyByCode ui_JoinByCode;
-    [SerializeField] UI_CreateLobby ui_CreateLobby;
+    //[SerializeField] UI_JoinLobbyByCode ui_JoinByCode;
+    //[SerializeField] UI_CreateLobby ui_CreateLobby;
 
     [Header("Windows")]
     [SerializeField] GameObject menuCanvas;
     [SerializeField] UI_Window menuWindow;
-    [SerializeField] UI_Window playWindow;
+    [SerializeField] UI_Window singlePlayerWindow;
+    [SerializeField] UI_Window multiPlayerWindow;
+    [SerializeField] UI_Window charactersWindow;
     [SerializeField] UI_Window optionsWindow;
     [SerializeField] UI_Window exitWindow;
+
     [SerializeField] UI_Window changeNameWindow;
     [SerializeField] UI_Window lobbyWindow;
-    [Space(10)]
-    [SerializeField] UI_Window createLobbyWindow;
-    [SerializeField] UI_Window joinLobbyWindow;
-    [SerializeField] UI_Window joinLobbyByCodeWindow;
-    [SerializeField] UI_Window joinLobbyFromListWindow;
+
 
 
     private void Start()
@@ -55,83 +54,77 @@ public class UI_MainMenu : MonoBehaviour
         Debug.LogWarning("ZMIENIC BACKGROUND. COPYRIGHT");
     }
 
-    public void BTN_Play()
+    public void BTN_SinglePlayer()
     {
-        playWindow.OpenWindow();
-        playWindow.parent.CloseWindow();
+        singlePlayerWindow.OpenWindow();
+        menuWindow.CloseWindow();
     }
-    public void BTN_PlayReturn()
+    public void BTN_SinglePlayerReturn()
     {
-        playWindow.CloseWindow();
-        playWindow.parent.OpenWindow();
+        singlePlayerWindow.CloseWindow();
+        menuWindow.OpenWindow();
+    }
+    public void BTN_Multiplayer()
+    {
+        multiPlayerWindow.OpenWindow();
+        menuWindow.CloseWindow();
+    }
+    public void BTN_MultiplayerReturn()
+    {
+        multiPlayerWindow.CloseWindow();
+        menuWindow.OpenWindow();
+    }
+    public void BTN_Characters()
+    {
+        charactersWindow.OpenWindow();
+        menuWindow.CloseWindow();
+    }
+    public void BTN_CharactersReturn()
+    {
+        charactersWindow.CloseWindow();
+        menuWindow.OpenWindow();
     }
     public void BTN_Options()
     {
         optionsWindow.OpenWindow();
-        optionsWindow.parent.CloseWindow();
+        menuWindow.CloseWindow();
     }
-    public void BTN_OptionsReturn()
+    public void BTN_OptionReturn()
     {
         optionsWindow.CloseWindow();
-        optionsWindow.parent.OpenWindow();
+        menuWindow.OpenWindow();
     }
     public void BTN_Exit()
     {
         exitWindow.OpenWindow();
-        exitWindow.parent.CloseWindow();
+        menuWindow.CloseWindow();
     }
     public void BTN_ExitNo()
     {
         exitWindow.CloseWindow();
-        exitWindow.parent.OpenWindow();
+        menuWindow.OpenWindow();
     }
     public void BTN_ExitYes()
     {
+        if(lobbyManager.currentLobby != null)
+        {
+            lobbyManager.CallLeaveLobby();
+            lobbyManager.currentLobby = null;
+        }
+
         Application.Quit();
     }
 
     // ====================================
 
-    public void BTN_CreateLobby()
-    {
-        createLobbyWindow.OpenWindow();
-        createLobbyWindow.parent.CloseWindow();
-        ui_CreateLobby.ResetInputData();
-    }
-
     // ====================================
 
-    public void BTN_JoinLobby()
-    {
-        joinLobbyWindow.OpenWindow();
-        joinLobbyWindow.parent.CloseWindow();
-    }
-    public void BTN_JoinLobbyReturn()
-    {
-        joinLobbyWindow.CloseWindow();
-        joinLobbyWindow.parent.OpenWindow();
-    }
     // ====================================
 
     // ====================================
     
-    public void BTN_JoinLobbyByCode()
-    {
-        joinLobbyByCodeWindow.OpenWindow();
-        joinLobbyByCodeWindow.parent.CloseWindow();
-    }
-    public void BTN_JoinLobbyFromList()
-    {
-        joinLobbyFromListWindow.OpenWindow();
-        joinLobbyFromListWindow.parent.CloseWindow();
-    }
     // ====================================
-    public void HideJoiningWindows()
-    {
-        joinLobbyByCodeWindow.CloseWindow();
-        joinLobbyFromListWindow.CloseWindow();
-        createLobbyWindow.CloseWindow();
-    }
+
     public void ShowMenuWindow()
     {
         menuWindow.OpenWindow();
