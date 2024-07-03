@@ -251,11 +251,10 @@ public class LobbyManager : MonoBehaviour
             };
             if(password.Length > 0)
             {
-                if (password.Length < 8)
-                    return;
-
-                options.Password = password;
-
+                if (password.Length >= 4)
+                {
+                    options.Password = password;
+                }
             }
 
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);

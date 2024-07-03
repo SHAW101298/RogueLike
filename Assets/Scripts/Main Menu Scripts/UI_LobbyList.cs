@@ -91,4 +91,16 @@ public class UI_LobbyList : MonoBehaviour
         joinLobbyFromListWindow.CloseWindow();
         joinLobbyFromListWindow.parent.OpenWindow();
     }
+    public void BTN_CreateNewLobby()
+    {
+
+    }
+    public void BTN_JoinWithCode()
+    {
+
+    }
+    public void BTN_ExitPasswordInput()
+    {
+        passwordRequest.SetActive(false);
+    }
 }
