@@ -52,6 +52,7 @@ public class UI_MainMenu : MonoBehaviour
     {
         lobbyManager = LobbyManager.Instance;
         relayManager = RelayManager.Instance;
+        Debug.LogWarning("ZMIENIC BACKGROUND. COPYRIGHT");
     }
 
     public void BTN_Play()
