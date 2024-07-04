@@ -39,12 +39,13 @@ public class GameSetup : MonoBehaviour
 
     void CountdownToSceneChange()
     {
-        if(lobbyManager.ReturnIsHost() == false)
-        {
-            return;
-        }
+
         if(countdown == true)
         {
+            if (lobbyManager.ReturnIsHost() == false)
+            {
+                return;
+            }
             timer += Time.deltaTime;
             if(timer >= timerMax)
             {
@@ -75,8 +76,9 @@ public class GameSetup : MonoBehaviour
                 relayManager.JoinRelay(lobbyManager.currentLobby.Data["Key_Game_Start"].Value);
             }
             Debug.Log("Proceeding with Game Start");
-            Debug.LogWarning("Destroying Lobby here");
-            lobbyManager.currentLobby = null; // Destroyes current lobby after 30 seconds
+            //Debug.LogWarning("Destroying Lobby here");
+            Debug.Log("We can destroy lobby here");
+            //lobbyManager.currentLobby = null; // Destroyes current lobby after 30 seconds
             ui_MainMenu.HideLobbyWindow();
             ui_MainMenu.ShowMenuWindow();
             countdown = true;
@@ -99,8 +101,8 @@ public class GameSetup : MonoBehaviour
                 relayManager.JoinRelay(lobbyManager.currentLobby.Data["Key_Game_Start"].Value);
             }
             Debug.Log("Proceeding with Game Start");
-            Debug.LogWarning("Destroying Lobby here");
-            lobbyManager.currentLobby = null; // Destroyes current lobby after 30 seconds
+            //Debug.LogWarning("Destroying Lobby here");
+            //lobbyManager.currentLobby = null; // Destroyes current lobby after 30 seconds
             ui_MainMenu.HideLobbyWindow();
             ui_MainMenu.ShowMenuWindow();
             countdown = true;
