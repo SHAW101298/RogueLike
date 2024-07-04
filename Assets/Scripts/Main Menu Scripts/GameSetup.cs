@@ -39,6 +39,10 @@ public class GameSetup : MonoBehaviour
 
     void CountdownToSceneChange()
     {
+        if(lobbyManager.ReturnIsHost() == false)
+        {
+            return;
+        }
         if(countdown == true)
         {
             timer += Time.deltaTime;

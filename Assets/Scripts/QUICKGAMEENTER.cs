@@ -23,6 +23,7 @@ public class QUICKGAMEENTER : MonoBehaviour
     public void BTN_QuickStart()
     {
         Debug.Log("Start Hosting");
+        networkManager.enabled = true;
         networkManager.StartHost();
         networkManager.SceneManager.LoadScene("SampleScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
         
