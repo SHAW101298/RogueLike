@@ -38,6 +38,7 @@ public class PlayerInitialization : NetworkBehaviour
             playerData.ui.enabled = false;
             playerData.rotation.camera.SetActive(false);
             playerData.gameObject.GetComponent<PlayerInput>().enabled = false;
+            // Destroying creates network bugs
             //Destroy(playerData.movement);
             //Destroy(playerData.rotation);
             //Destroy(playerData.ui);

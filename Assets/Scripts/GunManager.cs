@@ -24,6 +24,7 @@ public class GunManager : MonoBehaviour
 
         Gun createdGun = createdGunObject.GetComponent<Gun>();
         GunPickupInteract createdGunInteract = createdGunObject.AddComponent<GunPickupInteract>();
+        createdGunObject.AddComponent<GunFloatingScript>();
         createdGunInteract.interactableType = ENUM_InteractableType.gunPickup;
 
         return createdGun;

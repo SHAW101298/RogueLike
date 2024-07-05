@@ -35,7 +35,7 @@ public class INIT : MonoBehaviour
 
     private void OnPlayerConnected()
     {
-        
+        Debug.Log("On Player Connected");
     }
 
 }

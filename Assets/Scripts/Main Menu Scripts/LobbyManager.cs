@@ -14,6 +14,7 @@ using Unity.Services.Relay;
 using Mono.Cecil.Cil;
 using Unity.Mathematics;
 using System.Security.Cryptography;
+using Unity.Netcode;
 
 public class LobbyManager : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class LobbyManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        
     }
     #endregion
 
@@ -38,7 +41,8 @@ public class LobbyManager : MonoBehaviour
     public UI_MainMenu ui_MainMenu;
     public UI_Lobby ui_Lobby;
     public UI_LobbyList ui_LobbyList;
-    [Header("Current Lobby")]
+    
+    [SerializeField] AudioListener oldListener;
     public Lobby currentLobby;
     public Player currentPlayer;
     //public TMP_Text lobbyName;
@@ -47,7 +51,12 @@ public class LobbyManager : MonoBehaviour
     bool inGame;
     async void Start()
     {
-        gameSetup = GameSetup.Instance;
+        if (oldListener == null)
+        {
+            oldListener = Camera.main.gameObject.GetComponent<AudioListener>();
+        }
+
+        //gameSetup = GameSetup.Instance;
         DontDestroyOnLoad(this);
 
         await UnityServices.InitializeAsync();
@@ -115,25 +124,16 @@ public class LobbyManager : MonoBehaviour
                 // Lobby Updated with Relay Code
                 if (currentLobby.Data["Key_Game_Start"].Value != "0")
                 {
-                    Debug.Log("We received Relay Code");
-                    // THE GAME IS STARTING
-                    if (ReturnIsHost() == false) // Host is already in the relay
-                    {
-                        relayManager.JoinRelay(currentLobby.Data["Key_Game_Start"].Value);
-                    }
-                    //currentLobby = null; // Will destroy current lobby after 30 seconds
-                    ui_MainMenu.HideLobbyWindow();
-                    ui_MainMenu.BTN_MultiplayerReturn();
-                    ui_MainMenu.ShowMenuWindow();
-                    gameSetup.BeginCountDown();
-                    MarkAsInGame();
+                    ProceedWithStartingGame();
                 }
             }
         }
         
 
     }
+
     
+
     public void CallCreateLobby(string name, string players, bool isPrivate, string password)
     {
         CreateLobby(name, players, isPrivate, password);
@@ -491,5 +491,29 @@ public class LobbyManager : MonoBehaviour
         Debug.Log("First lobby Update");
         Lobby lobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
         currentLobby = lobby;
+    }
+    private void ProceedWithStartingGame()
+    {
+        Debug.Log("We received Relay Code");
+        bool ishost = ReturnIsHost();
+
+        if (ishost == false) // Host is already in the relay
+        {
+            relayManager.JoinRelay(currentLobby.Data["Key_Game_Start"].Value);
+        }
+        //currentLobby = null; // Will destroy current lobby after 30 seconds
+        ui_MainMenu.HideLobbyWindow();
+        ui_MainMenu.BTN_MultiplayerReturn();
+        ui_MainMenu.ShowMenuWindow();
+        MarkAsInGame();
+        // Clients will be forced to change scene
+        if(ishost == true)
+        {
+            NetworkManager.Singleton.SceneManager.LoadScene("SampleScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
+        }
+    }
+    public void DisableAudioListener()
+    {
+        oldListener.enabled = false;
     }
 }

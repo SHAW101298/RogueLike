@@ -5027,12 +5027,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57b2153cabf3864bbb83e2fec615507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lobbyManager: {fileID: 1548225282}
-  relayManager: {fileID: 1033113179}
-  ui_MainMenu: {fileID: 1564222164}
-  oldListener: {fileID: 1014162320}
-  timer: 0
-  timerMax: 1
 --- !u!4 &705998589
 Transform:
   m_ObjectHideFlags: 0
@@ -10492,6 +10486,7 @@ MonoBehaviour:
   ui_MainMenu: {fileID: 1564222164}
   ui_Lobby: {fileID: 1564222166}
   ui_LobbyList: {fileID: 1564222167}
+  oldListener: {fileID: 0}
 --- !u!4 &1548225283
 Transform:
   m_ObjectHideFlags: 0
