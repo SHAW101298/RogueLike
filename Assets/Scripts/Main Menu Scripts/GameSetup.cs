@@ -36,6 +36,12 @@ public class GameSetup : MonoBehaviour
         lobbyManager = LobbyManager.Instance;
         relayManager = RelayManager.Instance;
     }
+    private void Update()
+    {
+        //CheckForRelayCode();
+        CountdownToSceneChange();
+
+    }
 
     void CountdownToSceneChange()
     {
@@ -61,59 +67,10 @@ public class GameSetup : MonoBehaviour
     {
         oldListener.enabled = false;
     }
-
-    void CheckForRelayCode()
-    {
-        if (lobbyManager.currentLobby == null)
-            return;
-        // Makes sure we only join once on a relay
-        if (countdown == true)
-            return;
-
-        if (LobbyManager.Instance.currentLobby.Data["Key_Game_Start"].Value != "0")
-        {
-            
-            // Im not a host
-            if (lobbyManager.ReturnIsHost() == false)
-            {
-                relayManager.JoinRelay(lobbyManager.currentLobby.Data["Key_Game_Start"].Value);
-            }
-            Debug.Log("Proceeding with Game Start");
-            //Debug.LogWarning("Destroying Lobby here");
-            Debug.Log("We can destroy lobby here");
-            //lobbyManager.currentLobby = null; // Destroyes current lobby after 30 seconds
-            ui_MainMenu.HideLobbyWindow();
-            ui_MainMenu.ShowMenuWindow();
-            countdown = true;
-        }
-    }
-    private void Update()
-    {
-        //CheckForRelayCode();
-        CountdownToSceneChange();
-
-    }
+    
     public void BeginCountDown()
     {
         Debug.Log("Beggining CountDown");
         countdown = true;
-    }
-
-    public void BeginStartingGame()
-    {
-        if (LobbyManager.Instance.currentLobby.Data["Key_Game_Start"].Value != "0")
-        {
-            // Im not a host
-            if (lobbyManager.ReturnIsHost() == false)
-            {
-                relayManager.JoinRelay(lobbyManager.currentLobby.Data["Key_Game_Start"].Value);
-            }
-            Debug.Log("Proceeding with Game Start");
-            //Debug.LogWarning("Destroying Lobby here");
-            //lobbyManager.currentLobby = null; // Destroyes current lobby after 30 seconds
-            ui_MainMenu.HideLobbyWindow();
-            ui_MainMenu.ShowMenuWindow();
-            countdown = true;
-        }
     }
 }
