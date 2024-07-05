@@ -43,6 +43,7 @@ public class GameSetup : MonoBehaviour
         {
             if (lobbyManager.ReturnIsHost() == false)
             {
+                Debug.Log("Im not a host, so i wont start");
                 return;
             }
             timer += Time.deltaTime;
@@ -65,6 +66,9 @@ public class GameSetup : MonoBehaviour
     {
         if (lobbyManager.currentLobby == null)
             return;
+        // Makes sure we only join once on a relay
+        if (countdown == true)
+            return;
 
         if (LobbyManager.Instance.currentLobby.Data["Key_Game_Start"].Value != "0")
         {
@@ -85,9 +89,14 @@ public class GameSetup : MonoBehaviour
     }
     private void Update()
     {
-        CheckForRelayCode();
+        //CheckForRelayCode();
         CountdownToSceneChange();
 
+    }
+    public void BeginCountDown()
+    {
+        Debug.Log("Beggining CountDown");
+        countdown = true;
     }
 
     public void BeginStartingGame()

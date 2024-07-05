@@ -115,6 +115,7 @@ public class LobbyManager : MonoBehaviour
                 // Lobby Updated with Relay Code
                 if (currentLobby.Data["Key_Game_Start"].Value != "0")
                 {
+                    Debug.Log("We received Relay Code");
                     // THE GAME IS STARTING
                     if (ReturnIsHost() == false) // Host is already in the relay
                     {
@@ -123,6 +124,7 @@ public class LobbyManager : MonoBehaviour
                     //currentLobby = null; // Will destroy current lobby after 30 seconds
                     ui_MainMenu.HideLobbyWindow();
                     ui_MainMenu.ShowMenuWindow();
+                    gameSetup.BeginCountDown();
                     MarkAsInGame();
                 }
             }
@@ -448,7 +450,8 @@ public class LobbyManager : MonoBehaviour
             };
             Lobby lobby = await LobbyService.Instance.UpdateLobbyAsync(currentLobby.Id, options);
             currentLobby = lobby;
-            GameSetup.Instance.BeginStartingGame();
+            // We already do that from PoolUpdate
+            //GameSetup.Instance.BeginStartingGame();
         }
         catch(LobbyServiceException e)
         {

@@ -31,6 +31,10 @@ public class RelayManager : MonoBehaviour
     [SerializeField] LobbyManager lobbyManager;
 
 
+    private void Start()
+    {
+        DontDestroyOnLoad(this);
+    }
     // Update is called once per frame
     public async Task<string> CreateRelay()
     {
