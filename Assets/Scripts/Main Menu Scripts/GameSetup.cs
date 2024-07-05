@@ -39,7 +39,6 @@ public class GameSetup : MonoBehaviour
 
     void CountdownToSceneChange()
     {
-
         if(countdown == true)
         {
             if (lobbyManager.ReturnIsHost() == false)
