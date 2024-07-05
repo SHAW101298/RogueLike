@@ -123,6 +123,7 @@ public class LobbyManager : MonoBehaviour
                     }
                     //currentLobby = null; // Will destroy current lobby after 30 seconds
                     ui_MainMenu.HideLobbyWindow();
+                    ui_MainMenu.BTN_MultiplayerReturn();
                     ui_MainMenu.ShowMenuWindow();
                     gameSetup.BeginCountDown();
                     MarkAsInGame();
@@ -303,6 +304,7 @@ public class LobbyManager : MonoBehaviour
             currentLobby = lobby;
             // Modyfikator obra¿eñ dla poziomu trudnoœci
             Debug.Log("Created Lobby! " + currentLobby.Name + "  " +  currentLobby.LobbyCode);
+            FirstLobbyUpdate();
             ui_Lobby.ActivateLobbyWindow();
             await RegisterToLobbyEvents();
             //Debug.Log("Print keygamestart = " + currentLobby.Data["Key_Game_Start"].Value);
@@ -338,6 +340,7 @@ public class LobbyManager : MonoBehaviour
             Lobby lobby = await Lobbies.Instance.JoinLobbyByCodeAsync(code, options);
             currentLobby = lobby;
             Debug.Log("Joined Lobby with code " + code);
+            FirstLobbyUpdate();
             ui_Lobby.ActivateLobbyWindow();
             await RegisterToLobbyEvents();
         }
@@ -358,6 +361,7 @@ public class LobbyManager : MonoBehaviour
             Lobby lobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId, options);
             currentLobby = lobby;
             Debug.Log("Joined Lobby with id " + lobbyId);
+            FirstLobbyUpdate();
             ui_Lobby.ActivateLobbyWindow();
             await RegisterToLobbyEvents();
         }
@@ -379,6 +383,7 @@ public class LobbyManager : MonoBehaviour
             };
             Lobby lobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId, options);
             currentLobby = lobby;
+            FirstLobbyUpdate();
             ui_Lobby.ActivateLobbyWindow();
             await RegisterToLobbyEvents();
         }
@@ -480,5 +485,11 @@ public class LobbyManager : MonoBehaviour
         currentLobby = null;
         ui_MainMenu.ShowMenuWindow();
         ui_MainMenu.HideLobbyWindow();
+    }
+    public async void FirstLobbyUpdate()
+    {
+        Debug.Log("First lobby Update");
+        Lobby lobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
+        currentLobby = lobby;
     }
 }

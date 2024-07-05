@@ -50,6 +50,7 @@ public class RelayManager : MonoBehaviour
             Debug.Log("Starting a host");
             GameSetup.Instance.DisableAudioListener();
             NetworkManager.Singleton.StartHost();
+            
 
         }
         catch(RelayServiceException e)
