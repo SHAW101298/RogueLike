@@ -330,7 +330,7 @@ MonoBehaviour:
   groundedPlayer: 0
   groundCheckDistance: 0.1
   velocity: {x: 0, y: 0, z: 0}
-  moveSpeed: 2
+  moveSpeed: 3
   runSpeedMultiplier: 2
   runningStaminaCost: 0.02
   isRunning: 0

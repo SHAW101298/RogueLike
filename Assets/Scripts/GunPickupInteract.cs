@@ -2,27 +2,6 @@
 
 public class GunPickupInteract : InteractableBase
 {
-    [SerializeField] Vector3 rotateSpeed = new Vector3(0,0.1f,0);
-    [SerializeField] float boopingSpeed = 0.05f;
-    [SerializeField] float boopingHeight = 0.07f;
-    [SerializeField] Vector3 boopingDir = Vector3.one;
-    [SerializeField] Vector3 basePos;
-
-
-    private void Update()
-    {
-        WobbleAnim();
-    }
-    void WobbleAnim()
-    {
-        transform.Translate(boopingSpeed * Time.deltaTime * boopingDir);
-        transform.Rotate(rotateSpeed);
-        if (transform.position.y >= basePos.y + boopingHeight || transform.position.y <= basePos.y - boopingHeight)
-        {
-            boopingDir *= -1;
-        }
-
-    }
     public override void Interact(PlayerData2 data)
     {
         Debug.Log("WE INTERACTING BOIS");

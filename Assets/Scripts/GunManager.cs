@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class GunManager : MonoBehaviour
 {
+    #region
+    public static GunManager Instance;
+    private void Awake()
+    {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    #endregion
     public List<GameObject> gunList;
 
     [Header("Debug")]
