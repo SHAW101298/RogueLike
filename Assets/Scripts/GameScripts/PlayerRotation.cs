@@ -39,7 +39,7 @@ public class PlayerRotation : NetworkBehaviour
         movement = new Vector3(-input.y, 0, 0);
         rot += movement * (sensitivity / 10);
         camera.transform.localEulerAngles = rot;
-        characterModel.transform.localEulerAngles = rot;
+        //characterModel.transform.localEulerAngles = rot;
     }
     void Rotate2()
     {

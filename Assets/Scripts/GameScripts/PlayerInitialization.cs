@@ -68,6 +68,8 @@ public class PlayerInitialization : NetworkBehaviour
         Animator tempAnim = playerData.gameObject.GetComponent<Animator>();
         tempAnim.runtimeAnimatorController = CharactersList.Instance.GetController(charID);
         tempAnim.enabled = true;
+
+
     }
 
 }
