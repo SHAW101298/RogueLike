@@ -8,10 +8,11 @@ public enum ENUM_TriggerType
 }
 public enum ENUM_DamageType
 {
-    fire,
+    heat,
     ice,
     toxin,
     electricity,
+    chaos,
     physical
 }
 [System.Serializable]

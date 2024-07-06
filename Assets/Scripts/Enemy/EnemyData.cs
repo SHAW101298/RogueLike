@@ -7,6 +7,7 @@ public class EnemyData : UnitData
     public CharacterController controller;
     public EnemyStats stats;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +18,17 @@ public class EnemyData : UnitData
     void Update()
     {
         
+    }
+    public void HitEnemy(GunDamageData damageData)
+    {
+        
+
+    }
+    public void HitEnemy(List<GunDamageData> dealtDamage)
+    {
+        foreach(GunDamageData damage in dealtDamage)
+        {
+            
+        }
     }
 }

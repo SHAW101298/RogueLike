@@ -8,6 +8,12 @@ public class PlayerStats : MonoBehaviour
     public PlayerUI ui;
 
     [Header("Data")]
+
+    public Stats baseStats;
+    public Stats bonusStats;
+    public Stats finalStats;
+
+
     public int health;
     public float staminaCurrent;
     public float staminaMax;
@@ -64,6 +70,17 @@ public class PlayerStats : MonoBehaviour
             }
             ui.UpdateStaminaBar(staminaCurrent/staminaMax);
         }
+    }
+
+    void CreateFinalStats()
+    {
+        float missingHealth = baseStats.health;
+        if(finalStats != null)
+        {
+             missingHealth = finalStats.healthMax - finalStats.health;
+        }
+        finalStats = new Stats(baseStats, bonusStats);
+        finalStats.health = finalStats.healthMax - missingHealth;
     }
 
 }

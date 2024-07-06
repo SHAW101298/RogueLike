@@ -50,7 +50,7 @@ public class PlayerShooting : MonoBehaviour
                 
             currentlySelected.Shoot();  
             ui.UpdateAmmo();
-            ui.UpdateCrossHair();
+            //ui.UpdateCrossHair();
         }
     }
 
