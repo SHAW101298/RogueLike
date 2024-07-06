@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerRotation : NetworkBehaviour
 {
-
     public GameObject body;
     public GameObject camera;
+    public GameObject characterModel;
 
     public float sensitivity = 0.5f;
     Vector2 input;
@@ -39,5 +39,13 @@ public class PlayerRotation : NetworkBehaviour
         movement = new Vector3(-input.y, 0, 0);
         rot += movement * (sensitivity / 10);
         camera.transform.localEulerAngles = rot;
+        characterModel.transform.localEulerAngles = rot;
+    }
+    void Rotate2()
+    {
+        rot = body.transform.localRotation.eulerAngles;
+        Vector3 movement = new Vector3(-input.y, input.x, 0);
+        rot += movement * (sensitivity / 10);
+        body.transform.localEulerAngles = rot;
     }
 }

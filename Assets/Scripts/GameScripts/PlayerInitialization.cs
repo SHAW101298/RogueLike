@@ -46,7 +46,7 @@ public class PlayerInitialization : NetworkBehaviour
             //Destroy(playerData.rotation.camera);
             Debug.Log("Disabled other player scripts");
         }
-        CreateGameCharacter();
+        //CreateGameCharacter();
     }
     private void Update()
     {
