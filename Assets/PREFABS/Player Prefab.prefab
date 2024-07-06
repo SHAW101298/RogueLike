@@ -307,6 +307,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 2208149460399325528}
+  baseStats: {fileID: 0}
+  bonusStats: {fileID: 0}
+  finalStats: {fileID: 0}
   health: 100
   staminaCurrent: 30
   staminaMax: 30
