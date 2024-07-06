@@ -32,6 +32,8 @@ public class GameSetup : MonoBehaviour
     {
         CreateBasicGuns();
     }
+
+
     void CreateBasicGuns()
     {
         int possibleGuns = GunManager.Instance.gunList.Count;
