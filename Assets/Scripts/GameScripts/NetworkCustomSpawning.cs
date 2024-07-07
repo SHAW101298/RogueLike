@@ -28,7 +28,7 @@ public class NetworkCustomSpawning : NetworkBehaviour
                 temp = Instantiate(prefab);
                 temp.GetComponent<NetworkObject>().SpawnWithOwnership(client, true);
                 // https://forum.unity.com/threads/how-do-i-link-lobby-players-to-unity-ngo-networkobjects.1360111/
-                Debug.Log("There ?")
+                Debug.Log("There ?");
             }
         }
     }
