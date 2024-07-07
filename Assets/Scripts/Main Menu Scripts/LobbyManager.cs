@@ -49,6 +49,7 @@ public class LobbyManager : MonoBehaviour
     float heartBeatTimer;
     float poolUpdateTimer;
     bool inGame;
+    float countdownTimer;
     async void Start()
     {
         if (oldListener == null)
@@ -497,6 +498,14 @@ public class LobbyManager : MonoBehaviour
         Debug.Log("We received Relay Code");
         bool ishost = ReturnIsHost();
 
+        /*
+        countdownTimer += Time.deltaTime;
+        if(countdownTimer < 1)
+        {
+            //return;
+        }
+        */
+
         if (ishost == false) // Host is already in the relay
         {
             relayManager.JoinRelay(currentLobby.Data["Key_Game_Start"].Value);
@@ -506,6 +515,7 @@ public class LobbyManager : MonoBehaviour
         ui_MainMenu.BTN_MultiplayerReturn();
         ui_MainMenu.ShowMenuWindow();
         MarkAsInGame();
+        countdownTimer = 0;
         // Clients will be forced to change scene
         if(ishost == true)
         {

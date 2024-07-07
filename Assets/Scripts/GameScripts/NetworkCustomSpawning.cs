@@ -7,30 +7,70 @@ using UnityEngine.Networking.PlayerConnection;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using Unity.Services.Lobbies;
 
 public class NetworkCustomSpawning : NetworkBehaviour
 {
     GameObject prefab;
 
+    private void Start()
+    {
+        DontDestroyOnLoad(this);
+    }
+
     public override void OnNetworkSpawn()
     {
         NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += SpawnPrefabs;
+        
     }
+    [ClientRpc]
+    public void LoadComplete_ClientRPC()
+    {
+        Debug.Log("Load Completed");
+        int character = Convert.ToInt32(LobbyManager.Instance.currentPlayer.Data["Character"].Value);
+        SpawnMe_ServerRPC(character);
+    }
+    [ServerRpc]
+    public void SpawnMe_ServerRPC(int character, ServerRpcParams serverRpcParams = default)
+    {
+        Debug.Log("Player is requesting a spawn");
+        Debug.Log("Sender client id = " + serverRpcParams.Receive.SenderClientId);
+    }
+    [ServerRpc]
+    public void FinishedLoading_ServerRPC(ServerRpcParams serverRpcParams = default)
+    {
+
+    }
+
 
     private void SpawnPrefabs(string sceneName, LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
     {
+        Debug.Log("Connected Clients = " + clientsCompleted.Count);
+        foreach(ulong id in clientsCompleted)
+        {
+            Debug.Log("Im connected ! = " + id);
+        }
+        LoadComplete_ClientRPC();
+        /*
         Debug.LogWarning("Sample Scene !!");
         if(IsHost == true && sceneName == "SampleScene")
         {
             GameObject temp;
             foreach(ulong client in clientsCompleted)
             {
+                Debug.Log("client = " + client);
+                //Debug.Log("lobby client allocation id= " + LobbyManager.Instance.currentPlayer.AllocationId);
+                //Debug.Log("lobby client id= " + LobbyManager.Instance.currentPlayer.Id);
+                //Debug.Log("Lobby client connection info" + LobbyManager.Instance.currentPlayer.ConnectionInfo);
+                //Debug.Log(LobbyManager.Instance.currentLobby.Players[].);
                 temp = Instantiate(prefab);
                 temp.GetComponent<NetworkObject>().SpawnWithOwnership(client, true);
                 // https://forum.unity.com/threads/how-do-i-link-lobby-players-to-unity-ngo-networkobjects.1360111/
                 Debug.Log("There ?");
             }
         }
+
+        */
     }
 
 

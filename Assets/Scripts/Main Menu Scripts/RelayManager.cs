@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -44,6 +45,7 @@ public class RelayManager : MonoBehaviour
             int maxPlayers = lobbyManager.currentLobby.MaxPlayers - 1;
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(maxPlayers);
              joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
+            
 
             RelayServerData relayServerData = new RelayServerData(allocation,"dtls");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
