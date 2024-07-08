@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Character1HookUp : MonoBehaviour
 {
-
-    public Vector3 cameraPos;
-    public Vector3 gunHandlePos;
-    public Quaternion gunHandleRotation;
-    public GameObject gunHandle;
     [Header("Body")]
     public Animator bodyanimator;
     public GameObject bodyObject;
@@ -25,11 +20,13 @@ public class Character1HookUp : MonoBehaviour
         {
             bodyObject.SetActive(false);
             handsObject.SetActive(true);
-            gunHandle.transform.SetParent(handsGunParent.transform);
+            
+            //gunHandle.transform.SetParent(handsGunParent.transform);
         }
         else
         {
             handsObject.SetActive(false);
+            
         }
     }
 

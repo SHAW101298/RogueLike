@@ -15,6 +15,11 @@ public class PlayerInitialization : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().name.Equals("SampleScene"))
+        {
+            InitializePlayerScripts();
+            enabled = false;
+        }
     }
 
     private void InitializePlayerScripts()
@@ -30,6 +35,7 @@ public class PlayerInitialization : NetworkBehaviour
             playerData.ui.ammoCurrent = UI_HookUpScript.Instance.ammoCurrent;
             playerData.ui.magazineCurrent = UI_HookUpScript.Instance.magazineCurrent;
             playerData.ui.staminaBar = UI_HookUpScript.Instance.staminaBar;
+            transform.position = Vector3.zero;
             Debug.Log("Enabled my scripts");
         }
         else
@@ -49,27 +55,10 @@ public class PlayerInitialization : NetworkBehaviour
         }
         //CreateGameCharacter();
         characterHookUp.Setup(IsOwner);
+        
     }
     private void Update()
     {
-        if(SceneManager.GetActiveScene().name.Equals("SampleScene"))
-        {
-            InitializePlayerScripts();
-            enabled = false;
-        }
+        
     }
-
-    void CreateGameCharacter()
-    {
-        Debug.Log("Creating Game Character");
-        string charID = LobbyManager.Instance.currentPlayer.Data["Character"].Value;
-        GameObject tempRef = CharactersList.Instance.GetCharacter(charID);
-        GameObject tempGO = Instantiate(tempRef);
-        tempGO.transform.SetParent(playerData.gameObject.transform);
-        tempGO.transform.localEulerAngles = Vector3.zero;
-        Animator tempAnim = playerData.gameObject.GetComponent<Animator>();
-        tempAnim.runtimeAnimatorController = CharactersList.Instance.GetController(charID);
-        tempAnim.enabled = true;
-    }
-
 }
