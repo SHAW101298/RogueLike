@@ -43,7 +43,7 @@ public class LobbyManager : MonoBehaviour
     public UI_LobbyList ui_LobbyList;
     
     [SerializeField] AudioListener oldListener;
-    public Lobby currentLobby;
+    [SerializeField] public Lobby currentLobby;
     public Player currentPlayer;
     //public TMP_Text lobbyName;
     float heartBeatTimer;

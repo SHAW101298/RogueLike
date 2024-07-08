@@ -82,6 +82,7 @@ public class UI_Lobby : MonoBehaviour
             tempDATA.playerID = player.Id;
             tempGO.transform.SetParent(currentPlayersContent);
             tempGO.transform.localScale = Vector3.one;
+            
 
             //Debug.Log("Ready status = " + player.Data["Ready"].Value);
             if (player.Data["Ready"].Value == "0")

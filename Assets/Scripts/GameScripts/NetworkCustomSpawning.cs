@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using Unity.Services.Lobbies;
+using UnityEditor.PackageManager;
 
 
 public class NetworkCustomSpawning : NetworkBehaviour
@@ -42,22 +43,34 @@ public class NetworkCustomSpawning : NetworkBehaviour
 
     private void LoadingCompleted(ulong clientID, string sceneName, LoadSceneMode loadSceneMode)
     {
+        // This is called on SERVER, when a client loads.
         if(sceneName != "SampleScene")
         {
             return;
         }
         Debug.Log("I completed Loading. my clientID is = " + clientID);
-        int character = Convert.ToInt32(LobbyManager.Instance.currentPlayer.Data["Character"].Value);
-        SpawnMe_ServerRPC(character, clientID);
+        // Ask client for his spawning data
+
+        ClientRpcParams clientRpcParams = new ClientRpcParams
+        {
+            Send = new ClientRpcSendParams
+            {
+                TargetClientIds = new ulong[] { clientID }
+            }
+        };
+
+        LoadComplete_ClientRPC(clientRpcParams);
     }
 
     [ClientRpc]
-    public void LoadComplete_ClientRPC()
+    public void LoadComplete_ClientRPC(ClientRpcParams clientparams)
     {
-        Debug.Log("Load Completed");
-        int character = Convert.ToInt32(LobbyManager.Instance.currentPlayer.Data["Character"].Value);
+        Debug.Log("Load Completed for you");
+        //int character = Convert.ToInt32(LobbyManager.Instance.currentPlayer.Data["Character"].Value);
         //SpawnMe_ServerRPC(character);
     }
+
+    // Wrong !!
     [ServerRpc(RequireOwnership = false)]
     public void SpawnMe_ServerRPC(int character, ulong clientID)
     {
