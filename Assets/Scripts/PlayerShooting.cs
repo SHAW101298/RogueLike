@@ -14,6 +14,7 @@ public class PlayerShooting : MonoBehaviour
     public Transform crossHairPos;
     public Transform pointOfView;
     public Transform gunNozzle;
+    public GameObject gunHandle;
 
 
 
