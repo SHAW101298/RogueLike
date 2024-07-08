@@ -5,23 +5,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteractBeam : MonoBehaviour
 {
-    [SerializeField] PlayerData2 playerData;
+    [SerializeField] PlayerData playerData;
     [SerializeField] Transform cameraPosition;
     [SerializeField] Transform centerOfView;
     [SerializeField] float rayDistance;
     [SerializeField] LayerMask interactableLayers;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Interact(InputAction.CallbackContext context)
     {

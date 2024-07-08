@@ -76,4 +76,18 @@ public class PlayerShooting : MonoBehaviour
 
         return true;
     }
+    public bool AttemptGunChange2(Gun gun)
+    {
+        if(possesedGuns.Count < 3)
+        {
+            possesedGuns.Add(gun);
+            return true;
+        }
+        else
+        {
+            Debug.Log("Show Gun Data Screen");
+            return false;
+        }
+
+    }
 }

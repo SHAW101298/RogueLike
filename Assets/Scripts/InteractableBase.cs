@@ -10,5 +10,5 @@ public enum ENUM_InteractableType
 public abstract class InteractableBase : MonoBehaviour
 {
     public ENUM_InteractableType interactableType;
-    public abstract void Interact(PlayerData2 data);
+    public abstract void Interact(PlayerData data);
 }

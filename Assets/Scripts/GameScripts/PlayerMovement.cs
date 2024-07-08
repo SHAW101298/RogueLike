@@ -45,7 +45,7 @@ public class PlayerMovement : NetworkBehaviour
     [Header("Reference")]
     public CharacterController controller;
     public PlayerStats stats;
-    public PlayerData2 data;
+    public PlayerData data;
     public LayerMask groundLayer;
 
     // Update is called once per frame

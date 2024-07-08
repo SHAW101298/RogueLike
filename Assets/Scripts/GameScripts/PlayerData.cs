@@ -21,4 +21,10 @@ public class PlayerData : NetworkBehaviour
     {
         
     }
+
+    public bool AttemptGunChange(Gun gun)
+    {
+        bool success = shooting.AttemptGunChange(gun);
+        return success;
+    }
 }

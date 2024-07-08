@@ -2,7 +2,7 @@
 
 public class GunPickupInteract : InteractableBase
 {
-    public override void Interact(PlayerData2 data)
+    public override void Interact(PlayerData data)
     {
         Debug.Log("WE INTERACTING BOIS");
         Gun thisGun = GetComponent<Gun>();
