@@ -242,6 +242,29 @@ public class LobbyManager : MonoBehaviour
         }
         
     }
+    public void CallMarkAsLoaded()
+    {
+        MarkAsLoaded();
+    }
+    async void MarkAsLoaded()
+    {
+        try
+        {
+            UpdatePlayerOptions options = new UpdatePlayerOptions()
+            {
+                Data = new Dictionary<string, PlayerDataObject>
+                {
+                    ["IsLoaded"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "1")
+                }
+            };
+            Lobby lobby = await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, currentPlayer.Id, options);
+            currentLobby = lobby;
+        }
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+    }
     public async void CallLeaveLobby()
     {
         try
@@ -516,6 +539,7 @@ public class LobbyManager : MonoBehaviour
         ui_MainMenu.ShowMenuWindow();
         MarkAsInGame();
         countdownTimer = 0;
+        NetworkCustomSpawning.Instance.SetAmountOfExpectedPlayers(currentLobby.Players.Count);
         // Clients will be forced to change scene
         if(ishost == true)
         {
