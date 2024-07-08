@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 public class PlayerInitialization : NetworkBehaviour
 {
     [SerializeField] PlayerData playerData;
+    [SerializeField] Character1HookUp characterHookUp;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,7 @@ public class PlayerInitialization : NetworkBehaviour
             Debug.Log("Disabled other player scripts");
         }
         //CreateGameCharacter();
+        characterHookUp.Setup(IsOwner);
     }
     private void Update()
     {
@@ -68,8 +70,6 @@ public class PlayerInitialization : NetworkBehaviour
         Animator tempAnim = playerData.gameObject.GetComponent<Animator>();
         tempAnim.runtimeAnimatorController = CharactersList.Instance.GetController(charID);
         tempAnim.enabled = true;
-
-
     }
 
 }
