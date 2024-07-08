@@ -17,28 +17,17 @@ public class NetworkCustomSpawning : NetworkBehaviour
     private void Start()
     {
         DontDestroyOnLoad(this);
-        
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        Debug.Log("Scene Manager says scene is loaded = " + arg0.name);
     }
 
     public override void OnNetworkSpawn()
     {
-        NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += LoadingCompletedForAll;
         NetworkManager.Singleton.SceneManager.OnLoadComplete += LoadingCompleted;
-        
-    }
-
-    private void LoadingCompletedForAll(string sceneName, LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
-    {
-        if (sceneName != "SampleScene")
-            return;
-
-        Debug.Log("Host now sees everyone has been connected");
-        Debug.Log("Amount of clients completed = " + clientsCompleted.Count);
-        Debug.Log("Amount of client timedOut = " + clientsTimedOut.Count);
-        foreach(ulong clientCompleted in clientsCompleted)
-        {
-            Debug.Log("client = " + clientCompleted + " is finished");
-        }
     }
 
     private void LoadingCompleted(ulong clientID, string sceneName, LoadSceneMode loadSceneMode)
@@ -70,15 +59,7 @@ public class NetworkCustomSpawning : NetworkBehaviour
         //SpawnMe_ServerRPC(character);
     }
 
-    // Wrong !!
-    [ServerRpc(RequireOwnership = false)]
-    public void SpawnMe_ServerRPC(int character, ulong clientID)
-    {
-        Debug.Log("Player is requesting a spawn of character = " + character);
-        Debug.Log("Sender client id = " + clientID);
 
-        
-    }
 
 
 
