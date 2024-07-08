@@ -9,38 +9,65 @@ using UnityEngine.SceneManagement;
 using System;
 using Unity.Services.Lobbies;
 
+
 public class NetworkCustomSpawning : NetworkBehaviour
 {
-    GameObject prefab;
 
     private void Start()
     {
         DontDestroyOnLoad(this);
+        
     }
 
     public override void OnNetworkSpawn()
     {
-        NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += SpawnPrefabs;
+        NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += LoadingCompletedForAll;
+        NetworkManager.Singleton.SceneManager.OnLoadComplete += LoadingCompleted;
         
     }
+
+    private void LoadingCompletedForAll(string sceneName, LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
+    {
+        if (sceneName != "SampleScene")
+            return;
+
+        Debug.Log("Host now sees everyone has been connected");
+        Debug.Log("Amount of clients completed = " + clientsCompleted.Count);
+        Debug.Log("Amount of client timedOut = " + clientsTimedOut.Count);
+        foreach(ulong clientCompleted in clientsCompleted)
+        {
+            Debug.Log("client = " + clientCompleted + " is finished");
+        }
+    }
+
+    private void LoadingCompleted(ulong clientID, string sceneName, LoadSceneMode loadSceneMode)
+    {
+        if(sceneName != "SampleScene")
+        {
+            return;
+        }
+        Debug.Log("I completed Loading. my clientID is = " + clientID);
+        int character = Convert.ToInt32(LobbyManager.Instance.currentPlayer.Data["Character"].Value);
+        SpawnMe_ServerRPC(character, clientID);
+    }
+
     [ClientRpc]
     public void LoadComplete_ClientRPC()
     {
         Debug.Log("Load Completed");
         int character = Convert.ToInt32(LobbyManager.Instance.currentPlayer.Data["Character"].Value);
-        SpawnMe_ServerRPC(character);
+        //SpawnMe_ServerRPC(character);
     }
-    [ServerRpc]
-    public void SpawnMe_ServerRPC(int character, ServerRpcParams serverRpcParams = default)
+    [ServerRpc(RequireOwnership = false)]
+    public void SpawnMe_ServerRPC(int character, ulong clientID)
     {
-        Debug.Log("Player is requesting a spawn");
-        Debug.Log("Sender client id = " + serverRpcParams.Receive.SenderClientId);
-    }
-    [ServerRpc]
-    public void FinishedLoading_ServerRPC(ServerRpcParams serverRpcParams = default)
-    {
+        Debug.Log("Player is requesting a spawn of character = " + character);
+        Debug.Log("Sender client id = " + clientID);
 
+        
     }
+
+
 
 
     private void SpawnPrefabs(string sceneName, LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
@@ -50,7 +77,7 @@ public class NetworkCustomSpawning : NetworkBehaviour
         {
             Debug.Log("Im connected ! = " + id);
         }
-        LoadComplete_ClientRPC();
+        //LoadComplete_ClientRPC();
         /*
         Debug.LogWarning("Sample Scene !!");
         if(IsHost == true && sceneName == "SampleScene")
