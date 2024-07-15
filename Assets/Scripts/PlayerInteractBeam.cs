@@ -33,4 +33,25 @@ public class PlayerInteractBeam : MonoBehaviour
         InteractableBase interactable = hitInfo.collider.GetComponent<InteractableBase>();
         interactable.Interact(playerData);
     }
+
+    public void Foo()
+    {
+        //Debug.LogWarning("Foo");
+        RaycastHit hit;
+        Vector3 dir = centerOfView.position - cameraPosition.position;
+        if(Physics.Raycast(cameraPosition.position, dir, out hit, rayDistance, interactableLayers) == true)
+        {
+            // We definitely Hit something
+            if (hit.collider.gameObject.CompareTag("Weapon"))
+            {
+                Debug.Log("Pokaz dane broni");
+            }
+        }
+
+    }
+    private void Update()
+    {
+        Foo();
+    }
+
 }
