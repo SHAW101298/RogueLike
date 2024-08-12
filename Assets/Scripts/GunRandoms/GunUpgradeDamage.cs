@@ -38,7 +38,7 @@ public class GunUpgradeDamage : GunUpgradeBase
             percentageAmount = Mathf.Round(randFloat);
             percentageAmount /= 100;
         }
-        int damageTypeMax = (int)ENUM_DamageType.physical;
+        int damageTypeMax = (int)ENUM_DamageType.Physical;
         int randDamageType = Random.Range(0,1 + damageTypeMax);
         damageType = (ENUM_DamageType)randDamageType;
     }

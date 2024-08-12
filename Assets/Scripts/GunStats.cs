@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 public enum ENUM_TriggerType
 {
@@ -8,12 +9,12 @@ public enum ENUM_TriggerType
 }
 public enum ENUM_DamageType
 {
-    heat,
-    ice,
-    toxin,
-    electricity,
-    chaos,
-    physical
+    Heat,
+    Ice,
+    Toxin,
+    Electricity,
+    Chaos,
+    Physical
 }
 [System.Serializable]
 public class GunDamageData
@@ -33,4 +34,6 @@ public struct GunStats
     public float projectileSpeed;
     public List<GunDamageData> damageArray;
     public int punchThrough;
+
+    
 }

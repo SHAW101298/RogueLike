@@ -27,6 +27,13 @@ public class ToDOList : MonoBehaviour
 }
 // 
 
+
+/*
+ Kazda postac posiadac bedzie 1-2 umiejetnosci uzywalne w czasie gry.
+Bounty Hunter
+Pasywka - Na każdej mapie jest przeciwnik za którego dostanie dodatkową ilość pieniędzy
+Give It A Shot - 
+ */
 /*
 Tworzenie ulozenia pomieszczen
 1. Wywolanie skryptu ktory bedzie wczytywal dane.
@@ -37,12 +44,67 @@ Tworzenie ulozenia pomieszczen
 Prefaby przeciwników zapisane są w Prefab List, więc wystarczy wygenerować u hosta odpowiednią kombinację.
 Aasb
  */
+
+
 /*
  Lobby:
 Przycisk pozwalajacy pokazac i schowac okno Lobby ( jezeli jest sie do jakiegos podlaczonym )
 Ikony z postaciami podswietlaja sie na czerwono / zielono, zaleznie od przycisku przygotowania
 Po schowaniu lobby, pokazane sa tylko ikony postaci wraz z statusem przygotowania
+ */
 
+
+/*
+ Dostepne ulepszenia broni:
+Zwiekszenie obrazen
+Zwiekszenie szybkosci strzelania
+Zwiekszenie amunicji
+Zwiekszenie szansy na krytyk
+Zmiana typu obrazen
 
  */
 
+/*
+ Cherrif Ulepszenia
+Zwiekszenie szansy na krytyk
+Ostatni pocisk zawsze krytuje
+Obrazenia z pistoletow
+
+ */
+
+/*
+ 
+Assisting an ally under attack restores 15 Temporary Health to both players. (Assisting allies refers to saving them from a Gutter Runner, Packmaster, or Lifeleech, or Staggering Enemies who are about to backstab them.)
+Blocking an attack increases the damage the attacker takes by 20% for 5.0 seconds.
+Increases push strength by 50% when used against an attacking enemy.
+Timed blocks reduce stamina cost by 100%.
+Melee critical strikes reduce the cooldown of your Career Skill by 5%. Effect can only trigger once every 4 seconds.
+Critical Hits increase attack speed by 20% for 5.0 seconds. 
+
+Consecutive attacks against the same targets boosts attack power by 5.0% for 5.0 seconds. (This effect stacks up to 5 times.)
+Headshots replenish 1.0 ammo
+Critical hits refund the overcharge cost of the attack. (Only appears on Sienna's staves, Kerillian's Deepwood staff and Bardin's Drakefire weapons)
+Critical hits increase attack power by 25% against targets with the same armor class for a short time. (This effect lasts 10 seconds.)
+Headshots restore stamina to nearby allies. (Restores 1 stamina, half of a shield icon.)
+Ranged critical hits reduce the cooldown of your Career Skill by 5%. Effect can only trigger once every 4 seconds.
+Critical hits restore 5% of maximum ammunition. Can trigger once per attack.
+Weapon generates 20.0% less Overheat. (Only appears on Sienna's staves, Kerillian's Deepwood staff and Bardin's Drakefire weapons) 
+
+Taking damage reduces the damage you take from subsequent sources by 40% for 2 seconds. This effect can only trigger every 2 seconds.
+Increases effectiveness of healing on you by 30%.
+Healing an ally with medical supplies also heals you for 50.0% of your missing health.
+25.0% chance to not consume healing item on use.
+Passively regenerates 1 health every 5 seconds. Healing from First Aid Kits and Healing Draughts are converted to temporary health and cure any wound. 
+ */
+
+
+/*
+Statystyki opisujące broń 
+    obrazenia
+    szansa na kryty
+    mnoznik krytow
+    Affliction Chance ( status )
+    amunicja / max
+    szybkosc strzelania
+    stability
+ */

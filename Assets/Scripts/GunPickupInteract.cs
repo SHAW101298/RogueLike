@@ -4,10 +4,7 @@ public class GunPickupInteract : InteractableBase
 {
     public override void Interact(PlayerData data)
     {
-        Debug.Log("WE INTERACTING BOIS");
         Gun thisGun = GetComponent<Gun>();
-        Debug.Log("This Gun = " + thisGun.gameObject.name);
-        Debug.Log("Player = " + data.gameObject.name);
         bool success = data.AttemptGunChange(thisGun);
 
 

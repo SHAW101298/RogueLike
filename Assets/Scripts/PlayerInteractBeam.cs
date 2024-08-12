@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteractBeam : MonoBehaviour
 {
@@ -11,23 +12,35 @@ public class PlayerInteractBeam : MonoBehaviour
     [SerializeField] float rayDistance;
     [SerializeField] LayerMask interactableLayers;
 
+    UI_RaycastedGunData ui_RaycastedGunData;
+
+    private void Start()
+    {
+        if(SceneManager.GetActiveScene().name == "GameScene")
+        {
+            ui_RaycastedGunData = UI_RaycastedGunData.Instance;
+        }
+    }
+
+    private void Update()
+    {
+        Foo();
+    }
+
     public void Interact(InputAction.CallbackContext context)
     {
         if(context.phase == InputActionPhase.Performed)
         {
             Vector3 direction = centerOfView.position - cameraPosition.position;
             RaycastHit hitInfo;
-            //Debug.Log("Interact Used");
             
             if(Physics.Raycast(cameraPosition.position, direction, out hitInfo, rayDistance, interactableLayers))
             {
-                //Debug.Log("RayCast Returned HitInfo = " + hitInfo.collider.gameObject.name);
                 InteractWithObject(hitInfo);
             }
-            
-
         }
     }
+
     void InteractWithObject(RaycastHit hitInfo)
     {
         InteractableBase interactable = hitInfo.collider.GetComponent<InteractableBase>();
@@ -44,14 +57,8 @@ public class PlayerInteractBeam : MonoBehaviour
             // We definitely Hit something
             if (hit.collider.gameObject.CompareTag("Weapon"))
             {
-                Debug.Log("Pokaz dane broni");
+                ui_RaycastedGunData.ShowGunData(hit.collider.gameObject.GetComponent<Gun>());
             }
         }
-
     }
-    private void Update()
-    {
-        Foo();
-    }
-
 }

@@ -5,6 +5,20 @@ using TMPro;
 
 public class UI_RaycastedGunData : MonoBehaviour
 {
+    #region
+    public static UI_RaycastedGunData Instance;
+    public void Awake()
+    {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+#endregion
     public TMP_Text damageField;
     public TMP_Text critField;
     public TMP_Text speedField;
@@ -47,6 +61,18 @@ public class UI_RaycastedGunData : MonoBehaviour
         }
         bonusesParent.gameObject.SetActive(true);
         //currentLobbyName.preferredHeight;
-        
+    }
+    public void ShowGunData(Gun gun)
+    {
+        foreach(Transform child in bonusesParent)
+        {
+            Destroy(child.gameObject);
+        }
+        damageField.text = gun.modifiedStats.damageArray[0].damage.ToString();
+        //critField.text = gun.modifiedStats.
+        //speedField.text = gun.modifiedStats.timeBetweenShots.ToString();
+        speedField.text = (10 / gun.modifiedStats.timeBetweenShots).ToString();
+        magazineField.text = gun.modifiedStats.magazineMax.ToString();
+
     }
 }
