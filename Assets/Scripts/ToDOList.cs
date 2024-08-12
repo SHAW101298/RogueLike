@@ -55,16 +55,6 @@ Po schowaniu lobby, pokazane sa tylko ikony postaci wraz z statusem przygotowani
 
 
 /*
- Dostepne ulepszenia broni:
-Zwiekszenie obrazen
-Zwiekszenie szybkosci strzelania
-Zwiekszenie amunicji
-Zwiekszenie szansy na krytyk
-Zmiana typu obrazen
-
- */
-
-/*
  Cherrif Ulepszenia
 Zwiekszenie szansy na krytyk
 Ostatni pocisk zawsze krytuje
@@ -107,4 +97,16 @@ Statystyki opisujące broń
     amunicja / max
     szybkosc strzelania
     stability
+    poziom
+ */
+/*
+Bonusy losowane do broni
+    Zwiekszenie obrazen
+    Zwiekszenie szybkosci strzelania
+    Zwiekszenie amunicji
+    Zwiekszenie szansy na krytyk
+    Zwiekszenie crit multiplier
+    Zwiekszenie affliction Chance
+    Zmniejszenie czasu przeładowania
+    Zwiekszenie obrazen na przeciwnikach pod wyplywem statusu
  */

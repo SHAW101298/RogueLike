@@ -71,9 +71,10 @@ public class ProjectileBehaviour : MonoBehaviour
         punchThrough--;
         EnemyData enemyData = other.gameObject.GetComponent<EnemyData>();
         GunStats gunStats = owningGun.modifiedStats;
+
         for(int i = 0; i < gunStats.damageArray.Count; i++)
         {
-            enemyData.stats.DecreaseHealth(gunStats.damageArray[i]);
+            float dealtDamage = enemyData.HitEnemy(gunStats);
         }
 
         if(punchThrough <= 0)

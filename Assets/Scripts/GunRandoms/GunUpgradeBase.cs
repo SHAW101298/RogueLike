@@ -11,11 +11,8 @@ public enum ENUM_GunRandomUpgradeType
     reloadSpeed
 }
 [System.Serializable]
-public class GunUpgradeBase
+public abstract class GunUpgradeBase : MonoBehaviour
 {
     public ENUM_GunRandomUpgradeType upgradeType;
-    public virtual void Roll()
-    {
-
-    }
+    public abstract void Roll();
 }

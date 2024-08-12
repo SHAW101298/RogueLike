@@ -20,21 +20,28 @@ public class Stats : MonoBehaviour
     public float shieldRegen;
     public float shieldDelay;
 
-    public float physicalFlatResistance;
-    public float coldFlatResistance;
-    public float heatFlatResistance;
-    public float toxinFlatResistance;
-    public float electricityFlatResistance;
-    public float chaosFlatResistance;
+    public float[] flatResistances;
+    public float[] percentResistances;
 
-    public float physicalPercentResistance;
-    public float coldPercentResistance;
-    public float heatPercentResistance;
-    public float toxinPercentResistance;
-    public float electricityPercentResistance;
-    public float chaosPercentResistance;
+    public float GetFlatResist(ENUM_DamageType type)
+    {
+        return flatResistances[(int)type];
+    }
+    public float GetPercentResist(ENUM_DamageType type)
+    {
+        return percentResistances[(int)type];
+    }
 
-
+    void CreateResistanceTables()
+    {
+        int size = (int)ENUM_DamageType.Piercing + 1;
+        flatResistances = new float[size];
+        percentResistances = new float[size];
+    }
+    public Stats()
+    {
+        CreateResistanceTables();
+    }
     public Stats(Stats stats1, Stats stats2)
     {
         healthMax = stats1.healthMax + stats2.healthMax;
@@ -46,18 +53,14 @@ public class Stats : MonoBehaviour
         shieldMax = stats1.shieldMax + stats2.shieldMax;
         shieldRegen = stats1.shieldRegen + stats2.shieldRegen;
         shieldDelay = stats1.shieldDelay + stats2.shieldDelay;
-        physicalFlatResistance = stats1.physicalFlatResistance + stats2.physicalFlatResistance;
-        coldFlatResistance = stats1.coldFlatResistance + stats2.coldFlatResistance;
-        heatFlatResistance = stats1.heatFlatResistance + stats2.heatFlatResistance;
-        toxinFlatResistance = stats1.toxinFlatResistance + stats2.toxinFlatResistance;
-        electricityFlatResistance = stats1.electricityFlatResistance + stats2.electricityFlatResistance;
-        chaosFlatResistance = stats1.chaosFlatResistance + stats2.chaosFlatResistance;
-        physicalPercentResistance = stats1.physicalPercentResistance + stats2.physicalPercentResistance;
-        coldPercentResistance = stats1.coldPercentResistance + stats2.coldPercentResistance;
-        heatPercentResistance = stats1.heatPercentResistance + stats2.heatPercentResistance;
-        toxinPercentResistance = stats1.toxinPercentResistance + stats2.toxinPercentResistance;
-        electricityPercentResistance = stats1.electricityPercentResistance + stats2.electricityPercentResistance;
-        chaosPercentResistance = stats1.chaosPercentResistance + stats2.chaosPercentResistance;
+
+        CreateResistanceTables();
+        int size = (int)ENUM_DamageType.Piercing + 1;
+        for (int i = 0; i < size; i++)
+        {
+            flatResistances[i] = stats1.flatResistances[i] + stats2.flatResistances[i];
+            percentResistances[i] = stats1.percentResistances[i] + stats2.percentResistances[i];
+        }
     }
     //public float movementSpeed;
 }

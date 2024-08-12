@@ -49,116 +49,14 @@ public class Gun : MonoBehaviour
         UpdateShotTimer();
     }
 
-    public void RollModifiers()
-    {
-        GunUpgradeBase roll = GunUpgradeRoller.ins.GetRandomRoll();
-        gunUpgrades.Add(roll);
-        roll = GunUpgradeRoller.ins.GetRandomRoll();
-        gunUpgrades.Add(roll);
-
-    }
     public void CreateModifiedStats()
     {
+        Debug.Log("Creating Modified Stats");
         modifiedStats = baseStats;
-
-        for(int i = 0; i < gunUpgrades.Count; i++)
-        {
-            GunUpgradeBase currentUpgrade = gunUpgrades[i];
-            //Debug.Log("Upgrade Type = " + currentUpgrade.upgradeType);
-            switch(currentUpgrade.upgradeType)
-            {
-                case ENUM_GunRandomUpgradeType.ammoMax:
-                    UpgradeAmmoMax(currentUpgrade);
-                    break;
-                case ENUM_GunRandomUpgradeType.magazineSize:
-                    UpgradeMagazineMax(currentUpgrade);
-                    break;
-                case ENUM_GunRandomUpgradeType.damage:
-                    UpgradeDamage(currentUpgrade);
-                    break;
-                case ENUM_GunRandomUpgradeType.punchThrough:
-                    UpgradePunchThrough(currentUpgrade);
-                    break;
-                case ENUM_GunRandomUpgradeType.reloadSpeed:
-                    UpgradeReloadSpeed(currentUpgrade);
-                    break;
-                default:
-                    Debug.LogError("Unspecified Upgrade Type ! =  " + currentUpgrade.upgradeType);
-                    break;
-            }
-        }
         //Debug.Log("Created Modified Stats for " + gameObject.name);
     }
 
-    private void UpgradeAmmoMax(GunUpgradeBase currentUpgrade)
-    {
-        Debug.Log(currentUpgrade.GetType());
-        GunUpgradeAmmoMax ammoUpgrade = (GunUpgradeAmmoMax)currentUpgrade;
-        if(ammoUpgrade.flatAmount != 0)
-        {
-            modifiedStats.ammoMax += ammoUpgrade.flatAmount;
-        }
-        else
-        {
-            modifiedStats.ammoMax += (int)(baseStats.ammoMax * (ammoUpgrade.percentageAmount)) - baseStats.ammoMax;
-        }
-    }
-    private void UpgradeMagazineMax(GunUpgradeBase currentUpgrade)
-    {
-        GunUpgradeMagazineMax magazineMax = (GunUpgradeMagazineMax)currentUpgrade;
-        if (magazineMax.flatAmount != 0)
-        {
-            modifiedStats.magazineMax += magazineMax.flatAmount;
-        }
-        else
-        {
-            modifiedStats.magazineMax += (int)(baseStats.magazineMax * (magazineMax.percentageAmount));
-        }
-    }
-    private void UpgradeDamage(GunUpgradeBase currentUpgrade)
-    {
-        GunUpgradeDamage damage = (GunUpgradeDamage)currentUpgrade;
 
-        GunDamageData newdamage = new GunDamageData();
-        newdamage.damageType = damage.damageType;
-        //Debug.Log(damage.ToString());
-        
-        modifiedStats.damageArray.Add(newdamage);
-        if(damage.flatAmount != 0)
-        {
-            newdamage.damage = damage.flatAmount;
-        }
-        else
-        {
-            newdamage.damage = (int)(baseStats.damageArray[0].damage * damage.percentageAmount);
-        }
-    }
-    private void UpgradeReloadSpeed(GunUpgradeBase currentUpgrade)
-    {
-        GunUpgradeReloadSpeed reloadSpeed = (GunUpgradeReloadSpeed)currentUpgrade;
-        if (reloadSpeed.flatAmount != 0)
-        {
-            modifiedStats.reloadTime -= reloadSpeed.flatAmount;
-            if(modifiedStats.reloadTime < 0)
-            {
-                modifiedStats.reloadTime = 0;
-            }    
-        }
-        else
-        {
-            modifiedStats.reloadTime -= baseStats.reloadTime * reloadSpeed.percentageAmount;
-            if (modifiedStats.reloadTime < 0)
-            {
-                modifiedStats.reloadTime = 0;
-            }
-        }
-    }
-    private void UpgradePunchThrough(GunUpgradeBase currentUpgrade)
-    {
-        GunUpgradePunchThrough punch = (GunUpgradePunchThrough)currentUpgrade;
-
-        modifiedStats.punchThrough += punch.flatAmount;
-    }
 
     void CheckAmmo()
     {
@@ -251,5 +149,9 @@ public class Gun : MonoBehaviour
     {
         ammoCurrent = modifiedStats.ammoMax;
         magazineCurrent = modifiedStats.magazineMax;
+    }
+    public void GunDealtDamage(int val)
+    {
+
     }
 }

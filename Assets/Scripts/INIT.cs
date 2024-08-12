@@ -28,9 +28,6 @@ public class INIT : MonoBehaviour
     void FOO()
     {
         Debug.LogWarning("FOO");
-        damageUpgrade = new GunUpgradeDamage();
-        damageUpgrade.Roll();
-        Debug.Log(damageUpgrade.ToString());
     }
 
     private void OnPlayerConnected()
@@ -39,3 +36,6 @@ public class INIT : MonoBehaviour
     }
 
 }
+
+
+
