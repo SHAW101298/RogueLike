@@ -23,7 +23,7 @@ public class GunDamageData
     public ENUM_DamageType damageType;
 }
 [System.Serializable]
-public struct GunStats
+public class GunStats
 {
     public int magazineMax;
     public int ammoMax;
