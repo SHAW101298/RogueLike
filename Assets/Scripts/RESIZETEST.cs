@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class RESIZETEST : MonoBehaviour
 {
@@ -109,7 +110,7 @@ public class RESIZETEST : MonoBehaviour
     void ShowBonuses(Gun gun)
     {
         GameObject tempGO;
-        float newHeight;
+        float newHeight = 0;
         TMP_Text textField;
         RectTransform tempTransform;
         foreach (Transform child in bonusesTransform.transform)
@@ -127,5 +128,6 @@ public class RESIZETEST : MonoBehaviour
             tempTransform = textField.transform.parent.GetComponent<RectTransform>();
             tempTransform.sizeDelta = new Vector2(tempTransform.rect.width, newHeight);
         }
+        bonusesTransform.sizeDelta = new Vector2(bonusesTransform.rect.width, bonusesTransform.GetComponent<VerticalLayoutGroup>().preferredHeight + newHeight);
     }
 }
