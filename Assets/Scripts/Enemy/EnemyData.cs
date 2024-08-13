@@ -59,10 +59,11 @@ public class EnemyData : UnitData
                     bool afflictionCheck = afflictions.ReturnAfflictionState((ENUM_DamageType)j);
                     if(afflictionCheck == true)
                     {
-                        damage *= gunStats.damageMultipliersOnAffliction.GetData(j);
+                        damage *= gunStats.damageMultipliersOnAffliction.GetData(j) ;
                     }
                 }
             }
+            damage *= gunStats.totalDamageMultiplier;
             if(CheckIfCrit(gunStats.critChance) == true)
             {
                 gun.EVENT_ScoredCrit();

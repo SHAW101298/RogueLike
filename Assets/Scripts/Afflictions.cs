@@ -56,6 +56,14 @@ public class ElementalTable
     {
         data[(int)type] = val;
     }
+    public void AddData(ENUM_DamageType type, float val)
+    {
+        data[(int)type] += val;
+    }
+    public void SubstractData(ENUM_DamageType type, float val)
+    {
+        data[(int)type] -= val;
+    }
     public float GetData(int i)
     {
         return data[i];

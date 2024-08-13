@@ -11,11 +11,12 @@ public class GunUpgradeRoller : MonoBehaviour
         ins = this;
     }
 
-    public void GetRandomRoll()
+    public GunUpgradeBase GetRandomRoll()
     {
         GunUpgradeBase randomUpgrade;
         int randomNumber = Random.Range(0, availableUpgrades.Count);
         randomUpgrade = availableUpgrades[randomNumber];
+        return randomUpgrade;
     }
 
     public void BuildUpgradesDatabase()

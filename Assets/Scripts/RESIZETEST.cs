@@ -5,10 +5,16 @@ using TMPro;
 
 public class RESIZETEST : MonoBehaviour
 {
+    public static RESIZETEST ins;
+    private void Awake()
+    {
+        ins = this;
+    }
     [SerializeField] GameObject window;
     [SerializeField] RectTransform damageTransform;
-    [SerializeField] RectTransform statsTransform;
+    [SerializeField] RectTransform bonusesTransform;
     [SerializeField] GameObject damagePrefab;
+    [SerializeField] GameObject bonusPrefab;
     [Header("Fields")]
     [SerializeField] TMP_Text critChanceField;
     [SerializeField] TMP_Text critMultiplierField;
@@ -67,5 +73,59 @@ public class RESIZETEST : MonoBehaviour
 
         window.SetActive(true);
 
+    }
+    public void ShowData(Gun gun)
+    {
+        // MAKE IT CHECK IF ITS THE SAME GUN
+        window.SetActive(false);
+        GameObject tempGO;
+        float size = 0;
+
+        foreach (Transform child in damageTransform.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (GunDamageData dmgData in gun.modifiedStats.damageArray)
+        {
+            tempGO = Instantiate(damagePrefab);
+            tempGO.transform.SetParent(damageTransform);
+            tempGO.transform.localScale = Vector3.one;
+            size += 25;
+            Transform child = tempGO.transform.Find("Label");
+            child.GetComponent<TMP_Text>().text = dmgData.damageType.ToString();
+            child = tempGO.transform.Find("Data");
+            child.GetComponent<TMP_Text>().text = dmgData.damage.ToString();
+        }
+        size += 20; // Space for Spacer
+        damageTransform.sizeDelta = new Vector2(damageTransform.rect.width, size);
+
+        critChanceField.text = gun.modifiedStats.critChance.ToString();
+        critMultiplierField.text = gun.modifiedStats.critMultiplier.ToString();
+        statusChanceField.text = gun.modifiedStats.afflictionChance.ToString();
+        ammoField.text = gun.modifiedStats.magazineMax.ToString() + "/" + gun.modifiedStats.ammoMax.ToString();
+        ShowBonuses(gun);
+        window.SetActive(true);
+    }
+    void ShowBonuses(Gun gun)
+    {
+        GameObject tempGO;
+        float newHeight;
+        TMP_Text textField;
+        RectTransform tempTransform;
+        foreach (Transform child in bonusesTransform.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach(GunUpgradeBase upgrade in gun.gunUpgrades)
+        {
+            tempGO = Instantiate(bonusPrefab);
+            tempGO.transform.SetParent(bonusesTransform);
+            tempGO.transform.localScale = Vector3.one;
+            textField = tempGO.GetComponentInChildren<TMP_Text>();
+            textField.text = upgrade.GetDescription();
+            newHeight = textField.preferredHeight;
+            tempTransform = textField.transform.parent.GetComponent<RectTransform>();
+            tempTransform.sizeDelta = new Vector2(tempTransform.rect.width, newHeight);
+        }
     }
 }

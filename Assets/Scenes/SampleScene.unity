@@ -7030,6 +7030,7 @@ RectTransform:
   - {fileID: 549117274}
   - {fileID: 1370267635}
   - {fileID: 1994746065}
+  - {fileID: 1361377217}
   m_Father: {fileID: 1590097008}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7941,6 +7942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   availableUpgrades:
   - {fileID: 1602365343}
+  - {fileID: 1483547185}
 --- !u!4 &810141078
 Transform:
   m_ObjectHideFlags: 0
@@ -7952,7 +7954,9 @@ Transform:
   m_LocalPosition: {x: 18.857515, y: 15.645349, z: -8.392861}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1602365345}
+  - {fileID: 1483547186}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8257,7 +8261,7 @@ PrefabInstance:
     - target: {fileID: 7537008715761104430, guid: f8b524af1de4f1442a5c7e21b34c5842,
         type: 3}
       propertyPath: gunUpgrades.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7537008715761104430, guid: f8b524af1de4f1442a5c7e21b34c5842,
         type: 3}
@@ -12231,6 +12235,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354798509}
   m_CullTransparentMesh: 1
+--- !u!1 &1361377216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1361377217}
+  - component: {fileID: 1361377218}
+  m_Layer: 5
+  m_Name: Bonuses Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1361377217
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361377216}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 720652699}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 342.5, y: 180}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1361377218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361377216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 10
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1366985788
 GameObject:
   m_ObjectHideFlags: 0
@@ -12945,8 +13012,7 @@ Transform:
   m_LocalPosition: {x: -28.894787, y: 23.730183, z: 13.834105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1602365345}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13648,6 +13714,57 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1477361523}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1483547184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1483547186}
+  - component: {fileID: 1483547185}
+  m_Layer: 0
+  m_Name: Upgrade Damage On Heat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1483547185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483547184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff5f250f2bc5dd245a85e32d7c60cb74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeLevel: 0
+  damageIncreaseOnLevels:
+  - 35
+  - 70
+  - 110
+  - 150
+  - 200
+--- !u!4 &1483547186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483547184}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -47.752304, y: 8.084834, z: 22.226967}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 810141078}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1486899571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14414,15 +14531,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   window: {fileID: 1590097007}
   damageTransform: {fileID: 549117274}
-  statsTransform: {fileID: 0}
+  bonusesTransform: {fileID: 1361377217}
   damagePrefab: {fileID: 6165950139066392872, guid: 074b444328459924fb2d28ba8c19a6ca,
     type: 3}
-  critChanceField: {fileID: 0}
-  critMultiplierField: {fileID: 0}
-  statusChanceField: {fileID: 0}
-  ammoField: {fileID: 0}
-  rateOfFireField: {fileID: 0}
-  stabilityField: {fileID: 0}
+  bonusPrefab: {fileID: 4734992078977719901, guid: 17c04fc6fa78e01439c5ee11f3e12d5f,
+    type: 3}
+  critChanceField: {fileID: 190045118}
+  critMultiplierField: {fileID: 1013404145}
+  statusChanceField: {fileID: 103592412}
+  ammoField: {fileID: 1167081776}
+  rateOfFireField: {fileID: 1834199277}
+  stabilityField: {fileID: 1009115095}
   DebugRun: 1
   testGun: {fileID: 0}
 --- !u!1 &1596360152
@@ -14738,7 +14857,7 @@ GameObject:
   - component: {fileID: 1602365345}
   - component: {fileID: 1602365343}
   m_Layer: 0
-  m_Name: TEst
+  m_Name: Upgrade Damage Percentage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14756,14 +14875,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494a2b9ec6853064d83e62f8d33c4c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeType: 0
+  upgradeLevel: 0
   damageIncreaseOnLevels:
   - 20
   - 40
   - 60
   - 80
   - 100
-  upgradeLevel: 0
 --- !u!4 &1602365345
 Transform:
   m_ObjectHideFlags: 0
@@ -14771,12 +14889,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602365342}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -47.752304, y: 8.084834, z: 22.226967}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1441257540}
+  m_Father: {fileID: 810141078}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1614460530
@@ -16816,7 +16934,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc1e154624e0de54181288450eee305f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageUpgrade: {fileID: 0}
   FOOTrigger: 0
 --- !u!4 &1807917960
 Transform:
@@ -17712,6 +17829,7 @@ MonoBehaviour:
   enemy: {fileID: 446740845}
   gun: {fileID: 1353151566}
   runFunction: 0
+  runCOO: 0
 --- !u!4 &1872676089
 Transform:
   m_ObjectHideFlags: 0

@@ -6,21 +6,20 @@ using UnityEngine;
 public class GU_DamagePercentage : GunUpgradeBase
 {
     public float[] damageIncreaseOnLevels;
-    public int upgradeLevel;
 
     public override void Apply(Gun gun)
     {
-        gun.modifiedStats.totalDamageMultiplier += damageIncreaseOnLevels[upgradeLevel];
+        gun.modifiedStats.totalDamageMultiplier += damageIncreaseOnLevels[upgradeLevel]/100;
     }
     public override void Remove(Gun gun)
     {
-        gun.modifiedStats.totalDamageMultiplier -= damageIncreaseOnLevels[upgradeLevel];
+        gun.modifiedStats.totalDamageMultiplier -= damageIncreaseOnLevels[upgradeLevel]/100;
     }
-    public string GetDescription()
+    public override string GetDescription()
     {
-        return "Increase gun damage by %";
+        return "Increase gun damage by  " + damageIncreaseOnLevels[upgradeLevel] + "%";
     }
-    public string GetTextValue()
+    public override string GetTextValue()
     {
         return damageIncreaseOnLevels[upgradeLevel].ToString();
     }
