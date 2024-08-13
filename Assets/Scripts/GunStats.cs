@@ -17,21 +17,6 @@ public enum ENUM_DamageType
     Chaos,
     Piercing
 }
-[System.Serializable]
-public class GunDamageMultipliers
-{
-    public float[] multipliers;
-
-    public GunDamageMultipliers()
-    {
-        int size = (int)ENUM_DamageType.Piercing + 1;
-        multipliers = new float[size];
-        for(int i = 0; i < size; i++)
-        {
-            multipliers[i] = 1;
-        }
-    }
-}
 
 [System.Serializable]
 public class GunDamageData
@@ -43,7 +28,7 @@ public class GunDamageData
 public class GunStats
 {
     public List<GunDamageData> damageArray;
-    public GunDamageMultipliers damageMultipliersOnAffliction;
+    public ElementalTable damageMultipliersOnAffliction;
     public float totalDamageMultiplier = 1;
     public float critChance;
     public float critMultiplier;
@@ -57,4 +42,43 @@ public class GunStats
     [UnityEngine.Tooltip("40 Speed is Neutral")]
     public float projectileSpeed;
     public int punchThrough;
+
+    public GunStats()
+    {
+        damageArray = new List<GunDamageData>();
+        damageMultipliersOnAffliction = new ElementalTable();
+        for(int i = 0; i < damageMultipliersOnAffliction.Count(); i++)
+        {
+            damageMultipliersOnAffliction.SetData(i, 1);
+        }
+    }
+
+    public void CopyDataFrom(GunStats donor)
+    {
+        damageArray.Clear();
+        for(int i = 0; i < donor.damageArray.Count; i++)
+        {
+            GunDamageData data = new GunDamageData();
+            data.damage = donor.damageArray[i].damage;
+            data.damageType = donor.damageArray[i].damageType;
+            damageArray.Add(data);
+        }
+
+        for(int i = 0; i < damageMultipliersOnAffliction.Count(); i++)
+        {
+            damageMultipliersOnAffliction.SetData(i, donor.damageMultipliersOnAffliction.GetData(i));
+        }
+
+        totalDamageMultiplier = donor.totalDamageMultiplier;
+        critChance = donor.critChance;
+        critMultiplier = donor.critMultiplier;
+        afflictionChance = donor.afflictionChance;
+        magazineMax = donor.magazineMax;
+        ammoMax = donor.ammoMax;
+        reloadTime = donor.reloadTime;
+        timeBetweenShots = donor.timeBetweenShots;
+        triggerType = donor.triggerType;
+        projectileSpeed = donor.projectileSpeed;
+        punchThrough = donor.punchThrough;
+    }
 }

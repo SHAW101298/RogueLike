@@ -29,6 +29,16 @@ public class Gun : MonoBehaviour
     [Header("Debug")]
     public bool ForceGun1 = true;
 
+    public void EVENT_AppliedStatus()
+    {
+
+    }
+    public void EVENT_ScoredCrit()
+    {
+
+    }
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +62,13 @@ public class Gun : MonoBehaviour
     public void CreateModifiedStats()
     {
         Debug.Log("Creating Modified Stats");
-        modifiedStats = baseStats;
+        modifiedStats = new GunStats();
+        modifiedStats.CopyDataFrom(baseStats);
+
+        foreach(GunUpgradeBase upgrade in gunUpgrades)
+        {
+            upgrade.Apply(this);
+        }
         //Debug.Log("Created Modified Stats for " + gameObject.name);
     }
 

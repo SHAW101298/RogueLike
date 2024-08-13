@@ -9,8 +9,6 @@ public class GunUpgradeRoller : MonoBehaviour
     private void Awake()
     {
         ins = this;
-        GU_DamagePercentage test = new GU_DamagePercentage();
-        availableUpgrades.Add(test);
     }
 
     public void GetRandomRoll()

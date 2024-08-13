@@ -8,17 +8,21 @@ public class GU_DamagePercentage : GunUpgradeBase
     public float[] damageIncreaseOnLevels;
     public int upgradeLevel;
 
-    public override void Roll()
-    {
-        
-    }
-    public void Apply(Gun gun)
+    public override void Apply(Gun gun)
     {
         gun.modifiedStats.totalDamageMultiplier += damageIncreaseOnLevels[upgradeLevel];
     }
-    public void Remove(Gun gun)
+    public override void Remove(Gun gun)
     {
         gun.modifiedStats.totalDamageMultiplier -= damageIncreaseOnLevels[upgradeLevel];
+    }
+    public string GetDescription()
+    {
+        return "Increase gun damage by %";
+    }
+    public string GetTextValue()
+    {
+        return damageIncreaseOnLevels[upgradeLevel].ToString();
     }
     public GU_DamagePercentage()
     {

@@ -14,5 +14,8 @@ public enum ENUM_GunRandomUpgradeType
 public abstract class GunUpgradeBase : MonoBehaviour
 {
     public ENUM_GunRandomUpgradeType upgradeType;
-    public abstract void Roll();
+    public abstract void Apply(Gun gun);
+    public abstract void Remove(Gun gun);
+
+
 }

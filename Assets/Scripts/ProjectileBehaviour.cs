@@ -74,7 +74,7 @@ public class ProjectileBehaviour : MonoBehaviour
 
         for(int i = 0; i < gunStats.damageArray.Count; i++)
         {
-            float dealtDamage = enemyData.HitEnemy(gunStats);
+            float dealtDamage = enemyData.HitEnemy(owningGun);
         }
 
         if(punchThrough <= 0)

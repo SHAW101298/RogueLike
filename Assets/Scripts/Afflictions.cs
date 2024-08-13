@@ -39,10 +39,14 @@ public class Affliction
     public bool afflictionActive;
     public float remainingTime;
 }
-
+[System.Serializable]
 public class ElementalTable
 {
-    float[] data;
+    [SerializeField] float[] data;
+    public int Count()
+    {
+        return data.Length;
+    }
 
     public void SetData(int i, float val)
     {

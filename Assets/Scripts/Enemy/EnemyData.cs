@@ -32,13 +32,17 @@ public class EnemyData : UnitData
             
         }
     }
-    public float HitEnemy(GunStats gunStats)
+    public float HitEnemy(Gun gun)
     {
+        GunStats gunStats = gun.modifiedStats;
         float dealtDamage = 0;
 
         float damage;
         float resistanceFlat;
         float resistancePercentage;
+
+        // DAMAGE CALCULATION
+        // dmg = ( (DMG * AfMod * CritMultiplier) - ResFlat ) - ResPerc
         for(int i = 0; i < gunStats.damageArray.Count; i++)
         {
             damage = gunStats.damageArray[i].damage;
@@ -46,19 +50,25 @@ public class EnemyData : UnitData
             resistancePercentage = stats.GetPercentResist(gunStats.damageArray[i].damageType);
 
             // Check for multipliers when afflicted
-            for(int j = 0; j < gunStats.damageMultipliersOnAffliction.multipliers.Length; j++)
+            for(int j = 0; j < gunStats.damageMultipliersOnAffliction.Count(); j++)
             {
                 // Found multiplier
-                if (gunStats.damageMultipliersOnAffliction.multipliers[j] != 1 )
+                if (gunStats.damageMultipliersOnAffliction.GetData(j) != 1 )
                 {
                     // Check if under affliction
                     bool afflictionCheck = afflictions.ReturnAfflictionState((ENUM_DamageType)j);
                     if(afflictionCheck == true)
                     {
-                        damage *= gunStats.damageMultipliersOnAffliction.multipliers[j];
+                        damage *= gunStats.damageMultipliersOnAffliction.GetData(j);
                     }
                 }
             }
+            if(CheckIfCrit(gunStats.critChance) == true)
+            {
+                gun.EVENT_ScoredCrit();
+                damage *= gunStats.critMultiplier;
+            }
+
 
             damage -= resistanceFlat;
             float reduction = (damage / 100) * resistancePercentage;
@@ -69,4 +79,24 @@ public class EnemyData : UnitData
         return dealtDamage;
     }
 
+    bool CheckIfCrit(float critChance)
+    {
+        int rnd = Random.Range(0, 100);
+        Debug.Log("Rnd = " + rnd + " | chance = " + critChance);
+        if (rnd < critChance)
+        {
+            return true;
+        }
+        return false;
+    }
+    bool CheckIfAffliction(float affChance)
+    {
+        int rnd = Random.Range(0, 100);
+        Debug.Log("Rnd = " + rnd + " | chance = " + affChance);
+        if (rnd < affChance)
+        {
+            return true;
+        }
+        return false;
+    }
 }

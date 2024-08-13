@@ -27,6 +27,6 @@ public class TESTINGSCRIPT : MonoBehaviour
     void BOO()
     {
         Debug.LogWarning("BOO");
-        enemy.HitEnemy(gun.modifiedStats);
+        enemy.HitEnemy(gun);
     }
 }
