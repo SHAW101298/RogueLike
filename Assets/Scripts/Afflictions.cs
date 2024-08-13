@@ -39,3 +39,32 @@ public class Affliction
     public bool afflictionActive;
     public float remainingTime;
 }
+
+public class ElementalTable
+{
+    float[] data;
+
+    public void SetData(int i, float val)
+    {
+        data[i] = val;
+    }
+    public void SetData(ENUM_DamageType type, float val)
+    {
+        data[(int)type] = val;
+    }
+    public float GetData(int i)
+    {
+        return data[i];
+    }
+    public float GetData(ENUM_DamageType type)
+    {
+        return data[(int)type];
+    }
+
+    public ElementalTable()
+    {
+        int size = (int)ENUM_DamageType.Piercing + 1;
+        data = new float[size];
+    }
+
+}
