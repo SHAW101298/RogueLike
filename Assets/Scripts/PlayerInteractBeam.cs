@@ -57,7 +57,7 @@ public class PlayerInteractBeam : MonoBehaviour
             // We definitely Hit something
             if (hit.collider.gameObject.CompareTag("Weapon"))
             {
-                ui_RaycastedGunData.ShowGunData(hit.collider.gameObject.GetComponent<Gun>());
+                ui_RaycastedGunData.ShowGunData2(hit.collider.gameObject.GetComponent<Gun>());
             }
         }
     }

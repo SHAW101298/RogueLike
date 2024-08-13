@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.PackageManager.UI;
+using UnityEngine.UI;
 
 public class UI_RaycastedGunData : MonoBehaviour
 {
@@ -18,22 +20,26 @@ public class UI_RaycastedGunData : MonoBehaviour
             Instance = this;
         }
     }
-#endregion
-    public TMP_Text damageField;
-    public TMP_Text critField;
-    public TMP_Text speedField;
-    public TMP_Text magazineField;
-
-    public Transform bonusesParent;
-    public float spacesBetweenBonuses;
-
+    #endregion
+    [SerializeField] TMP_Text critChanceField;
+    [SerializeField] TMP_Text critMultiplierField;
+    [SerializeField] TMP_Text afflictionChanceField;
+    [SerializeField] TMP_Text speedField;
+    [SerializeField] TMP_Text ammoField;
+    [Space(10)]
+    [SerializeField] GameObject window;
+    [SerializeField] RectTransform windowTransform;
+    [SerializeField] RectTransform damageParent;
+    [SerializeField] RectTransform simpleDataParent;
+    [SerializeField] RectTransform bonusesParent;
+    [Header("Prefabs")]
+    [SerializeField] GameObject damagePrefab;
+    [SerializeField] GameObject bonusPrefab;
+    [Header("Data")]
+    [SerializeField] Gun lastGun;
+    [SerializeField] bool activated;
     [Header("Debug")]
     public bool runFunction;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -62,17 +68,82 @@ public class UI_RaycastedGunData : MonoBehaviour
         bonusesParent.gameObject.SetActive(true);
         //currentLobbyName.preferredHeight;
     }
-    public void ShowGunData(Gun gun)
+    public void ShowGunData2(Gun gun)
     {
-        foreach(Transform child in bonusesParent)
+        window.SetActive(false);
+        ShowDamage(gun);
+        ShowSimpleData(gun);
+        ShowBonuses(gun);
+        ResizeWindow();
+        window.SetActive(true);
+    }
+    void ShowDamage(Gun gun)
+    {
+        GameObject tempGO;
+        float size = 0;
+
+        foreach (Transform child in damageParent.transform)
         {
             Destroy(child.gameObject);
         }
-        damageField.text = gun.modifiedStats.damageArray[0].damage.ToString();
-        //critField.text = gun.modifiedStats.
-        //speedField.text = gun.modifiedStats.timeBetweenShots.ToString();
-        speedField.text = (10 / gun.modifiedStats.timeBetweenShots).ToString();
-        magazineField.text = gun.modifiedStats.magazineMax.ToString();
-
+        foreach (GunDamageData dmgData in gun.modifiedStats.damageArray)
+        {
+            tempGO = Instantiate(damagePrefab);
+            tempGO.transform.SetParent(damageParent);
+            tempGO.transform.localScale = Vector3.one;
+            Transform child = tempGO.transform.Find("Label");
+            child.GetComponent<TMP_Text>().text = dmgData.damageType.ToString();
+            child = tempGO.transform.Find("Data");
+            child.GetComponent<TMP_Text>().text = dmgData.damage.ToString();
+            size += 25;
+        }
+        size += 20;
+        damageParent.sizeDelta = new Vector2(damageParent.rect.width, size);
+    }
+    void ShowSimpleData(Gun gun)
+    {
+        critChanceField.text = gun.modifiedStats.critChance.ToString();
+        critMultiplierField.text = gun.modifiedStats.critMultiplier.ToString();
+        afflictionChanceField.text = gun.modifiedStats.afflictionChance.ToString();
+        ammoField.text = gun.modifiedStats.magazineMax.ToString() + "/" + gun.modifiedStats.ammoMax.ToString();
+    }
+    void ShowBonuses(Gun gun)
+    {
+        GameObject tempGO;
+        float newHeight = 0;
+        float size = 0;
+        TMP_Text textField;
+        RectTransform tempTransform;
+        foreach (Transform child in bonusesParent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (GunUpgradeBase upgrade in gun.gunUpgrades)
+        {
+            tempGO = Instantiate(bonusPrefab);
+            tempGO.transform.SetParent(bonusesParent);
+            tempGO.transform.localScale = Vector3.one;
+            textField = tempGO.GetComponentInChildren<TMP_Text>();
+            textField.text = upgrade.GetDescription();
+            newHeight = textField.preferredHeight;
+            tempTransform = textField.transform.parent.GetComponent<RectTransform>();
+            tempTransform.sizeDelta = new Vector2(tempTransform.rect.width, newHeight);
+            //size += 25;
+        }
+        size = bonusesParent.GetComponent<VerticalLayoutGroup>().preferredHeight + newHeight;
+        //size += 10;
+        bonusesParent.sizeDelta = new Vector2(bonusesParent.rect.width, size);
+    }
+    void ResizeWindow()
+    {
+        float size = 0;
+        size += 70;
+        size += damageParent.rect.height;
+        size += simpleDataParent.rect.height;
+        size += bonusesParent.rect.height;
+        Debug.Log("damage height = " + damageParent.rect.height);
+        Debug.Log("simple height = " + simpleDataParent.rect.height);
+        Debug.Log("bonuses height = " + bonusesParent.rect.height);
+        windowTransform.sizeDelta = new Vector2(windowTransform.rect.width, size);
     }
 }

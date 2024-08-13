@@ -40,7 +40,7 @@ public class TESTINGSCRIPT : MonoBehaviour
         GunUpgradeBase upgrade = GunUpgradeRoller.ins.GetRandomRoll();
         gun.gunUpgrades.Add(upgrade);
         gun.CreateModifiedStats();
-        RESIZETEST.ins.ShowData(gun);
-        //UI_RaycastedGunData.Instance.ShowGunData(gun);
+        //RESIZETEST.ins.ShowData(gun);
+        UI_RaycastedGunData.Instance.ShowGunData2(gun);
     }
 }
