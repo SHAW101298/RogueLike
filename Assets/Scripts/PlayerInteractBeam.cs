@@ -16,7 +16,7 @@ public class PlayerInteractBeam : MonoBehaviour
 
     private void Start()
     {
-        if(SceneManager.GetActiveScene().name == "GameScene")
+        if(SceneManager.GetActiveScene().name == "SampleScene")
         {
             ui_RaycastedGunData = UI_RaycastedGunData.Instance;
         }
@@ -54,11 +54,17 @@ public class PlayerInteractBeam : MonoBehaviour
         Vector3 dir = centerOfView.position - cameraPosition.position;
         if(Physics.Raycast(cameraPosition.position, dir, out hit, rayDistance, interactableLayers) == true)
         {
+            //Debug.Log("We hit = " + hit.collider.gameObject.name);
             // We definitely Hit something
-            if (hit.collider.gameObject.CompareTag("Weapon"))
+            if(hit.collider.gameObject.CompareTag("GunPickUp"))
             {
-                ui_RaycastedGunData.ShowGunData2(hit.collider.gameObject.GetComponent<Gun>());
+                ui_RaycastedGunData.ShowGunData(hit.collider.gameObject.GetComponent<GunPickupInteract>().thisGun);
             }
         }
+    }
+
+    void CheckInteractions()
+    {
+
     }
 }

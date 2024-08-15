@@ -20,6 +20,9 @@ public class GunManager : MonoBehaviour
     #endregion
     public List<GameObject> gunList;
 
+    [Header("Prefabs")]
+    [SerializeField] GameObject gunPickupPrefab;
+
     [Header("Debug")]
     public bool spawn;
     public Transform playerPos;
@@ -43,6 +46,18 @@ public class GunManager : MonoBehaviour
 
         return createdGun;
     }
+    public Gun CreateGunOnGround2(int preset, Vector3 pos)
+    {
+        GameObject gunPickupSpot = Instantiate(gunPickupPrefab);
+        gunPickupSpot.transform.position = pos;
+        gunPickupSpot.layer = 10;
+
+        GameObject createdGunObject = Instantiate(gunList[preset]);
+        Gun createdGun = createdGunObject.GetComponent<Gun>();
+        createdGunObject.transform.SetParent(gunPickupSpot.transform);
+        createdGun.transform.localPosition = Vector3.zero;
+        return createdGun;
+    }
     public void CreateGunOnGround(Gun gun, Vector3 pos)
     {
         gun.gameObject.transform.position = pos;
@@ -54,11 +69,5 @@ public class GunManager : MonoBehaviour
 
     private void Update()
     {
-        if(spawn == true)
-        {
-            spawn = false;
-            Vector3 calculatedPos = playerPos.position;
-            CreateGunOnGround(0, calculatedPos);
-        }
     }
 }

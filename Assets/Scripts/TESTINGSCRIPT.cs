@@ -39,8 +39,10 @@ public class TESTINGSCRIPT : MonoBehaviour
         Debug.LogWarning("COO");
         GunUpgradeBase upgrade = GunUpgradeRoller.ins.GetRandomRoll();
         gun.gunUpgrades.Add(upgrade);
+        upgrade = GunUpgradeRoller.ins.GetRandomRoll();
+        gun.gunUpgrades.Add(upgrade);
         gun.CreateModifiedStats();
         //RESIZETEST.ins.ShowData(gun);
-        UI_RaycastedGunData.Instance.ShowGunData2(gun);
+        UI_RaycastedGunData.Instance.ShowGunData(gun);
     }
 }

@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 7537008715761104430}
   m_Layer: 0
   m_Name: Rewolwer 2
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,24 +241,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats:
+    damageArray:
+    - damage: 15
+      damageType: 4
+    damageMultipliersOnAffliction:
+      data:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+    totalDamageMultiplier: 1
+    critChance: 0
+    critMultiplier: 0
+    afflictionChance: 0
     magazineMax: 7
     ammoMax: 49
     reloadTime: 1.2
     timeBetweenShots: 0.35
     triggerType: 0
     projectileSpeed: 55
-    damageArray:
-    - damage: 15
-      damageType: 4
     punchThrough: 1
   modifiedStats:
+    damageArray: []
+    damageMultipliersOnAffliction:
+      data:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+    totalDamageMultiplier: 1
+    critChance: 0
+    critMultiplier: 0
+    afflictionChance: 0
     magazineMax: 0
     ammoMax: 0
     reloadTime: 0
     timeBetweenShots: 0
     triggerType: 0
     projectileSpeed: 0
-    damageArray: []
     punchThrough: 0
   gunUpgrades: []
   magazineCurrent: 7

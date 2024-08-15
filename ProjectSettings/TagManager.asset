@@ -8,6 +8,8 @@ TagManager:
   - HardSurface
   - BreakAble
   - PassAble
+  - Weapon
+  - GunPickUp
   layers:
   - Default
   - TransparentFX

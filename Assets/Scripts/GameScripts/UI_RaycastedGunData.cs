@@ -30,52 +30,50 @@ public class UI_RaycastedGunData : MonoBehaviour
     [SerializeField] GameObject window;
     [SerializeField] RectTransform windowTransform;
     [SerializeField] RectTransform damageParent;
+    [SerializeField] VerticalLayoutGroup damageLayout;
     [SerializeField] RectTransform simpleDataParent;
     [SerializeField] RectTransform bonusesParent;
+    [SerializeField] VerticalLayoutGroup bonusesLayout;
     [Header("Prefabs")]
     [SerializeField] GameObject damagePrefab;
     [SerializeField] GameObject bonusPrefab;
     [Header("Data")]
     [SerializeField] Gun lastGun;
     [SerializeField] bool activated;
+    [Header("Disappear Timer")]
+    [SerializeField] float hidingdelay = 0.2f;
+    [SerializeField] float hidingTimer;
     [Header("Debug")]
     public bool runFunction;
 
     // Update is called once per frame
     void Update()
     {
-        if(runFunction == true)
+        if(hidingTimer > 0)
         {
-            runFunction = false;
-            xx();
+            hidingTimer -= Time.deltaTime;
+            if(hidingTimer <= 0)
+            {
+                HideWindow();
+            }
         }
     }
 
-    public void xx()
+    public void ShowGunData(Gun gun)
     {
-        Debug.Log("Running function on child count = " + bonusesParent.childCount);
-        TMP_Text bonusInfo;
-        float prefHeight;
-        foreach(RectTransform bonus in bonusesParent)
+        hidingTimer = hidingdelay;
+        if(lastGun == gun)
         {
-            bonusInfo = bonus.GetComponentInChildren<TMP_Text>();
-            prefHeight = bonusInfo.preferredHeight;
-            bonus.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, prefHeight);
-            //bonus.ForceUpdateRectTransforms();
-            //bonus.sizeDelta = new Vector2(bonus.rect.size.x, prefHeight);
-            
+            //Debug.Log("Returning");
+            return;
         }
-        bonusesParent.gameObject.SetActive(true);
-        //currentLobbyName.preferredHeight;
-    }
-    public void ShowGunData2(Gun gun)
-    {
-        window.SetActive(false);
+        lastGun = gun;
+        HideWindow();
         ShowDamage(gun);
         ShowSimpleData(gun);
         ShowBonuses(gun);
         ResizeWindow();
-        window.SetActive(true);
+        ShowWindow();
     }
     void ShowDamage(Gun gun)
     {
@@ -97,7 +95,7 @@ public class UI_RaycastedGunData : MonoBehaviour
             child.GetComponent<TMP_Text>().text = dmgData.damage.ToString();
             size += 25;
         }
-        size += 20;
+        size += damageLayout.padding.top + damageLayout.padding.bottom;
         damageParent.sizeDelta = new Vector2(damageParent.rect.width, size);
     }
     void ShowSimpleData(Gun gun)
@@ -128,10 +126,9 @@ public class UI_RaycastedGunData : MonoBehaviour
             newHeight = textField.preferredHeight;
             tempTransform = textField.transform.parent.GetComponent<RectTransform>();
             tempTransform.sizeDelta = new Vector2(tempTransform.rect.width, newHeight);
-            //size += 25;
+            size += newHeight;
         }
-        size = bonusesParent.GetComponent<VerticalLayoutGroup>().preferredHeight + newHeight;
-        //size += 10;
+        size += bonusesLayout.padding.bottom + bonusesLayout.padding.top;
         bonusesParent.sizeDelta = new Vector2(bonusesParent.rect.width, size);
     }
     void ResizeWindow()
@@ -141,9 +138,18 @@ public class UI_RaycastedGunData : MonoBehaviour
         size += damageParent.rect.height;
         size += simpleDataParent.rect.height;
         size += bonusesParent.rect.height;
-        Debug.Log("damage height = " + damageParent.rect.height);
-        Debug.Log("simple height = " + simpleDataParent.rect.height);
-        Debug.Log("bonuses height = " + bonusesParent.rect.height);
+        //Debug.Log("damage height = " + damageParent.rect.height);
+        //Debug.Log("simple height = " + simpleDataParent.rect.height);
+        //Debug.Log("bonuses height = " + bonusesParent.rect.height);
         windowTransform.sizeDelta = new Vector2(windowTransform.rect.width, size);
+    }
+
+    void HideWindow()
+    {
+        window.SetActive(false);
+    }
+    void ShowWindow()
+    {
+        window.SetActive(true);
     }
 }
