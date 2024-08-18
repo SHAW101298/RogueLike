@@ -67,6 +67,9 @@ public class PlayerShooting : MonoBehaviour
             return false;
         }
         Debug.Log("Gun Can Be Swapped");
+
+
+
         currentlySelected.baseStats = gun.baseStats;
         
         currentlySelected.gunUpgrades = gun.gunUpgrades;
@@ -89,5 +92,11 @@ public class PlayerShooting : MonoBehaviour
             return false;
         }
 
+    }
+    public bool AttemptGunChange3(Gun gun)
+    {
+
+
+        return false;
     }
 }

@@ -35,19 +35,6 @@ public class GunManager : MonoBehaviour
     }
     public Gun CreateGunOnGround(int preset, Vector3 pos)
     {
-        GameObject createdGunObject = Instantiate(gunList[preset]);
-        createdGunObject.transform.position = pos;
-        createdGunObject.layer = 10;
-
-        Gun createdGun = createdGunObject.GetComponent<Gun>();
-        GunPickupInteract createdGunInteract = createdGunObject.AddComponent<GunPickupInteract>();
-        createdGunObject.AddComponent<GunFloatingScript>();
-        createdGunInteract.interactableType = ENUM_InteractableType.gunPickup;
-
-        return createdGun;
-    }
-    public Gun CreateGunOnGround2(int preset, Vector3 pos)
-    {
         GameObject gunPickupSpot = Instantiate(gunPickupPrefab);
         gunPickupSpot.transform.position = pos;
         gunPickupSpot.layer = 10;
@@ -63,13 +50,22 @@ public class GunManager : MonoBehaviour
     }
     public void CreateGunOnGround(Gun gun, Vector3 pos)
     {
-        gun.gameObject.transform.position = pos;
+        GameObject gunPickupSpot = Instantiate(gunPickupPrefab);
+        gunPickupSpot.transform.position = pos;
+        gunPickupSpot.layer = 10;
+
         gun.gameObject.transform.parent = null;
-        GunPickupInteract createdGunInteract = gun.gameObject.AddComponent<GunPickupInteract>();
-        createdGunInteract.interactableType = ENUM_InteractableType.gunPickup;
-        gun.gameObject.layer = 10;
+        gun.gameObject.transform.localPosition = Vector3.zero;
+        GunPickupInteract interaction = gunPickupSpot.GetComponent<GunPickupInteract>();
+        interaction.thisGun = gun;
     }
 
+    public Gun CreateRandomGunOnGround(Vector3 pos)
+    {
+        int rand = Random.Range(0, gunList.Count);
+        Gun gun = CreateGunOnGround(rand, pos);
+        return gun;
+    }
     private void Update()
     {
     }
