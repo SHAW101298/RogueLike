@@ -103,10 +103,10 @@ Statystyki opisujące broń
 Bonusy losowane do broni
 +    Zwiekszenie obrazen
 +    Zwiekszenie obrazen na przeciwnikach pod wyplywem statusu
++    Zwiekszenie szansy na krytyk
++    Zwiekszenie crit multiplier
     Zwiekszenie szybkosci strzelania
     Zwiekszenie amunicji
-    Zwiekszenie szansy na krytyk
-    Zwiekszenie crit multiplier
     Zwiekszenie affliction Chance
     Zmniejszenie czasu przeładowania
  */

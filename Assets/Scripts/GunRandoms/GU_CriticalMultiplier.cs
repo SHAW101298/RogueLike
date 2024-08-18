@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GU_CriticalMultiplier : GunUpgradeBase
 {
-    private float[] criticalMultiplierIncrease;
+    [SerializeField] private float[] criticalMultiplierIncrease;
 
     public override void Apply(Gun gun)
     {
