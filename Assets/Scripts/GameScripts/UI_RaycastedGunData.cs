@@ -54,6 +54,7 @@ public class UI_RaycastedGunData : MonoBehaviour
             hidingTimer -= Time.deltaTime;
             if(hidingTimer <= 0)
             {
+                lastGun = null;
                 HideWindow();
             }
         }

@@ -77,7 +77,23 @@ public class EnemyData : UnitData
             dealtDamage += damage;
         }
         Debug.Log(dealtDamage);
+
+        ModifyHealth(-dealtDamage);
+        CheckIfAlive(gun);
         return dealtDamage;
+    }
+    void ModifyHealth(float value)
+    {
+        stats.health += value;
+    }
+    void CheckIfAlive(Gun gun)
+    {
+        if(stats.health <= 0)
+        {
+            // Begin dying procedure
+            Debug.Log("Begin Dying Procedure");
+            Destroy(gameObject);
+        }
     }
 
     bool CheckIfCrit(float critChance)

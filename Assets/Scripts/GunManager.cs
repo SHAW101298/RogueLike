@@ -56,6 +56,9 @@ public class GunManager : MonoBehaviour
         Gun createdGun = createdGunObject.GetComponent<Gun>();
         createdGunObject.transform.SetParent(gunPickupSpot.transform);
         createdGun.transform.localPosition = Vector3.zero;
+
+        GunPickupInteract interaction = gunPickupSpot.GetComponent<GunPickupInteract>();
+        interaction.thisGun = createdGun;
         return createdGun;
     }
     public void CreateGunOnGround(Gun gun, Vector3 pos)

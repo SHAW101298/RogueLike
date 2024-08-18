@@ -108,24 +108,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats:
+    damageArray:
+    - damage: 20
+      damageType: 4
+    damageMultipliersOnAffliction:
+      data:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+    totalDamageMultiplier: 1
+    critChance: 0
+    critMultiplier: 0
+    afflictionChance: 0
     magazineMax: 20
     ammoMax: 120
     reloadTime: 1.5
     timeBetweenShots: 0.3
     triggerType: 1
     projectileSpeed: 55
-    damageArray:
-    - damage: 20
-      damageType: 4
     punchThrough: 1
   modifiedStats:
+    damageArray: []
+    damageMultipliersOnAffliction:
+      data:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+    totalDamageMultiplier: 1
+    critChance: 0
+    critMultiplier: 0
+    afflictionChance: 0
     magazineMax: 0
     ammoMax: 0
     reloadTime: 0
     timeBetweenShots: 0
     triggerType: 0
     projectileSpeed: 0
-    damageArray: []
     punchThrough: 0
   gunUpgrades: []
   magazineCurrent: 20
@@ -372,7 +396,7 @@ MonoBehaviour:
   stats: {fileID: 0}
   movement: {fileID: 5400938061660626382}
   rotation: {fileID: 5835961437251669847}
-  shooting: {fileID: 0}
+  shooting: {fileID: 5815798120099494898}
   ui: {fileID: 5815798120099494897}
 --- !u!114 &5815798120099494899
 MonoBehaviour:
@@ -427,7 +451,7 @@ MonoBehaviour:
   dashTimer: 0
   controller: {fileID: 5815798120099494859}
   stats: {fileID: 5815798120099494899}
-  data: {fileID: 0}
+  data: {fileID: 7350718080572131856}
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -467,6 +491,7 @@ MonoBehaviour:
   crossHairPos: {fileID: 5815798121285567752}
   pointOfView: {fileID: 5815798119772482406}
   gunNozzle: {fileID: 5815798120187242187}
+  gunHandle: {fileID: 0}
   ui: {fileID: 5815798120099494897}
   trigger: 0
 --- !u!114 &5815798120099494897
@@ -699,10 +724,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d23d9377b399354eadabb6a208921a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 0}
+  playerData: {fileID: 7350718080572131856}
   cameraPosition: {fileID: 5815798119772482406}
   centerOfView: {fileID: 5815798121285567752}
-  rayDistance: 10
+  rayDistance: 2.5
   interactableLayers:
     serializedVersion: 2
     m_Bits: 1024
@@ -860,24 +885,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats:
+    damageArray:
+    - damage: 8
+      damageType: 4
+    damageMultipliersOnAffliction:
+      data:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+    totalDamageMultiplier: 1
+    critChance: 0
+    critMultiplier: 0
+    afflictionChance: 0
     magazineMax: 30
     ammoMax: 999
     reloadTime: 1
     timeBetweenShots: 0.2
     triggerType: 1
     projectileSpeed: 40
-    damageArray:
-    - damage: 8
-      damageType: 4
     punchThrough: 1
   modifiedStats:
+    damageArray: []
+    damageMultipliersOnAffliction:
+      data:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+    totalDamageMultiplier: 1
+    critChance: 0
+    critMultiplier: 0
+    afflictionChance: 0
     magazineMax: 0
     ammoMax: 0
     reloadTime: 0
     timeBetweenShots: 0
     triggerType: 0
     projectileSpeed: 0
-    damageArray: []
     punchThrough: 0
   gunUpgrades: []
   magazineCurrent: 25
@@ -937,24 +986,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats:
+    damageArray:
+    - damage: 5
+      damageType: 4
+    damageMultipliersOnAffliction:
+      data:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+    totalDamageMultiplier: 1
+    critChance: 0
+    critMultiplier: 0
+    afflictionChance: 0
     magazineMax: 3
     ammoMax: 999
     reloadTime: 1.5
     timeBetweenShots: 0.6
     triggerType: 0
     projectileSpeed: 40
-    damageArray:
-    - damage: 5
-      damageType: 4
     punchThrough: 1
   modifiedStats:
+    damageArray: []
+    damageMultipliersOnAffliction:
+      data:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+    totalDamageMultiplier: 1
+    critChance: 0
+    critMultiplier: 0
+    afflictionChance: 0
     magazineMax: 0
     ammoMax: 0
     reloadTime: 0
     timeBetweenShots: 0
     triggerType: 0
     projectileSpeed: 0
-    damageArray: []
     punchThrough: 0
   gunUpgrades: []
   magazineCurrent: 3
