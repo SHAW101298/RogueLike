@@ -107,6 +107,6 @@ Bonusy losowane do broni
 +    Zwiekszenie crit multiplier
     Zwiekszenie szybkosci strzelania
     Zwiekszenie amunicji
-    Zwiekszenie affliction Chance
++    Zwiekszenie affliction Chance
     Zmniejszenie czasu przeładowania
  */
