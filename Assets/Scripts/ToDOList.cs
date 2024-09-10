@@ -110,3 +110,10 @@ Bonusy losowane do broni
 +    Zwiekszenie affliction Chance
     Zmniejszenie czasu przeładowania
  */
+
+/*
+ Instead of portals, there are doors, which close permanently.
+Players can block off sections, which forces those left out to find other way or die trying.
+  
+ 
+ */

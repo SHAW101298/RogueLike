@@ -27,4 +27,8 @@ public class PlayerData : NetworkBehaviour
         bool success = shooting.AttemptGunChange(gun);
         return success;
     }
+    public void TeleportPlayer(Vector3 pos)
+    {
+        transform.position = pos;
+    }
 }
