@@ -4,10 +4,30 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
 
+public enum ENUM_AIState
+{
+    Inactive,
+    Idle,
+    Moving,
+    Attacking,
+    Dying
+}
+public enum ENUM_StateProgress
+{
+    work,
+    finishing,
+    end
+}
+
 public class Enemy_AI_Melee : MonoBehaviour
 {
+
+
     [SerializeField] float attackRange;
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] PlayerData closestPlayer;
+    [SerializeField] ENUM_AIState aiState;
+    [SerializeField] ENUM_StateProgress stateProgress;
 
     [Header("Debug")]
     [SerializeField] Transform movePosition;
@@ -21,13 +41,91 @@ public class Enemy_AI_Melee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ActAccordingToState();
+
         MoveTowardsPlayers();
     }
 
+    public void ActivateAI() 
+    {
+
+        AttemptStateChange(ENUM_AIState.Idle);
+    }
     void MoveTowardsPlayers()
     {
         agent.SetDestination(movePosition.position);
         // Find Closest Player in range of 100
     }
 
+    void ActAccordingToState()
+    {
+        switch(aiState)
+        {
+            case ENUM_AIState.Inactive:
+                Inactive();
+                break;
+            case ENUM_AIState.Idle:
+                Idle();
+                break;
+            case ENUM_AIState.Moving:
+                Moving();
+                break;
+            case ENUM_AIState.Attacking:
+                Attacking();
+                break;
+            case ENUM_AIState.Dying:
+                Dying();
+                break;
+            default:
+                break;
+        }
+    }
+    bool AttemptStateChange(ENUM_AIState newstate)
+    {
+        if(newstate == aiState)
+        {
+            return false;
+        }
+
+        if(stateProgress == ENUM_StateProgress.end)
+        {
+            aiState = newstate;
+            stateProgress = ENUM_StateProgress.work;
+            return true;
+        }
+        else
+        {
+            if (aiState == ENUM_AIState.Moving)
+            {
+                aiState = newstate;
+                stateProgress = ENUM_StateProgress.work;
+                return true;
+            }
+        }
+
+
+
+        return false;
+    }
+
+    void Inactive()
+    {
+        return;
+    }
+    void Idle()
+    {
+        return;
+    }
+    void Moving()
+    {
+        agent.SetDestination(closestPlayer.transform.position);
+    }
+    void Attacking()
+    {
+
+    }
+    void Dying()
+    {
+
+    }
 }
