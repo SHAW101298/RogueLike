@@ -31,6 +31,7 @@ public class NetworkCustomSpawning : NetworkBehaviour
     [SerializeField] int expectedAmountOfPlayers;
     public int receivedCallBacks;
     [SerializeField] List<GameObject> characterPrefabs;
+    public List<PlayerData> connectedPlayers;
 
     private void Start()
     {
@@ -119,6 +120,7 @@ public class NetworkCustomSpawning : NetworkBehaviour
         temp.GetComponent<NetworkObject>().ChangeOwnership(serverRpcParams.Receive.SenderClientId);
         temp.transform.position = Vector3.zero;
         temp.transform.localEulerAngles = Vector3.zero;
+        connectedPlayers.Add(temp.GetComponent<PlayerData>());
     }
 
     public void SetAmountOfExpectedPlayers(int amount)
@@ -159,7 +161,21 @@ public class NetworkCustomSpawning : NetworkBehaviour
         */
     }
 
-
+    public PlayerData ReturnClosestPlayer(Vector3 pos)
+    {
+        float distance = 1000;
+        PlayerData closestPlayer = connectedPlayers[0];
+        foreach(PlayerData player in connectedPlayers)
+        {
+            float calcVal = Vector3.Distance(pos, player.transform.position);
+            if(calcVal <= distance)
+            {
+                distance = calcVal;
+                closestPlayer = player;
+            }
+        }
+        return closestPlayer;
+    }
 
     /*
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId, NetworkReader extraMessageReader)
