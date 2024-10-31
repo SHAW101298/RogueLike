@@ -118,7 +118,7 @@ public class LobbyManager : MonoBehaviour
                 poolUpdateTimer = 0;
                 Lobby lobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
                 currentLobby = lobby;
-                ui_Lobby.UpdatePlayersInLobby();
+                //ui_Lobby.UpdatePlayersInLobby();
 
                 // Lobby Updated with Relay Code
                 if (currentLobby.Data["Key_Game_Start"].Value != "0")
@@ -209,17 +209,6 @@ public class LobbyManager : MonoBehaviour
         }
         
     }
-    public void CallStartGame()
-    {
-        try
-        {
-            // CREATE SEPERATE CLASS FOR RELAY CONTROL
-        }
-        catch(LobbyServiceException e)
-        {
-            Debug.Log(e);
-        }
-    }
     public async void CallChangeName(string newName)
     {
         try
@@ -286,16 +275,11 @@ public class LobbyManager : MonoBehaviour
 
             // Mark ready as Host
             currentPlayer = GetPlayer();
-            currentPlayer.Data["Ready"].Value = "1";
 
             CreateLobbyOptions options = new CreateLobbyOptions();
             options.IsPrivate = isPrivate;
             options.Player = currentPlayer;
 
-            options.Data = new Dictionary<string, DataObject>()
-            {
-                ["Key_Game_Start"] = new DataObject(DataObject.VisibilityOptions.Member, "0"),
-            };
             if(password.Length > 0)
             {
                 if (password.Length >= 4)
@@ -305,10 +289,11 @@ public class LobbyManager : MonoBehaviour
             }
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
             currentLobby = lobby;
+            Debug.LogWarning("Dodac modyfikator obrazen dla poziomu trudnosci");
             // Modyfikator obra¿eñ dla poziomu trudnoœci
             Debug.Log("Created Lobby! " + currentLobby.Name + "  " +  currentLobby.LobbyCode);
             FirstLobbyUpdate();
-            ui_Lobby.ActivateLobbyWindow();
+            //ui_Lobby.ActivateLobbyWindow();
             //Debug.Log("Print keygamestart = " + currentLobby.Data["Key_Game_Start"].Value);
         }
         catch(LobbyServiceException e)
@@ -325,16 +310,12 @@ public class LobbyManager : MonoBehaviour
 
             // Mark ready as Host
             currentPlayer = GetPlayer();
-            currentPlayer.Data["Ready"].Value = "1";
+            //currentPlayer.Data["Ready"].Value = "1";
 
             CreateLobbyOptions options = new CreateLobbyOptions();
             options.IsPrivate = lobbyData.isPrivate;
             options.Player = currentPlayer;
 
-            options.Data = new Dictionary<string, DataObject>()
-            {
-                ["Key_Game_Start"] = new DataObject(DataObject.VisibilityOptions.Member, "0"),
-            };
             if (lobbyData.password.Length > 0)
             {
                 if (lobbyData.password.Length >= 4)
@@ -344,10 +325,10 @@ public class LobbyManager : MonoBehaviour
             }
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyData.name, maxPlayers, options);
             currentLobby = lobby;
-            // Modyfikator obra¿eñ dla poziomu trudnoœci
+            Debug.LogWarning("Dodac modyfikator obrazen dla poziomu trudnosci");
             Debug.Log("Created Lobby! " + currentLobby.Name + "  " + currentLobby.LobbyCode);
             FirstLobbyUpdate();
-            ui_Lobby.ActivateLobbyWindow();
+            //ui_Lobby.ActivateLobbyWindow();
             //Debug.Log("Print keygamestart = " + currentLobby.Data["Key_Game_Start"].Value);
             return "1";
         }
