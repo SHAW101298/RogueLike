@@ -140,6 +140,10 @@ public class LobbyManager : MonoBehaviour
     {
         CreateLobby(name, players, isPrivate, password);
     }
+    public void CallCreateLobby(LobbyCreationData lobbyData)
+    {
+        CreateLobby(lobbyData.name, lobbyData.players, lobbyData.isPrivate, lobbyData.password);
+    }
     public void CallJoinLobbyByCode(string code)
     {
         JoinLobbyByCode(code);
@@ -331,7 +335,6 @@ public class LobbyManager : MonoBehaviour
             Debug.Log("Created Lobby! " + currentLobby.Name + "  " +  currentLobby.LobbyCode);
             FirstLobbyUpdate();
             ui_Lobby.ActivateLobbyWindow();
-            await RegisterToLobbyEvents();
             //Debug.Log("Print keygamestart = " + currentLobby.Data["Key_Game_Start"].Value);
         }
         catch(LobbyServiceException e)
@@ -367,7 +370,6 @@ public class LobbyManager : MonoBehaviour
             Debug.Log("Joined Lobby with code " + code);
             FirstLobbyUpdate();
             ui_Lobby.ActivateLobbyWindow();
-            await RegisterToLobbyEvents();
         }
         catch (LobbyServiceException e)
         {
@@ -388,7 +390,6 @@ public class LobbyManager : MonoBehaviour
             Debug.Log("Joined Lobby with id " + lobbyId);
             FirstLobbyUpdate();
             ui_Lobby.ActivateLobbyWindow();
-            await RegisterToLobbyEvents();
         }
         catch (LobbyServiceException e)
         {
@@ -410,7 +411,6 @@ public class LobbyManager : MonoBehaviour
             currentLobby = lobby;
             FirstLobbyUpdate();
             ui_Lobby.ActivateLobbyWindow();
-            await RegisterToLobbyEvents();
         }
         catch(LobbyServiceException e)
         {
@@ -489,28 +489,6 @@ public class LobbyManager : MonoBehaviour
         }
         
     }
-    private async Task RegisterToLobbyEvents()
-    {
-        LobbyEventCallbacks callback = new LobbyEventCallbacks();
-        callback.KickedFromLobby += OnPlayerKicked;
-        //callback.DataChanged += GameSetup.Instance.LobbyDataChanged;
-        try
-        {
-            ILobbyEvents lobbyEvents = await LobbyService.Instance.SubscribeToLobbyEventsAsync(currentLobby.Id, callback);
-            Debug.Log("Registered to Lobby Events");
-        }
-        catch(LobbyServiceException e)
-        {
-            Debug.Log(e);
-        }
-    }
-    public void OnPlayerKicked()
-    {
-        Debug.Log("Player has been kicked");
-        currentLobby = null;
-        ui_MainMenu.ShowMenuWindow();
-        ui_MainMenu.HideLobbyWindow();
-    }
     public async void FirstLobbyUpdate()
     {
         Debug.Log("First lobby Update");
@@ -519,7 +497,6 @@ public class LobbyManager : MonoBehaviour
     }
     private void ProceedWithStartingGame()
     {
-        networkTypeController.StartGameAsRelay();
 
         Debug.Log("We received Relay Code");
         bool ishost = ReturnIsHost();

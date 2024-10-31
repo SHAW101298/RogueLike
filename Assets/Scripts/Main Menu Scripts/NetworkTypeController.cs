@@ -6,6 +6,16 @@ using Unity.Services.Authentication;
 using UnityEngine;
 using UnityEngine.Networking;
 
+
+public class LobbyCreationData
+{
+    public string name;
+    public string players;
+    public bool isPrivate;
+    public string password;
+}
+
+
 public class NetworkTypeController : NetworkBehaviour
 {
     public static NetworkTypeController Instance;
@@ -41,10 +51,11 @@ public class NetworkTypeController : NetworkBehaviour
         NetworkManager.Singleton.NetworkConfig.NetworkTransport = unityTransport;
     }
 
-    public void StartGameAsRelay()
+    public void HostGameAsRelay(LobbyCreationData lobbyData)
     {
         SetAsRelayTransport();
-        Debug.Log("We received Relay Code");
+        PrepareLobby(lobbyData);
+        PrepareRelay();
 
         bool ishost = ReturnIsHost();
 
@@ -72,6 +83,11 @@ public class NetworkTypeController : NetworkBehaviour
             NetworkManager.Singleton.SceneManager.LoadScene("SampleScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
         }
     }
+    public void JoinGameOnRelay(string inviteCode)
+    {
+        lobbyManager.CallJoinLobbyByCode(inviteCode);
+        relayManager.JoinRelay(inviteCode);
+    }
     public void StartGameAsOffline()
     {
         SetAsUnityTransport();
@@ -87,5 +103,14 @@ public class NetworkTypeController : NetworkBehaviour
             return true;
         }
         return false;
+    }
+
+    void PrepareLobby(LobbyCreationData lobbyData)
+    {
+        lobbyManager.CallCreateLobby(lobbyData);
+    }
+    async void PrepareRelay()
+    {
+        await relayManager.CreateRelay();
     }
 }

@@ -118,16 +118,23 @@ public class UI_LobbyList : MonoBehaviour
     }
     public void BTN_CreateNewLobby()
     {
-        string lobbyName = newLobbyName.text;
-        string players = newLobbyPlayers.text;
-        bool isPrivate = newLobbyPrivate.isOn;
-        string password = newLobbyPassword.text;
-        //lobbyManager.CallCreateLobby(newLobbyName.text, newLobbyPlayers.text, newLobbyPrivate.isOn, newLobbyPassword.text);
-        ResetCreateLobbyData();
-        lobbyManager.CallCreateLobby(lobbyName, players, isPrivate, password);
+        //string lobbyName = newLobbyName.text;
+        //string players = newLobbyPlayers.text;
+        //bool isPrivate = newLobbyPrivate.isOn;
+        //string password = newLobbyPassword.text;
+        LobbyCreationData newLobbyData = new LobbyCreationData();
+        newLobbyData.name = newLobbyName.text;
+        newLobbyData.players = newLobbyPlayers.text;
+        newLobbyData.isPrivate = newLobbyPrivate.isOn;
+        newLobbyData.password = newLobbyPassword.text;
+
         createLobbyWindow.SetActive(false);
         lobbyListWindow.SetActive(true);
         ui_MainMenu.BTN_MultiplayerReturn();
+        ResetCreateLobbyData();
+        //lobbyManager.CallCreateLobby(newLobbyName.text, newLobbyPlayers.text, newLobbyPrivate.isOn, newLobbyPassword.text);
+        NetworkTypeController.Instance.HostGameAsRelay(newLobbyData);
+        //lobbyManager.CallCreateLobby(lobbyName, players, isPrivate, password);
     }
     void ResetCreateLobbyData()
     {
@@ -150,7 +157,8 @@ public class UI_LobbyList : MonoBehaviour
     {
         string code = codeField.text;
         BTN_ExitJoinWithCode();
-        lobbyManager.CallJoinLobbyByCode(code);
+        NetworkTypeController.Instance.JoinGameOnRelay(code);
+        //lobbyManager.CallJoinLobbyByCode(code);
     }
     public void BTN_ExitPasswordInput()
     {
