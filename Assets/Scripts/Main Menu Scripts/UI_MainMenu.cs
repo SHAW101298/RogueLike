@@ -30,6 +30,7 @@ public class UI_MainMenu : MonoBehaviour
     [SerializeField] RelayManager relayManager;
     [SerializeField] UI_Lobby ui_Lobby;
     [SerializeField] UI_LobbyList ui_LobbyList;
+    [SerializeField] NetworkTypeController networkTypeController;
     //[SerializeField] UI_JoinLobbyByCode ui_JoinByCode;
     //[SerializeField] UI_CreateLobby ui_CreateLobby;
 
@@ -51,6 +52,7 @@ public class UI_MainMenu : MonoBehaviour
     {
         lobbyManager = LobbyManager.Instance;
         relayManager = RelayManager.Instance;
+        networkTypeController = NetworkTypeController.Instance;
         Debug.LogWarning("ZMIENIC BACKGROUND. COPYRIGHT");
     }
 
@@ -143,6 +145,10 @@ public class UI_MainMenu : MonoBehaviour
             }
             lobbyManager.UpdateLobbyWithRelayCode(relayCode);
         }
+    }
+    public void BTN_StartOFflineGame()
+    {
+        networkTypeController.StartGameAsOffline();
     }
     public void HideLobbyWindow()
     {

@@ -37,6 +37,7 @@ public class LobbyManager : MonoBehaviour
 
     [Header("REF")]
     [SerializeField] RelayManager relayManager;
+    [SerializeField] NetworkTypeController networkTypeController;
     [SerializeField] GameSetup gameSetup;
     public UI_MainMenu ui_MainMenu;
     public UI_Lobby ui_Lobby;
@@ -518,6 +519,8 @@ public class LobbyManager : MonoBehaviour
     }
     private void ProceedWithStartingGame()
     {
+        networkTypeController.StartGameAsRelay();
+
         Debug.Log("We received Relay Code");
         bool ishost = ReturnIsHost();
 
