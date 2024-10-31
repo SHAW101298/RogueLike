@@ -13,8 +13,6 @@ public class TESTINGSCRIPT : MonoBehaviour
     public bool runCOO;
     // Start is called before the first frame update
 
-    NetworkTransport relay;
-    NetworkTransport intern;
     void Start()
     {
     }
@@ -49,8 +47,5 @@ public class TESTINGSCRIPT : MonoBehaviour
         //RESIZETEST.ins.ShowData(gun);
         UI_RaycastedGunData.Instance.ShowGunData(gun);
     }
-    void foo()
-    {
-        NetworkManager.Singleton.NetworkConfig.NetworkTransport = intern;
-    }
+
 }
