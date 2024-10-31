@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class TESTINGSCRIPT : MonoBehaviour
@@ -11,6 +12,9 @@ public class TESTINGSCRIPT : MonoBehaviour
     public bool runFunction;
     public bool runCOO;
     // Start is called before the first frame update
+
+    NetworkTransport relay;
+    NetworkTransport intern;
     void Start()
     {
     }
@@ -44,5 +48,9 @@ public class TESTINGSCRIPT : MonoBehaviour
         gun.CreateModifiedStats();
         //RESIZETEST.ins.ShowData(gun);
         UI_RaycastedGunData.Instance.ShowGunData(gun);
+    }
+    void foo()
+    {
+        NetworkManager.Singleton.NetworkConfig.NetworkTransport = intern;
     }
 }
