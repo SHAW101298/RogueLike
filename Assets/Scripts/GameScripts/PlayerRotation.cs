@@ -8,7 +8,6 @@ public class PlayerRotation : NetworkBehaviour
 {
     public GameObject body;
     public GameObject camera;
-    public GameObject characterModel;
 
     public float sensitivity = 0.5f;
     Vector2 input;

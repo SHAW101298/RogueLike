@@ -23,11 +23,35 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Perki Postaci");
         doZrobienia.Add("Modele Broni");
         doZrobienia.Add("Prefaby Broni");
+        doZrobienia.Add("Przycisk w menu chowajacy okno lobby naprawić");
     }
 
 }
 // 
 
+
+/*      START LOOP
+ 1. Pojawienie się menu głównego
+    I Single Player tworzy prywatny serwer 
+    II MultiPlayer tworzy lobby, do którego można się podłączyć poprzez kod lub z listy
+ 2. Wybranie Trybu
+ 3. Multiplayer
+    - Hostowanie
+    Stworzenie Lobby, a host przechodzi na scene gry oraz startuje Relay ( Lobby jest tylko do ustawienia pierwszego połączenia )
+    Klienci po dołączeniu do lobby są automatycznie wrzucani do sceny gry oraz podłączeni do Relay
+    Tworzy się główna postać gracza która pozwala na interakcje ze światem, a gracze mogą wybrać postać którą chcą grać.
+    Gracze wybierają swoje pierwsze bronie
+    Gracze wchodzą do strefy startu a host rozpoczyna faktyczną grę przyciskiem w świecie
+    Zmiana sceny, lub wytworzenie modelu sceny za pomocą random-gen
+    - Wszystkie dane graczy są zapisywane u hosta, pozwoli to na ponowne dołączenie do gry w razie problemu
+    - Dostępna będzie konsola która ma przyzwolenie hosta serwera ( do rozwiązywania problemów w rozgrywce )
+ 4. SinglePlayer
+    Tworzy się prywatny serwer a wszystko wygląda bardzo podobnie do multiplayer, jednak bez ogłaszania się w internecie
+*/
+
+/*
+Prefab Gracza powinien umożliwić ruszanie się, obracanie, wybieranie postaci. Prefab musi być widoczny dla innych ( jakiś duszek albo coś takiego )
+ */
 
 /*
  Kazda postac posiadac bedzie 1-2 umiejetnosci uzywalne w czasie gry.
