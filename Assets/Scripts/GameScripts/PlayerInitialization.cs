@@ -15,13 +15,36 @@ public class PlayerInitialization : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SceneManager.sceneLoaded += OnSceneChanged;
+        
+        Debug.Log("Start Is called");
+        
         if (SceneManager.GetActiveScene().name.Equals("SampleScene"))
         {
+            //Debug.Log("Good Scene");
             InitializePlayerScripts();
             enabled = false;
         }
     }
 
+    private void OnSceneChanged(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name.Equals("SampleScene"))
+        {
+            Debug.Log("Good Scene");
+            InitializePlayerScripts();
+            enabled = false;
+        }
+        else
+        {
+            Debug.Log("Wrong Scene = " + SceneManager.GetActiveScene().name);
+        }
+    }
+
+    private void Awake()
+    {
+        Debug.Log("Awake Is called");        
+    }
     private void InitializePlayerScripts()
     {
         Debug.LogWarning("Dodac zczytywanie nazw graczy. ");

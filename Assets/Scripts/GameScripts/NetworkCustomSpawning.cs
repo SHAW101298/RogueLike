@@ -85,7 +85,6 @@ public class NetworkCustomSpawning : NetworkBehaviour
 
 
 
-
     }
 
     [ClientRpc]

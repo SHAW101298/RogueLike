@@ -62,14 +62,16 @@ public class NetworkTypeController : NetworkBehaviour
     {
         SetAsRelayTransport();
         await PrepareLobby(lobbyData);
-
+        await Task.Delay(2);
         await PrepareRelay();
-
-        ui_MainMenu.HideLobbyWindow();
-        ui_MainMenu.BTN_MultiplayerReturn();
-        ui_MainMenu.ShowMenuWindow();
-
+        await Task.Delay(2);
         NetworkManager.Singleton.SceneManager.LoadScene("SampleScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
+
+
+        //ui_MainMenu.HideLobbyWindow();
+        //ui_MainMenu.BTN_MultiplayerReturn();
+        //ui_MainMenu.ShowMenuWindow();
+
 
     }
     public void JoinGameOnRelay(string inviteCode)

@@ -74,15 +74,6 @@ public class LobbyManager : MonoBehaviour
         HandleLobbyPoolUpdate();
     }
     
-    
-    public void MarkAsInGame()
-    {
-        inGame = true;
-    }
-    public void MarkAsOutOfGame()
-    {
-        inGame = false;
-    }
     async void HandleLobbyHeartBeat()
     {
         if (currentLobby != null)
@@ -132,7 +123,6 @@ public class LobbyManager : MonoBehaviour
                 // Lobby Updated with Relay Code
                 if (currentLobby.Data["Key_Game_Start"].Value != "0")
                 {
-                    ProceedWithStartingGame();
                 }
             }
         }
@@ -519,37 +509,6 @@ public class LobbyManager : MonoBehaviour
         Debug.Log("First lobby Update");
         Lobby lobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
         currentLobby = lobby;
-    }
-    private void ProceedWithStartingGame()
-    {
-
-        Debug.Log("We received Relay Code");
-        bool ishost = ReturnIsHost();
-
-        /*
-        countdownTimer += Time.deltaTime;
-        if(countdownTimer < 1)
-        {
-            //return;
-        }
-        */
-
-        if (ishost == false) // Host is already in the relay
-        {
-            relayManager.JoinRelay(currentLobby.Data["Key_Game_Start"].Value);
-        }
-        //currentLobby = null; // Will destroy current lobby after 30 seconds
-        ui_MainMenu.HideLobbyWindow();
-        ui_MainMenu.BTN_MultiplayerReturn();
-        ui_MainMenu.ShowMenuWindow();
-        MarkAsInGame();
-        countdownTimer = 0;
-        NetworkCustomSpawning.Instance.SetAmountOfExpectedPlayers(currentLobby.Players.Count);
-        // Clients will be forced to change scene
-        if(ishost == true)
-        {
-            NetworkManager.Singleton.SceneManager.LoadScene("SampleScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
-        }
     }
     public void DisableAudioListener()
     {
