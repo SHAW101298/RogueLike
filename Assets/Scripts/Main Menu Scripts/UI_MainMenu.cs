@@ -60,7 +60,7 @@ public class UI_MainMenu : MonoBehaviour
     {
         singlePlayerWindow.OpenWindow();
         menuWindow.CloseWindow();
-        NetworkManager.Singleton.gameObject.GetComponent<NetworkTypeController>().SetAsUnityTransport();
+        //NetworkManager.Singleton.gameObject.GetComponent<NetworkTypeController>().SetAsUnityTransport();
     }
     public void BTN_SinglePlayerReturn()
     {
@@ -71,7 +71,7 @@ public class UI_MainMenu : MonoBehaviour
     {
         multiPlayerWindow.OpenWindow();
         menuWindow.CloseWindow();
-        NetworkManager.Singleton.gameObject.GetComponent<NetworkTypeController>().SetAsRelayTransport();
+        //NetworkManager.Singleton.gameObject.GetComponent<NetworkTypeController>().SetAsRelayTransport();
     }
     public void BTN_MultiplayerReturn()
     {
@@ -135,6 +135,10 @@ public class UI_MainMenu : MonoBehaviour
     }
     public async void BTN_StartGame()
     {
+
+        UI_ErrorHandler.instance.ShowErrorMessage("Old Ways. Returning");
+        return;
+
         if(lobbyManager.ReturnIsHost() == true)
         {     
             string relayCode = await relayManager.CreateRelay();
@@ -144,7 +148,9 @@ public class UI_MainMenu : MonoBehaviour
                 return;
             }
             lobbyManager.UpdateLobbyWithRelayCode(relayCode);
+        
         }
+        
     }
     public void BTN_StartOFflineGame()
     {

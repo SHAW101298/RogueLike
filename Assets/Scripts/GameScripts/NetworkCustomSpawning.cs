@@ -43,7 +43,7 @@ public class NetworkCustomSpawning : NetworkBehaviour
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         Debug.Log("Scene Manager says scene is loaded = " + arg0.name);
-        LobbyManager.Instance.CallMarkAsLoaded();
+        //LobbyManager.Instance.CallMarkAsLoaded();
     }
 
     public override void OnNetworkSpawn()

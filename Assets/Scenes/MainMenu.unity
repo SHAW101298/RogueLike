@@ -4153,7 +4153,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &513306781
 GameObject:
@@ -5907,6 +5907,72 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
+--- !u!1 &798473924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 798473927}
+  - component: {fileID: 798473926}
+  - component: {fileID: 798473925}
+  m_Layer: 0
+  m_Name: Network Type Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &798473925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798473924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 626287214
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &798473926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798473924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6f19f0b5be9bb4dbede6e8d76d4a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  relayTransport: {fileID: 1652183394}
+  unityTransport: {fileID: 1652183397}
+  lobbyManager: {fileID: 1548225282}
+  relayManager: {fileID: 1033113179}
+  ui_MainMenu: {fileID: 1564222164}
+--- !u!4 &798473927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798473924}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.9825938, y: 19.360376, z: -41.348385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &798688275
 GameObject:
   m_ObjectHideFlags: 0
@@ -6958,7 +7024,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1044042789
 GameObject:
@@ -8761,7 +8827,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1407964889
 MonoBehaviour:
@@ -8860,7 +8926,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1453916452
 GameObject:
@@ -10706,12 +10772,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   relayManager: {fileID: 1033113179}
-  networkTypeController: {fileID: 0}
+  networkTypeController: {fileID: 798473926}
   gameSetup: {fileID: 0}
   ui_MainMenu: {fileID: 1564222164}
   ui_Lobby: {fileID: 1564222166}
   ui_LobbyList: {fileID: 1564222167}
   oldListener: {fileID: 0}
+  inLobby: 0
 --- !u!4 &1548225283
 Transform:
   m_ObjectHideFlags: 0
@@ -10725,7 +10792,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1564222163
 GameObject:
@@ -10786,7 +10853,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1564222166
 MonoBehaviour:
@@ -10926,7 +10993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1639204729
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11110,7 +11177,6 @@ GameObject:
   - component: {fileID: 1652183395}
   - component: {fileID: 1652183394}
   - component: {fileID: 1652183397}
-  - component: {fileID: 1652183398}
   m_Layer: 0
   m_Name: Network Manager
   m_TagString: Untagged
@@ -11162,7 +11228,8 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 1652183394}
-    PlayerPrefab: {fileID: 0}
+    PlayerPrefab: {fileID: 4509776595623541335, guid: 39365a71ba830cb45a68b60d9cb9600a,
+      type: 3}
     NetworkPrefabs:
     - Override: 0
       Prefab: {fileID: 5815798120099494858, guid: cdf15c48f35e7e84ba0d0ec72703c68d,
@@ -11227,23 +11294,6 @@ MonoBehaviour:
     PacketDelayMS: 0
     PacketJitterMS: 0
     PacketDropRate: 0
---- !u!114 &1652183398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652183393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca6f19f0b5be9bb4dbede6e8d76d4a31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  relayTransport: {fileID: 1652183394}
-  unityTransport: {fileID: 1652183397}
-  lobbyManager: {fileID: 0}
-  relayManager: {fileID: 0}
-  ui_MainMenu: {fileID: 0}
 --- !u!1 &1665158443
 GameObject:
   m_ObjectHideFlags: 0
@@ -13531,7 +13581,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1884818407
 GameObject:
@@ -14532,7 +14582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1986952472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14579,7 +14629,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1988752142
 GameObject:

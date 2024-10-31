@@ -42,13 +42,15 @@ public class RelayManager : MonoBehaviour
         string joinCode = "";
         try
         {
+            Debug.Log("maxPlayers = " + lobbyManager.currentLobby.MaxPlayers);
             int maxPlayers = lobbyManager.currentLobby.MaxPlayers - 1;
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(maxPlayers);
              joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
             
 
             RelayServerData relayServerData = new RelayServerData(allocation,"dtls");
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
+            //NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
+            NetworkTypeController.Instance.relayTransport.SetRelayServerData(relayServerData);
             Debug.Log("Starting a host");
             lobbyManager.DisableAudioListener();
             NetworkManager.Singleton.StartHost();
@@ -69,7 +71,8 @@ public class RelayManager : MonoBehaviour
             JoinAllocation allocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 
             RelayServerData relayServerData = new RelayServerData(allocation, "dtls");
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
+            //NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
+            NetworkTypeController.Instance.relayTransport.SetRelayServerData(relayServerData);
             NetworkManager.Singleton.StartClient();
 
         }

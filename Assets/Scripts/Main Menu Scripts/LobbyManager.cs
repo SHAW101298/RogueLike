@@ -45,6 +45,7 @@ public class LobbyManager : MonoBehaviour
     
     [SerializeField] AudioListener oldListener;
     [SerializeField] public Lobby currentLobby;
+    [SerializeField] bool inLobby;
     public Player currentPlayer;
     //public TMP_Text lobbyName;
     float heartBeatTimer;
@@ -86,6 +87,7 @@ public class LobbyManager : MonoBehaviour
     {
         if (currentLobby != null)
         {
+            inLobby = true;
             if (currentLobby.HostId != currentPlayer.Id)
                 return;
 
@@ -95,6 +97,10 @@ public class LobbyManager : MonoBehaviour
                 heartBeatTimer = 0;
                 await LobbyService.Instance.SendHeartbeatPingAsync(currentLobby.Id);
             }
+        }
+        else
+        {
+            inLobby = false;
         }
     }
     async void HandleLobbyPoolUpdate()
@@ -247,29 +253,7 @@ public class LobbyManager : MonoBehaviour
         }
         
     }
-    public void CallMarkAsLoaded()
-    {
-        MarkAsLoaded();
-    }
-    async void MarkAsLoaded()
-    {
-        try
-        {
-            UpdatePlayerOptions options = new UpdatePlayerOptions()
-            {
-                Data = new Dictionary<string, PlayerDataObject>
-                {
-                    ["IsLoaded"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "1")
-                }
-            };
-            Lobby lobby = await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, currentPlayer.Id, options);
-            currentLobby = lobby;
-        }
-        catch (LobbyServiceException e)
-        {
-            Debug.Log(e);
-        }
-    }
+
     public async void CallLeaveLobby()
     {
         try
@@ -304,7 +288,7 @@ public class LobbyManager : MonoBehaviour
         
     }
 
-    async void CreateLobby(string lobbyName, string players, bool isPrivate, string password)
+    public async void CreateLobby(string lobbyName, string players, bool isPrivate, string password)
     {
         try
         {
@@ -338,6 +322,45 @@ public class LobbyManager : MonoBehaviour
             //Debug.Log("Print keygamestart = " + currentLobby.Data["Key_Game_Start"].Value);
         }
         catch(LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+    }
+    public async void CreateLobby(LobbyCreationData lobbyData)
+    {
+        try
+        {
+
+            int maxPlayers = Convert.ToInt32(lobbyData.players);
+
+            // Mark ready as Host
+            currentPlayer = GetPlayer();
+            currentPlayer.Data["Ready"].Value = "1";
+
+            CreateLobbyOptions options = new CreateLobbyOptions();
+            options.IsPrivate = lobbyData.isPrivate;
+            options.Player = currentPlayer;
+
+            options.Data = new Dictionary<string, DataObject>()
+            {
+                ["Key_Game_Start"] = new DataObject(DataObject.VisibilityOptions.Member, "0"),
+            };
+            if (lobbyData.password.Length > 0)
+            {
+                if (lobbyData.password.Length >= 4)
+                {
+                    options.Password = lobbyData.password;
+                }
+            }
+            Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyData.name, maxPlayers, options);
+            currentLobby = lobby;
+            // Modyfikator obra¿eñ dla poziomu trudnoœci
+            Debug.Log("Created Lobby! " + currentLobby.Name + "  " + currentLobby.LobbyCode);
+            FirstLobbyUpdate();
+            ui_Lobby.ActivateLobbyWindow();
+            //Debug.Log("Print keygamestart = " + currentLobby.Data["Key_Game_Start"].Value);
+        }
+        catch (LobbyServiceException e)
         {
             Debug.Log(e);
         }
