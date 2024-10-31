@@ -61,7 +61,7 @@ public class NetworkTypeController : NetworkBehaviour
     public async void HostGameAsRelay(LobbyCreationData lobbyData)
     {
         SetAsRelayTransport();
-        PrepareLobby(lobbyData);
+        await PrepareLobby(lobbyData);
 
         await PrepareRelay();
 
@@ -96,8 +96,8 @@ public class NetworkTypeController : NetworkBehaviour
 
     async Task<int> PrepareLobby(LobbyCreationData lobbyData)
     {
-        lobbyManager.CreateLobby(lobbyData);
-        lobbyManager.CallCreateLobby(lobbyData);
+        await lobbyManager.CreateLobby(lobbyData);
+        //lobbyManager.CallCreateLobby(lobbyData);
         return 1;
     }
     async Task<int> PrepareRelay()

@@ -326,7 +326,7 @@ public class LobbyManager : MonoBehaviour
             Debug.Log(e);
         }
     }
-    public async void CreateLobby(LobbyCreationData lobbyData)
+    public async Task<string> CreateLobby(LobbyCreationData lobbyData)
     {
         try
         {
@@ -359,11 +359,13 @@ public class LobbyManager : MonoBehaviour
             FirstLobbyUpdate();
             ui_Lobby.ActivateLobbyWindow();
             //Debug.Log("Print keygamestart = " + currentLobby.Data["Key_Game_Start"].Value);
+            return "1";
         }
         catch (LobbyServiceException e)
         {
             Debug.Log(e);
         }
+        return "0";
     }
     async void ListLobbies()
     {
