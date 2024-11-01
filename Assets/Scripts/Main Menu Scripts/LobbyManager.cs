@@ -121,9 +121,6 @@ public class LobbyManager : MonoBehaviour
                 //ui_Lobby.UpdatePlayersInLobby();
 
                 // Lobby Updated with Relay Code
-                if (currentLobby.Data["Key_Game_Start"].Value != "0")
-                {
-                }
             }
         }
         
@@ -365,7 +362,7 @@ public class LobbyManager : MonoBehaviour
             currentLobby = lobby;
             Debug.Log("Joined Lobby with code " + code);
             FirstLobbyUpdate();
-            ui_Lobby.ActivateLobbyWindow();
+            //ui_Lobby.ActivateLobbyWindow();
         }
         catch (LobbyServiceException e)
         {
@@ -385,7 +382,7 @@ public class LobbyManager : MonoBehaviour
             currentLobby = lobby;
             Debug.Log("Joined Lobby with id " + lobbyId);
             FirstLobbyUpdate();
-            ui_Lobby.ActivateLobbyWindow();
+            //ui_Lobby.ActivateLobbyWindow();
         }
         catch (LobbyServiceException e)
         {
@@ -406,7 +403,7 @@ public class LobbyManager : MonoBehaviour
             Lobby lobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId, options);
             currentLobby = lobby;
             FirstLobbyUpdate();
-            ui_Lobby.ActivateLobbyWindow();
+            //ui_Lobby.ActivateLobbyWindow();
         }
         catch(LobbyServiceException e)
         {

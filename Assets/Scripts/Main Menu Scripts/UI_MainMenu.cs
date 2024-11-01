@@ -147,7 +147,7 @@ public class UI_MainMenu : MonoBehaviour
                 UI_ErrorHandler.instance.ShowErrorMessage("Relay code not returned. Relay couldn't be created");
                 return;
             }
-            lobbyManager.UpdateLobbyWithRelayCode(relayCode);
+            //lobbyManager.UpdateLobbyWithRelayCode(relayCode);
         
         }
         
