@@ -52,7 +52,11 @@ public class ToDOList : MonoBehaviour
 
 /*
 Prefab Gracza powinien umożliwić ruszanie się, obracanie, wybieranie postaci. Prefab musi być widoczny dla innych ( jakiś duszek albo coś takiego )
+Dla przeciwników dopiero przy aktywacji pomieszczenia dodać wykrywanie graczy, dzieki temu pomieszczenia mogą być wieksze ale przeciwnicy tylko grupami będą przychodzić
+Stworzyć terminal dla admina
+
  */
+
 
 /*
  Kazda postac posiadac bedzie 1-2 umiejetnosci uzywalne w czasie gry.

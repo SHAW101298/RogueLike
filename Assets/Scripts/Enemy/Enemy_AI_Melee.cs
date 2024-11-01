@@ -19,7 +19,7 @@ public enum ENUM_StateProgress
     end
 }
 
-public class Enemy_AI_Melee : MonoBehaviour
+public class Enemy_AI_Melee : Enemy_AI_Base
 {
 
 
@@ -46,9 +46,8 @@ public class Enemy_AI_Melee : MonoBehaviour
         MoveTowardsPlayers();
     }
 
-    public void ActivateAI() 
+    public override void ActivateAI() 
     {
-
         AttemptStateChange(ENUM_AIState.Idle);
     }
     void MoveTowardsPlayers()

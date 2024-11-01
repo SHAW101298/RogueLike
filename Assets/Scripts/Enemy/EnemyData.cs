@@ -7,12 +7,11 @@ public class EnemyData : UnitData
     public CharacterController controller;
     public Stats stats;
     public Afflictions afflictions;
-
+    public Enemy_AI_Base ai;
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -115,5 +114,10 @@ public class EnemyData : UnitData
             return true;
         }
         return false;
+    }
+    public void ActivateEnemy()
+    {
+        Debug.LogWarning("Implement AI activation");
+        ai.ActivateAI();
     }
 }

@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class RoomManager : MonoBehaviour
+public class RoomManager : NetworkBehaviour
 {
+    public bool isActive;
     public List<EnemyData> enemiesInRoom;
     [Space(15)]
     [SerializeField] Transform spawnPosition;
+    [SerializeField] GameObject room;
 
 
     // Start is called before the first frame update
@@ -23,18 +26,56 @@ public class RoomManager : MonoBehaviour
 
     public void ActivateRoom()
     {
-        // Activate GameObject
-        // Teleport Player
-        // Make enemies Seek players out
+        // Room already active, nothing to do
+        if (isActive == true)
+            return;
+
+        // Called by client to open a room
+        if(IsOwner == false)
+        {
+            Debug.Log("Im not owner, ask server to activate room");
+            // Make RPC call to host to open room
+            ActivateThisRoom_ServerRPC();
+        }
+        else
+        {
+            // Ask all clients to open this room
+            ActivateThisRoom_ClientRPC();
+        }
     }
     public void EVENT_PlayerEnteringPortal()
     {
         // Check if room is already active
-
-        //ActivateRoom();
+        ActivateRoom();
     }
     public Vector3 GetSpawnPosition()
     {
         return spawnPosition.position;
-    }    
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void ActivateThisRoom_ServerRPC()
+    {
+        Debug.Log("Server RPC Activate This Room");
+        // Ask each client to activate this room
+        ActivateThisRoom_ClientRPC();
+    }
+
+    [ClientRpc]
+    public void ActivateThisRoom_ClientRPC()
+    {
+        Debug.Log("Called on client ActivateThisRoom");
+        // Server tells to activate this room
+        room.SetActive(true);
+        isActive = true;
+
+
+        // Make enemies Seek players out
+        foreach(EnemyData enemy in enemiesInRoom)
+        {
+            enemy.ActivateEnemy();
+        }
+
+    }
+
 }
