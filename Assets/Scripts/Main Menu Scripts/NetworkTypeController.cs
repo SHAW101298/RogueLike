@@ -60,11 +60,14 @@ public class NetworkTypeController : NetworkBehaviour
 
     public async void HostGameAsRelay(LobbyCreationData lobbyData)
     {
+        string relayCode = "";
         SetAsRelayTransport();
         await PrepareLobby(lobbyData);
         await Task.Delay(2);
-        await PrepareRelay();
-        await Task.Delay(2);
+        relayCode = await PrepareRelay();
+        await Task.Delay(1);
+        lobbyManager.UpdateLobbyWithRelayCode(relayCode);
+        await Task.Delay(1);
         NetworkManager.Singleton.SceneManager.LoadScene("SampleScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
 
 
@@ -74,10 +77,36 @@ public class NetworkTypeController : NetworkBehaviour
 
 
     }
-    public void JoinGameOnRelay(string inviteCode)
+    public void JoinGameOnRelayByCode(string inviteCode)
     {
         lobbyManager.CallJoinLobbyByCode(inviteCode);
         relayManager.JoinRelay(inviteCode);
+    }
+    public async void JoinGameOnRelayByID(string lobbyId)
+    {
+        Debug.Log("Calling to join a lobby");
+        lobbyManager.CallJoinLobbyByID(lobbyId);
+        Debug.Log("Starting 2 sec wait");
+        await Task.Delay(1000);
+        Debug.Log("Finished Waiting");
+        Debug.Log("Current lobby id = " + lobbyManager.currentLobby.Id);
+        Debug.Log("Key Value = " + lobbyManager.currentLobby.Data["Key_Game_Start"].Value);
+        string relayCode = lobbyManager.currentLobby.Data["Key_Game_Start"].Value;
+        await Task.Delay(500);
+        relayManager.JoinRelay(relayCode);
+    }
+    public async void JoinGameOnRelayByID(string lobbyId, string password)
+    {
+        Debug.Log("Calling to join a lobby");
+        lobbyManager.CallJoinLobbyByID(lobbyId, password);
+        Debug.Log("Starting 2 sec wait");
+        await Task.Delay(1000);
+        Debug.Log("Finished Waiting");
+        Debug.Log("Current lobby id = " + lobbyManager.currentLobby.Id);
+        Debug.Log("Key Value = " + lobbyManager.currentLobby.Data["Key_Game_Start"].Value);
+        string relayCode = lobbyManager.currentLobby.Data["Key_Game_Start"].Value;
+        await Task.Delay(500);
+        relayManager.JoinRelay(relayCode);
     }
     public void StartGameAsOffline()
     {
@@ -102,9 +131,10 @@ public class NetworkTypeController : NetworkBehaviour
         //lobbyManager.CallCreateLobby(lobbyData);
         return 1;
     }
-    async Task<int> PrepareRelay()
+    async Task<string> PrepareRelay()
     {
-        await relayManager.CreateRelay();
-        return 1;
+        string relayCode = "";
+        relayCode = await relayManager.CreateRelay();
+        return relayCode;
     }
 }

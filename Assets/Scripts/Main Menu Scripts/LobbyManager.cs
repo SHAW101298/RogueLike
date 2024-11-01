@@ -402,6 +402,7 @@ public class LobbyManager : MonoBehaviour
             };
             Lobby lobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId, options);
             currentLobby = lobby;
+            Debug.Log("Joined Lobby with id " + lobbyId);
             FirstLobbyUpdate();
             //ui_Lobby.ActivateLobbyWindow();
         }

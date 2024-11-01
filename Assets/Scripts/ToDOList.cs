@@ -23,8 +23,8 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Perki Postaci");
         doZrobienia.Add("Modele Broni");
         doZrobienia.Add("Prefaby Broni");
-        doZrobienia.Add("Przycisk w menu chowajacy okno lobby naprawić");
-        doZrobienia.Add("WYlaczyc pokazywanie lobby podczas tworzenia go");
+        //doZrobienia.Add("Przycisk w menu chowajacy okno lobby naprawić"); \/
+        //doZrobienia.Add("WYlaczyc pokazywanie lobby podczas tworzenia go");
     }
 
 }

@@ -93,13 +93,15 @@ public class UI_LobbyList : MonoBehaviour
             passwordRequestWindow.SetActive(true);
             return;
         }
-        lobbyManager.CallJoinLobbyByID(selectedLobby);
+        NetworkTypeController.Instance.JoinGameOnRelayByID(lobby.Id);
+        //lobbyManager.CallJoinLobbyByID(selectedLobby);
     }
     public void BTN_JoinWithPassword()
     {
         string savedPassword = passwordField.text;
         passwordField.text = "";
-        lobbyManager.CallJoinLobbyByID(selectedLobby, savedPassword);
+        NetworkTypeController.Instance.JoinGameOnRelayByID(selectedLobby, savedPassword);
+        //lobbyManager.CallJoinLobbyByID(selectedLobby, savedPassword);
     }
     public void BTN_Return()
     {
@@ -157,7 +159,7 @@ public class UI_LobbyList : MonoBehaviour
     {
         string code = codeField.text;
         BTN_ExitJoinWithCode();
-        NetworkTypeController.Instance.JoinGameOnRelay(code);
+        NetworkTypeController.Instance.JoinGameOnRelayByCode(code);
         //lobbyManager.CallJoinLobbyByCode(code);
     }
     public void BTN_ExitPasswordInput()
