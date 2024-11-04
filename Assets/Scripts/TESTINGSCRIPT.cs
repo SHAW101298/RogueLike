@@ -11,6 +11,12 @@ public class TESTINGSCRIPT : MonoBehaviour
     [Header("Debug")]
     public bool runFunction;
     public bool runCOO;
+    public bool runFOO;
+
+    [Header("FOO")]
+    public GameObject teleportObject;
+    public Transform teleportPosition;
+    public PlayerData player;
     // Start is called before the first frame update
 
     void Start()
@@ -30,6 +36,11 @@ public class TESTINGSCRIPT : MonoBehaviour
             runCOO = false;
             COO();
         }
+        if(runFOO == true)
+        {
+            runFOO = false;
+            FOO();
+        }
     }
     void BOO()
     {
@@ -46,6 +57,11 @@ public class TESTINGSCRIPT : MonoBehaviour
         gun.CreateModifiedStats();
         //RESIZETEST.ins.ShowData(gun);
         UI_RaycastedGunData.Instance.ShowGunData(gun);
+    }
+    void FOO()
+    {
+        player.TeleportPlayer(teleportPosition.position);
+        //teleportObject.gameObject.transform.position = teleportPosition.position;
     }
 
 }

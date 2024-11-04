@@ -15,7 +15,10 @@ public class Teleporter : InteractableBase
 
         interactedRoom.ActivateRoom(data);
         //interactedRoom.ActivateRoom();
+        Debug.Log("player name = " + data.name);
+        Debug.Log("Pos = " + data.gameObject.transform.position);
         data.TeleportPlayer(teleportPosition.position);
+        Debug.Log("Pos = " + data.gameObject.transform.position);
         currentRoom.DeactivateRoomForMe();
     }
 }

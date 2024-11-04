@@ -29,6 +29,9 @@ public class PlayerData : NetworkBehaviour
     }
     public void TeleportPlayer(Vector3 pos)
     {
-        transform.position = pos;
+        movement.controller.enabled = false;
+        gameObject.transform.position = pos;
+        movement.controller.enabled = true;
+        //transform.position = pos;
     }
 }
