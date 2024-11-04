@@ -6,22 +6,16 @@ public class Teleporter : InteractableBase
 {
     public Transform teleportPosition;
     public RoomManager interactedRoom;
+    public RoomManager currentRoom;
 
     public override void Interact(PlayerData data)
     {
         // Activate Room
         // Teleport Player
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        interactedRoom.ActivateRoom(data);
+        //interactedRoom.ActivateRoom();
+        data.TeleportPlayer(teleportPosition.position);
+        currentRoom.DeactivateRoomForMe();
     }
 }
