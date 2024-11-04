@@ -25,32 +25,14 @@ public class RoomManager : NetworkBehaviour
 
     public void ActivateRoom()
     {
+        room.SetActive(true);
+
         // Room already active, nothing to do
         if (isActive == true)
             return;
 
         // Called by client to open a room
         if(IsOwner == false)
-        {
-            Debug.Log("Im not owner, ask server to activate room");
-            // Make RPC call to host to open room
-            ActivateThisRoom_ServerRPC();
-        }
-        else
-        {
-            // Ask all clients to open this room
-            ActivateThisRoom_ClientRPC();
-        }
-    }
-    public void ActivateRoom(PlayerData player)
-    {
-        // Room already active, nothing to do
-        if (isActive == true)
-            return;
-
-        room.SetActive(true);
-        // Called by client to open a room
-        if (IsOwner == false)
         {
             Debug.Log("Im not owner, ask server to activate room");
             // Make RPC call to host to open room
