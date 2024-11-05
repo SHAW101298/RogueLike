@@ -41,6 +41,9 @@ public class Enemy_AI_Melee : Enemy_AI_Base
     // Update is called once per frame
     void Update()
     {
+        if (IsOwner == false)
+            return;
+
         ActAccordingToState();
 
         MoveTowardsPlayers();

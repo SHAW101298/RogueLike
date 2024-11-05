@@ -10,6 +10,7 @@ public class ToDOList : MonoBehaviour
     {
         doZrobienia.Add("Gracze beda alertowac przeciwnikow w okolicy. Szybciej i latwiej w ten sposob");
         doZrobienia.Add("Sprawdzenie czy gracz zalogowal sie do uslug - czyli czy faktycznie mial internet wlaczajac gre. W razie co sprobowac ponownie polaczyc");
+        doZrobienia.Add("Terminal admina");
         //doZrobienia.Add("W scenie Main Menu powinien być już gracz stworzony. Podchodząc do portalu (warframe !) jest ustawiany Ready-Check");
         doZrobienia.Add("Odporności na obrażenia");
         doZrobienia.Add("LifeSteal");
@@ -28,8 +29,10 @@ public class ToDOList : MonoBehaviour
     }
 
 }
-// 
 
+
+
+//Kazda postac posiadac bedzie 1-2 umiejetnosci uzywalne w czasie gry.
 
 /*      START LOOP
  1. Pojawienie się menu głównego
@@ -50,21 +53,26 @@ public class ToDOList : MonoBehaviour
     Tworzy się prywatny serwer a wszystko wygląda bardzo podobnie do multiplayer, jednak bez ogłaszania się w internecie
 */
 
-/*
+/* To DO
 Prefab Gracza powinien umożliwić ruszanie się, obracanie, wybieranie postaci. Prefab musi być widoczny dla innych ( jakiś duszek albo coś takiego )
 Dla przeciwników dopiero przy aktywacji pomieszczenia dodać wykrywanie graczy, dzieki temu pomieszczenia mogą być wieksze ale przeciwnicy tylko grupami będą przychodzić
 Stworzyć terminal dla admina
 
- */
+*/
 
-
-/*
- Kazda postac posiadac bedzie 1-2 umiejetnosci uzywalne w czasie gry.
+/* Bounty Hunter
 Bounty Hunter
 Pasywka - Na każdej mapie jest przeciwnik za którego dostanie dodatkową ilość pieniędzy
 Give It A Shot - 
+
+ Bounty Hunter Ulepszenia
+Zwiekszenie szansy na krytyk
+Ostatni pocisk zawsze krytuje
+Obrazenia z pistoletow
+
  */
-/*
+
+/* Room Creation idea
 Tworzenie ulozenia pomieszczen
 1. Wywolanie skryptu ktory bedzie wczytywal dane.
 2. Wywolywanie funkcji ktora bedzie wysylac liczbe odpowiadajaca nastepnemu poziomowi
@@ -75,24 +83,14 @@ Prefaby przeciwników zapisane są w Prefab List, więc wystarczy wygenerować u
 Aasb
  */
 
-
-/*
+/* Old Lobby
  Lobby:
 Przycisk pozwalajacy pokazac i schowac okno Lobby ( jezeli jest sie do jakiegos podlaczonym )
 Ikony z postaciami podswietlaja sie na czerwono / zielono, zaleznie od przycisku przygotowania
 Po schowaniu lobby, pokazane sa tylko ikony postaci wraz z statusem przygotowania
  */
 
-
-/*
- Cherrif Ulepszenia
-Zwiekszenie szansy na krytyk
-Ostatni pocisk zawsze krytuje
-Obrazenia z pistoletow
-
- */
-
-/*
+/* Bonuses from Verminitide
  
 Assisting an ally under attack restores 15 Temporary Health to both players. (Assisting allies refers to saving them from a Gutter Runner, Packmaster, or Lifeleech, or Staggering Enemies who are about to backstab them.)
 Blocking an attack increases the damage the attacker takes by 20% for 5.0 seconds.
@@ -117,9 +115,7 @@ Healing an ally with medical supplies also heals you for 50.0% of your missing h
 Passively regenerates 1 health every 5 seconds. Healing from First Aid Kits and Healing Draughts are converted to temporary health and cure any wound. 
  */
 
-
-/*
-Statystyki opisujące broń 
+/* Statystyki opisujące broń 
     obrazenia
     szansa na kryty
     mnoznik krytow
@@ -129,8 +125,8 @@ Statystyki opisujące broń
     stability
     poziom
  */
-/*
-Bonusy losowane do broni
+
+/* Bonusy losowane do broni
 +    Zwiekszenie obrazen
 +    Zwiekszenie obrazen na przeciwnikach pod wyplywem statusu
 +    Zwiekszenie szansy na krytyk
@@ -141,7 +137,7 @@ Bonusy losowane do broni
     Zmniejszenie czasu przeładowania
  */
 
-/*
+/* Crazy ideas
  Instead of portals, there are doors, which close permanently.
 Players can block off sections, which forces those left out to find other way or die trying.
   
