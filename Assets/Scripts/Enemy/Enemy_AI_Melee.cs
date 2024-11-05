@@ -42,7 +42,7 @@ public class Enemy_AI_Melee : Enemy_AI_Base
     void Update()
     {
         if (IsOwner == false)
-            return;
+            //return;
 
         ActAccordingToState();
 
