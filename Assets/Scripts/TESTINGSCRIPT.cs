@@ -17,6 +17,10 @@ public class TESTINGSCRIPT : MonoBehaviour
     public GameObject teleportObject;
     public Transform teleportPosition;
     public PlayerData player;
+
+    [Header("Colliding Test")]
+    public Collider col;
+    public Rigidbody rb;
     // Start is called before the first frame update
 
     void Start()
@@ -62,6 +66,10 @@ public class TESTINGSCRIPT : MonoBehaviour
     {
         player.TeleportPlayer(teleportPosition.position);
         //teleportObject.gameObject.transform.position = teleportPosition.position;
+    }
+    void ColTest()
+    {
+        
     }
 
 }

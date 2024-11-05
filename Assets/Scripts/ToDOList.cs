@@ -80,7 +80,19 @@ Tworzenie ulozenia pomieszczen
 3. Po x razach, mapa zostala stworzona i jest gotowa do gry.
 4. Nastepnie za kazdym razem jak host ( lub pierwsza osoba ), przechodzi przez portal wychodzi żądanie aby stworzyć przeciwników w pomieszczeniu.
 Prefaby przeciwników zapisane są w Prefab List, więc wystarczy wygenerować u hosta odpowiednią kombinację.
-Aasb
+ */
+
+/* Rooms Idea 2
+1. Po aktywowaniu portalu jest loading Screen
+2. W czasie loading Screenu gracze teleportowani są na bezpieczny plane
+3. Stworzenie pierwszego pomieszczenia bezpiecznego z jednym wyjściem
+4. Każde pomieszczenie będzie zawierać dane ile zajmuje miejsca na gridzie
+I na bazie tego gridu bedzie sprawdzane czy można umieścić dane pomieszczenie w tym miejscu
+Jeżeli tak, wstawiany jest ten prefab, oznaczenie drzwi na gridzie i od tego miejsca ponownie szukanie odpowiedniego prefabu. 
+W razie problemu tworzenie od zera lub ustawienie portalu wcześniej.
+5. Po stworzeniu 4? pomieszczeń na końcu tworzony jest portal do innego etapu.
+6. Nastepuje tworzenie Nawigacji dla AI
+7. Każde pomieszczenie będzie miało 2 podłogi. 1 dla AI do zczytania danych a 2 dla estetyki.
  */
 
 /* Old Lobby
