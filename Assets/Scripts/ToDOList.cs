@@ -76,7 +76,7 @@ Obrazenia z pistoletow
 Tworzenie ulozenia pomieszczen
 1. Wywolanie skryptu ktory bedzie wczytywal dane.
 2. Wywolywanie funkcji ktora bedzie wysylac liczbe odpowiadajaca nastepnemu poziomowi
-3. Koordynaty do teleportacji zostaja zapisane, a pomieszczenie ustawione w odpowiednie miejsce ( zaraz po nastepnym )
+3. Koordynaty do teleportacji zostaja zapisane, a pomieszczenie ustawione w odpowiednie miejsce ( zaraz po nastepnym - Obliczyć bounding Box ?)
 3. Po x razach, mapa zostala stworzona i jest gotowa do gry.
 4. Nastepnie za kazdym razem jak host ( lub pierwsza osoba ), przechodzi przez portal wychodzi żądanie aby stworzyć przeciwników w pomieszczeniu.
 Prefaby przeciwników zapisane są w Prefab List, więc wystarczy wygenerować u hosta odpowiednią kombinację.
