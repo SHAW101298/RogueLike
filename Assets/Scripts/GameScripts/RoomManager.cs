@@ -7,8 +7,14 @@ public class RoomManager : NetworkBehaviour
 {
     public bool isActive;
     public List<EnemyData> enemiesInRoom;
-    [Space(15)]
     [SerializeField] GameObject room;
+    public RoomValidationScript roomValidationScript;
+    [Space(15)]
+    public Transform entrance;
+    public Transform exit;
+    public Transform portal;
+    [SerializeField] GameObject placementColliders;
+
 
 
     // Start is called before the first frame update

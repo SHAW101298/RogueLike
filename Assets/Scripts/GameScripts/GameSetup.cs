@@ -25,12 +25,15 @@ public class GameSetup : MonoBehaviour
 
 
     [SerializeField] Transform[] firstGunSpots;
+    [SerializeField] RoomGenerator roomGenerator;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Setting Up a Game");
         CreateBasicGuns();
+        roomGenerator.GenerateRooms();
     }
 
 
@@ -46,5 +49,9 @@ public class GameSetup : MonoBehaviour
             //tempGun = GunManager.Instance.CreateGunOnGround(randomVal, spot.position);
         }
         //GunManager.Instance.CreateGunOnGround(possibleGuns, firstGunSpots[0].position);
+    }
+    void CreateMap()
+    {
+        Debug.Log("Starting Creation of Map");
     }
 }
