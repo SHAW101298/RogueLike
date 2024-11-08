@@ -30,6 +30,7 @@ public class RoomGenerator : NetworkBehaviour
 
     [Header("Debug")]
     public bool generateRooms;
+    public bool clearRooms;
     public int iteration = 0;
     public int maxIteration;
 
@@ -61,6 +62,15 @@ public class RoomGenerator : NetworkBehaviour
             regenerateRooms = false;
             RegenerateRooms();
         }
+        if(clearRooms == true)
+        {
+            clearRooms = false;
+            for(int i = currentRooms.Count-1; i > 0; i--)
+            {
+                Destroy(currentRooms[i].gameObject);
+                currentRooms.RemoveAt(i);
+            }
+        }
     }
     public void GenerateRooms()
     {
@@ -72,6 +82,7 @@ public class RoomGenerator : NetworkBehaviour
         }
         currentRooms.Add(spawnArea);
         Vector3 nextSpot = spawnArea.exit.position;
+        Vector3 nextRotation = spawnArea.exit.eulerAngles;
         GameObject newRoom;
         RoomManager createdRoom;
         int lastRoomTemplate = currentRooms[0].roomTemplate;
@@ -82,8 +93,14 @@ public class RoomGenerator : NetworkBehaviour
             newRoom = Instantiate(possibleRooms[newRoomTemplate]);
             createdRoom = newRoom.GetComponent<RoomManager>();
             createdRoom.roomValidationScript.id = i;
+            // Position correctly according to exit
             newRoom.transform.position = nextSpot;
+            newRoom.transform.eulerAngles = nextRotation;
+            // Save data for next room
             nextSpot = createdRoom.exit.position;
+            nextRotation = createdRoom.exit.eulerAngles;
+            //nextRotation.y = nextRotation.y-180;
+            // Cache In the Room
             currentRooms.Add(createdRoom);
             lastRoomTemplate = createdRoom.roomTemplate;
         }
@@ -93,6 +110,7 @@ public class RoomGenerator : NetworkBehaviour
         //Debug.Log("Generating Rooms after Error. ID = " + startingId);
 
         Vector3 nextSpot = currentRooms[startingId].exit.position;
+        Vector3 nextRotation = currentRooms[startingId].exit.eulerAngles;
         GameObject newRoom;
         RoomManager createdRoom;
         int lastRoomTemplate = -currentRooms[startingId].roomTemplate;
@@ -102,8 +120,14 @@ public class RoomGenerator : NetworkBehaviour
             newRoom = Instantiate(possibleRooms[newRoomTemplate]);
             createdRoom = newRoom.GetComponent<RoomManager>();
             createdRoom.roomValidationScript.id = i;
+            // Position correctly according to exit
             newRoom.transform.position = nextSpot;
+            newRoom.transform.eulerAngles = nextRotation;
+            // Save data for next room
             nextSpot = createdRoom.exit.position;
+            nextRotation = createdRoom.exit.eulerAngles;
+            //nextRotation.y = nextRotation.y-180;
+            // Cache In the Room
             currentRooms.Add(createdRoom);
             lastRoomTemplate = createdRoom.roomTemplate;
         }
@@ -154,5 +178,14 @@ public class RoomGenerator : NetworkBehaviour
         }
         GenerateRooms(earliestError);
         earliestError = -1;
+    }
+
+    void Foo()
+    {
+        GameObject room = null;
+
+        Vector3 rot = room.transform.eulerAngles;
+        GameObject newroom = null;
+        newroom.transform.eulerAngles = rot;
     }
 }

@@ -12,15 +12,16 @@ public class TESTINGSCRIPT : MonoBehaviour
     public bool runFunction;
     public bool runCOO;
     public bool runFOO;
+    public bool runROO;
 
     [Header("FOO")]
     public GameObject teleportObject;
     public Transform teleportPosition;
     public PlayerData player;
 
-    [Header("Colliding Test")]
-    public Collider col;
-    public Rigidbody rb;
+    [Header("ROO")]
+    public GameObject rotSource;
+    public GameObject room;
     // Start is called before the first frame update
 
     void Start()
@@ -45,6 +46,11 @@ public class TESTINGSCRIPT : MonoBehaviour
             runFOO = false;
             FOO();
         }
+        if(runROO == true)
+        {
+            runROO = false;
+            ROO();
+        }
     }
     void BOO()
     {
@@ -67,9 +73,9 @@ public class TESTINGSCRIPT : MonoBehaviour
         player.TeleportPlayer(teleportPosition.position);
         //teleportObject.gameObject.transform.position = teleportPosition.position;
     }
-    void ColTest()
+    void ROO()
     {
-        
+        room.transform.eulerAngles = rotSource.transform.eulerAngles;   
     }
 
 }
