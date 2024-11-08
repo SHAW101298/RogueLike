@@ -68,6 +68,7 @@ public class RoomGenerator : NetworkBehaviour
             createdRoom.roomValidationScript.id = i;
             newRoom.transform.position = nextSpot;
             nextSpot = createdRoom.exit.position;
+            currentRooms.Add(createdRoom);
         }
     }
     void GenerateRooms(int startingId)
@@ -103,7 +104,7 @@ public class RoomGenerator : NetworkBehaviour
     public void Alert_RoomCollide(int id)
     {
         Debug.Log("Error on ID " + id);
-
+        Debug.Break();
         for(int i = currentRooms.Count-1; i > id; i--)
         {
             Destroy(currentRooms[i].gameObject);

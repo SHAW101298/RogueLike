@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 8105875173874046431}
   - component: {fileID: 879588906852066}
   - component: {fileID: 3212807626439028051}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Placement Colliders 03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,6 +429,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &5312298190580477894
 GameObject:
   m_ObjectHideFlags: 0

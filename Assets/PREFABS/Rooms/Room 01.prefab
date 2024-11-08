@@ -147,6 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &1137111659373565821
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +162,7 @@ GameObject:
   - component: {fileID: 4037532758982648439}
   - component: {fileID: 1264518733131421381}
   - component: {fileID: 6118514473083520797}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Placement Colliders 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
