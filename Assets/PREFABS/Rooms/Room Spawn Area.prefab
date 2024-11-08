@@ -47,9 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  roomTemplate: -1
   enemiesInRoom: []
   room: {fileID: 9196098992414940282}
-  roomValidationScript: {fileID: 9196098992414940283}
+  roomValidationScript: {fileID: 1508542263614099011}
   entrance: {fileID: 0}
   exit: {fileID: 5467637763813882403}
   portal: {fileID: 0}
@@ -81,8 +82,9 @@ GameObject:
   - component: {fileID: 3603919854305840629}
   - component: {fileID: 4014501049876601665}
   - component: {fileID: 2915849605880048327}
+  - component: {fileID: 1508542263614099011}
   m_Layer: 11
-  m_Name: Placement Colliders
+  m_Name: Placement Colliders Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,6 +131,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 1, z: 3.8904514}
   m_Center: {x: 0, y: 0, z: -7.9452257}
+--- !u!114 &1508542263614099011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780140139130975600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52379597560ee5145a697bfd223e6aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &7398900298578668855
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,10 +191,9 @@ GameObject:
   - component: {fileID: 4862498323254675813}
   - component: {fileID: 7250768185888603567}
   - component: {fileID: 5268899572222939006}
-  - component: {fileID: 9196098992414940283}
   - component: {fileID: 9196098992414940276}
   m_Layer: 0
-  m_Name: Floor
+  m_Name: Floor Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,22 +279,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 1, z: 10}
   m_Center: {x: 0, y: -0.5, z: -5}
---- !u!114 &9196098992414940283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9196098992414940282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52379597560ee5145a697bfd223e6aef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 2048
 --- !u!54 &9196098992414940276
 Rigidbody:
   m_ObjectHideFlags: 0

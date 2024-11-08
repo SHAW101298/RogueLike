@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 8105875173874046431}
   - component: {fileID: 879588906852066}
   - component: {fileID: 3212807626439028051}
+  - component: {fileID: 6970398461272381561}
   m_Layer: 11
   m_Name: Placement Colliders 03
   m_TagString: Untagged
@@ -180,6 +181,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 1, z: 3.9175014}
   m_Center: {x: -13, y: 0, z: -26.958752}
+--- !u!114 &6970398461272381561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3972343481936942759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52379597560ee5145a697bfd223e6aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &3980147773178516343
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,9 +276,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  roomTemplate: 3
   enemiesInRoom: []
   room: {fileID: 4960212044485426520}
-  roomValidationScript: {fileID: 1207429934820386492}
+  roomValidationScript: {fileID: 6970398461272381561}
   entrance: {fileID: 5696480910562466049}
   exit: {fileID: 567192654977699099}
   portal: {fileID: 8926100394838516599}
@@ -325,10 +343,9 @@ GameObject:
   - component: {fileID: 8771815662572786853}
   - component: {fileID: 6800233777085489263}
   - component: {fileID: 7213463707370694060}
-  - component: {fileID: 1207429934820386492}
   - component: {fileID: 8136212997183680013}
   m_Layer: 9
-  m_Name: Floor
+  m_Name: Floor 03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -417,22 +434,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1207429934820386492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4998913017352847802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52379597560ee5145a697bfd223e6aef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 2048
 --- !u!65 &8136212997183680013
 BoxCollider:
   m_ObjectHideFlags: 0

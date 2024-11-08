@@ -6,6 +6,7 @@ using UnityEngine;
 public class RoomManager : NetworkBehaviour
 {
     public bool isActive;
+    public int roomTemplate;
     public List<EnemyData> enemiesInRoom;
     [SerializeField] GameObject room;
     public RoomValidationScript roomValidationScript;

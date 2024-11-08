@@ -74,15 +74,18 @@ public class RoomGenerator : NetworkBehaviour
         Vector3 nextSpot = spawnArea.exit.position;
         GameObject newRoom;
         RoomManager createdRoom;
+        int lastRoomTemplate = currentRooms[0].roomTemplate;
 
-        for(int i = 1; i < roomsToGenerate; i++)
+        for (int i = 1; i < roomsToGenerate; i++)
         {
-            newRoom = Instantiate(GetRandomRoom());
+            int newRoomTemplate = GetRandomRoomExcept(lastRoomTemplate);
+            newRoom = Instantiate(possibleRooms[newRoomTemplate]);
             createdRoom = newRoom.GetComponent<RoomManager>();
             createdRoom.roomValidationScript.id = i;
             newRoom.transform.position = nextSpot;
             nextSpot = createdRoom.exit.position;
             currentRooms.Add(createdRoom);
+            lastRoomTemplate = createdRoom.roomTemplate;
         }
     }
     void GenerateRooms(int startingId)
@@ -92,29 +95,33 @@ public class RoomGenerator : NetworkBehaviour
         Vector3 nextSpot = currentRooms[startingId].exit.position;
         GameObject newRoom;
         RoomManager createdRoom;
-
+        int lastRoomTemplate = -currentRooms[startingId].roomTemplate;
         for (int i = startingId +1; i < roomsToGenerate; i++)
         {
-            newRoom = Instantiate(GetRandomRoom());
+            int newRoomTemplate = GetRandomRoomExcept(lastRoomTemplate);
+            newRoom = Instantiate(possibleRooms[newRoomTemplate]);
             createdRoom = newRoom.GetComponent<RoomManager>();
             createdRoom.roomValidationScript.id = i;
             newRoom.transform.position = nextSpot;
             nextSpot = createdRoom.exit.position;
             currentRooms.Add(createdRoom);
+            lastRoomTemplate = createdRoom.roomTemplate;
         }
         iteration++;
     }
-
-    GameObject GetRandomRoom()
+    int GetRandomRoomExcept(int x)
     {
         int val = Random.Range(0, possibleRooms.Count);
-        Debug.Log("Creating Room " + possibleRooms[val].gameObject.name);
-        return possibleRooms[val];
+        while (val == x)
+        {
+            val = Random.Range(0, possibleRooms.Count);
+        }
+        return val;
     }
     public void Alert_RoomCollide(int id)
     {
         Debug.Log("Error on ID " + id);
-        //Debug.Break();
+        Debug.Break();
 
         if(earliestError == -1)
         {

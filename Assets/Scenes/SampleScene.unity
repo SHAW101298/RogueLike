@@ -7153,6 +7153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  roomTemplate: 0
   enemiesInRoom: []
   room: {fileID: 1041371469}
   roomValidationScript: {fileID: 1054624383}
@@ -8623,6 +8624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  roomTemplate: 0
   enemiesInRoom: []
   room: {fileID: 1208586493}
   roomValidationScript: {fileID: 0}
@@ -12394,6 +12396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  roomTemplate: 0
   enemiesInRoom: []
   room: {fileID: 1656826051}
   roomValidationScript: {fileID: 0}
@@ -14032,12 +14035,12 @@ MonoBehaviour:
   - {fileID: 9150316433430254979, guid: 8c454231fe8578a4db90e14400d27bec, type: 3}
   - {fileID: 4960212043571684550, guid: c309eae6b61930845831da225547cef8, type: 3}
   currentRooms: []
-  roomsToGenerate: 0
+  roomsToGenerate: 15
   earliestError: -1
   regenerateRooms: 0
   generateRooms: 0
   iteration: 0
-  maxIteration: 0
+  maxIteration: 10
 --- !u!114 &1268781158
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 9165776729326359565}
   - component: {fileID: 1054504278734731693}
   - component: {fileID: 675369088184658412}
+  - component: {fileID: 235054807682833110}
   m_Layer: 11
   m_Name: Placement Colliders 02
   m_TagString: Untagged
@@ -166,6 +167,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 1, z: 11.923733}
   m_Center: {x: 3.5, y: 0, z: -24.461866}
+--- !u!114 &235054807682833110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999742131688547581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52379597560ee5145a697bfd223e6aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &4825014927270159555
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,11 +225,10 @@ GameObject:
   - component: {fileID: 5699694470003289789}
   - component: {fileID: 8698344760555004184}
   - component: {fileID: 6868637253347972562}
-  - component: {fileID: 2669085852168050271}
   - component: {fileID: 4473983048703414951}
   - component: {fileID: 2328153890170975936}
   m_Layer: 9
-  m_Name: Floor
+  m_Name: Floor 02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,22 +301,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2669085852168050271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4923192233495999495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52379597560ee5145a697bfd223e6aef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 2048
 --- !u!54 &4473983048703414951
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -440,9 +440,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  roomTemplate: 2
   enemiesInRoom: []
   room: {fileID: 9150316432742151417}
-  roomValidationScript: {fileID: 2669085852168050271}
+  roomValidationScript: {fileID: 235054807682833110}
   entrance: {fileID: 9102382647418613711}
   exit: {fileID: 5308659314124042733}
   portal: {fileID: 3599237460641629545}
