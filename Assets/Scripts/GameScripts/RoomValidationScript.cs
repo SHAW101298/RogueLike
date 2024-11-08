@@ -9,11 +9,12 @@ public class RoomValidationScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collided with = " + other.gameObject.name);
+        //Debug.Log("Collided with = " + other.gameObject.name);
         if(Contains(collisionMask, other.gameObject.layer) == true)
         {
-            Debug.Log(id + " | " + " Collided with " + other.gameObject.GetComponentInParent<RoomManager>().roomValidationScript.id);
-            RoomGenerator.Instance.Alert_RoomCollide(id);
+            int collisionID = other.gameObject.GetComponentInParent<RoomManager>().roomValidationScript.id;
+            //Debug.Log(id + " | " + " Collided with " + collisionID);
+            RoomGenerator.Instance.Alert_RoomCollide(collisionID);
         }
         
     }

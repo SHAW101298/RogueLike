@@ -25,6 +25,9 @@ public class RoomGenerator : NetworkBehaviour
     public List<RoomManager> currentRooms;
     public int roomsToGenerate;
 
+    public int earliestError = -1;
+    public bool regenerateRooms;
+
     [Header("Debug")]
     public bool generateRooms;
     public int iteration = 0;
@@ -46,6 +49,11 @@ public class RoomGenerator : NetworkBehaviour
             currentRooms.Clear();
             generateRooms = false;
             GenerateRooms();
+        }
+        if(regenerateRooms == true)
+        {
+            regenerateRooms = false;
+            RegenerateRooms();
         }
     }
     public void GenerateRooms()
@@ -73,7 +81,7 @@ public class RoomGenerator : NetworkBehaviour
     }
     void GenerateRooms(int startingId)
     {
-        Debug.Log("Generating Rooms after Error. ID = " + startingId);
+        //Debug.Log("Generating Rooms after Error. ID = " + startingId);
 
         if (iteration > 1)
         {
@@ -99,17 +107,42 @@ public class RoomGenerator : NetworkBehaviour
     GameObject GetRandomRoom()
     {
         int val = Random.Range(0, possibleRooms.Count);
+        Debug.Log("Creating Room " + possibleRooms[val].gameObject.name);
         return possibleRooms[val];
     }
     public void Alert_RoomCollide(int id)
     {
         Debug.Log("Error on ID " + id);
-        Debug.Break();
+        //Debug.Break();
+
+        if(earliestError == -1)
+        {
+            earliestError = id;
+            regenerateRooms = true;
+        }
+        if(earliestError != -1 && earliestError > id)
+        {
+            earliestError = id;
+            regenerateRooms = true;
+        }
+
+        /*
         for(int i = currentRooms.Count-1; i > id; i--)
         {
             Destroy(currentRooms[i].gameObject);
             currentRooms.RemoveAt(i);
         }
         GenerateRooms(id);
+        */
+    }
+    void RegenerateRooms()
+    {
+        Debug.Log("Destroying Rooms from " + earliestError);
+        for(int i = currentRooms.Count-1; i > earliestError; i--)
+        {
+            Destroy(currentRooms[i].gameObject);
+            currentRooms.RemoveAt(i);
+        }
+        GenerateRooms(earliestError);
     }
 }
