@@ -31,6 +31,7 @@ public class RoomGenerator : NetworkBehaviour
     [Header("Debug")]
     public bool generateRooms;
     public int iteration = 0;
+    public int maxIteration;
 
     private void Update()
     {
@@ -52,6 +53,11 @@ public class RoomGenerator : NetworkBehaviour
         }
         if(regenerateRooms == true)
         {
+            if(iteration > maxIteration )
+            {
+                Debug.Log("Iteration Breached");
+                return;
+            }
             regenerateRooms = false;
             RegenerateRooms();
         }
@@ -83,12 +89,6 @@ public class RoomGenerator : NetworkBehaviour
     {
         //Debug.Log("Generating Rooms after Error. ID = " + startingId);
 
-        if (iteration > 1)
-        {
-            Debug.Log("Iteration breached");
-            return;
-        }
-
         Vector3 nextSpot = currentRooms[startingId].exit.position;
         GameObject newRoom;
         RoomManager createdRoom;
@@ -100,6 +100,7 @@ public class RoomGenerator : NetworkBehaviour
             createdRoom.roomValidationScript.id = i;
             newRoom.transform.position = nextSpot;
             nextSpot = createdRoom.exit.position;
+            currentRooms.Add(createdRoom);
         }
         iteration++;
     }
@@ -137,6 +138,7 @@ public class RoomGenerator : NetworkBehaviour
     }
     void RegenerateRooms()
     {
+        Debug.Log("============================\n\n");
         Debug.Log("Destroying Rooms from " + earliestError);
         for(int i = currentRooms.Count-1; i > earliestError; i--)
         {
@@ -144,5 +146,6 @@ public class RoomGenerator : NetworkBehaviour
             currentRooms.RemoveAt(i);
         }
         GenerateRooms(earliestError);
+        earliestError = -1;
     }
 }
