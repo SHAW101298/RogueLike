@@ -121,7 +121,7 @@ public class RoomGenerator : NetworkBehaviour
     public void Alert_RoomCollide(int id)
     {
         Debug.Log("Error on ID " + id);
-        Debug.Break();
+        //Debug.Break();
 
         if(earliestError == -1)
         {
