@@ -14233,6 +14233,7 @@ MonoBehaviour:
   earliestError: -1
   regenerateRooms: 0
   generateRooms: 0
+  clearRooms: 0
   iteration: 0
   maxIteration: 10
 --- !u!114 &1268781158
@@ -22569,7 +22570,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043796230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 284.68774, y: 341.16757, z: -761.83325}
+  m_LocalPosition: {x: 10.01, y: 0, z: 0.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

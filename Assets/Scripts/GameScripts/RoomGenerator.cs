@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -20,37 +21,36 @@ public class RoomGenerator : NetworkBehaviour
     }
     #endregion
     public RoomManager spawnArea;
+    public NavMeshSurface surface;
     //public Transform spawnAreaExit;
     public List<GameObject> possibleRooms;
     public List<RoomManager> currentRooms;
-    public int roomsToGenerate;
-
+    public int roomsToGenerate = 4;
+    public int maxIteration = 10;
+    public float amountToDelay;
+    [Space(20)]
     public int earliestError = -1;
     public bool regenerateRooms;
+    public int iteration = 0;
+    public float timer;
+    public bool navMeshBuiltAlready;
 
     [Header("Debug")]
     public bool generateRooms;
     public bool clearRooms;
-    public int iteration = 0;
-    public int maxIteration;
 
     private void Update()
     {
+        if (IsOwner == false)
+            return;
+
+
         if(generateRooms == true)
         {
-            for(int i = 1; i < currentRooms.Count;i++)
-            {
-                Destroy(currentRooms[i].gameObject);
-            }
-            /*
-            foreach(RoomManager room in currentRooms)
-            {
-                Destroy(room.gameObject);
-            }
-            */
-            currentRooms.Clear();
+            DestroyRoomsExceptSpawn();
             generateRooms = false;
-            GenerateRooms();
+            FirstRoomGeneration();
+            DelayNavBaking();
         }
         if(regenerateRooms == true)
         {
@@ -65,14 +65,15 @@ public class RoomGenerator : NetworkBehaviour
         if(clearRooms == true)
         {
             clearRooms = false;
-            for(int i = currentRooms.Count-1; i > 0; i--)
-            {
-                Destroy(currentRooms[i].gameObject);
-                currentRooms.RemoveAt(i);
-            }
+            DestroyRoomsExceptSpawn();
         }
+
+        BuildNavMesh();
     }
-    public void GenerateRooms()
+
+    
+
+    public void FirstRoomGeneration()
     {
         Debug.Log("Generating Rooms");
         if (IsOwner == false)
@@ -144,6 +145,9 @@ public class RoomGenerator : NetworkBehaviour
     }
     public void Alert_RoomCollide(int id)
     {
+        if (IsOwner == false)
+            return;
+
         Debug.Log("Error on ID " + id);
         //Debug.Break();
 
@@ -171,21 +175,43 @@ public class RoomGenerator : NetworkBehaviour
     {
         Debug.Log("============================\n\n");
         Debug.Log("Destroying Rooms from " + earliestError);
-        for(int i = currentRooms.Count-1; i > earliestError; i--)
-        {
-            Destroy(currentRooms[i].gameObject);
-            currentRooms.RemoveAt(i);
-        }
+        DestroyRoomsToError();
         GenerateRooms(earliestError);
         earliestError = -1;
     }
 
-    void Foo()
+    private void DestroyRoomsToError()
     {
-        GameObject room = null;
+        for (int i = currentRooms.Count - 1; i > earliestError; i--)
+        {
+            Destroy(currentRooms[i].gameObject);
+            currentRooms.RemoveAt(i);
+            DelayNavBaking();
+        }
+    }
+    private void DestroyRoomsExceptSpawn()
+    {
+        for (int i = currentRooms.Count - 1; i > 0; i--)
+        {
+            Destroy(currentRooms[i].gameObject);
+            currentRooms.RemoveAt(i);
+        }
+    }
 
-        Vector3 rot = room.transform.eulerAngles;
-        GameObject newroom = null;
-        newroom.transform.eulerAngles = rot;
+    void DelayNavBaking()
+    {
+        timer = amountToDelay;
+    }
+    void BuildNavMesh()
+    {
+        if (navMeshBuiltAlready == true)
+            return;
+
+        timer -= Time.deltaTime;
+        if(timer <= 0)
+        {
+            surface.BuildNavMesh();
+            navMeshBuiltAlready = true;
+        }
     }
 }

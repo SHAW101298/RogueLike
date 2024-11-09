@@ -33,7 +33,7 @@ public class GameSetup : MonoBehaviour
     {
         Debug.Log("Setting Up a Game");
         CreateBasicGuns();
-        roomGenerator.GenerateRooms();
+        roomGenerator.FirstRoomGeneration();
     }
 
 
