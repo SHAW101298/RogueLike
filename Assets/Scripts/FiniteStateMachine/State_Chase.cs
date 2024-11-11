@@ -16,13 +16,15 @@ public class State_Chase : State
     {
         agent.SetDestination(chasedPlayer.transform.position);
 
+        CheckIfCloseEnoughToAttack();
+
         timer -= Time.deltaTime;
         if(timer <= 0)
         {
             timer = distanceCheckTime;
             CheckIfPlayerRanAway();
         }
-        CheckIfCloseEnoughToAttack();
+        
 
     }
     public override void Exit()
