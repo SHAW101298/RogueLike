@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 7250768185888603567}
   - component: {fileID: 5268899572222939006}
   - component: {fileID: 9196098992414940276}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Floor Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

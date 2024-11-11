@@ -32,7 +32,7 @@ public class RoomGenerator : NetworkBehaviour
     public int earliestError = -1;
     public bool regenerateRooms;
     public int iteration = 0;
-    public float timer;
+    public float timer = 1;
     public bool navMeshBuiltAlready;
 
     [Header("Debug")]
@@ -210,6 +210,7 @@ public class RoomGenerator : NetworkBehaviour
         timer -= Time.deltaTime;
         if(timer <= 0)
         {
+            Debug.Log("Building NavMesh");
             surface.BuildNavMesh();
             navMeshBuiltAlready = true;
         }
