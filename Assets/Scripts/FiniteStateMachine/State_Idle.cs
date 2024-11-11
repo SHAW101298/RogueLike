@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class State_Idle : State
 {
+    float timer;
+    [SerializeField] float timerDelay = 2;
     public override void Enter()
     {
         
     }
     public override void Do()
     {
-        
+        timer -= Time.deltaTime;
+        if(timer <= 0)
+        {
+            timer = timerDelay;
+            PlayerData closestPlayer = PlayerList.Instance.GetClosestPlayer(transform.position);
+            if(Vector3.Distance(closestPlayer.transform.position, transform.position) < ai.chase.chaseDistance)
+            {
+                ai.PlayersEnteredRoom();
+            }
+        }
     }
     public override void FixedDo()
     {
@@ -18,6 +29,6 @@ public class State_Idle : State
     }
     public override void Exit()
     {
-        
+        timer = timerDelay;
     }
 }

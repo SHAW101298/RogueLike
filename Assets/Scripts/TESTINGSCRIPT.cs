@@ -21,7 +21,7 @@ public class TESTINGSCRIPT : MonoBehaviour
 
     [Header("ROO")]
     public GameObject rotSource;
-    public GameObject room;
+    public RoomManager room;
     // Start is called before the first frame update
 
     void Start()
@@ -75,7 +75,7 @@ public class TESTINGSCRIPT : MonoBehaviour
     }
     void ROO()
     {
-        room.transform.eulerAngles = rotSource.transform.eulerAngles;   
+        room.ActivateRoom();
     }
 
 }

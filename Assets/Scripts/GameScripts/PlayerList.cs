@@ -18,13 +18,23 @@ public class PlayerList : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
         }    
     }
     #endregion 
-
-
+    public string sceneName;
     public List<PlayerData> players;
+
+    private void Start()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        sceneName = currentSceneName;
+        if(currentSceneName.Equals("GameScene") || currentSceneName.Equals("SampleScene"))
+        {
+            AddPlayers();
+        }
+    }
+    
 
     public void RegisterToEvents()
     {

@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_AI : MonoBehaviour
+public class Enemy_AI : Enemy_AI_Base
 {
     public State currentState;
 
     public State_Idle idle;
     public State_Chase chase;
+    public State_Attack attack;
 
 
     private void Update()
@@ -16,6 +17,7 @@ public class Enemy_AI : MonoBehaviour
     }
     public void ChangeState(State newState)
     {
+        Debug.Log("Changing state from " + currentState + "to"  + newState);
         currentState.Exit();
         currentState = newState;
         currentState.Enter();
@@ -31,6 +33,16 @@ public class Enemy_AI : MonoBehaviour
     public void PlayerLeftChaseDistance()
     {
         ChangeState(idle);
+    }
+    public void CloseEnoughToAttack(PlayerData player)
+    {
+        attack.SetData(player);
+        ChangeState(attack);
+    }
+
+    public override void ActivateAI()
+    {
+        PlayersEnteredRoom();
     }
 
 

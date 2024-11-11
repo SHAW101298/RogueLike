@@ -7,8 +7,7 @@ public class State_Chase : State
     PlayerData chasedPlayer;
     float timer;
     [SerializeField] float distanceCheckTime;
-    [SerializeField] float chaseDistance;
-    [SerializeField] float attackDistance;
+    public float chaseDistance;
     public override void Enter()
     {
         // Set animation data maybe
@@ -23,6 +22,8 @@ public class State_Chase : State
             timer = distanceCheckTime;
             CheckIfPlayerRanAway();
         }
+        CheckIfCloseEnoughToAttack();
+
     }
     public override void Exit()
     {
@@ -40,15 +41,30 @@ public class State_Chase : State
     void CheckIfPlayerRanAway()
     {
         PlayerData currentClosestPlayer = PlayerList.Instance.GetClosestPlayer(transform.position);
-        float distance = Vector3.Distance(transform.position, currentClosestPlayer.transform.position);
+        float currentClosestDistance = Vector3.Distance(transform.position, currentClosestPlayer.transform.position);
 
-        if(currentClosestPlayer != chasedPlayer)
+        bool reset = false;
+        if (agent.remainingDistance > chaseDistance)
         {
-            chasedPlayer = currentClosestPlayer;
-            if(distance > chaseDistance)
-            {
-                ai.PlayerLeftChaseDistance();
-            }
+            reset = true;
+        }
+        if(currentClosestDistance < agent.remainingDistance && currentClosestDistance < chaseDistance)
+        {
+            reset = false;
+        }
+        if(reset == true)
+        {
+            ai.PlayerLeftChaseDistance();
+        }
+    }
+    void CheckIfCloseEnoughToAttack()
+    {
+        float dist = Vector3.Distance(transform.position, chasedPlayer.transform.position);
+
+        if (dist <= ai.attack.attackDistance)
+        {
+            Debug.Log("Remaining Distance is " + agent.remainingDistance);
+            ai.CloseEnoughToAttack(chasedPlayer);
         }
     }
 }

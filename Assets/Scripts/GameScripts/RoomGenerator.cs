@@ -26,7 +26,7 @@ public class RoomGenerator : NetworkBehaviour
     public List<GameObject> possibleRooms;
     public List<RoomManager> currentRooms;
     public int roomsToGenerate = 4;
-    public int maxIteration = 10;
+    public int maxIteration = 100;
     public float amountToDelay;
     [Space(20)]
     public int earliestError = -1;
@@ -148,7 +148,7 @@ public class RoomGenerator : NetworkBehaviour
         if (IsOwner == false)
             return;
 
-        Debug.Log("Error on ID " + id);
+        //Debug.Log("Error on ID " + id);
         //Debug.Break();
 
         if(earliestError == -1)
@@ -173,8 +173,8 @@ public class RoomGenerator : NetworkBehaviour
     }
     void RegenerateRooms()
     {
-        Debug.Log("============================\n\n");
-        Debug.Log("Destroying Rooms from " + earliestError);
+        //Debug.Log("============================\n\n");
+        //Debug.Log("Destroying Rooms from " + earliestError);
         DestroyRoomsToError();
         GenerateRooms(earliestError);
         earliestError = -1;
