@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class PlayerData : NetworkBehaviour
 {
+    [HideInInspector] public NetworkObject networkData;
     public PlayerStats stats;
     public PlayerMovement movement;
     public PlayerRotation rotation;
     public PlayerShooting shooting;
     public PlayerUI ui;
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        networkData = gameObject.GetComponent<NetworkObject>();
+    }
     void Start()
     {
         
