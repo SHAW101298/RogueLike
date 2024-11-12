@@ -11,7 +11,7 @@ public class State_Attack_Ranged : State_Attack
 
     public bool requiresCharging;
     public float chargeTime;
-    float chargeTimer;
+    [SerializeField] float chargeTimer;
 
     [SerializeField] LayerMask playerLayer;
 
@@ -40,6 +40,7 @@ public class State_Attack_Ranged : State_Attack
 
             if(chargeTimer <= 0)
             {
+                chargeTimer = chargeTime;
                 ConfirmShot();
             }
         }
@@ -67,11 +68,12 @@ public class State_Attack_Ranged : State_Attack
             ai.PlayersEnteredRoom();
         }
     }
-    void SendBullet()
+    void SendBullet(Vector3 dir)
     {
-
         GameObject GO_Bullet = Instantiate(projectile);
         GO_Bullet.transform.position = projectileStartPosition.position;
+        ProjectileBehaviour behaviour = GO_Bullet.GetComponent<ProjectileBehaviour>();
+        behaviour.direction = dir;
     }
     void ConfirmShot()
     {
@@ -100,9 +102,16 @@ public class State_Attack_Ranged : State_Attack
         }
         else
         {
-            SendBullet();
+            SendBullet(dir);
             // Set Bullet Data
         }
     }
-    
+
+    void FillBulletData(BulletData bulletData)
+    {
+        bulletData.projectileBehaviour.owningGun = PlayerList.Instance.GetPlayer(0).shooting.pistol;
+        bulletData.projectileBehaviour.owningPlayer = PlayerList.Instance.GetPlayer(0);
+        bulletData.projectileBehaviour.punchThrough = 1;
+    }
+
 }
