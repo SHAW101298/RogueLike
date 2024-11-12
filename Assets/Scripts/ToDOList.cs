@@ -153,6 +153,11 @@ Passively regenerates 1 health every 5 seconds. Healing from First Aid Kits and 
 /* Crazy ideas
  Instead of portals, there are doors, which close permanently.
 Players can block off sections, which forces those left out to find other way or die trying.
-  
- 
+  Map made with a tower design. Main stairs are available from beggining, but rooms get generated all around the main center point
+
+        R  R
+     RRRSRRRR
+     R  R 
+
+
  */
