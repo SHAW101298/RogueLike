@@ -11,6 +11,7 @@ public class PlayerData : NetworkBehaviour
     public PlayerRotation rotation;
     public PlayerShooting shooting;
     public PlayerUI ui;
+    public PlayerInteractBeam interactionBeam;
 
     private void Awake()
     {

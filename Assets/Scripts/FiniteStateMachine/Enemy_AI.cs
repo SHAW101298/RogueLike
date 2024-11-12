@@ -17,7 +17,7 @@ public class Enemy_AI : Enemy_AI_Base
     }
     public void ChangeState(State newState)
     {
-        Debug.Log("Changing state from " + currentState + "to"  + newState);
+        //Debug.Log("Changing state from " + currentState + "to"  + newState);
         currentState.Exit();
         currentState = newState;
         currentState.Enter();

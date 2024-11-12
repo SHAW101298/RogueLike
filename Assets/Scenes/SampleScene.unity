@@ -3362,7 +3362,7 @@ MonoBehaviour:
   currentState: {fileID: 1868944733}
   idle: {fileID: 1868944733}
   chase: {fileID: 1106665273}
-  attack: {fileID: 1828692003}
+  attack: {fileID: 1828692005}
 --- !u!1 &247212295
 GameObject:
   m_ObjectHideFlags: 0
@@ -13217,7 +13217,6 @@ MonoBehaviour:
   ai: {fileID: 246406975}
   distanceCheckTime: 1
   chaseDistance: 20
-  attackDistance: 4
 --- !u!1 &1108356847
 GameObject:
   m_ObjectHideFlags: 0
@@ -20867,7 +20866,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1828692004}
-  - component: {fileID: 1828692003}
+  - component: {fileID: 1828692005}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -20875,20 +20874,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1828692003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1828692002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d11944ada7d83c74b9ac52fc79b09ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 246406970}
-  ai: {fileID: 246406975}
 --- !u!4 &1828692004
 Transform:
   m_ObjectHideFlags: 0
@@ -20904,6 +20889,30 @@ Transform:
   m_Father: {fileID: 1868152297}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1828692005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828692002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c911b4a93b02864093bef862b21ad78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 246406970}
+  ai: {fileID: 246406975}
+  attackDistance: 4
+  projectile: {fileID: 2264350204679147747, guid: c66acb7610255a34595dba7f7f8bc424,
+    type: 3}
+  projectileSpeed: 3
+  projectileStartPosition: {fileID: 246406969}
+  requiresCharging: 1
+  chargeTime: 3
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1834199275
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,6 +58,7 @@ public class PlayerInitialization : NetworkBehaviour
             playerData.ui.ammoCurrent = UI_HookUpScript.Instance.ammoCurrent;
             playerData.ui.magazineCurrent = UI_HookUpScript.Instance.magazineCurrent;
             playerData.ui.staminaBar = UI_HookUpScript.Instance.staminaBar;
+            playerData.interactionBeam.GetRaycastedGunData_Reference();
             transform.position = Vector3.zero;
             Debug.Log("Enabled my scripts");
         }

@@ -12,14 +12,20 @@ public class PlayerInteractBeam : MonoBehaviour
     [SerializeField] float rayDistance;
     [SerializeField] LayerMask interactableLayers;
 
-    UI_RaycastedGunData ui_RaycastedGunData;
+    [SerializeField] UI_RaycastedGunData ui_RaycastedGunData;
 
     private void Start()
     {
+        Debug.Log("Player Interaction Beam START");
         if(SceneManager.GetActiveScene().name == "SampleScene")
         {
+            Debug.Log("Setting up reycast Gun Data");
             ui_RaycastedGunData = UI_RaycastedGunData.Instance;
         }
+    }
+    public void GetRaycastedGunData_Reference()
+    {
+        ui_RaycastedGunData = UI_RaycastedGunData.Instance;
     }
 
     private void Update()

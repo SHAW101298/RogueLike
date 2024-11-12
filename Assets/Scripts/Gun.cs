@@ -61,7 +61,7 @@ public class Gun : MonoBehaviour
 
     public void CreateModifiedStats()
     {
-        Debug.Log("Creating Modified Stats");
+        //Debug.Log("Creating Modified Stats");
         modifiedStats = new GunStats();
         modifiedStats.CopyDataFrom(baseStats);
 

@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1cf19f1dbe61b418c8f7a3249f7d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  networkData: {fileID: 0}
   stats: {fileID: 4509776595623541289}
   movement: {fileID: 4509776595623541288}
   rotation: {fileID: 4509776595623541293}
@@ -427,9 +428,9 @@ MonoBehaviour:
   gun2: {fileID: 0}
   currentlySelected: {fileID: 0}
   possesedGuns: []
-  crossHairPos: {fileID: 0}
-  pointOfView: {fileID: 0}
-  gunNozzle: {fileID: 0}
+  crossHairPos: {fileID: 8421175892359293761}
+  pointOfView: {fileID: 4509776593810869109}
+  gunNozzle: {fileID: 8421175892359293761}
   gunHandle: {fileID: 0}
   ui: {fileID: 0}
   trigger: 0

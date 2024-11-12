@@ -17,6 +17,7 @@ public class UI_RaycastedGunData : MonoBehaviour
         }
         else
         {
+            Debug.Log("Setting up Instance of raycasted Gun data");
             Instance = this;
         }
     }
