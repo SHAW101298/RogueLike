@@ -19,7 +19,7 @@ public enum ENUM_DamageType
 }
 
 [System.Serializable]
-public class GunDamageData
+public class DamageData
 {
     public int damage;
     public ENUM_DamageType damageType;
@@ -27,7 +27,7 @@ public class GunDamageData
 [System.Serializable]
 public class GunStats
 {
-    public List<GunDamageData> damageArray;
+    public List<DamageData> damageArray;
     public ElementalTable damageMultipliersOnAffliction;
     public float totalDamageMultiplier = 1;
     public float critChance;
@@ -45,7 +45,7 @@ public class GunStats
 
     public GunStats()
     {
-        damageArray = new List<GunDamageData>();
+        damageArray = new List<DamageData>();
         damageMultipliersOnAffliction = new ElementalTable();
         for(int i = 0; i < damageMultipliersOnAffliction.Count(); i++)
         {
@@ -58,7 +58,7 @@ public class GunStats
         damageArray.Clear();
         for(int i = 0; i < donor.damageArray.Count; i++)
         {
-            GunDamageData data = new GunDamageData();
+            DamageData data = new DamageData();
             data.damage = donor.damageArray[i].damage;
             data.damageType = donor.damageArray[i].damageType;
             damageArray.Add(data);

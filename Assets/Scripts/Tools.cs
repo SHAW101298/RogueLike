@@ -18,5 +18,9 @@ public static class Tools
         bool result = Physics.Raycast(origin, direction, distance, ~layer);
         return result;
     }
+    public static bool CheckIfInMask(LayerMask mask, int layer)
+    {
+        return mask == (mask | (1 << layer));
+    }
 }
 

@@ -55,7 +55,7 @@ public class RESIZETEST : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        foreach(GunDamageData dmgData in testGun.modifiedStats.damageArray)
+        foreach(DamageData dmgData in testGun.modifiedStats.damageArray)
         {
             tempGO = Instantiate(damagePrefab);
             tempGO.transform.SetParent(damageTransform);
@@ -86,7 +86,7 @@ public class RESIZETEST : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        foreach (GunDamageData dmgData in gun.modifiedStats.damageArray)
+        foreach (DamageData dmgData in gun.modifiedStats.damageArray)
         {
             tempGO = Instantiate(damagePrefab);
             tempGO.transform.SetParent(damageTransform);

@@ -86,7 +86,7 @@ public class UI_RaycastedGunData : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        foreach (GunDamageData dmgData in gun.modifiedStats.damageArray)
+        foreach (DamageData dmgData in gun.modifiedStats.damageArray)
         {
             tempGO = Instantiate(damagePrefab);
             tempGO.transform.SetParent(damageParent);

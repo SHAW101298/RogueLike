@@ -19,14 +19,14 @@ public class EnemyData : UnitData
     {
         
     }
-    public void HitEnemy(GunDamageData damageData)
+    public void HitEnemy(DamageData damageData)
     {
         
 
     }
-    public void HitEnemy(List<GunDamageData> dealtDamage)
+    public void HitEnemy(List<DamageData> dealtDamage)
     {
-        foreach(GunDamageData damage in dealtDamage)
+        foreach(DamageData damage in dealtDamage)
         {
             
         }

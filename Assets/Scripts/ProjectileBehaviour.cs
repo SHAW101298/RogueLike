@@ -2,14 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public class BulletInfo
+{
+    public DamageData damageData;
+    public float critChance;
+    public float critDamageMultiplier;
+    public float afflictionChance;
+    public int punchThrough;
+}
+
 public class ProjectileBehaviour : MonoBehaviour
 {
-    public PlayerData owningPlayer;
-    public Vector3 direction;
+    public BulletData data;
+    public LayerMask collideMask;
+    public ENUM_Faction owningFaction;
     public Rigidbody rb;
-
-    public Gun owningGun;
-    public int punchThrough;
+    public Vector3 direction;
     private void FixedUpdate()
     {
         //rb.AddForce(direction, ForceMode.Force);
@@ -18,6 +27,11 @@ public class ProjectileBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(Tools.CheckIfInMask(collideMask, other.gameObject.layer) == false)
+        {
+            return;
+        }
+
         switch (other.gameObject.tag)
         {
             case "Player":
@@ -36,6 +50,8 @@ public class ProjectileBehaviour : MonoBehaviour
                 break;
         }
     }
+
+
     /*
     private void OnCollisionEnter(Collision collision)
     {
@@ -64,21 +80,30 @@ public class ProjectileBehaviour : MonoBehaviour
 
     void CollisionPlayer(Collider other)
     {
+        // Bullet shot by Player hit another Player
+        if(owningFaction == ENUM_Faction.player)
+        {
+            return;
+        }
 
     }
     void CollisionEnemy(Collider other)
     {
-        punchThrough--;
+        // Bullet Shot by Enemy hit enemy
+        if(owningFaction != ENUM_Faction.player)
+        {
+            return;
+        }
+        data.bulletInfo.punchThrough--;
+
         EnemyData enemyData = other.gameObject.GetComponent<EnemyData>();
-        GunStats gunStats = owningGun.modifiedStats;
 
         float dealtDamage = enemyData.HitEnemy(owningGun);
 
-        if(punchThrough <= 0)
+        if (punchThrough <= 0)
         {
             Destroy(gameObject);
         }
-
     }
     void CollisionHardSurface(Collider other)
     {
