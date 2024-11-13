@@ -17,7 +17,7 @@ public class State_Aiming : State
             ai.ChangeState(ai.attack);
         }
 
-        gameObject.transform.LookAt(ai.attack.attackTarget.transform.position);
+        ai.gameObject.transform.LookAt(ai.attack.attackTarget.transform.position);
     }
 
     public override void Do()
