@@ -5,6 +5,6 @@ using UnityEngine;
 public abstract class State_Attack : State
 {
     public float attackDistance;
-    protected PlayerData attackTarget;
+    public PlayerData attackTarget;
     public abstract void SetData(PlayerData player);
 }

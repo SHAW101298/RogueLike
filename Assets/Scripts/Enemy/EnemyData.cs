@@ -7,7 +7,7 @@ public class EnemyData : UnitData
     public CharacterController controller;
     public Stats stats;
     public Afflictions afflictions;
-    public Enemy_AI_Base ai;
+    public Enemy_AI ai;
 
     // Start is called before the first frame update
     void Start()

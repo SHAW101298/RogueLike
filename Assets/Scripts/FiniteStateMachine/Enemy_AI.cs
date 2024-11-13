@@ -1,20 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class Enemy_AI : Enemy_AI_Base
+public abstract class Enemy_AI : NetworkBehaviour
 {
+    public EnemyData data;
+    public NavMeshAgent agent;
+    [Space(10)]
     public State currentState;
-
     public State_Idle idle;
     public State_Chase chase;
     public State_Attack attack;
 
 
-    private void Update()
-    {
-        currentState.Do();
-    }
     public void ChangeState(State newState)
     {
         //Debug.Log("Changing state from " + currentState + "to"  + newState);
@@ -34,16 +34,8 @@ public class Enemy_AI : Enemy_AI_Base
     {
         ChangeState(idle);
     }
-    public void CloseEnoughToAttack(PlayerData player)
-    {
-        attack.SetData(player);
-        ChangeState(attack);
-    }
-
-    public override void ActivateAI()
-    {
-        PlayersEnteredRoom();
-    }
+    public abstract void CloseEnoughToAttack(PlayerData player);
+    public abstract void ActivateAI();
 
 
 

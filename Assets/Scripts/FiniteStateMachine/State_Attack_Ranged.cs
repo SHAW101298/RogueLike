@@ -5,29 +5,11 @@ using UnityEngine;
 public class State_Attack_Ranged : State_Attack
 {
     [Header("Ref")]
-    public BulletData projectilePrefab;
-    public float projectileSpeed;
+    [SerializeField] Enemy_Weapon weapon;
+
     public Transform projectileStartPosition;
     [SerializeField] LayerMask playerLayer;
 
-    [Space(10)]
-    [SerializeField] int currentAmmo;
-    [SerializeField] int maxAmmo;
-
-    [Header("Charging")]
-    public bool requiresCharging;
-    public float chargeTime;
-    [SerializeField] float chargeTimer;
-    
-    [Header("Reload")]
-    [SerializeField] float reloadTime;
-    float reloadTimer;
-    [SerializeField] bool reloading;
-
-    [Header("TimeBetweenShots")]
-    [SerializeField] float timeBetweenShots;
-    float timerBetween;
-    
 
     /*
      How attacking goes ?
@@ -40,36 +22,16 @@ public class State_Attack_Ranged : State_Attack
     {
         agent.SetDestination(transform.position);
 
-        if(requiresCharging == true)
-        {
-            chargeTimer -= chargeTime;
-        }
-
     }
     public override void Do()
     {
-        if (reloading == true)
-        {
-            Reloading();
-            return;
-        }
-
-        if (requiresCharging == true)
-        {
-            chargeTimer -= Time.deltaTime;
-
-            if(chargeTimer <= 0)
-            {
-                //ConfirmShot();
-                Shoot();
-            }
-        }
-        
+        weapon.Shoot();
     }
 
     public override void Exit()
     {
-
+        attackTarget = null;
+        weapon.OrderReaload();
     }
 
     public override void FixedDo()
@@ -89,25 +51,7 @@ public class State_Attack_Ranged : State_Attack
             ai.PlayersEnteredRoom();
         }
     }
-    void SendBullet(Vector3 dir)
-    {
-        GameObject GO_Bullet = Instantiate(projectilePrefab.gameObject);
-        GO_Bullet.transform.position = projectileStartPosition.position;
 
-
-        BulletData newBullet = GO_Bullet.GetComponent<BulletData>();
-        FillBulletData(dir, newBullet);
-    }
-
-    private void FillBulletData(Vector3 dir, BulletData newBullet)
-    {
-        newBullet.bulletInfo = projectilePrefab.bulletInfo;
-        newBullet.projectileBehaviour.owningFaction = ENUM_Faction.enemy;
-        dir *= projectileSpeed;
-
-        newBullet.projectileBehaviour.direction = dir;
-        //Debug.Log("dir * speed = " + dir);
-    }
 
     /*
     void ConfirmShot()
@@ -143,43 +87,6 @@ public class State_Attack_Ranged : State_Attack
         }
     }
     */
-    void Shoot()
-    {
-        //Debug.Log("Shoot");
-        if(maxAmmo > 1)
-        {
-            timerBetween -= Time.deltaTime;
-            if(timerBetween <= 0)
-            {
-                timerBetween += timeBetweenShots;
-                Vector3 dir = Tools.Direction(attackTarget.transform.position, projectileStartPosition.position);
-                dir.Normalize();
-                SendBullet(dir);
-                currentAmmo--;
-            }
-            if(currentAmmo <= 0)
-            {
-                reloading = true;
-                chargeTimer = chargeTime;
-            }
-        }
-        else
-        {
-            Vector3 dir = Tools.Direction(attackTarget.transform.position, projectileStartPosition.position);
-            dir.Normalize();
-            SendBullet(dir);
-            reloading = true;
-            chargeTimer = chargeTime;
-        }
-    }
 
-    private void Reloading()
-    {
-        reloadTimer -= Time.deltaTime;
-        if (reloadTimer <= 0)
-        {
-            reloading = false;
-            currentAmmo = maxAmmo;
-        }
-    }
+
 }

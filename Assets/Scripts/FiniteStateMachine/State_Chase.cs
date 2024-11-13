@@ -65,6 +65,7 @@ public class State_Chase : State
 
         if (dist <= ai.attack.attackDistance)
         {
+            agent.SetDestination(transform.position);
             //Debug.Log("Remaining Distance is " + agent.remainingDistance);
             ai.CloseEnoughToAttack(chasedPlayer);
         }

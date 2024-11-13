@@ -19,12 +19,11 @@ public enum ENUM_StateProgress
     end
 }
 
-public class Enemy_AI_Melee : Enemy_AI_Base
+public class Enemy_AI_Melee : Enemy_AI
 {
 
 
     [SerializeField] float attackRange;
-    [SerializeField] NavMeshAgent agent;
     [SerializeField] PlayerData closestPlayer;
     [SerializeField] ENUM_AIState aiState;
     [SerializeField] ENUM_StateProgress stateProgress;
@@ -129,5 +128,10 @@ public class Enemy_AI_Melee : Enemy_AI_Base
     void Dying()
     {
 
+    }
+
+    public override void CloseEnoughToAttack(PlayerData player)
+    {
+        throw new System.NotImplementedException();
     }
 }
