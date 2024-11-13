@@ -3173,6 +3173,7 @@ GameObject:
   - component: {fileID: 246406972}
   - component: {fileID: 246406970}
   - component: {fileID: 246406975}
+  - component: {fileID: 246406976}
   m_Layer: 0
   m_Name: Enemy Test 1
   m_TagString: Untagged
@@ -3364,6 +3365,72 @@ MonoBehaviour:
   idle: {fileID: 1868944733}
   chase: {fileID: 1106665273}
   attack: {fileID: 1828692005}
+--- !u!114 &246406976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246406966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ec636ddeea1fc4782f904f5223dba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats:
+    damageArray: []
+    damageMultipliersOnAffliction:
+      data:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+    totalDamageMultiplier: 1
+    critChance: 0
+    critMultiplier: 0
+    afflictionChance: 0
+    magazineMax: 0
+    ammoMax: 0
+    reloadTime: 0
+    timeBetweenShots: 0
+    triggerType: 0
+    projectileSpeed: 0
+    punchThrough: 0
+  modifiedStats:
+    damageArray: []
+    damageMultipliersOnAffliction:
+      data:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+    totalDamageMultiplier: 1
+    critChance: 0
+    critMultiplier: 0
+    afflictionChance: 0
+    magazineMax: 0
+    ammoMax: 0
+    reloadTime: 0
+    timeBetweenShots: 0
+    triggerType: 0
+    projectileSpeed: 0
+    punchThrough: 0
+  gunUpgrades: []
+  magazineCurrent: 0
+  ammoCurrent: 0
+  bulletMask:
+    serializedVersion: 2
+    m_Bits: 0
+  canBeSwapped: 0
+  projectilePrefab: {fileID: 0}
+  nozzle: {fileID: 0}
+  playerShooting: {fileID: 0}
+  playerData: {fileID: 0}
+  ForceGun1: 1
 --- !u!1 &247212295
 GameObject:
   m_ObjectHideFlags: 0
@@ -21007,12 +21074,17 @@ MonoBehaviour:
     type: 3}
   projectileSpeed: 30
   projectileStartPosition: {fileID: 246406969}
-  requiresCharging: 1
-  chargeTime: 3
-  chargeTimer: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+  currentAmmo: 3
+  maxAmmo: 3
+  requiresCharging: 1
+  chargeTime: 2
+  chargeTimer: 0
+  reloadTime: 1
+  reloading: 0
+  timeBetweenShots: 0.2
 --- !u!1 &1834199275
 GameObject:
   m_ObjectHideFlags: 0

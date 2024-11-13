@@ -8,12 +8,26 @@ public class State_Attack_Ranged : State_Attack
     public BulletData projectilePrefab;
     public float projectileSpeed;
     public Transform projectileStartPosition;
+    [SerializeField] LayerMask playerLayer;
 
+    [Space(10)]
+    [SerializeField] int currentAmmo;
+    [SerializeField] int maxAmmo;
+
+    [Header("Charging")]
     public bool requiresCharging;
     public float chargeTime;
     [SerializeField] float chargeTimer;
+    
+    [Header("Reload")]
+    [SerializeField] float reloadTime;
+    float reloadTimer;
+    [SerializeField] bool reloading;
 
-    [SerializeField] LayerMask playerLayer;
+    [Header("TimeBetweenShots")]
+    [SerializeField] float timeBetweenShots;
+    float timerBetween;
+    
 
     /*
      How attacking goes ?
@@ -34,16 +48,24 @@ public class State_Attack_Ranged : State_Attack
     }
     public override void Do()
     {
-        if(requiresCharging == true)
+        if (reloading == true)
+        {
+            Reloading();
+            return;
+        }
+
+        if (requiresCharging == true)
         {
             chargeTimer -= Time.deltaTime;
 
             if(chargeTimer <= 0)
             {
                 chargeTimer = chargeTime;
-                ConfirmShot();
+                //ConfirmShot();
+                Shoot();
             }
         }
+        
     }
 
     public override void Exit()
@@ -120,6 +142,41 @@ public class State_Attack_Ranged : State_Attack
             // Set Bullet Data
         }
     }
+    void Shoot()
+    {
+        Debug.Log("Shoot");
+        if(maxAmmo > 1)
+        {
+            timerBetween -= Time.deltaTime;
+            if(timerBetween <= 0)
+            {
+                timerBetween += timeBetweenShots;
+                Vector3 dir = Tools.Direction(attackTarget.transform.position, projectileStartPosition.position);
+                dir.Normalize();
+                SendBullet(dir);
+                currentAmmo--;
+            }
+            if(currentAmmo <= 0)
+            {
+                reloading = true;
+            }
+        }
+        else
+        {
+            Vector3 dir = Tools.Direction(attackTarget.transform.position, projectileStartPosition.position);
+            dir.Normalize();
+            SendBullet(dir);
+            reloading = true;
+        }
+    }
 
-
+    private void Reloading()
+    {
+        reloadTimer -= Time.deltaTime;
+        if (reloadTimer <= 0)
+        {
+            reloading = false;
+            currentAmmo = maxAmmo;
+        }
+    }
 }
