@@ -130,7 +130,7 @@ public class Enemy_AI_Melee : Enemy_AI
 
     }
 
-    public override void CloseEnoughToAttack(PlayerData player)
+    public override bool CloseEnoughToAttack(PlayerData player)
     {
         throw new System.NotImplementedException();
     }

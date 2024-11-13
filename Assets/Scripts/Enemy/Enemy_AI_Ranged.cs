@@ -11,6 +11,8 @@ public class Enemy_AI_Ranged : Enemy_AI
     [Space(10)]
     public Enemy_Weapon weapon;
 
+    [SerializeField] Vector3 dest;
+
     public override void ActivateAI()
     {
         PlayersEnteredRoom();
@@ -20,16 +22,18 @@ public class Enemy_AI_Ranged : Enemy_AI
     private void Update()
     {
         currentState.Do();
+        dest = agent.destination;
     }
-    public override void CloseEnoughToAttack(PlayerData player)
+    public override bool CloseEnoughToAttack(PlayerData player)
     {
         if (weapon.isReloading == true)
         {
-            return;
+            return false;
         }
 
         attack.SetData(player);
         ChangeState(aiming);
+        return true;
     }
     public void PlayerTooClose()
     {

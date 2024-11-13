@@ -10,6 +10,7 @@ public class State_Run : State
 
     public override void Enter()
     {
+        Debug.Log("Entering Run");
         Vector3 dir = Tools.Direction(transform.position, ai.target.transform.position);
         dir *= (minDistanceBetweenTarget + 2);
         dir = dir + transform.position;
@@ -35,6 +36,7 @@ public class State_Run : State
 
     public override void Exit()
     {
+        
     }
 
     public override void FixedDo()

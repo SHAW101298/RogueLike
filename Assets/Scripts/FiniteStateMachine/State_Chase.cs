@@ -8,14 +8,27 @@ public class State_Chase : State
     float timer;
     [SerializeField] float distanceCheckTime;
     public float chaseDistance;
+
+    
     public override void Enter()
     {
+        if(chasedPlayer == null)
+        {
+            if(ai.target == null)
+            {
+                chasedPlayer = PlayerList.Instance.GetClosestPlayer(transform.position);
+                ai.target = chasedPlayer;
+            }
+            else
+            {
+                chasedPlayer = ai.target;
+            }
+        }
         // Set animation data maybe
     }
     public override void Do()
     {
         agent.SetDestination(chasedPlayer.transform.position);
-
         if(CheckIfCloseEnoughToAttack() == true)
         {
             return;
@@ -71,20 +84,23 @@ public class State_Chase : State
     bool CheckIfCloseEnoughToAttack()
     {
         float dist = Vector3.Distance(transform.position, chasedPlayer.transform.position);
+        bool decision = false;
 
         if (dist <= ai.attack.attackDistance)
         {
             agent.SetDestination(transform.position);
             //Debug.Log("Remaining Distance is " + agent.remainingDistance);
-            ai.CloseEnoughToAttack(chasedPlayer);
-            return true;
+            decision = ai.CloseEnoughToAttack(chasedPlayer);
         }
-        return false;
+        return decision;
     }
     bool CheckIfPlayerIsTooNear()
     {
-        if (agent.remainingDistance < ai.run.minDistanceBetweenTarget)
+        float dist = Vector3.Distance(transform.position, chasedPlayer.transform.position);
+        //Debug.Log("dist = " + dist);
+        if (dist < ai.run.minDistanceBetweenTarget)
         {
+            //Debug.Log("Remaining Distance = " + agent.remainingDistance);
             return true;
         }
         return false;

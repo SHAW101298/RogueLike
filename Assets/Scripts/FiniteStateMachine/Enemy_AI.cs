@@ -43,12 +43,12 @@ public abstract class Enemy_AI : NetworkBehaviour
         ChangeState(idle);
         target = null;
     }
-    public abstract void CloseEnoughToAttack(PlayerData player);
+    public abstract bool CloseEnoughToAttack(PlayerData player);
     public abstract void ActivateAI();
 
     public void RotateTowardsTarget()
     {
-        dirRotation = Tools.Direction(target.transform.position, transform.position);
+        dirRotation = Tools.Direction(target.transform.position, transform.position + Vector3.up);
         lookRotation = Quaternion.LookRotation(dirRotation);
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime *rotationSpeed);
     }
