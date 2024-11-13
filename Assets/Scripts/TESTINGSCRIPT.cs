@@ -31,11 +31,6 @@ public class TESTINGSCRIPT : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(runFunction == true)
-        {
-            runFunction = false;
-            BOO();
-        }
         if(runCOO == true)
         {
             runCOO = false;
@@ -51,11 +46,6 @@ public class TESTINGSCRIPT : MonoBehaviour
             runROO = false;
             ROO();
         }
-    }
-    void BOO()
-    {
-        Debug.LogWarning("BOO");
-        enemy.HitEnemy(gun);
     }
     void COO()
     {

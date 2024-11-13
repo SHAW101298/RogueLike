@@ -21003,9 +21003,9 @@ MonoBehaviour:
   agent: {fileID: 246406970}
   ai: {fileID: 246406975}
   attackDistance: 4
-  projectile: {fileID: 2264350204679147747, guid: c66acb7610255a34595dba7f7f8bc424,
+  projectilePrefab: {fileID: 8624074402406383019, guid: c66acb7610255a34595dba7f7f8bc424,
     type: 3}
-  projectileSpeed: 3
+  projectileSpeed: 30
   projectileStartPosition: {fileID: 246406969}
   requiresCharging: 1
   chargeTime: 3

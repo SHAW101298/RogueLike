@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
     public bool canBeSwapped; // Use During Picking Up New Weapons
 
     [Header("Ref")]
-    public GameObject projectilePrefab;
+    public BulletData projectilePrefab;
     public GameObject nozzle;
     public PlayerShooting playerShooting;
     public PlayerData playerData;
@@ -134,7 +134,7 @@ public class Gun : MonoBehaviour
     }
     void CreateProjectile()
     {
-        GameObject temp = Instantiate(projectilePrefab);
+        GameObject temp = Instantiate(projectilePrefab.gameObject);
         temp.transform.position = nozzle.transform.position;
         Vector3 direction = playerShooting.crossHairPos.position - playerShooting.pointOfView.transform.position;
 
@@ -153,13 +153,14 @@ public class Gun : MonoBehaviour
         BulletData bulletData = temp.GetComponent<BulletData>();
         bulletData.projectileBehaviour.direction = direction * modifiedStats.projectileSpeed;
         temp.transform.LookAt(hitPoint);
-        FillBulletData(bulletData);
+        FillBulletData(direction, bulletData);
     }
-    void FillBulletData(BulletData bulletData)
+
+    private void FillBulletData(Vector3 dir, BulletData newBullet)
     {
-        bulletData.projectileBehaviour.owningGun = this;
-        bulletData.projectileBehaviour.owningPlayer = playerData;
-        bulletData.projectileBehaviour.punchThrough = modifiedStats.punchThrough;
+        newBullet.bulletInfo = projectilePrefab.bulletInfo;
+        newBullet.projectileBehaviour.owningFaction = ENUM_Faction.player;
+        newBullet.projectileBehaviour.direction = dir * modifiedStats.projectileSpeed;
     }
     public void RefillAmmoToMax()
     {

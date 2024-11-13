@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class BulletInfo
 {
-    public DamageData damageData;
+    public List<DamageData> damageData;
+    public ElementalTable damageModifierWhenAfflicted;
     public float critChance;
     public float critDamageMultiplier;
     public float afflictionChance;
@@ -98,9 +99,9 @@ public class ProjectileBehaviour : MonoBehaviour
 
         EnemyData enemyData = other.gameObject.GetComponent<EnemyData>();
 
-        float dealtDamage = enemyData.HitEnemy(owningGun);
+        float dealtDamage = enemyData.HitEnemy(data.bulletInfo);
 
-        if (punchThrough <= 0)
+        if (data.bulletInfo.punchThrough <= 0)
         {
             Destroy(gameObject);
         }
@@ -113,9 +114,9 @@ public class ProjectileBehaviour : MonoBehaviour
     {
         Debug.Log("Probably Some HP Implementation");
         Destroy(other.gameObject);
-        punchThrough--;
+        data.bulletInfo.punchThrough--;
 
-        if (punchThrough <= 0)
+        if (data.bulletInfo.punchThrough <= 0)
         {
             Destroy(gameObject);
         }

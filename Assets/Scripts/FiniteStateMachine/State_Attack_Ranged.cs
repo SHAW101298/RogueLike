@@ -5,7 +5,7 @@ using UnityEngine;
 public class State_Attack_Ranged : State_Attack
 {
     [Header("Ref")]
-    public GameObject projectile;
+    public BulletData projectilePrefab;
     public float projectileSpeed;
     public Transform projectileStartPosition;
 
@@ -70,11 +70,24 @@ public class State_Attack_Ranged : State_Attack
     }
     void SendBullet(Vector3 dir)
     {
-        GameObject GO_Bullet = Instantiate(projectile);
+        GameObject GO_Bullet = Instantiate(projectilePrefab.gameObject);
         GO_Bullet.transform.position = projectileStartPosition.position;
+
+
+        BulletData newBullet = GO_Bullet.GetComponent<BulletData>();
+        FillBulletData(dir, newBullet);
+
         ProjectileBehaviour behaviour = GO_Bullet.GetComponent<ProjectileBehaviour>();
         behaviour.direction = dir;
     }
+
+    private void FillBulletData(Vector3 dir, BulletData newBullet)
+    {
+        newBullet.bulletInfo = projectilePrefab.bulletInfo;
+        newBullet.projectileBehaviour.owningFaction = ENUM_Faction.enemy;
+        newBullet.projectileBehaviour.direction = dir * projectileSpeed;
+    }
+
     void ConfirmShot()
     {
         Vector3 dir = Tools.Direction(attackTarget.transform.position, projectileStartPosition.position);
@@ -86,6 +99,7 @@ public class State_Attack_Ranged : State_Attack
             {
                 newTarget = PlayerList.Instance.GetPlayer(i);
                 dir = Tools.Direction(newTarget.transform.position, projectileStartPosition.position);
+                dir.Normalize();
                 visiblePlayer = Tools.RaycastOnLayer(projectileStartPosition.position, dir, 100f, playerLayer);
 
                 if (visiblePlayer == true)
@@ -107,11 +121,5 @@ public class State_Attack_Ranged : State_Attack
         }
     }
 
-    void FillBulletData(BulletData bulletData)
-    {
-        bulletData.projectileBehaviour.owningGun = PlayerList.Instance.GetPlayer(0).shooting.pistol;
-        bulletData.projectileBehaviour.owningPlayer = PlayerList.Instance.GetPlayer(0);
-        bulletData.projectileBehaviour.punchThrough = 1;
-    }
 
 }

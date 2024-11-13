@@ -14,6 +14,10 @@ public class Afflictions : MonoBehaviour
     {
         return afflictions[(int)damageType].afflictionActive;
     }
+    public void ApplyAfflicion(ENUM_DamageType damageType)
+    {
+        afflictions[(int)damageType].afflictionActive = true;
+    }
 
     void CreateAfflictions()
     {
