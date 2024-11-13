@@ -60,7 +60,6 @@ public class State_Attack_Ranged : State_Attack
 
             if(chargeTimer <= 0)
             {
-                chargeTimer = chargeTime;
                 //ConfirmShot();
                 Shoot();
             }
@@ -98,18 +97,19 @@ public class State_Attack_Ranged : State_Attack
 
         BulletData newBullet = GO_Bullet.GetComponent<BulletData>();
         FillBulletData(dir, newBullet);
-
-        ProjectileBehaviour behaviour = GO_Bullet.GetComponent<ProjectileBehaviour>();
-        behaviour.direction = dir;
     }
 
     private void FillBulletData(Vector3 dir, BulletData newBullet)
     {
         newBullet.bulletInfo = projectilePrefab.bulletInfo;
         newBullet.projectileBehaviour.owningFaction = ENUM_Faction.enemy;
-        newBullet.projectileBehaviour.direction = dir * projectileSpeed;
+        dir *= projectileSpeed;
+
+        newBullet.projectileBehaviour.direction = dir;
+        //Debug.Log("dir * speed = " + dir);
     }
 
+    /*
     void ConfirmShot()
     {
         Vector3 dir = Tools.Direction(attackTarget.transform.position, projectileStartPosition.position);
@@ -142,9 +142,10 @@ public class State_Attack_Ranged : State_Attack
             // Set Bullet Data
         }
     }
+    */
     void Shoot()
     {
-        Debug.Log("Shoot");
+        //Debug.Log("Shoot");
         if(maxAmmo > 1)
         {
             timerBetween -= Time.deltaTime;
@@ -159,6 +160,7 @@ public class State_Attack_Ranged : State_Attack
             if(currentAmmo <= 0)
             {
                 reloading = true;
+                chargeTimer = chargeTime;
             }
         }
         else
@@ -167,6 +169,7 @@ public class State_Attack_Ranged : State_Attack
             dir.Normalize();
             SendBullet(dir);
             reloading = true;
+            chargeTimer = chargeTime;
         }
     }
 

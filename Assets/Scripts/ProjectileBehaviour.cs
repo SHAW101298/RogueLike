@@ -80,12 +80,13 @@ public class ProjectileBehaviour : MonoBehaviour
     */
 
     void CollisionPlayer(Collider other)
-    {
+    { 
         // Bullet shot by Player hit another Player
         if(owningFaction == ENUM_Faction.player)
         {
             return;
         }
+        Debug.Log("Player Hit");
 
     }
     void CollisionEnemy(Collider other)
