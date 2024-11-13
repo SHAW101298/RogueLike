@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4509776593810869109
 Transform:
   m_ObjectHideFlags: 0
@@ -394,7 +394,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 4509776595623541335}
   camera: {fileID: 4509776593810869110}
-  sensitivity: 0.5
+  sensitivity: 3
+  input: {x: 0, y: 0}
+  x: 0
+  y: 0
 --- !u!114 &4509776595623541295
 MonoBehaviour:
   m_ObjectHideFlags: 0

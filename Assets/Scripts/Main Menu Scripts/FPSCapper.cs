@@ -5,7 +5,7 @@ using UnityEngine;
 public class FPSCapper : MonoBehaviour
 {
     public int desiredFPS;
-
+    public int vsync = 0;
     public bool change;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +16,7 @@ public class FPSCapper : MonoBehaviour
             desiredFPS = 10;
         }
         Application.targetFrameRate = desiredFPS;
+        QualitySettings.vSyncCount = vsync;
     }
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class FPSCapper : MonoBehaviour
         {
             change = false;
             Application.targetFrameRate = desiredFPS;
+            QualitySettings.vSyncCount = vsync;
         }
     }
 }
