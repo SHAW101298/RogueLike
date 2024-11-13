@@ -8,7 +8,6 @@ public class State_Chase : State
     float timer;
     [SerializeField] float distanceCheckTime;
     public float chaseDistance;
-    [SerializeField] float minDistanceBetweenTarget;
     public override void Enter()
     {
         // Set animation data maybe
@@ -21,6 +20,12 @@ public class State_Chase : State
         {
             return;
         }
+        if(CheckIfPlayerIsTooNear() == true)
+        {
+            ai.ChangeState(ai.run);
+            return;
+        }
+
 
         timer -= Time.deltaTime;
         if(timer <= 0)
@@ -72,6 +77,14 @@ public class State_Chase : State
             agent.SetDestination(transform.position);
             //Debug.Log("Remaining Distance is " + agent.remainingDistance);
             ai.CloseEnoughToAttack(chasedPlayer);
+            return true;
+        }
+        return false;
+    }
+    bool CheckIfPlayerIsTooNear()
+    {
+        if (agent.remainingDistance < ai.run.minDistanceBetweenTarget)
+        {
             return true;
         }
         return false;

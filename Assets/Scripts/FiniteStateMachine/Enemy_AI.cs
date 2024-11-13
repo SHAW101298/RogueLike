@@ -12,6 +12,7 @@ public abstract class Enemy_AI : NetworkBehaviour
     public State currentState;
     public State_Idle idle;
     public State_Chase chase;
+    public State_Run run;
     public State_Attack attack;
 
     public PlayerData target;
