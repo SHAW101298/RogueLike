@@ -6,7 +6,7 @@ public static class Tools
 {
     public static Vector3 Direction(Vector3 target, Vector3 origin)
     {
-        return target - origin;
+        return (target - origin).normalized;
     }
     public static bool RaycastOnLayer(Vector3 origin, Vector3 direction, float distance, LayerMask layer)
     {

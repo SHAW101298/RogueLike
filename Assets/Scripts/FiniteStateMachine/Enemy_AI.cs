@@ -14,6 +14,13 @@ public abstract class Enemy_AI : NetworkBehaviour
     public State_Chase chase;
     public State_Attack attack;
 
+    public PlayerData target;
+    [SerializeField] float rotationSpeed = 20;
+    Vector3 dirRotation;
+    Quaternion lookRotation;
+
+    
+
 
     public void ChangeState(State newState)
     {
@@ -27,17 +34,23 @@ public abstract class Enemy_AI : NetworkBehaviour
     {
         PlayerData closestPlayer = PlayerList.Instance.GetClosestPlayer(transform.position);
         chase.SetData(closestPlayer);
-
+        target = closestPlayer;
         ChangeState(chase);
     }
     public void PlayerLeftChaseDistance()
     {
         ChangeState(idle);
+        target = null;
     }
     public abstract void CloseEnoughToAttack(PlayerData player);
     public abstract void ActivateAI();
 
-
+    public void RotateTowardsTarget()
+    {
+        dirRotation = Tools.Direction(target.transform.position, transform.position);
+        lookRotation = Quaternion.LookRotation(dirRotation);
+        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime *rotationSpeed);
+    }
 
 
 

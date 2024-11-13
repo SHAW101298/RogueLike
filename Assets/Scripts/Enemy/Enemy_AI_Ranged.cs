@@ -31,5 +31,9 @@ public class Enemy_AI_Ranged : Enemy_AI
         attack.SetData(player);
         ChangeState(aiming);
     }
+    public void PlayerTooClose()
+    {
+
+    }
 
 }

@@ -25,6 +25,7 @@ public class State_Attack_Ranged : State_Attack
     }
     public override void Do()
     {
+        ai.RotateTowardsTarget();
         weapon.Shoot();
     }
 
