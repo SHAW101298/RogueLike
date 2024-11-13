@@ -29,6 +29,7 @@ public class PlayerRotation : NetworkBehaviour
             return;
         }
         RotateBody();
+        //Rotate();
     }
     private void LateUpdate()
     {
