@@ -37,19 +37,19 @@ public class PlayerRotation : NetworkBehaviour
         {
             return;
         }
-        RotateCam();
+        //RotateCam();
     }
 
     void Rotate()
     {
         rot = body.transform.localRotation.eulerAngles;
         Vector3 movement = new Vector3(0, input.x, 0);
-        rot += movement * sensitivity * Time.deltaTime;
+        rot += movement * (sensitivity/10);
         body.transform.localEulerAngles = rot;
 
         rot = camera.transform.localRotation.eulerAngles;
         movement = new Vector3(-input.y, 0, 0);
-        rot += movement * sensitivity * Time.deltaTime;
+        rot += movement * (sensitivity/10);
         camera.transform.localEulerAngles = rot;
         //characterModel.transform.localEulerAngles = rot;
     }
@@ -62,8 +62,8 @@ public class PlayerRotation : NetworkBehaviour
     }
     void RotateBody()
     {
-        x = input.x * sensitivity * Time.deltaTime;
-        y = input.y * sensitivity * Time.deltaTime;
+        x = input.x * sensitivity/10;
+        y = input.y * sensitivity/10;
         Vector3 rotateValue = new Vector3(0, -x, 0);
         body.transform.eulerAngles = body.transform.eulerAngles - rotateValue;
     }

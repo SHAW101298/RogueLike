@@ -47,8 +47,10 @@ public class CameraHookUp : MonoBehaviour
 
     void RotateCam()
     {
-        x *= Time.deltaTime * sensitivity;
-        y *= Time.deltaTime * sensitivity;
+        //x *= Time.deltaTime * sensitivity;
+        x *= sensitivity/10;
+        y *= sensitivity/10;
+        //y *= Time.deltaTime * sensitivity;
         Vector3 rotateValue = new Vector3(y, -x, 0);
         cam.transform.eulerAngles = cam.transform.eulerAngles - rotateValue;
     }
