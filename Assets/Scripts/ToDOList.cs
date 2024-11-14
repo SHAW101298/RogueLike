@@ -33,6 +33,16 @@ public class ToDOList : MonoBehaviour
     }
 
 }
+/* Czego brakuje do rozegrania gry
+ Lobby w którym wybierze sie poziom trudności
+ Host rozpoczyna rozgrywkę, i przenosi go do mapy gry, rozpoczyna się od razu również tworzenie mapy na danym poziomie
+ Tworzą się podstawowe postacie
+ Gracze wybierają postacie
+ Gracze dostają 1 losowa broń
+ Gracze podchodzą do portalu i zostają przenoszeni na mapę gry
+ Gdzieś w miedzyczasie spawnują się przeciwnicy na mapie ( lub przygotowane jest wcześniej wywoływanie spawnowania triggerem ? )
+ Gdy gracze zblizają się do przeciwników lub do nich zaczynają strzelać, rozpoczyna sie walka i cała gra
+*/
 
 
 

@@ -11,6 +11,8 @@ public class PlayerInitialization : NetworkBehaviour
 {
     [SerializeField] PlayerData playerData;
     [SerializeField] Character1HookUp characterHookUp;
+    [SerializeField] GameObject bodyTPS;
+    [SerializeField] GameObject bodyFPS;
 
     // Start is called before the first frame update
     void Start()
@@ -81,10 +83,6 @@ public class PlayerInitialization : NetworkBehaviour
         }
         //CreateGameCharacter();
         characterHookUp.Setup(IsOwner);
-        
-    }
-    private void Update()
-    {
         
     }
 }

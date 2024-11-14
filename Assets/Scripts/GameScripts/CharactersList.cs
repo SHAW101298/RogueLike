@@ -41,4 +41,10 @@ public class CharactersList : MonoBehaviour
 
         return controllers[tempChar];
     }
+
+
+    public void ChooseCharacter(int index)
+    {
+
+    }
 }
