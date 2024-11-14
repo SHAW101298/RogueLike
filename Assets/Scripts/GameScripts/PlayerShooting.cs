@@ -62,6 +62,16 @@ public class PlayerShooting : MonoBehaviour
     }
     public bool AttemptGunChange(Gun gun)
     {
+
+        if(gun1 == null)
+        {
+            currentlySelected = gun1;
+        }
+        if(gun2 == null)
+        {
+            currentlySelected = gun2;
+        }
+
         if(currentlySelected.canBeSwapped == false)
         {
             return false;
@@ -79,24 +89,43 @@ public class PlayerShooting : MonoBehaviour
 
         return true;
     }
-    public bool AttemptGunChange2(Gun gun)
-    {
-        if(possesedGuns.Count < 3)
-        {
-            possesedGuns.Add(gun);
-            return true;
-        }
-        else
-        {
-            Debug.Log("Show Gun Data Screen");
-            return false;
-        }
-
-    }
     public bool AttemptGunChange3(Gun gun)
     {
+        int index = 0;
 
+        if (gun1 == null)
+        {
+            index = 0;
+            currentlySelected = gun1;
+        }
+        if (gun2 == null)
+        {
+            index = 1;
+            currentlySelected = gun2;
+        }
+        if(currentlySelected != null)
+        {
+            if (currentlySelected.canBeSwapped == false)
+            {
+                return false;
+            }
+        }
 
-        return false;
+        currentlySelected = gun;
+        currentlySelected.baseStats = gun.baseStats;
+
+        currentlySelected.gunUpgrades = gun.gunUpgrades;
+        currentlySelected.CreateModifiedStats();
+        currentlySelected.RefillAmmoToMax();
+        ui.UpdateAmmo();
+        if(index == 0)
+        {
+            gun1 = gun;
+        }
+        else if (index == 1)
+        {
+            gun2 = gun;
+        }
+        return true;
     }
 }

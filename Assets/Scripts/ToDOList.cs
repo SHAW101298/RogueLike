@@ -27,6 +27,7 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Przywrocic lobby. Wybor ilosci pomieszczen, poziomu trudnosci, itp");
         //doZrobienia.Add("Wyodrebnic State Charging, z attack Ranged");
         doZrobienia.Add("Zdrowie gracza");
+        doZrobienia.Add("Zamiana pomiedzy posiadanymi broniami");
         //doZrobienia.Add("Przycisk w menu chowajacy okno lobby naprawić"); \/
         //doZrobienia.Add("WYlaczyc pokazywanie lobby podczas tworzenia go");
     }

@@ -30,7 +30,7 @@ public class PlayerData : NetworkBehaviour
 
     public bool AttemptGunChange(Gun gun)
     {
-        bool success = shooting.AttemptGunChange(gun);
+        bool success = shooting.AttemptGunChange3(gun);
         return success;
     }
     public void TeleportPlayer(Vector3 pos)
