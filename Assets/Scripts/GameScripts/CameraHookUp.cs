@@ -25,7 +25,8 @@ public class CameraHookUp : MonoBehaviour
     public Vector3 positionOnPlayer;
     [SerializeField] float sensitivity = 3;
     float x, y;
-
+    [Space(15)]
+    public Transform forwardPos;
    
 
     private void Update()
