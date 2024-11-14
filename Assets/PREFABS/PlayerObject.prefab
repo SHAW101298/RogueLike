@@ -322,7 +322,7 @@ MonoBehaviour:
   rotation: {fileID: 4509776595623541293}
   shooting: {fileID: 4509776595623541292}
   ui: {fileID: 4509776595623541295}
-  interactionBeam: {fileID: 0}
+  interactionBeam: {fileID: 3569499129705267997}
 --- !u!114 &4509776595623541289
 MonoBehaviour:
   m_ObjectHideFlags: 0
