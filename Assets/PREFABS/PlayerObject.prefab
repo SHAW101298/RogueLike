@@ -394,7 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 4509776595623541335}
   camera: {fileID: 4509776593810869110}
-  sensitivity: 3
+  sensitivity: 0.5
   input: {x: 0, y: 0}
   x: 0
   y: 0

@@ -19015,7 +19015,7 @@ MonoBehaviour:
   player: {fileID: 0}
   input: {fileID: 0}
   positionOnPlayer: {x: 0, y: 0.75, z: 0.15}
-  sensitivity: 3
+  sensitivity: 0.5
 --- !u!1 &1712731878
 GameObject:
   m_ObjectHideFlags: 0
@@ -23858,6 +23858,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy Test 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6369748041881690598, guid: 37d4116de28e0aa4c8bb057be77a2565,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6369748041881690599, guid: 37d4116de28e0aa4c8bb057be77a2565,
         type: 3}
