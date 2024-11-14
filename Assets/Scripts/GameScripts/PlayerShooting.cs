@@ -5,10 +5,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerShooting : MonoBehaviour
 {
+    public PlayerData data;
+
+    [Space(10)]
     public Gun pistol;
     public Gun gun1;
     public Gun gun2;
     public Gun currentlySelected;
+    int currentlySelectedIndex;
 
     public List<Gun> possesedGuns;
     public Transform crossHairPos;
@@ -126,6 +130,33 @@ public class PlayerShooting : MonoBehaviour
         {
             gun2 = gun;
         }
+        return true;
+    }
+    public bool AttemptGunChange4(Gun newGun)
+    {
+        if(possesedGuns.Count < 3)
+        {
+            possesedGuns.Add(newGun);
+            return true;
+        }
+
+        if(currentlySelected.canBeSwapped == false)
+        {
+            return false;
+        }
+
+        Gun oldGun = possesedGuns[currentlySelectedIndex];
+        possesedGuns[currentlySelectedIndex] = newGun;
+        currentlySelected = newGun;
+        GunManager.Instance.CreateGunOnGround(oldGun, newGun.transform.position);
+
+        //data.hookup.getHands;
+
+
+
+
+
+
         return true;
     }
 }
