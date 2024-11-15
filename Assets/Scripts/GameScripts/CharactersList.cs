@@ -46,7 +46,7 @@ public class CharactersList : MonoBehaviour
 
     public void ChooseCharacter(int index)
     {
-        PlayerData player = NetworkManager.Singleton.LocalClient.PlayerObject.gameObject.GetComponent<PlayerData>();
+        PlayerData player = PlayerList.Instance.GetMyPlayer();
         CharacterData characterData = characters[index].gameObject.GetComponent<CharacterData>();
         player.ChangeCharacter(characterData);
     }

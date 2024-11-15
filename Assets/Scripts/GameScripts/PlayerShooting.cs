@@ -164,6 +164,7 @@ public class PlayerShooting : MonoBehaviour
 
     public void SetDataOnCharacterChange()
     {
+        Debug.Log("Setting data on char change");
         cameraPos = CameraHookUp.Instance.gameObject.transform;
         crossHairPos = CameraHookUp.Instance.forwardPos;
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterData : MonoBehaviour
 {
     public GameObject cameraTarget;
+    public GameObject character;
     [Header("Body")]
     public GameObject bodyObject;
     public GameObject bodyGunPosition;

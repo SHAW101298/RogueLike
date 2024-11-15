@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881ee9ff38146ed40abff092055582a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterChoosingWindow: {fileID: 0}
   magazineCurrent: {fileID: 0}
   ammoCurrent: {fileID: 0}
   staminaBar: {fileID: 0}
@@ -585,6 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTarget: {fileID: 742995900595568326}
+  character: {fileID: 4509776594746629016}
   bodyObject: {fileID: 0}
   bodyGunPosition: {fileID: 0}
   bodyAnim: {fileID: 0}

@@ -21,6 +21,7 @@ public class CameraHookUp : MonoBehaviour
 #endregion
     public GameObject cam;
     public GameObject player;
+    public GameObject cameraTarget;
     [SerializeField] PlayerRotation input;
     public Vector3 positionOnPlayer;
     [SerializeField] float sensitivity = 3;
@@ -57,6 +58,6 @@ public class CameraHookUp : MonoBehaviour
     }
     void UpdatePosition()
     {
-        cam.transform.position = player.transform.position + positionOnPlayer;
+        cam.transform.position = cameraTarget.transform.position;
     }
 }

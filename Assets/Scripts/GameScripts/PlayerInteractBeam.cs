@@ -32,7 +32,7 @@ public class PlayerInteractBeam : MonoBehaviour
 
     private void Update()
     {
-        Foo();
+        RaycastForShowingGunData();
     }
 
     public void Interact(InputAction.CallbackContext context)
@@ -55,7 +55,7 @@ public class PlayerInteractBeam : MonoBehaviour
         interactable.Interact(playerData);
     }
 
-    public void Foo()
+    public void RaycastForShowingGunData()
     {
         //Debug.LogWarning("Foo");
         RaycastHit hit;

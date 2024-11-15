@@ -44,11 +44,15 @@ public class PlayerData : NetworkBehaviour
 
     public void ChangeCharacter(CharacterData newCharacter)
     {
-        Destroy(characterData.gameObject);
+        Debug.Log("Changing Character");
+        ui.HideCharacterSelector();
+        Destroy(characterData.character.gameObject);
         characterData = newCharacter;
 
         GameObject temp = Instantiate(newCharacter.gameObject);
-        temp.transform.position = Vector3.down;
+        temp.transform.SetParent(gameObject.transform);
+        temp.transform.localPosition = Vector3.down;
+        temp.transform.localEulerAngles = Vector3.zero;
 
         shooting.SetDataOnCharacterChange();
     }

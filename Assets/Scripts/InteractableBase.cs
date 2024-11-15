@@ -5,7 +5,8 @@ using UnityEngine;
 public enum ENUM_InteractableType
 {
     gunPickup,
-    door
+    door,
+    characterChoose
 }
 public abstract class InteractableBase : MonoBehaviour
 {

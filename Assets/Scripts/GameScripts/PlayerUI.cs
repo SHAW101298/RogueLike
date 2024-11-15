@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
+    public GameObject characterChoosingWindow;
+
     [Header("UI Objects")]
     public Text magazineCurrent;
     public Text ammoCurrent;
@@ -36,9 +38,16 @@ public class PlayerUI : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Confined;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ShowCharacterSelector()
     {
-        
+        characterChoosingWindow.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+    public void HideCharacterSelector()
+    {
+        characterChoosingWindow.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

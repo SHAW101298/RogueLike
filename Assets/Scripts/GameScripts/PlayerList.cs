@@ -131,6 +131,10 @@ public class PlayerList : MonoBehaviour
         return closestDistance;
     }
     
-
+    public PlayerData GetMyPlayer()
+    {
+        PlayerData player = NetworkManager.Singleton.LocalClient.PlayerObject.gameObject.GetComponent<PlayerData>();
+        return player;
+    }
 
 }

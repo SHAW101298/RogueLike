@@ -46,10 +46,6 @@ public class Gun : MonoBehaviour
         CreateModifiedStats();
 
         //playerShooting = GetComponentInParent<PlayerShooting>();
-        if(ForceGun1 == true)
-        {
-            playerShooting.currentlySelected = playerShooting.gun1;
-        }
     }
 
     // Update is called once per frame
