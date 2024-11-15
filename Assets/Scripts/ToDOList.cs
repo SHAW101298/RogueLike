@@ -31,6 +31,7 @@ public class ToDOList : MonoBehaviour
         //doZrobienia.Add("Przycisk w menu chowajacy okno lobby naprawić"); \/
         //doZrobienia.Add("WYlaczyc pokazywanie lobby podczas tworzenia go");
         doZrobienia.Add("Poprawić animacje trzymania pistoletu");
+        doZrobienia.Add("Ręce również powinny się obracać wraz z obrotem kamery");
         // https://www.youtube.com/watch?v=luBBz5oeR4Q
     }
 
