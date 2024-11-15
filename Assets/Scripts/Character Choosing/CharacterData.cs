@@ -6,6 +6,7 @@ public class CharacterData : MonoBehaviour
 {
     public GameObject cameraTarget;
     public GameObject character;
+    public Gun pistol;
     [Header("Body")]
     public GameObject bodyObject;
     public GameObject bodyGunPosition;
