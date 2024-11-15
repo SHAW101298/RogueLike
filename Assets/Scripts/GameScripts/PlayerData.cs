@@ -47,14 +47,17 @@ public class PlayerData : NetworkBehaviour
         Debug.Log("Changing Character");
         ui.HideCharacterSelector();
         Destroy(characterData.character.gameObject);
-        characterData = newCharacter;
+        //characterData = newCharacter;
 
         GameObject temp = Instantiate(newCharacter.gameObject);
+        characterData = temp.GetComponent<CharacterData>();
         temp.transform.SetParent(gameObject.transform);
         temp.transform.localPosition = Vector3.down;
         temp.transform.localEulerAngles = Vector3.zero;
 
         CameraHookUp.Instance.Attach(gameObject);
         shooting.SetDataOnCharacterChange();
+        characterData.DisableBodyObject();
+        characterData.EnableHandsObject();
     }
 }
