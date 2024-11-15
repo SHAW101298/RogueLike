@@ -31,7 +31,7 @@ public class PlayerList : MonoBehaviour
         sceneName = currentSceneName;
         if(currentSceneName.Equals("GameScene") || currentSceneName.Equals("SampleScene"))
         {
-            AddPlayers();
+            //AddPlayers();
         }
     }
     
@@ -58,7 +58,7 @@ public class PlayerList : MonoBehaviour
         if(sceneName.Equals("GameScene") || sceneName.Equals("SampleScene"))
         {
             Debug.Log("Scene Loaded");
-            AddPlayers();
+            //AddPlayers();
         }
     }
 
@@ -71,6 +71,10 @@ public class PlayerList : MonoBehaviour
             client = NetworkManager.Singleton.ConnectedClientsList[i];
             AddPlayerToList(client.PlayerObject.gameObject.GetComponent<PlayerData>());
         }
+    }
+    public void AddPlayer(PlayerData player)
+    {
+        AddPlayerToList(player);
     }
 
     
@@ -85,11 +89,11 @@ public class PlayerList : MonoBehaviour
     {
         players.Remove(player);
     }
-    public PlayerData GetPlayer(int id)
+    public PlayerData GetPlayer(ulong id)
     {
         for(int i = 0; i < players.Count; i++)
         {
-            if (players[i].networkData.OwnerClientId == (ulong)id)
+            if (players[i].networkData.OwnerClientId == id)
             {
                 return players[i];
             }

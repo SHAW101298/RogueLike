@@ -31,6 +31,10 @@ public class CharactersList : MonoBehaviour
 
         return characters[tempChar];
     }
+    public GameObject GetCharacter(int val)
+    {
+        return characters[val];
+    }
     public GameObject GetCharacterFirstPerson(string val)
     {
         int tempChar = Convert.ToInt32(val);
@@ -47,7 +51,8 @@ public class CharactersList : MonoBehaviour
     public void ChooseCharacter(int index)
     {
         PlayerData player = PlayerList.Instance.GetMyPlayer();
-        CharacterData characterData = characters[index].gameObject.GetComponent<CharacterData>();
-        player.ChangeCharacter(characterData);
+        player.ChangeCharacter_ServerRPC(index, default);
+        //CharacterData characterData = characters[index].gameObject.GetComponent<CharacterData>();
+        //player.ChangeCharacter(characterData);
     }
 }

@@ -42,7 +42,32 @@ public class PlayerData : NetworkBehaviour
         //transform.position = pos;
     }
 
-    public void ChangeCharacter(CharacterData newCharacter)
+    public void ChangeCharacter(int character)
+    {
+        GameObject temp = Instantiate(CharactersList.Instance.GetCharacter(character));
+        Destroy(characterData.character.gameObject);
+
+        characterData = temp.GetComponent<CharacterData>();
+        temp.transform.SetParent(gameObject.transform);
+        temp.transform.localPosition = Vector3.down;
+        temp.transform.localEulerAngles = Vector3.zero;
+
+        if (IsOwner == true)
+        {
+            CameraHookUp.Instance.Attach(gameObject);
+            shooting.SetDataOnCharacterChange();
+            characterData.DisableBodyObject();
+            characterData.EnableHandsObject();
+            ui.HideCharacterSelector();
+        }
+        else
+        {
+            shooting.SetDataOnCharacterChange();
+            characterData.DisableHandsObject();
+            characterData.EnableBodyObject();
+        }
+    }
+    void ChangeCharacter(CharacterData newCharacter)
     {
         Debug.Log("Changing Character");
         ui.HideCharacterSelector();
@@ -55,9 +80,31 @@ public class PlayerData : NetworkBehaviour
         temp.transform.localPosition = Vector3.down;
         temp.transform.localEulerAngles = Vector3.zero;
 
-        CameraHookUp.Instance.Attach(gameObject);
-        shooting.SetDataOnCharacterChange();
-        characterData.DisableBodyObject();
-        characterData.EnableHandsObject();
+        if(IsOwner == true)
+        {
+            CameraHookUp.Instance.Attach(gameObject);
+            shooting.SetDataOnCharacterChange();
+            characterData.DisableBodyObject();
+            characterData.EnableHandsObject();
+        }
+        else
+        {
+
+        }
+
+        
+    }
+    [ClientRpc]
+    public void ChangeCharacter_ClientRPC(int character, ulong requestingPlayer)
+    {
+        Debug.Log(" CLIENTRPC | Character = " + character + "  |  RequestingPlaeyr = " + requestingPlayer);
+        PlayerList.Instance.GetPlayer(requestingPlayer).ChangeCharacter(character);
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void ChangeCharacter_ServerRPC(int character, ServerRpcParams serverRpcParams = default)
+    {
+        ulong requestingId = serverRpcParams.Receive.SenderClientId;
+        Debug.Log(" SERVERRPC | Character = " + character + "  |  Requesting ID = " + requestingId);
+        ChangeCharacter_ClientRPC(character, requestingId);
     }
 }

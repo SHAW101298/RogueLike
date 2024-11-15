@@ -50,6 +50,8 @@ public class PlayerInitialization : NetworkBehaviour
         Debug.Log("Player Initialization for " + playerData.name);
         Debug.Log("Current scene = " + SceneManager.GetActiveScene().name);
         Debug.Log("is owner = " + IsOwner);
+        PlayerList.Instance.AddPlayer(playerData);
+
         if(IsOwner == true)
         {
             playerData.movement.enabled = true;
@@ -68,6 +70,7 @@ public class PlayerInitialization : NetworkBehaviour
         {
             playerData.movement.enabled = false;
             playerData.rotation.enabled = false;
+            playerData.interactionBeam.enabled = false;
             playerData.ui.enabled = false;
             playerData.rotation.camera.SetActive(false);
             playerData.gameObject.GetComponent<PlayerInput>().enabled = false;
@@ -81,4 +84,20 @@ public class PlayerInitialization : NetworkBehaviour
         }
         //CreateGameCharacter();
     }
+
+
+
+
+
+
+    [ClientRpc]
+    void AbcdClientRpc(int framekey) { /* ... */ }
+
+    [ClientRpc]
+    void XyzwClientRpc(int framekey, ClientRpcParams clientRpcParams = default) { /* ... */ }
+
+
+
+
+
 }
