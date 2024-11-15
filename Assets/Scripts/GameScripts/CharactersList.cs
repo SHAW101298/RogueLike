@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class CharactersList : MonoBehaviour
@@ -45,6 +46,8 @@ public class CharactersList : MonoBehaviour
 
     public void ChooseCharacter(int index)
     {
-
+        PlayerData player = NetworkManager.Singleton.LocalClient.PlayerObject.gameObject.GetComponent<PlayerData>();
+        CharacterData characterData = characters[index].gameObject.GetComponent<CharacterData>();
+        player.ChangeCharacter(characterData);
     }
 }

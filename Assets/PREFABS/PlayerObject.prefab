@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4244453726588587041
+--- !u!1 &742995900595568326
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,114 +8,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8421175892359293761}
-  m_Layer: 0
-  m_Name: center of view
+  - component: {fileID: 5828911460341367590}
+  m_Layer: 8
+  m_Name: Camera Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8421175892359293761
+--- !u!4 &5828911460341367590
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4244453726588587041}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4509776593810869109}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4509776593810869110
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4509776593810869109}
-  - component: {fileID: 4509776593810869108}
-  - component: {fileID: 4509776593810869111}
-  m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &4509776593810869109
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4509776593810869110}
+  m_GameObject: {fileID: 742995900595568326}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.75, z: 0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8421175892359293761}
-  m_Father: {fileID: 4509776595623541332}
-  m_RootOrder: 1
+  m_Children: []
+  m_Father: {fileID: 4509776594746629017}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &4509776593810869108
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4509776593810869110}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!81 &4509776593810869111
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4509776593810869110}
-  m_Enabled: 1
 --- !u!1 &4509776594746629016
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +60,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5828911460341367590}
   m_Father: {fileID: 4509776595623541332}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -220,6 +136,7 @@ GameObject:
   - component: {fileID: 3569499129705267997}
   - component: {fileID: 5435765896860109091}
   - component: {fileID: 6259576926299416044}
+  - component: {fileID: 9058961385685546959}
   m_Layer: 8
   m_Name: PlayerObject
   m_TagString: Player
@@ -240,7 +157,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4509776594746629017}
-  - {fileID: 4509776593810869109}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -323,6 +239,8 @@ MonoBehaviour:
   shooting: {fileID: 4509776595623541292}
   ui: {fileID: 4509776595623541295}
   interactionBeam: {fileID: 3569499129705267997}
+  initialization: {fileID: 6259576926299416044}
+  characterData: {fileID: 9058961385685546959}
 --- !u!114 &4509776595623541289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,7 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 4509776595623541335}
-  camera: {fileID: 4509776593810869110}
+  camera: {fileID: 0}
   sensitivity: 0.5
   input: {x: 0, y: 0}
   x: 0
@@ -427,15 +345,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3437b9231f1dc4aa9ec19841680186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 4509776595623541290}
   pistol: {fileID: 0}
   gun1: {fileID: 0}
   gun2: {fileID: 0}
   currentlySelected: {fileID: 0}
   possesedGuns: []
-  crossHairPos: {fileID: 8421175892359293761}
-  pointOfView: {fileID: 4509776593810869109}
-  gunNozzle: {fileID: 8421175892359293761}
-  gunHandle: {fileID: 0}
+  crossHairPos: {fileID: 0}
+  cameraPos: {fileID: 0}
+  gunNozzle: {fileID: 0}
   ui: {fileID: 4509776595623541295}
   trigger: 0
 --- !u!114 &3569499129705267997
@@ -451,8 +369,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 4509776595623541290}
-  cameraPosition: {fileID: 4509776593810869109}
-  centerOfView: {fileID: 8421175892359293761}
+  cameraPosition: {fileID: 0}
+  centerOfView: {fileID: 0}
   rayDistance: 3
   interactableLayers:
     serializedVersion: 2
@@ -654,4 +572,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 4509776595623541290}
-  characterHookUp: {fileID: 0}
+--- !u!114 &9058961385685546959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4509776595623541335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211b00522ddc98147960ae97899ddc84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTarget: {fileID: 742995900595568326}
+  bodyObject: {fileID: 0}
+  bodyGunPosition: {fileID: 0}
+  bodyAnim: {fileID: 0}
+  handsObject: {fileID: 0}
+  handsGunPosition: {fileID: 0}
+  handsAnim: {fileID: 0}

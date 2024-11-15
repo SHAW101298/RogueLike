@@ -136,11 +136,11 @@ public class Gun : MonoBehaviour
     {
         GameObject temp = Instantiate(projectilePrefab.gameObject);
         temp.transform.position = nozzle.transform.position;
-        Vector3 direction = playerShooting.crossHairPos.position - playerShooting.pointOfView.transform.position;
+        Vector3 direction = playerShooting.crossHairPos.position - playerShooting.cameraPos.transform.position;
 
         RaycastHit hit;
         Vector3 hitPoint;
-        if (Physics.Raycast(playerShooting.pointOfView.transform.position, direction, out hit, 200, bulletMask))
+        if (Physics.Raycast(playerShooting.cameraPos.transform.position, direction, out hit, 200, bulletMask))
         {
             hitPoint = hit.point;
         }

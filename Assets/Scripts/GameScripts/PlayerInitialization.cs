@@ -10,9 +10,6 @@ using UnityEngine.SceneManagement;
 public class PlayerInitialization : NetworkBehaviour
 {
     [SerializeField] PlayerData playerData;
-    [SerializeField] Character1HookUp characterHookUp;
-    [SerializeField] GameObject bodyTPS;
-    [SerializeField] GameObject bodyFPS;
 
     // Start is called before the first frame update
     void Start()
@@ -82,7 +79,5 @@ public class PlayerInitialization : NetworkBehaviour
             Debug.Log("Disabled other player scripts");
         }
         //CreateGameCharacter();
-        characterHookUp.Setup(IsOwner);
-        
     }
 }

@@ -12,6 +12,8 @@ public class PlayerData : NetworkBehaviour
     public PlayerShooting shooting;
     public PlayerUI ui;
     public PlayerInteractBeam interactionBeam;
+    public PlayerInitialization initialization;
+    public CharacterData characterData;
 
     private void Awake()
     {
@@ -19,7 +21,6 @@ public class PlayerData : NetworkBehaviour
     }
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -39,5 +40,16 @@ public class PlayerData : NetworkBehaviour
         gameObject.transform.position = pos;
         movement.controller.enabled = true;
         //transform.position = pos;
+    }
+
+    public void ChangeCharacter(CharacterData newCharacter)
+    {
+        Destroy(characterData.gameObject);
+        characterData = newCharacter;
+
+        GameObject temp = Instantiate(newCharacter.gameObject);
+        temp.transform.position = Vector3.down;
+
+        shooting.SetDataOnCharacterChange();
     }
 }

@@ -8,6 +8,7 @@ public class UI_Character : MonoBehaviour
 
     public void BTN_ChooseCharacter()
     {
+        Debug.Log("BTN Choose Character ID = " + index);
         CharactersList.Instance.ChooseCharacter(index);
     }
 }

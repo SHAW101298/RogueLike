@@ -16,11 +16,8 @@ public class PlayerShooting : MonoBehaviour
 
     public List<Gun> possesedGuns;
     public Transform crossHairPos;
-    public Transform pointOfView;
+    public Transform cameraPos;
     public Transform gunNozzle;
-    public GameObject gunHandle;
-
-
 
     [Space(20)]
     public PlayerUI ui;
@@ -49,6 +46,11 @@ public class PlayerShooting : MonoBehaviour
     {
         if(trigger == true)
         {
+            if (currentlySelected == null)
+            {
+                return;
+            }
+
             if(currentlySelected.modifiedStats.triggerType == ENUM_TriggerType.semi)
             {
                 trigger = false;
@@ -158,5 +160,11 @@ public class PlayerShooting : MonoBehaviour
 
 
         return true;
+    }
+
+    public void SetDataOnCharacterChange()
+    {
+        cameraPos = CameraHookUp.Instance.gameObject.transform;
+        crossHairPos = CameraHookUp.Instance.forwardPos;
     }
 }
