@@ -44,7 +44,9 @@ public class CameraHookUp : MonoBehaviour
     public void Attach(GameObject playerObject)
     {
         player = playerObject;
-        input = player.gameObject.GetComponent<PlayerRotation>();
+        PlayerData playerData = playerObject.GetComponent<PlayerData>();
+        input = playerData.rotation;
+        cameraTarget = playerData.characterData.cameraTarget;
     }
 
     void RotateCam()

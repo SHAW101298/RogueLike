@@ -54,6 +54,7 @@ public class PlayerData : NetworkBehaviour
         temp.transform.localPosition = Vector3.down;
         temp.transform.localEulerAngles = Vector3.zero;
 
+        CameraHookUp.Instance.Attach(gameObject);
         shooting.SetDataOnCharacterChange();
     }
 }
