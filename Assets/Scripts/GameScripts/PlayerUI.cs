@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
     public GameObject characterChoosingWindow;
+    public GameObject workShopWindow;
 
     [Header("UI Objects")]
     public Text magazineCurrent;
@@ -14,7 +15,9 @@ public class PlayerUI : MonoBehaviour
     [Header("REF")]
     public PlayerShooting shooting;
     public CrossHairAnimation crossAnimation;
+    public PlayerData data;
     
+
 
 
     public void UpdateAmmo()
@@ -35,19 +38,45 @@ public class PlayerUI : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        data = gameObject.GetComponent<PlayerData>();
         //Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void ShowCharacterSelector()
     {
         characterChoosingWindow.SetActive(true);
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
+        ActivateMouse();
     }
     public void HideCharacterSelector()
     {
         characterChoosingWindow.SetActive(false);
+        DisableMouse();
+    }
+    public void ShowWorkShopWindow()
+    {
+        workShopWindow.SetActive(true);
+        ActivateMouse();
+    }
+    public void HideWorkShopWindow()
+    {
+        workShopWindow.SetActive(false);
+        DisableMouse();
+    }
+
+    void ActivateMouse()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+        data.movement.BlockMovement();
+        data.rotation.BlockRotation();
+        
+    }
+    void DisableMouse()
+    {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        data.movement.AllowMovement();
+        data.rotation.AllowRotation();
     }
 }

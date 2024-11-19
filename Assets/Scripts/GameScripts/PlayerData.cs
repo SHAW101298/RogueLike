@@ -107,4 +107,5 @@ public class PlayerData : NetworkBehaviour
         Debug.Log(" SERVERRPC | Character = " + character + "  |  Requesting ID = " + requestingId);
         ChangeCharacter_ClientRPC(character, requestingId);
     }
+
 }

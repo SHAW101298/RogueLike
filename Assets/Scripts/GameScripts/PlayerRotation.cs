@@ -15,6 +15,8 @@ public class PlayerRotation : NetworkBehaviour
     public float x;
     public float y;
 
+    public bool blockedRotation { get; private set; }
+
     public void ActionLook(InputAction.CallbackContext context)
     {
         input = context.ReadValue<Vector2>();
@@ -28,18 +30,14 @@ public class PlayerRotation : NetworkBehaviour
         {
             return;
         }
+        if (blockedRotation == true)
+            return;
+
         RotateBody();
         //Rotate();
     }
-    private void LateUpdate()
-    {
-        if(IsOwner == false)
-        {
-            return;
-        }
-        //RotateCam();
-    }
 
+    /*
     void Rotate()
     {
         rot = body.transform.localRotation.eulerAngles;
@@ -60,6 +58,7 @@ public class PlayerRotation : NetworkBehaviour
         rot += movement * (sensitivity / 10);
         body.transform.localEulerAngles = rot;
     }
+    */
     void RotateBody()
     {
         x = input.x * sensitivity/10;
@@ -67,18 +66,13 @@ public class PlayerRotation : NetworkBehaviour
         Vector3 rotateValue = new Vector3(0, -x, 0);
         body.transform.eulerAngles = body.transform.eulerAngles - rotateValue;
     }
-    void RotateCam()
-    {
-        Vector3 rotateValue = new Vector3(y, -x, 0);
-        camera.transform.eulerAngles = camera.transform.eulerAngles - rotateValue;
-    }
-    void Rotate3()
-    {
-        x = input.x * sensitivity * Time.deltaTime;
-        y = input.y * sensitivity * Time.deltaTime;
-        Vector3 rotateValue = new Vector3(0,x, 0);
-        body.transform.eulerAngles = body.transform.eulerAngles - rotateValue;
 
-        
+    public void BlockRotation()
+    {
+        blockedRotation = true;
+    }
+    public void AllowRotation()
+    {
+        blockedRotation = false;
     }
 }

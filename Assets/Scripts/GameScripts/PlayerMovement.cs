@@ -23,6 +23,7 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] float groundCheckDistance;
     [SerializeField]Vector3 velocity;
     Vector3 dir;
+    bool blockedMovement;
     [Header("Movement")]
     [SerializeField] float moveSpeed;
     [SerializeField] float runSpeedMultiplier;
@@ -54,6 +55,11 @@ public class PlayerMovement : NetworkBehaviour
         if (IsOwner == false)
         {
             Debug.Log("Not the owner, name is " + gameObject.name);
+            return;
+        }
+
+        if(blockedMovement == true)
+        {
             return;
         }
 
@@ -375,5 +381,14 @@ public class PlayerMovement : NetworkBehaviour
                 dashOnCooldown = false;
             }
         }
+    }
+
+    public void BlockMovement()
+    {
+        blockedMovement = true;
+    }
+    public void AllowMovement()
+    {
+        blockedMovement = false;
     }
 }
