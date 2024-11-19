@@ -56,6 +56,8 @@ Chaotyczne bonusy będą wypadały podczas pomieszczeń wyzwań
 - Bonusy nie mogą się powtórzyć ?
 - Limit poziomu na bonusie jakiś ?
 
+Trzeba zdecydować gdzie będzie odbywało się edycja chaotycznych bonusów i ich aplikacja
+Główne pomieszczenie będzie służyło jako HUB do wszystkich czynności
 
  */
 
