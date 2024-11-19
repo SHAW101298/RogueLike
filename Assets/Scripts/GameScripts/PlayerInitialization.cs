@@ -62,6 +62,7 @@ public class PlayerInitialization : NetworkBehaviour
             playerData.ui.magazineCurrent = UI_HookUpScript.Instance.magazineCurrent;
             playerData.ui.staminaBar = UI_HookUpScript.Instance.staminaBar;
             playerData.ui.characterChoosingWindow = UI_HookUpScript.Instance.characterSelector;
+            playerData.ui.workShopWindow = UI_HookUpScript.Instance.workshop;
             transform.position = Vector3.zero;
             
             Debug.Log("Enabled my scripts");

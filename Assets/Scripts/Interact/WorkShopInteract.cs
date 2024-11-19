@@ -6,6 +6,6 @@ public class WorkShopInteract : InteractableBase
 {
     public override void Interact(PlayerData data)
     {
-
+        data.ui.ShowWorkShopWindow();
     }
 }
