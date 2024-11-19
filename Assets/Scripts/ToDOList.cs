@@ -33,6 +33,7 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Poprawić animacje trzymania pistoletu");
         doZrobienia.Add("Ręce również powinny się obracać wraz z obrotem kamery");
         // https://www.youtube.com/watch?v=luBBz5oeR4Q
+        doZrobienia.Add("Loadign Screen");
     }
 
 }
@@ -46,6 +47,17 @@ public class ToDOList : MonoBehaviour
  Gdzieś w miedzyczasie spawnują się przeciwnicy na mapie ( lub przygotowane jest wcześniej wywoływanie spawnowania triggerem ? )
  Gdy gracze zblizają się do przeciwników lub do nich zaczynają strzelać, rozpoczyna sie walka i cała gra
 */
+
+/*
+Bronie na start będą miały 1-2 sloty na bonusy. Zależnie od piętra ( poziomu broni), ilość bonusów będzie się zwiększać. 
+Poprzez walute zdobytą w grze, będzie można ulepszać bronie poza grą. Na przykład wykupienie "Chaotycznego Slotu" który pozwala umieścić chaotyczny bonus do broni na stałe lub przed grą
+Chaotyczne bonusy będą wypadały podczas pomieszczeń wyzwań
+- Bonusy będą mogły mieć rózne poziomy ?
+- Bonusy nie mogą się powtórzyć ?
+- Limit poziomu na bonusie jakiś ?
+
+
+ */
 
 
 
