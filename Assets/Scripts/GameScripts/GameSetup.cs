@@ -42,10 +42,12 @@ public class GameSetup : MonoBehaviour
         int possibleGuns = GunManager.Instance.gunList.Count;
         int randomVal;
         Gun tempGun;
+        GunUpgradeBase upgrade;
         foreach(Transform spot in firstGunSpots)
         {
             tempGun = GunManager.Instance.CreateRandomGunOnGround(spot.position);
-
+            upgrade = GunUpgradeRoller.ins.GetRandomRoll();
+            tempGun.gunUpgrades.Add(upgrade);
             //randomVal = Random.Range(0, possibleGuns);
             //tempGun = GunManager.Instance.CreateGunOnGround(randomVal, spot.position);
         }
