@@ -45,6 +45,7 @@ public class GameSetup : MonoBehaviour
         foreach(Transform spot in firstGunSpots)
         {
             tempGun = GunManager.Instance.CreateRandomGunOnGround(spot.position);
+
             //randomVal = Random.Range(0, possibleGuns);
             //tempGun = GunManager.Instance.CreateGunOnGround(randomVal, spot.position);
         }

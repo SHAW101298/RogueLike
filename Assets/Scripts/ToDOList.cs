@@ -61,6 +61,17 @@ Główne pomieszczenie będzie służyło jako HUB do wszystkich czynności
 
  */
 
+/* Dostepne Typy Broni
+Pistolety
+Rewolwery
+Karabiny
+Shotguny
+Kusze
+Karabiny Snajperskie
+Uzi-ki
+Bazoomkas
+ */
+
 
 
 //Kazda postac posiadac bedzie 1-2 umiejetnosci uzywalne w czasie gry.

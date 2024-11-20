@@ -2010,6 +2010,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunList:
   - {fileID: 9017524524628769430, guid: f8b524af1de4f1442a5c7e21b34c5842, type: 3}
+  - {fileID: 5371479131437285059, guid: 772fc8319a9a3da409e6b27c65a2f3e3, type: 3}
+  - {fileID: 4597101246152109645, guid: e2284579142ec734b98b689c73ed734d, type: 3}
+  - {fileID: 577869335512533227, guid: 2aca193169c5f50449a68370534dd7c3, type: 3}
   gunPickupPrefab: {fileID: 7581278682114531109, guid: 098a43c98b04ee442ac2d5419e208efc,
     type: 3}
   spawn: 1
@@ -2022,7 +2025,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289834834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3598565, y: 1.3028607, z: -3.8151116}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
