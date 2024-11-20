@@ -6,18 +6,17 @@ public class GunPickupInteract : InteractableBase
     public override void Interact(PlayerData data)
     {
         //thisGun = GetComponentInChildren<Gun>();
-        bool success = data.AttemptGunChange(thisGun);
+        bool success = data.AttemptPickingGun(thisGun);
 
         
 
         if (success == true)
         {
-            thisGun.gameObject.transform.SetParent(data.shooting.gunNozzle.transform);
-            //gameObject.transform.localPosition = Vector3.zero;
-            thisGun.gameObject.transform.localEulerAngles = Vector3.zero;
-
-            Vector3 nozzleCorrect = Vector3.zero - thisGun.nozzle.transform.localPosition;
-            thisGun.gameObject.transform.localPosition = nozzleCorrect;
+            foreach(Transform child in transform)
+            {
+                Debug.Log("me is = " + child.gameObject.name);
+            }
+            Debug.Log("Destroying = " + gameObject.name);
             Destroy(gameObject);
         }
     }

@@ -4107,7 +4107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTarget: {fileID: 4602029553004624499}
   character: {fileID: 8027786101086790089}
-  pistol: {fileID: 0}
+  pistol: {fileID: 7537008715761104430, guid: f8b524af1de4f1442a5c7e21b34c5842, type: 3}
   bodyObject: {fileID: 1928070782044036272}
   bodyGunPosition: {fileID: 8200070657022100493}
   bodyAnim: {fileID: 8200070657374655528}
@@ -4279,7 +4279,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2264350204679147747, guid: c66acb7610255a34595dba7f7f8bc424,
     type: 3}
   nozzle: {fileID: 8027786101676359901}
-  playerShooting: {fileID: 0}
+  gunManagement: {fileID: 0}
   playerData: {fileID: 0}
   ForceGun1: 1
 --- !u!1 &8027786101884121440
@@ -4467,7 +4467,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2264350204679147747, guid: c66acb7610255a34595dba7f7f8bc424,
     type: 3}
   nozzle: {fileID: 8027786101676359901}
-  playerShooting: {fileID: 0}
+  gunManagement: {fileID: 0}
   playerData: {fileID: 0}
   ForceGun1: 1
 --- !u!1 &8027786102317178632
@@ -4599,7 +4599,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2264350204679147747, guid: c66acb7610255a34595dba7f7f8bc424,
     type: 3}
   nozzle: {fileID: 8027786101676359901}
-  playerShooting: {fileID: 0}
+  gunManagement: {fileID: 0}
   playerData: {fileID: 0}
   ForceGun1: 1
 --- !u!1 &8200070657022100493

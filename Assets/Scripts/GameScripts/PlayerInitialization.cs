@@ -57,6 +57,7 @@ public class PlayerInitialization : NetworkBehaviour
             playerData.movement.enabled = true;
             playerData.rotation.enabled = true;
             CameraHookUp.Instance.Attach(playerData.gameObject);
+            playerData.cameraHookUp = CameraHookUp.Instance;
             playerData.interactionBeam.SetData();
             playerData.ui.ammoCurrent = UI_HookUpScript.Instance.ammoCurrent;
             playerData.ui.magazineCurrent = UI_HookUpScript.Instance.magazineCurrent;
@@ -67,6 +68,8 @@ public class PlayerInitialization : NetworkBehaviour
             transform.position = Vector3.zero;
             
             Debug.Log("Enabled my scripts");
+
+            CharactersList.Instance.ChooseCharacter(0);
         }
         else
         {
@@ -83,6 +86,7 @@ public class PlayerInitialization : NetworkBehaviour
             //Destroy(playerData.gameObject.GetComponent<PlayerInput>());
             //Destroy(playerData.rotation.camera);
             Debug.Log("Disabled other player scripts");
+            CharactersList.Instance.ChooseCharacter(0);
         }
         //CreateGameCharacter();
     }

@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 9017524524628769430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.735, y: 1.012, z: -3.971}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5603129536602691824}
@@ -196,6 +196,6 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2264350204679147747, guid: c66acb7610255a34595dba7f7f8bc424,
     type: 3}
   nozzle: {fileID: 3813751098022255248}
-  playerShooting: {fileID: 0}
+  gunManagement: {fileID: 0}
   playerData: {fileID: 0}
   ForceGun1: 0

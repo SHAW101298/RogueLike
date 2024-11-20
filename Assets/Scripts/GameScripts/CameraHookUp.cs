@@ -75,4 +75,10 @@ public class CameraHookUp : MonoBehaviour
     {
         cam.transform.position = cameraTarget.transform.position;
     }
+
+    public Vector3 GetLookDirection()
+    {
+        Vector3 dir = forwardPos.position - cam.transform.position;
+        return dir;
+    }
 }

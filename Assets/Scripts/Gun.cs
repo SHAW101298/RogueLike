@@ -23,7 +23,7 @@ public class Gun : MonoBehaviour
     [Header("Ref")]
     public BulletData projectilePrefab;
     public GameObject nozzle;
-    public PlayerShooting playerShooting;
+    public PlayerGunManagement gunManagement;
     public PlayerData playerData;
 
     [Header("Debug")]
@@ -100,7 +100,7 @@ public class Gun : MonoBehaviour
                     magazineCurrent = ammoCurrent;
                 }
                 ammoCurrent -= magazineCurrent;
-                playerShooting.GunReloaded();
+                gunManagement.GunReloaded();
             }
         }
     }
@@ -132,17 +132,17 @@ public class Gun : MonoBehaviour
     {
         GameObject temp = Instantiate(projectilePrefab.gameObject);
         temp.transform.position = nozzle.transform.position;
-        Vector3 direction = playerShooting.crossHairPos.position - playerShooting.cameraPos.transform.position;
+        Vector3 direction = gunManagement.data.cameraHookUp.GetLookDirection();
 
         RaycastHit hit;
         Vector3 hitPoint;
-        if (Physics.Raycast(playerShooting.cameraPos.transform.position, direction, out hit, 200, bulletMask))
+        if (Physics.Raycast(gunManagement.data.cameraHookUp.cam.transform.position, direction, out hit, 200, bulletMask))
         {
             hitPoint = hit.point;
         }
         else
         {
-            hitPoint = playerShooting.crossHairPos.transform.position;
+            hitPoint = gunManagement.data.cameraHookUp.forwardPos.position;
         }
 
         direction = (hitPoint - nozzle.transform.position).normalized;

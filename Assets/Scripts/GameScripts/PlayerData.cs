@@ -9,11 +9,12 @@ public class PlayerData : NetworkBehaviour
     public PlayerStats stats;
     public PlayerMovement movement;
     public PlayerRotation rotation;
-    public PlayerShooting shooting;
+    public PlayerGunManagement gunManagement;
     public PlayerUI ui;
     public PlayerInteractBeam interactionBeam;
     public PlayerInitialization initialization;
     public CharacterData characterData;
+    public CameraHookUp cameraHookUp;
 
     private void Awake()
     {
@@ -29,9 +30,11 @@ public class PlayerData : NetworkBehaviour
         
     }
 
-    public bool AttemptGunChange(Gun gun)
+    public bool AttemptPickingGun(Gun gun)
     {
-        bool success = shooting.AttemptGunChange3(gun);
+        Debug.Log("Attempting to pick gun");
+        //bool success = shooting.AttemptGunChange3(gun);
+        bool success = gunManagement.TryPickingUpGun(gun);
         return success;
     }
     public void TeleportPlayer(Vector3 pos)
@@ -55,14 +58,22 @@ public class PlayerData : NetworkBehaviour
         if (IsOwner == true)
         {
             CameraHookUp.Instance.Attach(gameObject);
-            shooting.SetDataOnCharacterChange();
             characterData.DisableBodyObject();
             characterData.EnableHandsObject();
             ui.HideCharacterSelector();
+
+
+
+            GameObject gun = Instantiate(characterData.pistol.gameObject);
+            gunManagement.possesedGuns[0] = gun.GetComponent<Gun>();
+            gunManagement.selectedGun = gunManagement.possesedGuns[0];
+            gun.transform.SetParent(characterData.handsGunPosition.transform);
+            gun.transform.localPosition = Vector3.zero;
+            gunManagement.SelectGun(0);
+
         }
         else
         {
-            shooting.SetDataOnCharacterChange();
             characterData.DisableHandsObject();
             characterData.EnableBodyObject();
         }
@@ -83,7 +94,6 @@ public class PlayerData : NetworkBehaviour
         if(IsOwner == true)
         {
             CameraHookUp.Instance.Attach(gameObject);
-            shooting.SetDataOnCharacterChange();
             characterData.DisableBodyObject();
             characterData.EnableHandsObject();
         }
@@ -99,6 +109,7 @@ public class PlayerData : NetworkBehaviour
     {
         Debug.Log(" CLIENTRPC | Character = " + character + "  |  RequestingPlaeyr = " + requestingPlayer);
         PlayerList.Instance.GetPlayer(requestingPlayer).ChangeCharacter(character);
+
     }
     [ServerRpc(RequireOwnership = false)]
     public void ChangeCharacter_ServerRPC(int character, ServerRpcParams serverRpcParams = default)

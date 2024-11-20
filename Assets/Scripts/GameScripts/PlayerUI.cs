@@ -13,7 +13,7 @@ public class PlayerUI : MonoBehaviour
     public Text ammoCurrent;
     public Image staminaBar;
     [Header("REF")]
-    public PlayerShooting shooting;
+    public PlayerGunManagement gunManagement;
     public CrossHairAnimation crossAnimation;
     public PlayerData data;
     
@@ -22,8 +22,8 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdateAmmo()
     {
-        magazineCurrent.text = shooting.currentlySelected.magazineCurrent.ToString();
-        ammoCurrent.text = shooting.currentlySelected.ammoCurrent.ToString();
+        magazineCurrent.text = gunManagement.selectedGun.magazineCurrent.ToString();
+        ammoCurrent.text = gunManagement.selectedGun.ammoCurrent.ToString();
     }
     public void UpdateCrossHair()
     {
