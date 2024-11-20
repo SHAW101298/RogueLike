@@ -27,4 +27,11 @@ public class UI_HookUpScript : MonoBehaviour
     public GameObject characterSelector;
     public GameObject workshop;
     // Start is called before the first frame update
+
+    public PlayerData player;
+
+    public void BTN_CloseWorkShopWindow()
+    {
+        player.ui.HideWorkShopWindow();
+    }
 }
