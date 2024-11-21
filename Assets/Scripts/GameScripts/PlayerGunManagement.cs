@@ -140,9 +140,11 @@ public class PlayerGunManagement : MonoBehaviour
         newGun.playerData = data;
         newGun.transform.SetParent(data.characterData.handsGunPosition.transform);
 
-
-        //Destroy(pickup);
         GunManager.Instance.CreateGunOnGround(oldGun, newGun.transform.position);
+
+        // Wait with setting these, before we create old gun in that spot
+        newGun.transform.localEulerAngles = Vector3.zero;
+        newGun.transform.localPosition = Vector3.zero;
 
         return true;
     }
