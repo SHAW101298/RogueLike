@@ -114,7 +114,7 @@ public class PlayerGunManagement : MonoBehaviour
     {
         if (possesedGuns.Count < 3)
         {
-            Debug.Log("NOT ENOUGH GUUUUUUNS");
+            //Debug.Log("NOT ENOUGH GUUUUUUNS");
             possesedGuns.Add(newGun);
             SelectGun(possesedGuns.Count-1);
             newGun.playerData = data;
@@ -127,13 +127,13 @@ public class PlayerGunManagement : MonoBehaviour
 
         if (selectedGun == possesedGuns[0])
         {
-            Debug.Log("false");
+            //Debug.Log("false");
             return false;
         }
 
 
 
-        Debug.Log("Gotta change this one");
+        //Debug.Log("Gotta change this one");
         Gun oldGun = possesedGuns[index];
         possesedGuns[index] = newGun;
         selectedGun = newGun;
