@@ -116,8 +116,12 @@ public class NetworkTypeController : NetworkBehaviour
     }
     public void StartGameAsOffline()
     {
+        LoadingInfo.Instance.EnableInfo();
+        LoadingInfo.Instance.UpdateCurrentProgress("Changing Transport Type");
         SetAsUnityTransport();
+        LoadingInfo.Instance.UpdateCurrentProgress("Starting host");
         NetworkManager.Singleton.StartHost();
+        LoadingInfo.Instance.UpdateCurrentProgress("Changing Scene");
         NetworkManager.Singleton.SceneManager.LoadScene("SampleScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
 
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,18 +24,30 @@ public class LoadingInfo : MonoBehaviour
 
     public GameObject loadingWindow;
     public Text txt;
+    public bool debug;
 
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
-
-
-        
+        SceneManager.sceneLoaded += ChangedScene;
     }
+
+    private void ChangedScene(Scene newScene, LoadSceneMode mode)
+    {
+        if(newScene.name.Equals("SampleScene"))
+        {
+            DisableInfo();
+        }
+    }
+
 
 
     public void UpdateCurrentProgress(string info)
     {
+        if(debug == true)
+        {
+            Debug.Log(info);
+        }
         txt.text = info;
     }
 

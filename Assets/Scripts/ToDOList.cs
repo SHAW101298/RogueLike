@@ -33,7 +33,7 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Poprawić animacje trzymania pistoletu");
         doZrobienia.Add("Ręce również powinny się obracać wraz z obrotem kamery");
         // https://www.youtube.com/watch?v=luBBz5oeR4Q
-        doZrobienia.Add("Loadign Screen");
+        //doZrobienia.Add("Loadign Screen");
         doZrobienia.Add("Przechowanie broni na czas zmiany postaci");
     }
 
