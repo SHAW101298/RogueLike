@@ -60,14 +60,20 @@ public class NetworkTypeController : NetworkBehaviour
 
     public async void HostGameAsRelay(LobbyCreationData lobbyData)
     {
+        LoadingInfo.Instance.EnableInfo();
         string relayCode = "";
+        LoadingInfo.Instance.UpdateCurrentProgress("Changing Transport Type");
         SetAsRelayTransport();
+        LoadingInfo.Instance.UpdateCurrentProgress("Preparing Lobby");
         await PrepareLobby(lobbyData);
         await Task.Delay(2);
+        LoadingInfo.Instance.UpdateCurrentProgress("Preparing Relay");
         relayCode = await PrepareRelay();
         await Task.Delay(1);
+        LoadingInfo.Instance.UpdateCurrentProgress("Updating Lobby with join code");
         lobbyManager.UpdateLobbyWithRelayCode(relayCode);
         await Task.Delay(1);
+        LoadingInfo.Instance.UpdateCurrentProgress("Changing Scene");
         NetworkManager.Singleton.SceneManager.LoadScene("SampleScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
 
 
