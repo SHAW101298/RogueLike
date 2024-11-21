@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GunFloatingScript : MonoBehaviour
 {
+    [SerializeField] Vector3 baseRotation = new Vector3(0,0,-20f);
     [SerializeField] Vector3 rotateSpeed = new Vector3(0, 0.1f, 0);
     [SerializeField] float boopingSpeed = 0.05f;
     [SerializeField] float boopingHeight = 0.07f;
@@ -15,6 +16,7 @@ public class GunFloatingScript : MonoBehaviour
     private void Start()
     {
         basePos = transform.position;
+        //transform.localEulerAngles = baseRotation;
     }
     private void Update()
     {

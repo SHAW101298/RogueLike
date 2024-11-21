@@ -140,6 +140,7 @@ public class PlayerGunManagement : MonoBehaviour
         newGun.playerData = data;
         newGun.transform.SetParent(data.characterData.handsGunPosition.transform);
 
+
         //Destroy(pickup);
         GunManager.Instance.CreateGunOnGround(oldGun, newGun.transform.position);
 

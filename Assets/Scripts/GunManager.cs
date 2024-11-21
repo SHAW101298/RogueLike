@@ -35,14 +35,20 @@ public class GunManager : MonoBehaviour
     }
     public Gun CreateGunOnGround(int preset, Vector3 pos)
     {
+        Vector3 desiredPos = Tools.GetPositionOnGround(pos);
+        desiredPos.y += 0.75f;
+        Vector3 gunRotation = new Vector3(0, 0, -20f);
+
+
         GameObject gunPickupSpot = Instantiate(gunPickupPrefab);
-        gunPickupSpot.transform.position = pos;
+        gunPickupSpot.transform.position = desiredPos;
         gunPickupSpot.layer = 10;
 
         GameObject createdGunObject = Instantiate(gunList[preset]);
         Gun createdGun = createdGunObject.GetComponent<Gun>();
         createdGunObject.transform.SetParent(gunPickupSpot.transform);
         createdGun.transform.localPosition = Vector3.zero;
+        createdGunObject.transform.localEulerAngles = gunRotation;
 
         GunPickupInteract interaction = gunPickupSpot.GetComponent<GunPickupInteract>();
         interaction.thisGun = createdGun;
@@ -50,15 +56,19 @@ public class GunManager : MonoBehaviour
     }
     public void CreateGunOnGround(Gun gun, Vector3 pos)
     {
+        Vector3 desiredPos = Tools.GetPositionOnGround(pos);
+        desiredPos.y += 0.75f;
+        Vector3 gunRotation = new Vector3(0, 0, -20f);
+
         GameObject gunPickupSpot = Instantiate(gunPickupPrefab);
-        gunPickupSpot.transform.position = pos;
+        gunPickupSpot.transform.position = desiredPos;
         gunPickupSpot.layer = 10;
 
-        gun.gameObject.transform.parent = null;
+        gun.gameObject.transform.SetParent(gunPickupSpot.transform);
         gun.gameObject.transform.localPosition = Vector3.zero;
+        gun.gameObject.transform.localEulerAngles = gunRotation;
         GunPickupInteract interaction = gunPickupSpot.GetComponent<GunPickupInteract>();
         interaction.thisGun = gun;
-        gun.gameObject.transform.SetParent(gunPickupSpot.transform);
         Debug.Log("Interaction gun = " + gun.gameObject.name);
     }
 
