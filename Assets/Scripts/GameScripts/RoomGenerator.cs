@@ -182,6 +182,7 @@ public class RoomGenerator : NetworkBehaviour
 
     private void DestroyRoomsToError()
     {
+        //Debug.Log("Destroying rooms until = " + earliestError);
         for (int i = currentRooms.Count - 1; i > earliestError; i--)
         {
             Destroy(currentRooms[i].gameObject);

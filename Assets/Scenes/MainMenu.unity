@@ -3203,6 +3203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingWindow: {fileID: 1955264960}
   txt: {fileID: 1671935711}
+  debug: 0
 --- !u!114 &319934207
 MonoBehaviour:
   m_ObjectHideFlags: 0

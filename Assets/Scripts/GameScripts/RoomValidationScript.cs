@@ -26,4 +26,14 @@ public class RoomValidationScript : MonoBehaviour
         }
         
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (Tools.CheckIfInMask(collisionMask, other.gameObject.layer) == true)
+        {
+            int collisionID = other.gameObject.GetComponentInParent<RoomManager>().roomValidationScript.id;
+            //Debug.Log(gameObject.name + " | " + "Collided with = " + other.gameObject.name);
+            //Debug.Log(id + " | " + " Collided with " + collisionID);
+            RoomGenerator.Instance.Alert_RoomCollide(id);
+        }
+    }
 }
