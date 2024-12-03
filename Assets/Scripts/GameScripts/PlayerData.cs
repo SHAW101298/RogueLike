@@ -36,6 +36,7 @@ public class PlayerData : NetworkBehaviour
         Debug.Log("Attempting to pick gun");
         //bool success = shooting.AttemptGunChange3(gun);
         bool success = gunManagement.TryPickingUpGun(gun);
+
         return success;
     }
     public void TeleportPlayer(Vector3 pos)
@@ -49,12 +50,16 @@ public class PlayerData : NetworkBehaviour
     public void ChangeCharacter(int character)
     {
         GameObject temp = Instantiate(CharactersList.Instance.GetCharacter(character));
+        SeperateGuns();
         Destroy(characterData.character.gameObject);
 
         characterData = temp.GetComponent<CharacterData>();
         temp.transform.SetParent(gameObject.transform);
         temp.transform.localPosition = Vector3.down;
         temp.transform.localEulerAngles = Vector3.zero;
+
+        
+
 
         if (IsOwner == true)
         {
@@ -73,44 +78,78 @@ public class PlayerData : NetworkBehaviour
             gun.transform.localPosition = Vector3.zero;
             gunManagement.SelectGun(0);
             gunManagement.selectedGun.CatchReferences();
+            ReattachGunsToHands();
 
         }
         else
         {
             characterData.DisableHandsObject();
             characterData.EnableBodyObject();
+            ReattachGunsToBody();
         }
 
     }
-    /*
-    void ChangeCharacter(CharacterData newCharacter)
+
+    private void ReattachGunsToHands()
     {
-        Debug.Log("Changing Character");
-        ui.HideCharacterSelector();
-        Destroy(characterData.character.gameObject);
-        //characterData = newCharacter;
-
-        GameObject temp = Instantiate(newCharacter.gameObject);
-        characterData = temp.GetComponent<CharacterData>();
-        temp.transform.SetParent(gameObject.transform);
-        temp.transform.localPosition = Vector3.down;
-        temp.transform.localEulerAngles = Vector3.zero;
-
-        if(IsOwner == true)
+        if (gunManagement.possesedGuns.Count > 1)
         {
-            CameraHookUp.Instance.Attach(gameObject);
-            characterData.DisableBodyObject();
-            characterData.EnableHandsObject();
-            movement.SetMovementSpeed(newCharacter.moveSpeed);
+            for (int i = 1; i < gunManagement.possesedGuns.Count; i++)
+            {
+                gunManagement.possesedGuns[i].gameObject.transform.SetParent(characterData.handsGunPosition.transform);
+            }
         }
-        else
+    }private void ReattachGunsToBody()
+    {
+        if (gunManagement.possesedGuns.Count > 1)
         {
-
+            for (int i = 1; i < gunManagement.possesedGuns.Count; i++)
+            {
+                gunManagement.possesedGuns[i].gameObject.transform.SetParent(characterData.bodyGunPosition.transform);
+            }
         }
-
-        
     }
-    */
+
+    private void SeperateGuns()
+    {
+        if (gunManagement.possesedGuns.Count > 1)
+        {
+            for (int i = 1; i < gunManagement.possesedGuns.Count; i++)
+            {
+                gunManagement.possesedGuns[i].gameObject.transform.SetParent(gameObject.transform);
+            }
+        }
+    }
+
+    /*
+void ChangeCharacter(CharacterData newCharacter)
+{
+   Debug.Log("Changing Character");
+   ui.HideCharacterSelector();
+   Destroy(characterData.character.gameObject);
+   //characterData = newCharacter;
+
+   GameObject temp = Instantiate(newCharacter.gameObject);
+   characterData = temp.GetComponent<CharacterData>();
+   temp.transform.SetParent(gameObject.transform);
+   temp.transform.localPosition = Vector3.down;
+   temp.transform.localEulerAngles = Vector3.zero;
+
+   if(IsOwner == true)
+   {
+       CameraHookUp.Instance.Attach(gameObject);
+       characterData.DisableBodyObject();
+       characterData.EnableHandsObject();
+       movement.SetMovementSpeed(newCharacter.moveSpeed);
+   }
+   else
+   {
+
+   }
+
+
+}
+*/
     [ClientRpc]
     public void ChangeCharacter_ClientRPC(int character, ulong requestingPlayer)
     {

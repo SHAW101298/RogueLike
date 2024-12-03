@@ -3,6 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+public enum ENUM_GunType
+{
+    pistol,
+    smg,
+    shotgun,
+    sniper,
+    rocketLauncher
+}
+
+
 public class Gun : MonoBehaviour
 {
     [Header("Data")]
@@ -12,8 +22,9 @@ public class Gun : MonoBehaviour
 
     public List<GunUpgradeBase> gunUpgrades;
     [Space(25)]
+    public ENUM_GunType gunType;
+
     public int magazineCurrent;
-    public int ammoCurrent;
     float reloadTimer;
     float shotTimer;
     bool reload;
@@ -57,8 +68,10 @@ public class Gun : MonoBehaviour
 
     public void CatchReferences()
     {
+        Debug.Log("Catching Reference for weapon");
         playerData = GetComponentInParent<PlayerData>();
         gunManagement = playerData.gunManagement;
+
     }
 
     public void CreateModifiedStats()
@@ -94,21 +107,34 @@ public class Gun : MonoBehaviour
                 reloadTimer = 0;
                 reload = false;
 
-                ammoCurrent += magazineCurrent;
+                int remainingAmount = magazineCurrent;
                 magazineCurrent = 0;
+                playerData.ammo.ModifyAmmo(gunType, remainingAmount);
 
-                if(ammoCurrent > modifiedStats.magazineMax)
+                int possibleAmount = playerData.ammo.GetCurrentAmmo(gunType);
+
+                if(possibleAmount < modifiedStats.magazineMax)
                 {
-                    magazineCurrent = modifiedStats.magazineMax;
+                    playerData.ammo.ModifyAmmo(gunType, -possibleAmount);
+                    magazineCurrent += possibleAmount;
                 }
                 else
                 {
-                    magazineCurrent = ammoCurrent;
+                    playerData.ammo.ModifyAmmo(gunType, -modifiedStats.magazineMax);
+                    magazineCurrent += modifiedStats.magazineMax;
                 }
-                ammoCurrent -= magazineCurrent;
+
                 gunManagement.GunReloaded();
             }
         }
+    }
+    public void ForceReload()
+    {
+        reload = true;
+        int remainingAmount = magazineCurrent;
+        playerData.ammo.ModifyAmmo(gunType, remainingAmount);
+        magazineCurrent = 0;
+        playerData.ui.UpdateAmmo();
     }
     public void Shoot()
     {
@@ -118,8 +144,10 @@ public class Gun : MonoBehaviour
         }
         if(shotTimer > 0)
         {
+            //Debug.Log("Timer PRoblem");
             return;
         }
+        //Debug.Log("Shoooo");
 
         shotTimer += modifiedStats.timeBetweenShots;
         magazineCurrent--;
@@ -128,6 +156,7 @@ public class Gun : MonoBehaviour
     }
     private void UpdateShotTimer()
     {
+
         shotTimer -= Time.deltaTime;
         if (shotTimer < 0)
         {
@@ -164,11 +193,7 @@ public class Gun : MonoBehaviour
         newBullet.projectileBehaviour.owningFaction = ENUM_Faction.player;
         newBullet.projectileBehaviour.direction = dir * modifiedStats.projectileSpeed;
     }
-    public void RefillAmmoToMax()
-    {
-        ammoCurrent = modifiedStats.ammoMax;
-        magazineCurrent = modifiedStats.magazineMax;
-    }
+
     public void GunDealtDamage(int val)
     {
 

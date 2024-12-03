@@ -451,6 +451,7 @@ MonoBehaviour:
   initialization: {fileID: 6259576926299416044}
   characterData: {fileID: 9058961385685546959}
   cameraHookUp: {fileID: 0}
+  ammo: {fileID: 883404448956278866}
 --- !u!114 &4509776595623541289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,6 +775,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a16fd8b2-d5eb-451a-a388-d4a72414b6d9
     m_ActionName: Player/ChangeWeapon[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3632390913725360339}
+        m_TargetAssemblyTypeName: PlayerGunManagement, Assembly-CSharp
+        m_MethodName: ReloadCurrentGun
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ac70cbc5-cd67-4547-abc7-93944adf3e72
+    m_ActionName: Player/Reload[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -827,6 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bfd97b13dd37454a9be7e488e2153ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 0}
   SMG: 350
   SMGMax: 350
   ShotGun: 100

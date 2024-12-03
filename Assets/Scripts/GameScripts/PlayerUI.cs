@@ -23,7 +23,7 @@ public class PlayerUI : MonoBehaviour
     public void UpdateAmmo()
     {
         magazineCurrent.text = gunManagement.selectedGun.magazineCurrent.ToString();
-        ammoCurrent.text = gunManagement.selectedGun.ammoCurrent.ToString();
+        ammoCurrent.text = data.ammo.GetCurrentAmmo(gunManagement.selectedGun.gunType).ToString();
     }
     public void UpdateCrossHair()
     {

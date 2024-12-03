@@ -105,7 +105,7 @@ public class UI_RaycastedGunData : MonoBehaviour
         critChanceField.text = gun.modifiedStats.critChance.ToString();
         critMultiplierField.text = gun.modifiedStats.critMultiplier.ToString();
         afflictionChanceField.text = gun.modifiedStats.afflictionChance.ToString();
-        ammoField.text = gun.modifiedStats.magazineMax.ToString() + "/" + gun.modifiedStats.ammoMax.ToString();
+        ammoField.text = gun.modifiedStats.magazineMax.ToString();
     }
     void ShowBonuses(Gun gun)
     {

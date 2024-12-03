@@ -146,7 +146,6 @@ MonoBehaviour:
     critMultiplier: 2
     afflictionChance: 5
     magazineMax: 30
-    ammoMax: 300
     reloadTime: 2
     timeBetweenShots: 0.1
     triggerType: 1
@@ -167,15 +166,14 @@ MonoBehaviour:
     critMultiplier: 0
     afflictionChance: 0
     magazineMax: 0
-    ammoMax: 0
     reloadTime: 0
     timeBetweenShots: 0
     triggerType: 0
     projectileSpeed: 0
     punchThrough: 0
   gunUpgrades: []
-  magazineCurrent: 0
-  ammoCurrent: 0
+  gunType: 1
+  magazineCurrent: 30
   bulletMask:
     serializedVersion: 2
     m_Bits: 768
@@ -183,9 +181,9 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8624074402406383019, guid: c66acb7610255a34595dba7f7f8bc424,
     type: 3}
   nozzle: {fileID: 5126867334962659692}
-  playerShooting: {fileID: 0}
+  gunManagement: {fileID: 0}
   playerData: {fileID: 0}
-  ForceGun1: 1
+  ForceGun1: 0
 --- !u!1 &5126867334962659692
 GameObject:
   m_ObjectHideFlags: 0

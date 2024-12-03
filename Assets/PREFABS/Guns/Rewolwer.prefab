@@ -40,10 +40,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8534178819625361452}
+  - component: {fileID: 7537008715761104430}
   - component: {fileID: 4737969322215976841}
   - component: {fileID: 7360098637188258627}
   - component: {fileID: 2317087316218720248}
-  - component: {fileID: 7537008715761104430}
   m_Layer: 0
   m_Name: Rewolwer
   m_TagString: Weapon
@@ -67,6 +67,73 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7537008715761104430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9017524524628769430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ec636ddeea1fc4782f904f5223dba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats:
+    damageArray:
+    - damage: 15
+      damageType: 4
+    damageMultipliersOnAffliction:
+      data:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+    totalDamageMultiplier: 1
+    critChance: 0
+    critMultiplier: 0
+    afflictionChance: 0
+    magazineMax: 7
+    reloadTime: 1.2
+    timeBetweenShots: 0.35
+    triggerType: 0
+    projectileSpeed: 55
+    punchThrough: 1
+  modifiedStats:
+    damageArray: []
+    damageMultipliersOnAffliction:
+      data:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+    totalDamageMultiplier: 1
+    critChance: 0
+    critMultiplier: 0
+    afflictionChance: 0
+    magazineMax: 0
+    reloadTime: 0
+    timeBetweenShots: 0
+    triggerType: 0
+    projectileSpeed: 0
+    punchThrough: 0
+  gunUpgrades: []
+  gunType: 0
+  magazineCurrent: 7
+  bulletMask:
+    serializedVersion: 2
+    m_Bits: 1792
+  canBeSwapped: 1
+  projectilePrefab: {fileID: 8624074402406383019, guid: c66acb7610255a34595dba7f7f8bc424,
+    type: 3}
+  nozzle: {fileID: 3813751098022255248}
+  gunManagement: {fileID: 0}
+  playerData: {fileID: 0}
+  ForceGun1: 0
 --- !u!33 &4737969322215976841
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -130,72 +197,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.042500827, y: 0.15800592, z: 0.21764475}
   m_Center: {x: -0.00000041164458, y: 0.07466176, z: 0.07796322}
---- !u!114 &7537008715761104430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9017524524628769430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09ec636ddeea1fc4782f904f5223dba6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseStats:
-    damageArray:
-    - damage: 15
-      damageType: 4
-    damageMultipliersOnAffliction:
-      data:
-      - 1
-      - 1
-      - 1
-      - 1
-      - 1
-      - 1
-    totalDamageMultiplier: 1
-    critChance: 0
-    critMultiplier: 0
-    afflictionChance: 0
-    magazineMax: 7
-    ammoMax: 49
-    reloadTime: 1.2
-    timeBetweenShots: 0.35
-    triggerType: 0
-    projectileSpeed: 55
-    punchThrough: 1
-  modifiedStats:
-    damageArray: []
-    damageMultipliersOnAffliction:
-      data:
-      - 1
-      - 1
-      - 1
-      - 1
-      - 1
-      - 1
-    totalDamageMultiplier: 1
-    critChance: 0
-    critMultiplier: 0
-    afflictionChance: 0
-    magazineMax: 0
-    ammoMax: 0
-    reloadTime: 0
-    timeBetweenShots: 0
-    triggerType: 0
-    projectileSpeed: 0
-    punchThrough: 0
-  gunUpgrades: []
-  magazineCurrent: 7
-  ammoCurrent: 49
-  bulletMask:
-    serializedVersion: 2
-    m_Bits: 1792
-  canBeSwapped: 1
-  projectilePrefab: {fileID: 8624074402406383019, guid: c66acb7610255a34595dba7f7f8bc424,
-    type: 3}
-  nozzle: {fileID: 3813751098022255248}
-  gunManagement: {fileID: 0}
-  playerData: {fileID: 0}
-  ForceGun1: 0

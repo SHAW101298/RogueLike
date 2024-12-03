@@ -103,7 +103,7 @@ public class RESIZETEST : MonoBehaviour
         critChanceField.text = gun.modifiedStats.critChance.ToString();
         critMultiplierField.text = gun.modifiedStats.critMultiplier.ToString();
         statusChanceField.text = gun.modifiedStats.afflictionChance.ToString();
-        ammoField.text = gun.modifiedStats.magazineMax.ToString() + "/" + gun.modifiedStats.ammoMax.ToString();
+        ammoField.text = gun.modifiedStats.magazineMax.ToString();
         ShowBonuses(gun);
         window.SetActive(true);
     }

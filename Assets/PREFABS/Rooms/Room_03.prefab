@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 6121087314276621877}
   m_Layer: 9
   m_Name: Room_03 Floor
-  m_TagString: Untagged
+  m_TagString: HardSurface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 3194367998966228920}
   m_Layer: 9
   m_Name: Room_03 Walls Inside
-  m_TagString: Untagged
+  m_TagString: HardSurface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

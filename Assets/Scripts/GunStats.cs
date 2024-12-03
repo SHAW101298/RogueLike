@@ -34,7 +34,6 @@ public class GunStats
     public float critMultiplier;
     public float afflictionChance;
     public int magazineMax;
-    public int ammoMax;
     public float reloadTime;
     public float timeBetweenShots;
     [Space(10)]
@@ -74,7 +73,7 @@ public class GunStats
         critMultiplier = donor.critMultiplier;
         afflictionChance = donor.afflictionChance;
         magazineMax = donor.magazineMax;
-        ammoMax = donor.ammoMax;
+        //ammoMax = donor.ammoMax;
         reloadTime = donor.reloadTime;
         timeBetweenShots = donor.timeBetweenShots;
         triggerType = donor.triggerType;

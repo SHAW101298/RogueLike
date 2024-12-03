@@ -32,11 +32,13 @@ public class PlayerGunManagement : MonoBehaviour
         {
             if (selectedGun == null)
             {
+                Debug.Log("Gun is Null");
                 return;
             }
 
             if (selectedGun.modifiedStats.triggerType == ENUM_TriggerType.semi)
             {
+                Debug.Log("Gun is Semi");
                 trigger = false;
             }
 
@@ -68,6 +70,7 @@ public class PlayerGunManagement : MonoBehaviour
         selectedGun.gameObject.SetActive(false);
         selectedGun = possesedGuns[index];
         selectedGun.gameObject.SetActive(true);
+        //ui.UpdateAmmo();
     }
     public void SelectPreviousGun()
     {
@@ -79,6 +82,7 @@ public class PlayerGunManagement : MonoBehaviour
         selectedGun.gameObject.SetActive(false);
         selectedGun = possesedGuns[index];
         selectedGun.gameObject.SetActive(true);
+        //ui.UpdateAmmo();
     }
     public void SelectGun(InputAction.CallbackContext context)
     {
@@ -96,6 +100,7 @@ public class PlayerGunManagement : MonoBehaviour
             {
                 SelectPreviousGun();
             }
+            ui.UpdateAmmo();
         }
 
     }
@@ -108,6 +113,7 @@ public class PlayerGunManagement : MonoBehaviour
         }
         selectedGun = possesedGuns[index];
         selectedGun.gameObject.SetActive(true);
+        ui.UpdateAmmo();
     }
 
     public bool TryPickingUpGun(Gun newGun)
@@ -117,8 +123,9 @@ public class PlayerGunManagement : MonoBehaviour
             //Debug.Log("NOT ENOUGH GUUUUUUNS");
             possesedGuns.Add(newGun);
             SelectGun(possesedGuns.Count-1);
-            newGun.playerData = data;
+            //newGun.playerData = data;
             newGun.transform.SetParent(data.characterData.handsGunPosition.transform);
+            newGun.CatchReferences();
             newGun.transform.localPosition = Vector3.zero;
             newGun.transform.localEulerAngles = Vector3.zero;
 
@@ -137,8 +144,10 @@ public class PlayerGunManagement : MonoBehaviour
         Gun oldGun = possesedGuns[index];
         possesedGuns[index] = newGun;
         selectedGun = newGun;
-        newGun.playerData = data;
+        //newGun.playerData = data;
+        //newGun.gunManagement = data.gunManagement;
         newGun.transform.SetParent(data.characterData.handsGunPosition.transform);
+        newGun.CatchReferences();
 
         GunManager.Instance.CreateGunOnGround(oldGun, newGun.transform.position);
 
@@ -151,6 +160,13 @@ public class PlayerGunManagement : MonoBehaviour
     public void GunReloaded()
     {
         ui.UpdateAmmo();
+    }
+    public void ReloadCurrentGun(InputAction.CallbackContext context)
+    {
+        if(context.performed == true)
+        {
+            selectedGun.ForceReload();
+        }
     }
 
     public void DestroyCurrentPistol()
