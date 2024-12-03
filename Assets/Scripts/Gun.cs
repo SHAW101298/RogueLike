@@ -55,6 +55,12 @@ public class Gun : MonoBehaviour
         UpdateShotTimer();
     }
 
+    public void CatchReferences()
+    {
+        playerData = GetComponentInParent<PlayerData>();
+        gunManagement = playerData.gunManagement;
+    }
+
     public void CreateModifiedStats()
     {
         //Debug.Log("Creating Modified Stats");

@@ -15,6 +15,7 @@ public class PlayerData : NetworkBehaviour
     public PlayerInitialization initialization;
     public CharacterData characterData;
     public CameraHookUp cameraHookUp;
+    public PlayerAmmunition ammo;
 
     private void Awake()
     {
@@ -71,6 +72,7 @@ public class PlayerData : NetworkBehaviour
             gun.transform.SetParent(characterData.handsGunPosition.transform);
             gun.transform.localPosition = Vector3.zero;
             gunManagement.SelectGun(0);
+            gunManagement.selectedGun.CatchReferences();
 
         }
         else
@@ -78,6 +80,7 @@ public class PlayerData : NetworkBehaviour
             characterData.DisableHandsObject();
             characterData.EnableBodyObject();
         }
+
     }
     /*
     void ChangeCharacter(CharacterData newCharacter)

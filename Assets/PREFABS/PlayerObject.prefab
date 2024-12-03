@@ -341,6 +341,7 @@ GameObject:
   - component: {fileID: 5435765896860109091}
   - component: {fileID: 6259576926299416044}
   - component: {fileID: 9058961385685546959}
+  - component: {fileID: 883404448956278866}
   m_Layer: 8
   m_Name: PlayerObject
   m_TagString: Player
@@ -814,6 +815,26 @@ MonoBehaviour:
   handsAnim: {fileID: 0}
   moveSpeed: 0
   stats: {fileID: 0}
+--- !u!114 &883404448956278866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4509776595623541335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfd97b13dd37454a9be7e488e2153ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SMG: 350
+  SMGMax: 350
+  ShotGun: 100
+  ShotGunMax: 100
+  Sniper: 45
+  SniperMax: 45
+  RocketLauncher: 8
+  RocketLauncherMax: 8
 --- !u!1 &6135379246055899293
 GameObject:
   m_ObjectHideFlags: 0
