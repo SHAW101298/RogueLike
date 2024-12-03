@@ -391,4 +391,8 @@ public class PlayerMovement : NetworkBehaviour
     {
         blockedMovement = false;
     }
+    public void SetMovementSpeed(float newSpeed)
+    {
+        moveSpeed = newSpeed;
+    }
 }

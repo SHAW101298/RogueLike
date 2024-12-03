@@ -61,8 +61,8 @@ public class PlayerData : NetworkBehaviour
             characterData.DisableBodyObject();
             characterData.EnableHandsObject();
             ui.HideCharacterSelector();
-
-
+            stats.baseStats.CopyValues(characterData.stats);
+            stats.CreateFinalStats();
 
             GameObject gun = Instantiate(characterData.pistol.gameObject);
             gunManagement.possesedGuns[0] = gun.GetComponent<Gun>();
@@ -96,6 +96,7 @@ public class PlayerData : NetworkBehaviour
             CameraHookUp.Instance.Attach(gameObject);
             characterData.DisableBodyObject();
             characterData.EnableHandsObject();
+            movement.SetMovementSpeed(newCharacter.moveSpeed);
         }
         else
         {

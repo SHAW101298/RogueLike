@@ -15,6 +15,9 @@ public class CharacterData : MonoBehaviour
     public GameObject handsObject;
     public GameObject handsGunPosition;
     public Animator handsAnim;
+    [Header("Data")]
+    public float moveSpeed;
+    public Stats stats;
 
     public void DisableBodyObject()
     {

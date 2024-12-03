@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Stats : MonoBehaviour
+public class Stats:MonoBehaviour
 {
     public float healthMax;
     public float health;
@@ -38,11 +38,25 @@ public class Stats : MonoBehaviour
         flatResistances = new float[size];
         percentResistances = new float[size];
     }
-    public Stats()
+
+    public void CopyValues(Stats stats1)
     {
-        CreateResistanceTables();
+        healthMax = stats1.healthMax;
+        healthRegen = stats1.healthRegen;
+        healthDelay = stats1.healthDelay;
+        staminaMax = stats1.staminaMax;
+        staminaRegen = stats1.staminaRegen;
+        staminaDelay = stats1.staminaDelay;
+        shieldMax = stats1.shieldMax;
+        shieldRegen = stats1.shieldRegen;
+        shieldDelay = stats1.shieldDelay;
+        for(int i = 0; i < 6; i++)
+        {
+            flatResistances[i] = stats1.flatResistances[i];
+            percentResistances[i] = stats1.percentResistances[i];
+        }
     }
-    public Stats(Stats stats1, Stats stats2)
+    public void CombineStats(Stats stats1, Stats stats2)
     {
         healthMax = stats1.healthMax + stats2.healthMax;
         healthRegen = stats1.healthRegen + stats2.healthRegen;
@@ -54,13 +68,15 @@ public class Stats : MonoBehaviour
         shieldRegen = stats1.shieldRegen + stats2.shieldRegen;
         shieldDelay = stats1.shieldDelay + stats2.shieldDelay;
 
-        CreateResistanceTables();
-        int size = (int)ENUM_DamageType.Piercing + 1;
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < 6; i++)
         {
             flatResistances[i] = stats1.flatResistances[i] + stats2.flatResistances[i];
             percentResistances[i] = stats1.percentResistances[i] + stats2.percentResistances[i];
         }
     }
-    //public float movementSpeed;
+
+    public Stats()
+    {
+        CreateResistanceTables();
+    }
 }

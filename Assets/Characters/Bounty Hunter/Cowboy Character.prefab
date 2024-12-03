@@ -4066,6 +4066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8027786101086790095}
   - component: {fileID: 6612033735342784107}
+  - component: {fileID: 2436746574080931305}
   m_Layer: 0
   m_Name: Cowboy Character
   m_TagString: Player
@@ -4113,6 +4114,46 @@ MonoBehaviour:
   handsObject: {fileID: 8682297138537258928}
   handsGunPosition: {fileID: 6612033735494195490}
   handsAnim: {fileID: 8411843320926476166}
+  moveSpeed: 0
+  stats: {fileID: 2436746574080931305}
+--- !u!114 &2436746574080931305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8027786101086790089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12428cc9729785e4792b22e1a1b569e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMax: 30
+  health: 30
+  healthRegen: 1
+  healthDelay: 5
+  staminaMax: 100
+  stamina: 100
+  staminaRegen: 1
+  staminaDelay: 5
+  shieldMax: 30
+  shield: 30
+  shieldRegen: 5
+  shieldDelay: 5
+  flatResistances:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  percentResistances:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!1 &8027786101199977673
 GameObject:
   m_ObjectHideFlags: 0

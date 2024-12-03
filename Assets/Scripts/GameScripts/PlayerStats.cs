@@ -8,18 +8,10 @@ public class PlayerStats : MonoBehaviour
     public PlayerUI ui;
 
     [Header("Data")]
-
     public Stats baseStats;
     public Stats bonusStats;
     public Stats finalStats;
 
-
-    public int health;
-    public float staminaCurrent;
-    public float staminaMax;
-    public float staminaRegenAmount;
-
-    public float staminaRegenDelay;
     float staminaRegenTimer;
     bool regenerateStamina;
     public float accuracy;
@@ -27,60 +19,51 @@ public class PlayerStats : MonoBehaviour
     public bool CheckIfCanUseStamina(float val)
     {
         // Jest mniej staminy niz wymaga akcja
-        if(staminaCurrent < val)
+        if(finalStats.stamina < val)
         {
             regenerateStamina = true;
             return false;
         }
 
-        staminaCurrent -= val;
-        regenerateStamina = true;
-        staminaRegenTimer = staminaRegenDelay;
-        ui.UpdateStaminaBar(staminaCurrent / staminaMax);
+        ReduceStamina(val);
         return true;
     }
     public void ReduceStamina(float val)
     {
-        staminaCurrent -= val;
+        finalStats.stamina -= val;
         regenerateStamina = true;
-        staminaRegenTimer = staminaRegenDelay;
-        ui.UpdateStaminaBar(staminaCurrent / staminaMax);
+        staminaRegenTimer = finalStats.staminaDelay;
+        ui.UpdateStaminaBar(finalStats.stamina / finalStats.staminaMax);
     }
 
     private void Update()
     {
         StaminaRegeneration();
-        
     }
 
     void StaminaRegeneration()
     {
-        if (regenerateStamina == false)
+        if(regenerateStamina == false)
+        {
             return;
+        }
 
         staminaRegenTimer -= Time.deltaTime;
-        if (staminaRegenTimer <= 0)
+        if(staminaRegenTimer <= 0)
         {
             staminaRegenTimer = 0;
-            staminaCurrent += staminaRegenAmount * Time.deltaTime;
-            if(staminaCurrent > staminaMax)
+            finalStats.stamina += finalStats.staminaRegen * Time.deltaTime;
+            if(finalStats.stamina > finalStats.staminaMax)
             {
-                staminaCurrent = staminaMax;
+                finalStats.stamina = finalStats.staminaMax;
                 regenerateStamina = false;
             }
-            ui.UpdateStaminaBar(staminaCurrent/staminaMax);
         }
     }
 
-    void CreateFinalStats()
+    public void CreateFinalStats()
     {
-        float missingHealth = baseStats.health;
-        if(finalStats != null)
-        {
-             missingHealth = finalStats.healthMax - finalStats.health;
-        }
-        finalStats = new Stats(baseStats, bonusStats);
-        finalStats.health = finalStats.healthMax - missingHealth;
+        finalStats.CombineStats(baseStats, bonusStats);
     }
 
 }
