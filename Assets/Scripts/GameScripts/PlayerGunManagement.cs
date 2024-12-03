@@ -32,13 +32,14 @@ public class PlayerGunManagement : MonoBehaviour
         {
             if (selectedGun == null)
             {
-                Debug.Log("Gun is Null");
+                Debug.LogError("Selected Gun Is Null");
+                //Debug.Log("Gun is Null");
                 return;
             }
 
             if (selectedGun.modifiedStats.triggerType == ENUM_TriggerType.semi)
             {
-                Debug.Log("Gun is Semi");
+                //Debug.Log("Gun is Semi");
                 trigger = false;
             }
 

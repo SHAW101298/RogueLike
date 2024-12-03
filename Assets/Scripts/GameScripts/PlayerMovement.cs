@@ -19,6 +19,7 @@ public class PlayerMovement : NetworkBehaviour
     [Header("Basic Data")]
     [SerializeField] float gravityValue = -9.81f;
     public ENUM_PlayerMoveState moveState;
+    [SerializeField] GameObject groundCheckTransform;
     [SerializeField] bool groundedPlayer;
     [SerializeField] float groundCheckDistance;
     [SerializeField]Vector3 velocity;
@@ -359,7 +360,7 @@ public class PlayerMovement : NetworkBehaviour
 
     void GroundCheck()
     {
-        groundedPlayer = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundLayer);
+        groundedPlayer = Physics.Raycast(groundCheckTransform.transform.position, Vector3.down, groundCheckDistance, groundLayer);
         if(groundedPlayer == true && velocity.y <= 0)
         {
             velocity.y = 0;
