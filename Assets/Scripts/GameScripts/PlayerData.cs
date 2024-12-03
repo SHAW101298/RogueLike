@@ -76,6 +76,7 @@ public class PlayerData : NetworkBehaviour
             gunManagement.selectedGun = gunManagement.possesedGuns[0];
             gun.transform.SetParent(characterData.handsGunPosition.transform);
             gun.transform.localPosition = Vector3.zero;
+            gun.transform.localEulerAngles = Vector3.zero;
             gunManagement.SelectGun(0);
             gunManagement.selectedGun.CatchReferences();
             ReattachGunsToHands();
@@ -94,18 +95,29 @@ public class PlayerData : NetworkBehaviour
     {
         if (gunManagement.possesedGuns.Count > 1)
         {
+            GameObject temp;
+            Debug.Log("Attaching Guns Hands");
             for (int i = 1; i < gunManagement.possesedGuns.Count; i++)
             {
-                gunManagement.possesedGuns[i].gameObject.transform.SetParent(characterData.handsGunPosition.transform);
+                temp = gunManagement.possesedGuns[i].gameObject;
+                temp.transform.SetParent(characterData.handsGunPosition.transform);
+                temp.transform.localPosition = Vector3.zero;
+                temp.transform.localEulerAngles = Vector3.zero;
             }
         }
     }private void ReattachGunsToBody()
     {
         if (gunManagement.possesedGuns.Count > 1)
         {
+            GameObject temp;
+            /// 
+            Debug.Log("Attaching Guns Body");
             for (int i = 1; i < gunManagement.possesedGuns.Count; i++)
             {
-                gunManagement.possesedGuns[i].gameObject.transform.SetParent(characterData.bodyGunPosition.transform);
+                temp = gunManagement.possesedGuns[i].gameObject;
+                temp.transform.SetParent(characterData.bodyGunPosition.transform);
+                temp.transform.localPosition = Vector3.zero;
+                temp.transform.localEulerAngles = Vector3.zero;
             }
         }
     }
@@ -114,6 +126,7 @@ public class PlayerData : NetworkBehaviour
     {
         if (gunManagement.possesedGuns.Count > 1)
         {
+            Debug.Log("Seperating Guns");
             for (int i = 1; i < gunManagement.possesedGuns.Count; i++)
             {
                 gunManagement.possesedGuns[i].gameObject.transform.SetParent(gameObject.transform);
