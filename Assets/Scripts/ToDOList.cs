@@ -19,7 +19,7 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Pomieszczenia");
         doZrobienia.Add("ModelePrzeciwników");
         doZrobienia.Add("Tworzenie Broni Po Smierci Przeciwników");
-        doZrobienia.Add("Wyswietlanie Statystyk Broni po wskazaniu");
+        //doZrobienia.Add("Wyswietlanie Statystyk Broni po wskazaniu");
         doZrobienia.Add("Wyswietlanie Zdrowia Przeciwnikow");
         doZrobienia.Add("Perki Postaci");
         doZrobienia.Add("Modele Broni");
@@ -34,8 +34,10 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Ręce również powinny się obracać wraz z obrotem kamery");
         // https://www.youtube.com/watch?v=luBBz5oeR4Q
         //doZrobienia.Add("Loadign Screen");
-        doZrobienia.Add("Przechowanie broni na czas zmiany postaci");
+        //doZrobienia.Add("Przechowanie broni na czas zmiany postaci");
         doZrobienia.Add("Wysyłanie dla innych graczy mapy - string pokazujacy kolejnośc pomieszczeń ?");
+        doZrobienia.Add("Pasek pokazujacy stan przeładowania");
+        doZrobienia.Add("Animacja przeladowywania");
     }
 
 }
