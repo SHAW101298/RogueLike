@@ -466,11 +466,6 @@ MonoBehaviour:
   baseStats: {fileID: 6607601143468082502}
   bonusStats: {fileID: 5394138879646092440}
   finalStats: {fileID: 2839127631587658660}
-  health: 0
-  staminaCurrent: 0
-  staminaMax: 0
-  staminaRegenAmount: 0
-  staminaRegenDelay: 0
   accuracy: 0
 --- !u!114 &4509776595623541288
 MonoBehaviour:
@@ -496,8 +491,8 @@ MonoBehaviour:
   jumpHeight: 0.5
   jumpStaminaCost: 0.1
   input: {x: 0, y: 0}
-  dashDuration: 0.25
-  dashStrength: 4
+  dashDuration: 0.15
+  dashStrength: 16
   dashCooldown: 1
   dashStaminaCost: 0.1
   dashTimer: 0
@@ -818,6 +813,7 @@ MonoBehaviour:
   handsGunPosition: {fileID: 501526891163588975}
   handsAnim: {fileID: 0}
   moveSpeed: 0
+  stats: {fileID: 0}
 --- !u!1 &6135379246055899293
 GameObject:
   m_ObjectHideFlags: 0

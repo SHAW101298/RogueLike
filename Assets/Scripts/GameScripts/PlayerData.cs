@@ -63,6 +63,7 @@ public class PlayerData : NetworkBehaviour
             ui.HideCharacterSelector();
             stats.baseStats.CopyValues(characterData.stats);
             stats.CreateFinalStats();
+            movement.SetMovementSpeed(characterData.moveSpeed);
 
             GameObject gun = Instantiate(characterData.pistol.gameObject);
             gunManagement.possesedGuns[0] = gun.GetComponent<Gun>();
@@ -78,6 +79,7 @@ public class PlayerData : NetworkBehaviour
             characterData.EnableBodyObject();
         }
     }
+    /*
     void ChangeCharacter(CharacterData newCharacter)
     {
         Debug.Log("Changing Character");
@@ -105,6 +107,7 @@ public class PlayerData : NetworkBehaviour
 
         
     }
+    */
     [ClientRpc]
     public void ChangeCharacter_ClientRPC(int character, ulong requestingPlayer)
     {

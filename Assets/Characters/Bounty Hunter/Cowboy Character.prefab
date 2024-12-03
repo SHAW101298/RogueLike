@@ -4114,7 +4114,7 @@ MonoBehaviour:
   handsObject: {fileID: 8682297138537258928}
   handsGunPosition: {fileID: 6612033735494195490}
   handsAnim: {fileID: 8411843320926476166}
-  moveSpeed: 0
+  moveSpeed: 5
   stats: {fileID: 2436746574080931305}
 --- !u!114 &2436746574080931305
 MonoBehaviour:
