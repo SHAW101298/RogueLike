@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class PlayerData : NetworkBehaviour
 {
@@ -174,7 +175,8 @@ public class PlayerData : NetworkBehaviour
                 temp.transform.localEulerAngles = Vector3.zero;
             }
         }
-    }private void ReattachGunsToBody()
+    }
+    private void ReattachGunsToBody()
     {
         if (gunManagement.possesedGuns.Count > 1)
         {
@@ -203,35 +205,49 @@ public class PlayerData : NetworkBehaviour
         }
     }
 
-    /*
-void ChangeCharacter(CharacterData newCharacter)
-{
-   Debug.Log("Changing Character");
-   ui.HideCharacterSelector();
-   Destroy(characterData.character.gameObject);
-   //characterData = newCharacter;
+    [ServerRpc(RequireOwnership = false)]
+    public void NoticeAboutGunChange_ServerRPC(int gunPreset,int gunSlot, ulong requestingPlayer)
+    {
+        Debug.Log("Notice about Gun Change SERVER RPC");
+        PlayerList.Instance.GetPlayer(requestingPlayer).NoticeAboutGunChange_ClientRPC(gunPreset, gunSlot, requestingPlayer);
+    }
 
-   GameObject temp = Instantiate(newCharacter.gameObject);
-   characterData = temp.GetComponent<CharacterData>();
-   temp.transform.SetParent(gameObject.transform);
-   temp.transform.localPosition = Vector3.down;
-   temp.transform.localEulerAngles = Vector3.zero;
+    [ClientRpc]
+    public void NoticeAboutGunChange_ClientRPC(int gunPreset, int gunSlot, ulong requestingPlayer)
+    {
+        Debug.Log("Notice About Gun Change CLIENT RPC");
+        if(requestingPlayer == networkData.OwnerClientId)
+        {
+            Debug.Log("IM the requesting Player");
+            // I already changed my gun
+            return;
+        }
 
-   if(IsOwner == true)
-   {
-       CameraHookUp.Instance.Attach(gameObject);
-       characterData.DisableBodyObject();
-       characterData.EnableHandsObject();
-       movement.SetMovementSpeed(newCharacter.moveSpeed);
-   }
-   else
-   {
+        if(gunManagement.possesedGuns.Count < gunSlot+1)
+        {
+            Debug.Log("Thats picked weapon");
+            // Player Picked Up a Weapon
+            Gun newGun = GunManager.Instance.CreateGun(gunPreset);
+            newGun.gameObject.transform.SetParent(characterData.bodyGunPosition.transform);
+            newGun.gameObject.transform.localPosition = Vector3.zero;
+            newGun.gameObject.transform.localEulerAngles = Vector3.zero;
+            gunManagement.possesedGuns.Add(newGun);
+            gunManagement.SelectGun(gunSlot);
+        }
+        else
+        {
+            Debug.Log("Thats swapped weapon");
+            // Player Swaps a Weapon
+            Destroy(gunManagement.possesedGuns[gunSlot].gameObject);
+            Gun newGun = GunManager.Instance.CreateGun(gunPreset);
+            newGun.gameObject.transform.SetParent(characterData.bodyGunPosition.transform);
+            newGun.gameObject.transform.localPosition = Vector3.zero;
+            newGun.gameObject.transform.localEulerAngles = Vector3.zero;
+            gunManagement.possesedGuns[gunSlot] = newGun;
+            gunManagement.SelectGun(gunSlot);
+        }
+    }
 
-   }
-
-
-}
-*/
     [ClientRpc]
     public void ChangeCharacter_ClientRPC(int character, ulong requestingPlayer)
     {

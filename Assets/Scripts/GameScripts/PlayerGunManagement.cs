@@ -130,6 +130,8 @@ public class PlayerGunManagement : MonoBehaviour
             newGun.transform.localPosition = Vector3.zero;
             newGun.transform.localEulerAngles = Vector3.zero;
 
+            data.NoticeAboutGunChange_ServerRPC(newGun.presetID, possesedGuns.Count - 1, data.OwnerClientId);
+
             return true;
         }
 
@@ -156,6 +158,8 @@ public class PlayerGunManagement : MonoBehaviour
         newGun.transform.localEulerAngles = Vector3.zero;
         newGun.transform.localPosition = Vector3.zero;
 
+        data.NoticeAboutGunChange_ServerRPC(newGun.presetID, index, data.networkData.OwnerClientId);
+
         return true;
     }
     public void GunReloaded()
@@ -168,5 +172,10 @@ public class PlayerGunManagement : MonoBehaviour
         {
             selectedGun.ForceReload();
         }
+    }
+
+    public void NoticeAboutGunChance()
+    {
+
     }
 }

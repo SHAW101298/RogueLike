@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ec636ddeea1fc4782f904f5223dba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  presetID: 3
   baseStats:
     damageArray:
     - damage: 20
