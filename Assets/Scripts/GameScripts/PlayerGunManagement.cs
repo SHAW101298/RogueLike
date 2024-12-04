@@ -173,9 +173,4 @@ public class PlayerGunManagement : MonoBehaviour
             selectedGun.ForceReload();
         }
     }
-
-    public void NoticeAboutGunChance()
-    {
-
-    }
 }

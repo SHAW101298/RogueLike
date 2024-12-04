@@ -263,4 +263,23 @@ public class PlayerData : NetworkBehaviour
         ChangeCharacter_ClientRPC(character, requestingId);
     }
 
+
+    [ServerRpc(RequireOwnership = false)]
+    public void ShootBullet_ServerRPC(Vector3 dir , int gunSlot ,ulong requestingPlayer)
+    {
+        ShootBullet_ClientRPC(dir, gunSlot, requestingPlayer);
+    }
+    [ClientRpc]
+    public void ShootBullet_ClientRPC(Vector3 dir, int gunSlot, ulong requestingPlayer)
+    {
+        if(requestingPlayer == networkData.OwnerClientId)
+        {
+            // Im the one shooting
+            return;
+        }
+
+        // Shoot Phantom Bullet
+        gunManagement.possesedGuns[gunSlot].CreatePhantomProjectile(dir);
+
+    }
 }

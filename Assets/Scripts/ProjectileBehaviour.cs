@@ -15,6 +15,7 @@ public class BulletInfo
 
 public class ProjectileBehaviour : MonoBehaviour
 {
+    public bool phantomBullet;
     public BulletData data;
     public LayerMask collideMask;
     public ENUM_Faction owningFaction;
@@ -80,9 +81,19 @@ public class ProjectileBehaviour : MonoBehaviour
     */
 
     void CollisionPlayer(Collider other)
-    { 
+    {
+        if (phantomBullet == true)
+        {
+            data.bulletInfo.punchThrough--;
+            if (data.bulletInfo.punchThrough <= 0)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+
         // Bullet shot by Player hit another Player
-        if(owningFaction == ENUM_Faction.player)
+        if (owningFaction == ENUM_Faction.player)
         {
             return;
         }
@@ -91,6 +102,16 @@ public class ProjectileBehaviour : MonoBehaviour
     }
     void CollisionEnemy(Collider other)
     {
+        if(phantomBullet == true)
+        {
+            data.bulletInfo.punchThrough--;
+            if (data.bulletInfo.punchThrough <= 0)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+
         // Bullet Shot by Enemy hit enemy
         if(owningFaction != ENUM_Faction.player)
         {
@@ -109,10 +130,28 @@ public class ProjectileBehaviour : MonoBehaviour
     }
     void CollisionHardSurface(Collider other)
     {
+        if(phantomBullet == true)
+        {
+            if (data.bulletInfo.punchThrough <= 0)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+
         Destroy(gameObject);
     }
     void CollisionBreakAble(Collider other)
     {
+        if (phantomBullet == true)
+        {
+            if (data.bulletInfo.punchThrough <= 0)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+
         Debug.Log("Probably Some HP Implementation");
         Destroy(other.gameObject);
         data.bulletInfo.punchThrough--;

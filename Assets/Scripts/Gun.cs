@@ -160,6 +160,7 @@ public class Gun : MonoBehaviour
         magazineCurrent--;
         CreateProjectile();
         CheckAmmo();
+        
     }
     private void UpdateShotTimer()
     {
@@ -192,6 +193,20 @@ public class Gun : MonoBehaviour
         bulletData.projectileBehaviour.direction = direction * modifiedStats.projectileSpeed;
         temp.transform.LookAt(hitPoint);
         FillBulletData(direction, bulletData);
+
+        gunManagement.data.ShootBullet_ServerRPC(bulletData.projectileBehaviour.direction, presetID, gunManagement.data.OwnerClientId);
+    }
+
+    public void CreatePhantomProjectile(Vector3 dir)
+    {
+        Debug.Log("Creating Phantom Projectile");
+        GameObject temp = Instantiate(projectilePrefab.gameObject);
+        temp.transform.position = nozzle.transform.position;
+        BulletData bulletData = temp.GetComponent<BulletData>();
+        bulletData.projectileBehaviour.direction = dir;
+        temp.transform.LookAt(dir);
+        FillBulletData(dir, bulletData);
+        bulletData.projectileBehaviour.phantomBullet = true;
     }
 
     private void FillBulletData(Vector3 dir, BulletData newBullet)
