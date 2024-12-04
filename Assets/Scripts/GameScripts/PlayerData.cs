@@ -46,8 +46,73 @@ public class PlayerData : NetworkBehaviour
         movement.controller.enabled = true;
         //transform.position = pos;
     }
-
     public void ChangeCharacter(int character)
+    {
+        GameObject characterObject = Instantiate(CharactersList.Instance.GetCharacter(character));
+        SeperateGuns();
+        Destroy(characterData.character.gameObject);
+
+        characterData = characterObject.GetComponent<CharacterData>();
+        
+
+        if(IsOwner == true)
+        {
+            Debug.Log("Owner of changing Character");
+
+            // Parent to Camera
+            characterObject.transform.SetParent(CameraHookUp.Instance.gameObject.transform);
+            characterObject.transform.localPosition = -characterData.cameraTarget.transform.localPosition;
+            characterObject.transform.localEulerAngles = Vector3.zero;
+
+            // Set Data
+            CameraHookUp.Instance.Attach(gameObject);
+            characterData.DisableBodyObject();
+            characterData.EnableHandsObject();
+            ui.HideCharacterSelector();
+            stats.baseStats.CopyValues(characterData.stats);
+            stats.CreateFinalStats();
+            movement.SetMovementSpeed(characterData.moveSpeed);
+
+            // Giving Guns Back
+            GameObject gun = Instantiate(characterData.pistol.gameObject);
+            gunManagement.possesedGuns[0] = gun.GetComponent<Gun>();
+            gunManagement.selectedGun = gunManagement.possesedGuns[0];
+            gun.transform.SetParent(characterData.handsGunPosition.transform);
+            gun.transform.localPosition = Vector3.zero;
+            gun.transform.localEulerAngles = Vector3.zero;
+            gunManagement.SelectGun(0);
+            ReattachGunsToHands();
+            gunManagement.selectedGun.CatchReference(this);
+        }
+        else
+        {
+            Debug.Log("Not Owner of character");
+
+            // Parent to Body
+            characterObject.transform.SetParent(gameObject.transform);
+            characterObject.transform.localPosition = Vector3.zero;
+            characterObject.transform.localEulerAngles = Vector3.zero;
+
+            // Set Data
+            characterData.DisableHandsObject();
+            characterData.EnableBodyObject();
+
+            // Giving Guns Back
+            GameObject gun = Instantiate(characterData.pistol.gameObject);
+            gunManagement.possesedGuns[0] = gun.GetComponent<Gun>();
+            gunManagement.selectedGun = gunManagement.possesedGuns[0];
+            gun.transform.SetParent(characterData.bodyGunPosition.transform);
+            gun.transform.localPosition = Vector3.zero;
+            gun.transform.localEulerAngles = Vector3.zero;
+            gunManagement.SelectGun(0);
+            ReattachGunsToHands();
+            gunManagement.selectedGun.CatchReference(this);
+            ReattachGunsToBody();
+        }
+    }
+
+    // Called for all players onto Specific Player Object
+    public void ChangeCharacterOLD(int character)
     {
         GameObject temp = Instantiate(CharactersList.Instance.GetCharacter(character));
         SeperateGuns();
@@ -60,9 +125,10 @@ public class PlayerData : NetworkBehaviour
 
         
 
-
+        // If Owner attach to CameraHookUp
         if (IsOwner == true)
         {
+            Debug.Log("Owner of changing Character");
             CameraHookUp.Instance.Attach(gameObject);
             characterData.DisableBodyObject();
             characterData.EnableHandsObject();
@@ -71,6 +137,7 @@ public class PlayerData : NetworkBehaviour
             stats.CreateFinalStats();
             movement.SetMovementSpeed(characterData.moveSpeed);
 
+            // Giving Guns Back
             GameObject gun = Instantiate(characterData.pistol.gameObject);
             gunManagement.possesedGuns[0] = gun.GetComponent<Gun>();
             gunManagement.selectedGun = gunManagement.possesedGuns[0];
@@ -78,12 +145,14 @@ public class PlayerData : NetworkBehaviour
             gun.transform.localPosition = Vector3.zero;
             gun.transform.localEulerAngles = Vector3.zero;
             gunManagement.SelectGun(0);
-            gunManagement.selectedGun.CatchReferences();
+            gunManagement.selectedGun.CatchReference(this);
             ReattachGunsToHands();
 
         }
+        // If not Owner Attach to PlayerObject
         else
         {
+            Debug.Log("Not Owner of character");
             characterData.DisableHandsObject();
             characterData.EnableBodyObject();
             ReattachGunsToBody();

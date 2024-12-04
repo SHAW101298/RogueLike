@@ -126,7 +126,7 @@ public class PlayerGunManagement : MonoBehaviour
             SelectGun(possesedGuns.Count-1);
             //newGun.playerData = data;
             newGun.transform.SetParent(data.characterData.handsGunPosition.transform);
-            newGun.CatchReferences();
+            newGun.CatchReference(data);
             newGun.transform.localPosition = Vector3.zero;
             newGun.transform.localEulerAngles = Vector3.zero;
 
@@ -148,7 +148,7 @@ public class PlayerGunManagement : MonoBehaviour
         //newGun.playerData = data;
         //newGun.gunManagement = data.gunManagement;
         newGun.transform.SetParent(data.characterData.handsGunPosition.transform);
-        newGun.CatchReferences();
+        newGun.CatchReference(data);
 
         GunManager.Instance.CreateGunOnGround(oldGun, newGun.transform.position);
 
@@ -168,9 +168,5 @@ public class PlayerGunManagement : MonoBehaviour
         {
             selectedGun.ForceReload();
         }
-    }
-
-    public void DestroyCurrentPistol()
-    {
     }
 }

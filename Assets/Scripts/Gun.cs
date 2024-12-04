@@ -69,9 +69,15 @@ public class Gun : MonoBehaviour
     public void CatchReferences()
     {
         Debug.Log("Catching Reference for weapon");
-        playerData = GetComponentInParent<PlayerData>();
+        PlayerData player = PlayerList.Instance.GetMyPlayer();
+        playerData = player;
         gunManagement = playerData.gunManagement;
 
+    }
+    public void CatchReference(PlayerData owningPlayer)
+    {
+        playerData = owningPlayer;
+        gunManagement = playerData.gunManagement;
     }
 
     public void CreateModifiedStats()

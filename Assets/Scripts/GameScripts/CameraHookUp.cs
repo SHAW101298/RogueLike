@@ -69,11 +69,13 @@ public class CameraHookUp : MonoBehaviour
         rotation.x -= y;
         //Vector3 rotateValue = new Vector3(y, -x, 0);
         cam.transform.eulerAngles = rotation;
-        handsObject.transform.localEulerAngles = new Vector3(rotation.x,0,0);
+        //handsObject.transform.localEulerAngles = new Vector3(rotation.x,0,0);
     }
     void UpdatePosition()
     {
-        cam.transform.position = cameraTarget.transform.position;
+        //cam.transform.position = cameraTarget.transform.position;
+
+        cam.transform.position = player.transform.position + cameraTarget.transform.localPosition;
     }
 
     public Vector3 GetLookDirection()
