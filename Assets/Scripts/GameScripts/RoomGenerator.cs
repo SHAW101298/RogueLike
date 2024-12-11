@@ -252,6 +252,7 @@ public class RoomGenerator : NetworkBehaviour
         GameObject newRoom;
         RoomManager createdRoom;
 
+        Debug.Log("Layout is = " + layout);
         for(int i = 0; i < layout.Length; i++)
         {
             newRoom = Instantiate(possibleRooms[layout[i]]);

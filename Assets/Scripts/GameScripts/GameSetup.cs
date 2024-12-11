@@ -60,13 +60,6 @@ public class GameSetup : MonoBehaviour
 
     public void CreateMapForOtherPlayers()
     {
-        string mapLayout = "";
-
-        for(int i = 1; i < roomGenerator.currentRooms.Count;i++)
-        {
-            mapLayout += roomGenerator.currentRooms[i].roomTemplate.ToString();
-        }
-
-        Debug.Log("Map is = " + mapLayout);
+        roomGenerator.RequestMapLayout_ServerRPC(NetworkManager.Singleton.LocalClientId);
     }
 }
