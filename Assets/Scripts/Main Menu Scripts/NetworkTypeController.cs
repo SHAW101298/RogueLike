@@ -90,29 +90,41 @@ public class NetworkTypeController : NetworkBehaviour
     }
     public async void JoinGameOnRelayByID(string lobbyId)
     {
-        Debug.Log("Calling to join a lobby");
+        LoadingInfo.Instance.EnableInfo();
+        LoadingInfo.Instance.UpdateCurrentProgress("Joining Lobby");
+        //Debug.Log("Calling to join a lobby");
         lobbyManager.CallJoinLobbyByID(lobbyId);
-        Debug.Log("Starting 2 sec wait");
+        LoadingInfo.Instance.UpdateCurrentProgress("Waiting For Lobby");
+        //Debug.Log("Starting 2 sec wait");
         await Task.Delay(1000);
-        Debug.Log("Finished Waiting");
-        Debug.Log("Current lobby id = " + lobbyManager.currentLobby.Id);
-        Debug.Log("Key Value = " + lobbyManager.currentLobby.Data["Key_Game_Start"].Value);
+        LoadingInfo.Instance.UpdateCurrentProgress("Getting Relay Code");
+        //Debug.Log("Finished Waiting");
+        //Debug.Log("Current lobby id = " + lobbyManager.currentLobby.Id);
+        //Debug.Log("Key Value = " + lobbyManager.currentLobby.Data["Key_Game_Start"].Value);
         string relayCode = lobbyManager.currentLobby.Data["Key_Game_Start"].Value;
         await Task.Delay(500);
+        LoadingInfo.Instance.UpdateCurrentProgress("Waiting For Relay");
         relayManager.JoinRelay(relayCode);
+        LoadingInfo.Instance.UpdateCurrentProgress("Joining Relay");
     }
     public async void JoinGameOnRelayByID(string lobbyId, string password)
     {
-        Debug.Log("Calling to join a lobby");
+        LoadingInfo.Instance.EnableInfo();
+        LoadingInfo.Instance.UpdateCurrentProgress("Joining Lobby");
+        //Debug.Log("Calling to join a lobby");
         lobbyManager.CallJoinLobbyByID(lobbyId, password);
-        Debug.Log("Starting 2 sec wait");
+        LoadingInfo.Instance.UpdateCurrentProgress("Waiting For Lobby");
+        //Debug.Log("Starting 2 sec wait");
         await Task.Delay(1000);
-        Debug.Log("Finished Waiting");
-        Debug.Log("Current lobby id = " + lobbyManager.currentLobby.Id);
-        Debug.Log("Key Value = " + lobbyManager.currentLobby.Data["Key_Game_Start"].Value);
+        //Debug.Log("Finished Waiting");
+        //Debug.Log("Current lobby id = " + lobbyManager.currentLobby.Id);
+        //Debug.Log("Key Value = " + lobbyManager.currentLobby.Data["Key_Game_Start"].Value);
+        LoadingInfo.Instance.UpdateCurrentProgress("Getting Relay Code");
         string relayCode = lobbyManager.currentLobby.Data["Key_Game_Start"].Value;
         await Task.Delay(500);
+        LoadingInfo.Instance.UpdateCurrentProgress("Waiting For Relay");
         relayManager.JoinRelay(relayCode);
+        LoadingInfo.Instance.UpdateCurrentProgress("Joining Relay");
     }
     public void StartGameAsOffline()
     {

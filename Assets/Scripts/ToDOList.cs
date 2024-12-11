@@ -31,13 +31,14 @@ public class ToDOList : MonoBehaviour
         //doZrobienia.Add("Przycisk w menu chowajacy okno lobby naprawić"); \/
         //doZrobienia.Add("WYlaczyc pokazywanie lobby podczas tworzenia go");
         doZrobienia.Add("Poprawić animacje trzymania pistoletu");
-        doZrobienia.Add("Ręce również powinny się obracać wraz z obrotem kamery");
+        //doZrobienia.Add("Ręce również powinny się obracać wraz z obrotem kamery");
         // https://www.youtube.com/watch?v=luBBz5oeR4Q
         //doZrobienia.Add("Loadign Screen");
         //doZrobienia.Add("Przechowanie broni na czas zmiany postaci");
         doZrobienia.Add("Wysyłanie dla innych graczy mapy - string pokazujacy kolejnośc pomieszczeń ?");
         doZrobienia.Add("Pasek pokazujacy stan przeładowania");
         doZrobienia.Add("Animacja przeladowywania");
+        doZrobienia.Add("Pobranie listy broni od graczy chwile po stworzeniu ich obiektu w swiecie");
     }
 
 }
