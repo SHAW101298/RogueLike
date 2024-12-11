@@ -77,7 +77,7 @@ public class PlayerInitialization : NetworkBehaviour
             playerData.rotation.enabled = false;
             playerData.interactionBeam.enabled = false;
             playerData.ui.enabled = false;
-            playerData.rotation.camera.SetActive(false);
+            //playerData.rotation.camera.SetActive(false);
             playerData.gameObject.GetComponent<PlayerInput>().enabled = false;
             playerData.gunManagement.enabled = false;
             // Destroying creates network bugs
