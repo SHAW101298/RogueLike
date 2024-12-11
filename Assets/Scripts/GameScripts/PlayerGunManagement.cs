@@ -71,6 +71,8 @@ public class PlayerGunManagement : MonoBehaviour
         selectedGun.gameObject.SetActive(false);
         selectedGun = possesedGuns[index];
         selectedGun.gameObject.SetActive(true);
+
+        data.GunScroll_ServerRPC(index, data.networkData.OwnerClientId);
         //ui.UpdateAmmo();
     }
     public void SelectPreviousGun()
@@ -83,6 +85,7 @@ public class PlayerGunManagement : MonoBehaviour
         selectedGun.gameObject.SetActive(false);
         selectedGun = possesedGuns[index];
         selectedGun.gameObject.SetActive(true);
+        data.GunScroll_ServerRPC(index, data.networkData.OwnerClientId);
         //ui.UpdateAmmo();
     }
     public void SelectGun(InputAction.CallbackContext context)

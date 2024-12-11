@@ -287,6 +287,22 @@ public class PlayerData : NetworkBehaviour
 
         // Shoot Phantom Bullet
         gunManagement.possesedGuns[gunSlot].CreatePhantomProjectile(dir);
+    }
 
+    [ServerRpc(RequireOwnership = false)]
+    public void GunScroll_ServerRPC(int slot, ulong requestingPlayer)
+    {
+        Debug.Log("Player " + requestingPlayer + " scrolls into slot = " + slot);
+        GunScroll_ClientRPC(slot, requestingPlayer);
+    }
+    [ClientRpc]
+    public void GunScroll_ClientRPC(int slot, ulong requestingPlayer)
+    {
+        if(requestingPlayer == NetworkManager.Singleton.LocalClientId)
+        {
+            Debug.Log("IM the scrolling one");
+            return;
+        }
+        gunManagement.SelectGun(slot);
     }
 }

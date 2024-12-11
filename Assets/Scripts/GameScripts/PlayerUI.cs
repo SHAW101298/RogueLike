@@ -16,12 +16,14 @@ public class PlayerUI : MonoBehaviour
     public PlayerGunManagement gunManagement;
     public CrossHairAnimation crossAnimation;
     public PlayerData data;
-    
 
 
 
     public void UpdateAmmo()
     {
+        if (enabled == false)
+            return;
+
         magazineCurrent.text = gunManagement.selectedGun.magazineCurrent.ToString();
         ammoCurrent.text = data.ammo.GetCurrentAmmo(gunManagement.selectedGun.gunType).ToString();
     }
