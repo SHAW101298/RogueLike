@@ -267,7 +267,7 @@ public class PlayerData : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void ShootBullet_ServerRPC(Vector3 dir , int gunSlot ,ulong requestingPlayer)
     {
-        Debug.Log("Sending Phantom Bullet SERVER RPC");
+        Debug.Log("Sending Phantom Bullet SERVER RPC from " + requestingPlayer);
         ShootBullet_ClientRPC(dir, gunSlot, requestingPlayer);
     }
     [ClientRpc]
