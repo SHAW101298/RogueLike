@@ -177,6 +177,7 @@ public class Gun : MonoBehaviour
         temp.transform.position = nozzle.transform.position;
         Vector3 direction = gunManagement.data.cameraHookUp.GetLookDirection();
 
+        // Determine where player wants to shoot
         RaycastHit hit;
         Vector3 hitPoint;
         if (Physics.Raycast(gunManagement.data.cameraHookUp.cam.transform.position, direction, out hit, 200, bulletMask))

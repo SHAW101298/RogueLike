@@ -273,8 +273,8 @@ public class PlayerData : NetworkBehaviour
     [ClientRpc]
     public void ShootBullet_ClientRPC(Vector3 dir, int gunSlot, ulong requestingPlayer)
     {
-        Debug.Log("Sending Phantom Bullet CLIENT RPC");
-        if(requestingPlayer == networkData.OwnerClientId)
+        Debug.Log("Sending Phantom Bullet CLIENT RPC from " + requestingPlayer);
+        if(requestingPlayer == NetworkManager.Singleton.LocalClientId)
         {
             Debug.Log("IM owner, i just shot");
             // Im the one shooting
