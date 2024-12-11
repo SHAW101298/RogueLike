@@ -173,8 +173,8 @@ public class Gun : MonoBehaviour
     }
     void CreateProjectile()
     {
-        GameObject temp = Instantiate(projectilePrefab.gameObject);
-        temp.transform.position = nozzle.transform.position;
+        GameObject projectile = Instantiate(projectilePrefab.gameObject);
+        projectile.transform.position = nozzle.transform.position;
         Vector3 direction = gunManagement.data.cameraHookUp.GetLookDirection();
 
         // Determine where player wants to shoot
@@ -190,28 +190,30 @@ public class Gun : MonoBehaviour
         }
 
         direction = (hitPoint - nozzle.transform.position).normalized;
-        BulletData bulletData = temp.GetComponent<BulletData>();
-        bulletData.projectileBehaviour.direction = direction * modifiedStats.projectileSpeed;
-        temp.transform.LookAt(hitPoint);
+        BulletData bulletData = projectile.GetComponent<BulletData>();
+        //bulletData.projectileBehaviour.direction = direction * modifiedStats.projectileSpeed;
+        projectile.transform.LookAt(hitPoint);
         FillBulletData(direction, bulletData);
 
-        gunManagement.data.ShootBullet_ServerRPC(bulletData.projectileBehaviour.direction, presetID, gunManagement.data.OwnerClientId);
+        gunManagement.data.ShootBullet_ServerRPC(direction, presetID, gunManagement.data.OwnerClientId);
     }
 
     public void CreatePhantomProjectile(Vector3 dir)
     {
         Debug.Log("Creating Phantom Projectile");
-        GameObject temp = Instantiate(projectilePrefab.gameObject);
-        temp.transform.position = nozzle.transform.position;
-        BulletData bulletData = temp.GetComponent<BulletData>();
-        bulletData.projectileBehaviour.direction = dir;
-        temp.transform.LookAt(dir);
+        Debug.Log("Received Dir = " + dir);
+        GameObject projectile = Instantiate(projectilePrefab.gameObject);
+        projectile.transform.position = nozzle.transform.position;
+        BulletData bulletData = projectile.GetComponent<BulletData>();
+        //bulletData.projectileBehaviour.direction = dir;
+        projectile.transform.LookAt(dir);
         FillBulletData(dir, bulletData);
         bulletData.projectileBehaviour.phantomBullet = true;
     }
 
     private void FillBulletData(Vector3 dir, BulletData newBullet)
     {
+        Debug.Log("Filling data with dir = " + dir);
         newBullet.bulletInfo = projectilePrefab.bulletInfo;
         newBullet.projectileBehaviour.owningFaction = ENUM_Faction.player;
         newBullet.projectileBehaviour.direction = dir * modifiedStats.projectileSpeed;

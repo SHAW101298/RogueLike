@@ -51,6 +51,7 @@ public class PlayerInitialization : NetworkBehaviour
         Debug.Log("Current scene = " + SceneManager.GetActiveScene().name);
         Debug.Log("is owner = " + IsOwner);
         PlayerList.Instance.AddPlayer(playerData);
+        Debug.Log("Added player to list");
 
         if(IsOwner == true)
         {
@@ -87,7 +88,7 @@ public class PlayerInitialization : NetworkBehaviour
             //Destroy(playerData.gameObject.GetComponent<PlayerInput>());
             //Destroy(playerData.rotation.camera);
             Debug.Log("Disabled other player scripts");
-            CharactersList.Instance.ChooseCharacter(0);
+            CharactersList.Instance.ChangeCharacterForPlayer(0,playerData);
         }
         //CreateGameCharacter();
     }

@@ -50,9 +50,15 @@ public class CharactersList : MonoBehaviour
 
     public void ChooseCharacter(int index)
     {
+        Debug.Log("Requesting Character Change");
         PlayerData player = PlayerList.Instance.GetMyPlayer();
         player.ChangeCharacter_ServerRPC(index, default);
         //CharacterData characterData = characters[index].gameObject.GetComponent<CharacterData>();
         //player.ChangeCharacter(characterData);
+    }
+    public void ChangeCharacterForPlayer(int index, PlayerData player)
+    {
+        Debug.Log("Change Character for Other Player");
+        player.ChangeCharacter(index);
     }
 }

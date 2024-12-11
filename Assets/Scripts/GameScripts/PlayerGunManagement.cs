@@ -130,6 +130,7 @@ public class PlayerGunManagement : MonoBehaviour
             newGun.transform.localPosition = Vector3.zero;
             newGun.transform.localEulerAngles = Vector3.zero;
 
+            Debug.Log("Picked Gun Preset is = " + newGun.presetID);
             data.NoticeAboutGunChange_ServerRPC(newGun.presetID, possesedGuns.Count - 1, data.OwnerClientId);
 
             return true;

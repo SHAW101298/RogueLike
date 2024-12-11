@@ -215,10 +215,10 @@ public class PlayerData : NetworkBehaviour
     [ClientRpc]
     public void NoticeAboutGunChange_ClientRPC(int gunPreset, int gunSlot, ulong requestingPlayer)
     {
-        Debug.Log("Notice About Gun Change CLIENT RPC");
-        if(requestingPlayer == networkData.OwnerClientId)
+        Debug.Log("Notice About Gun Change CLIENT RPC | PRESET IS = " + gunPreset);
+        if(requestingPlayer == NetworkManager.Singleton.LocalClientId)
         {
-            Debug.Log("IM the requesting Player");
+            Debug.Log("IM the requesting Player, Preset is = " + gunPreset);
             // I already changed my gun
             return;
         }
@@ -252,7 +252,10 @@ public class PlayerData : NetworkBehaviour
     public void ChangeCharacter_ClientRPC(int character, ulong requestingPlayer)
     {
         Debug.Log(" CLIENTRPC | Character = " + character + "  |  RequestingPlaeyr = " + requestingPlayer);
-        PlayerList.Instance.GetPlayer(requestingPlayer).ChangeCharacter(character);
+        PlayerData player = PlayerList.Instance.GetPlayer(requestingPlayer);
+        Debug.Log("network ownerclientID = " + player.networkData.OwnerClientId);
+        player.ChangeCharacter(character);
+        //PlayerList.Instance.GetPlayer(requestingPlayer).ChangeCharacter(character);
 
     }
     [ServerRpc(RequireOwnership = false)]
@@ -277,6 +280,7 @@ public class PlayerData : NetworkBehaviour
         if(requestingPlayer == NetworkManager.Singleton.LocalClientId)
         {
             Debug.Log("IM owner, i just shot");
+            Debug.Log("Send Dir = " + dir);
             // Im the one shooting
             return;
         }
