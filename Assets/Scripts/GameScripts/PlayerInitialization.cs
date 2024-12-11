@@ -89,6 +89,7 @@ public class PlayerInitialization : NetworkBehaviour
             //Destroy(playerData.rotation.camera);
             Debug.Log("Disabled other player scripts");
             CharactersList.Instance.ChangeCharacterForPlayer(0,playerData);
+            RoomGenerator.Instance.RequestMapLayout_ServerRPC(NetworkManager.Singleton.LocalClientId);
         }
         //CreateGameCharacter();
     }

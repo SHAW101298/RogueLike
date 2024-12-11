@@ -39,6 +39,7 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Pasek pokazujacy stan przeładowania");
         doZrobienia.Add("Animacja przeladowywania");
         doZrobienia.Add("Pobranie listy broni od graczy chwile po stworzeniu ich obiektu w swiecie");
+        doZrobienia.Add("Opcje w grze, typu zmiana rozdzielczosci, tryb okienkowy");
     }
 
 }

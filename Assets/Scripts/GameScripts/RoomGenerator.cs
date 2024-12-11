@@ -214,6 +214,56 @@ public class RoomGenerator : NetworkBehaviour
             Debug.Log("Building NavMesh");
             surface.BuildNavMesh();
             navMeshBuiltAlready = true;
+            GameSetup.Instance.CreateMapForOtherPlayers();
+        }
+    }
+    string GetMapLayout()
+    {
+        string layout = "";
+
+        for(int i = 1; i < currentRooms.Count; i++)
+        {
+            layout += currentRooms[i].roomTemplate.ToString();
+        }
+
+        return layout;
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void RequestMapLayout_ServerRPC(ulong requestingPlayer)
+    {
+        string layout = GetMapLayout();
+        RequestMapLayout_ClientRPC(layout, requestingPlayer);
+    }
+    [ClientRpc]
+    void RequestMapLayout_ClientRPC(string layout,ulong requestingPlayer)
+    {
+        if(requestingPlayer == NetworkManager.Singleton.LocalClientId)
+        {
+            Debug.LogWarning("CREATE MAP");
+            CreateRoomsFromLayout(layout);
+        }
+    }
+    void CreateRoomsFromLayout(string layout)
+    {
+        currentRooms.Add(spawnArea);
+        Vector3 nextSpot = spawnArea.exit.position;
+        Vector3 nextRotation = spawnArea.exit.eulerAngles;
+        GameObject newRoom;
+        RoomManager createdRoom;
+
+        for(int i = 0; i < layout.Length; i++)
+        {
+            newRoom = Instantiate(possibleRooms[layout[i]]);
+            createdRoom = newRoom.GetComponent<RoomManager>();
+            // Position correctly according to exit
+            newRoom.transform.position = nextSpot;
+            newRoom.transform.eulerAngles = nextRotation;
+            // Save data for next room
+            nextSpot = createdRoom.exit.position;
+            nextRotation = createdRoom.exit.eulerAngles;
+            // Cache In the Room
+            currentRooms.Add(createdRoom);
         }
     }
 }
