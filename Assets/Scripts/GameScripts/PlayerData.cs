@@ -218,7 +218,7 @@ public class PlayerData : NetworkBehaviour
         Debug.Log("Notice About Gun Change CLIENT RPC | PRESET IS = " + gunPreset);
         if(requestingPlayer == NetworkManager.Singleton.LocalClientId)
         {
-            Debug.Log("IM the requesting Player, Preset is = " + gunPreset);
+            Debug.Log("IM the requesting Player");
             // I already changed my gun
             return;
         }
