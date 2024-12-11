@@ -267,13 +267,16 @@ public class PlayerData : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void ShootBullet_ServerRPC(Vector3 dir , int gunSlot ,ulong requestingPlayer)
     {
+        Debug.Log("Sending Phantom Bullet SERVER RPC");
         ShootBullet_ClientRPC(dir, gunSlot, requestingPlayer);
     }
     [ClientRpc]
     public void ShootBullet_ClientRPC(Vector3 dir, int gunSlot, ulong requestingPlayer)
     {
+        Debug.Log("Sending Phantom Bullet CLIENT RPC");
         if(requestingPlayer == networkData.OwnerClientId)
         {
+            Debug.Log("IM owner, i just shot");
             // Im the one shooting
             return;
         }
