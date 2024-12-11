@@ -7,10 +7,10 @@ public class BulletInfo
 {
     public List<DamageData> damageData;
     public ElementalTable damageModifierWhenAfflicted;
-    public float critChance;
-    public float critDamageMultiplier;
-    public float afflictionChance;
-    public int punchThrough;
+    public float critChance = 0;
+    public float critDamageMultiplier = 1;
+    public float afflictionChance = 0;
+    public int punchThrough = 1;
 }
 
 public class ProjectileBehaviour : MonoBehaviour
