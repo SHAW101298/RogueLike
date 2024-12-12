@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
@@ -136,10 +137,10 @@ public class RoomGenerator : NetworkBehaviour
     }
     int GetRandomRoomExcept(int x)
     {
-        int val = Random.Range(0, possibleRooms.Count);
+        int val = UnityEngine.Random.Range(0, possibleRooms.Count);
         while (val == x)
         {
-            val = Random.Range(0, possibleRooms.Count);
+            val = UnityEngine.Random.Range(0, possibleRooms.Count);
         }
         return val;
     }
@@ -214,7 +215,6 @@ public class RoomGenerator : NetworkBehaviour
             Debug.Log("Building NavMesh");
             surface.BuildNavMesh();
             navMeshBuiltAlready = true;
-            GameSetup.Instance.CreateMapForOtherPlayers();
         }
     }
     string GetMapLayout()
@@ -251,11 +251,18 @@ public class RoomGenerator : NetworkBehaviour
         Vector3 nextRotation = spawnArea.exit.eulerAngles;
         GameObject newRoom;
         RoomManager createdRoom;
+        int template;
+        string templateString = "";
 
-        Debug.Log("Layout is = " + layout);
+        //Debug.Log("Layout is = " + layout);
         for(int i = 0; i < layout.Length; i++)
         {
-            newRoom = Instantiate(possibleRooms[layout[i]]);
+            //Debug.Log("i is = " + i);
+            templateString += layout[i];
+            template = int.Parse(templateString);
+            //Debug.Log("Char is " + layout[i]);
+            //Debug.Log("Template is " + template);
+            newRoom = Instantiate(possibleRooms[template]);
             createdRoom = newRoom.GetComponent<RoomManager>();
             // Position correctly according to exit
             newRoom.transform.position = nextSpot;
@@ -265,6 +272,7 @@ public class RoomGenerator : NetworkBehaviour
             nextRotation = createdRoom.exit.eulerAngles;
             // Cache In the Room
             currentRooms.Add(createdRoom);
+            templateString = "";
         }
     }
 }

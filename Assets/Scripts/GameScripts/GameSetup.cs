@@ -34,6 +34,7 @@ public class GameSetup : MonoBehaviour
         Debug.Log("Setting Up a Game");
         CreateBasicGuns();
         roomGenerator.FirstRoomGeneration();
+        CreateMapForOtherPlayers();
     }
 
 
@@ -53,13 +54,15 @@ public class GameSetup : MonoBehaviour
         }
         //GunManager.Instance.CreateGunOnGround(possibleGuns, firstGunSpots[0].position);
     }
-    void CreateMap()
-    {
-        Debug.Log("Starting Creation of Map");
-    }
 
     public void CreateMapForOtherPlayers()
     {
+        // Determine if im host
+        if(NetworkManager.Singleton.IsHost == true)
+        {
+            return;
+        }
+
         roomGenerator.RequestMapLayout_ServerRPC(NetworkManager.Singleton.LocalClientId);
     }
 }
