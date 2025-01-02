@@ -57,7 +57,7 @@ public class GameSetup : MonoBehaviour
 
     public void CreateMapForOtherPlayers()
     {
-        // Determine if im host
+        // If Im host, i dont request for map
         if(NetworkManager.Singleton.IsHost == true)
         {
             return;
