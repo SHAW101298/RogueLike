@@ -39,9 +39,12 @@ public class UI_MainMenu : MonoBehaviour
     [SerializeField] UI_Window menuWindow;
     [SerializeField] UI_Window singlePlayerWindow;
     [SerializeField] UI_Window multiPlayerWindow;
+    [SerializeField] UI_Window gameOptionsWindowSinglePlayer;
+    [SerializeField] UI_Window gameOptionsWindowMultiPlayer;
     [SerializeField] UI_Window charactersWindow;
     [SerializeField] UI_Window optionsWindow;
     [SerializeField] UI_Window exitWindow;
+    
 
     [SerializeField] UI_Window changeNameWindow;
     [SerializeField] UI_Window lobbyWindow;
@@ -151,6 +154,19 @@ public class UI_MainMenu : MonoBehaviour
         
         }
         
+    }
+    public void BTN_ShowGameOptionsWindow_Multiplayer()
+    {
+        gameOptionsWindowMultiPlayer.OpenWindow();
+    }
+    public void BTN_ShowGameOptionsWindow_Singleplayer()
+    {
+        gameOptionsWindowSinglePlayer.OpenWindow();
+    }
+    public void HideGameOptionsWindow()
+    {
+        gameOptionsWindowMultiPlayer.CloseWindow();
+        gameOptionsWindowSinglePlayer.CloseWindow();
     }
     public void BTN_StartOFflineGame()
     {

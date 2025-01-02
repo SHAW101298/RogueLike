@@ -29,8 +29,13 @@ public class UI_GameOptions : MonoBehaviour
         difficultyLevel = (ENUM_DifficultySetting)difficultyDropdown.value;
         NetworkTypeController.Instance.HostGameAsRelay(lobbyList.createdLobbyData);
     }
-    public void BTN_Return()
+    public void BTN_ReturnSinglePlayer()
     {
+        UI_MainMenu.instance.HideGameOptionsWindow();
+    }
+    public void BTN_ReturnMultiPlayer()
+    {
+        UI_MainMenu.instance.HideGameOptionsWindow();
 
     }
 }

@@ -136,12 +136,13 @@ public class UI_LobbyList : MonoBehaviour
         lobbyListWindow.SetActive(true);
         ui_MainMenu.BTN_MultiplayerReturn();
         ResetCreateLobbyData();
-        LoadingInfo.Instance.UpdateCurrentProgress("Creating Lobby");
+        //LoadingInfo.Instance.UpdateCurrentProgress("Creating Lobby");
         //lobbyManager.CallCreateLobby(newLobbyName.text, newLobbyPlayers.text, newLobbyPrivate.isOn, newLobbyPassword.text);
         //NetworkTypeController.Instance.HostGameAsRelay(newLobbyData);
         //lobbyManager.CallCreateLobby(lobbyName, players, isPrivate, password);
 
         createdLobbyData = newLobbyData;
+        ui_MainMenu.BTN_ShowGameOptionsWindow_Multiplayer();
     }
     void ResetCreateLobbyData()
     {
