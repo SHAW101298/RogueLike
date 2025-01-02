@@ -43,6 +43,8 @@ public class UI_LobbyList : MonoBehaviour
     [SerializeField] TMP_InputField newLobbyPlayers;
     [SerializeField] Toggle newLobbyPrivate;
     [SerializeField] TMP_InputField newLobbyPassword;
+
+    public LobbyCreationData createdLobbyData { get; private set; }
     
 
     public string selectedLobby = "-1";
@@ -136,8 +138,10 @@ public class UI_LobbyList : MonoBehaviour
         ResetCreateLobbyData();
         LoadingInfo.Instance.UpdateCurrentProgress("Creating Lobby");
         //lobbyManager.CallCreateLobby(newLobbyName.text, newLobbyPlayers.text, newLobbyPrivate.isOn, newLobbyPassword.text);
-        NetworkTypeController.Instance.HostGameAsRelay(newLobbyData);
+        //NetworkTypeController.Instance.HostGameAsRelay(newLobbyData);
         //lobbyManager.CallCreateLobby(lobbyName, players, isPrivate, password);
+
+        createdLobbyData = newLobbyData;
     }
     void ResetCreateLobbyData()
     {

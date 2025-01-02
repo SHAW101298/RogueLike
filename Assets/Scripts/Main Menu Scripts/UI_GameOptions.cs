@@ -15,6 +15,8 @@ public enum ENUM_DifficultySetting
 
 public class UI_GameOptions : MonoBehaviour
 {
+    [Header("Referencje")]
+    [SerializeField] UI_LobbyList lobbyList;
     [Header("UI Elements")]
     [SerializeField] TMP_Dropdown difficultyDropdown;
 
@@ -25,6 +27,7 @@ public class UI_GameOptions : MonoBehaviour
     public void BTN_Create()
     {
         difficultyLevel = (ENUM_DifficultySetting)difficultyDropdown.value;
+        NetworkTypeController.Instance.HostGameAsRelay(lobbyList.createdLobbyData);
     }
     public void BTN_Return()
     {
