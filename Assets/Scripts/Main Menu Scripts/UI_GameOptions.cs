@@ -17,16 +17,24 @@ public class UI_GameOptions : MonoBehaviour
 {
     [Header("Referencje")]
     [SerializeField] UI_LobbyList lobbyList;
+    [SerializeField] GameOptions gameOptions;
     [Header("UI Elements")]
-    [SerializeField] TMP_Dropdown difficultyDropdown;
+    [SerializeField] TMP_Dropdown difficultyDropdownMultiPlayer;
+    [SerializeField] TMP_Dropdown difficultyDropdownSinglePlayer;
 
     [Header("Settings")]
     public ENUM_DifficultySetting difficultyLevel;
 
 
+    private void Start()
+    {
+        gameOptions = GameOptions.Instance;
+    }
+
     public void BTN_Create()
     {
-        difficultyLevel = (ENUM_DifficultySetting)difficultyDropdown.value;
+        gameOptions.difficultyLevel = (ENUM_DifficultySetting)difficultyDropdownMultiPlayer.value;
+        Debug.Log(" Difficulty Level Read as " + (ENUM_DifficultySetting)difficultyDropdownMultiPlayer.value);
         NetworkTypeController.Instance.HostGameAsRelay(lobbyList.createdLobbyData);
     }
     public void BTN_ReturnSinglePlayer()
@@ -37,5 +45,9 @@ public class UI_GameOptions : MonoBehaviour
     {
         UI_MainMenu.instance.HideGameOptionsWindow();
 
+    }
+    public void ReadGameOptions()
+    {
+        gameOptions.difficultyLevel = (ENUM_DifficultySetting)difficultyDropdownSinglePlayer.value;
     }
 }

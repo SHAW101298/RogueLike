@@ -31,6 +31,7 @@ public class UI_MainMenu : MonoBehaviour
     [SerializeField] UI_Lobby ui_Lobby;
     [SerializeField] UI_LobbyList ui_LobbyList;
     [SerializeField] NetworkTypeController networkTypeController;
+    [SerializeField] UI_GameOptions ui_gameOptions;
     //[SerializeField] UI_JoinLobbyByCode ui_JoinByCode;
     //[SerializeField] UI_CreateLobby ui_CreateLobby;
 
@@ -170,6 +171,7 @@ public class UI_MainMenu : MonoBehaviour
     }
     public void BTN_StartOFflineGame()
     {
+        ui_gameOptions.ReadGameOptions();
         networkTypeController.StartGameAsOffline();
     }
     public void HideLobbyWindow()

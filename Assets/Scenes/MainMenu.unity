@@ -13182,7 +13182,7 @@ GameObject:
   - component: {fileID: 1229564718}
   - component: {fileID: 1229564717}
   m_Layer: 5
-  m_Name: Difficulty Dropdown
+  m_Name: Difficulty Dropdown MultiPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14914,7 +14914,7 @@ GameObject:
   - component: {fileID: 1413792586}
   - component: {fileID: 1413792585}
   m_Layer: 5
-  m_Name: Difficulty Dropdown
+  m_Name: Difficulty Dropdown SinglePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15111,7 +15111,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1453541161
 GameObject:
@@ -15198,9 +15198,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1564222164}
-        m_TargetAssemblyTypeName: UI_MainMenu, Assembly-CSharp
-        m_MethodName: BTN_StartOFflineGame
+      - m_Target: {fileID: 1564222171}
+        m_TargetAssemblyTypeName: UI_GameOptions, Assembly-CSharp
+        m_MethodName: BTN_Create
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17564,6 +17564,7 @@ MonoBehaviour:
   ui_Lobby: {fileID: 1564222166}
   ui_LobbyList: {fileID: 1564222167}
   networkTypeController: {fileID: 0}
+  ui_gameOptions: {fileID: 1564222171}
   menuCanvas: {fileID: 288181922}
   menuWindow: {fileID: 1830060943}
   singlePlayerWindow: {fileID: 1639204730}
@@ -17672,7 +17673,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lobbyList: {fileID: 1564222167}
-  difficultyDropdown: {fileID: 1413792585}
+  gameOptions: {fileID: 0}
+  difficultyDropdownMultiPlayer: {fileID: 1229564717}
+  difficultyDropdownSinglePlayer: {fileID: 1413792585}
   difficultyLevel: 0
 --- !u!1 &1567861642
 GameObject:
@@ -25478,6 +25481,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060033174}
   m_CullTransparentMesh: 1
+--- !u!1 &2060332568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2060332570}
+  - component: {fileID: 2060332569}
+  m_Layer: 0
+  m_Name: Game Options
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2060332569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060332568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e5e522048342c46802306dce2e820a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyLevel: 0
+--- !u!4 &2060332570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060332568}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.9825938, y: 19.360376, z: -41.348385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2065939761
 GameObject:
   m_ObjectHideFlags: 0
