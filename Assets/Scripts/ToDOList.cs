@@ -43,6 +43,17 @@ public class ToDOList : MonoBehaviour
     }
 
 }
+
+/* 
+ Poziom trudności zmienia :
+- Życie przeciwników.
+- Obrażenia przeciwników 
+- Ilość pieniędzy
+- Odporności przeciwników
+ */
+
+
+
 /* Czego brakuje do rozegrania gry
  Lobby w którym wybierze sie poziom trudności
  Host rozpoczyna rozgrywkę, i przenosi go do mapy gry, rozpoczyna się od razu również tworzenie mapy na danym poziomie
