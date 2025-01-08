@@ -4933,7 +4933,7 @@ GameObject:
   - component: {fileID: 362580616}
   - component: {fileID: 362580615}
   m_Layer: 5
-  m_Name: Full Screen Mode Dropdown
+  m_Name: Window Mode Dropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

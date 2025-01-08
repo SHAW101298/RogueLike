@@ -186,6 +186,7 @@ public class UI_MainMenu : MonoBehaviour
     public void BTN_ApplySettings()
     {
         bool fullscreen;
+        float width, height;
         if (windowModeDropdown.value == 0)
         {
             fullscreen = true;
@@ -193,6 +194,42 @@ public class UI_MainMenu : MonoBehaviour
         else
         {
             fullscreen = false;
+        }
+
+        switch(resolutionDropdown.value)
+        {
+            case 0:
+                width = 1920;
+                height = 1080;
+                break;
+            case 1:
+                width = 1600;
+                height = 900;
+                break;
+            case 2:
+                width = 1366;
+                height = 768;
+                break;
+            case 3:
+                width = 1360;
+                height = 768;
+                break;
+            case 4:
+                width = 1280;
+                height = 720;
+                break;
+            case 5:
+                width = 1024;
+                height = 768;
+                break;
+            case 6:
+                width = 800;
+                height = 600;
+                break;
+            default:
+                width = Screen.currentResolution.width;
+                height = Screen.currentResolution.height;
+                break;
         }
         Screen.fullScreen = fullscreen;
 
