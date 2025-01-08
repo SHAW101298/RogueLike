@@ -13,6 +13,15 @@ public class Enemy_AI_Ranged : Enemy_AI
 
     [SerializeField] Vector3 dest;
 
+
+    private void Start()
+    {
+        if(NetworkObject.IsOwner == false)
+        {
+            agent.enabled = false;
+            this.enabled = false;
+        }
+    }
     public override void ActivateAI()
     {
         PlayersEnteredRoom();
