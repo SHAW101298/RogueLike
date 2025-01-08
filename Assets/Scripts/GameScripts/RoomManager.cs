@@ -15,13 +15,14 @@ public class RoomManager : NetworkBehaviour
     public Transform exit;
     public Transform portal;
     [SerializeField] GameObject placementColliders;
+    [Header("Enemies Spawning")]
+    [SerializeField] List<Room_SpawningData> spawningData;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
     
     // Update is called once per frame
@@ -84,6 +85,18 @@ public class RoomManager : NetworkBehaviour
             enemy.ActivateEnemy();
         }
 
+    }
+
+    public void SpawnEnemies()
+    {
+        if (spawningData.Count > 0)
+        {
+            Debug.Log("Instances to create = " + spawningData.Count);
+            foreach(Room_SpawningData data in spawningData)
+            {
+                data.SpawnUnits();
+            }
+        }
     }
 
 }

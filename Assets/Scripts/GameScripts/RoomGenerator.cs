@@ -215,7 +215,10 @@ public class RoomGenerator : NetworkBehaviour
             Debug.Log("Building NavMesh");
             surface.BuildNavMesh();
             navMeshBuiltAlready = true;
+            SpawnEnemiesInRooms();
         }
+
+        
     }
     string GetMapLayout()
     {
@@ -273,6 +276,15 @@ public class RoomGenerator : NetworkBehaviour
             // Cache In the Room
             currentRooms.Add(createdRoom);
             templateString = "";
+        }
+    }
+
+    void SpawnEnemiesInRooms()
+    {
+        foreach(RoomManager room in currentRooms)
+        {
+            Debug.Log("Spawning for room id " + room.roomTemplate);
+            room.SpawnEnemies();
         }
     }
 }
