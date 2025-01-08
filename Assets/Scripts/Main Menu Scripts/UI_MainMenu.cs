@@ -50,6 +50,10 @@ public class UI_MainMenu : MonoBehaviour
     [SerializeField] UI_Window changeNameWindow;
     [SerializeField] UI_Window lobbyWindow;
 
+    [Header("Fields")]
+    [SerializeField] TMP_Dropdown resolutionDropdown;
+    [SerializeField] TMP_Dropdown windowModeDropdown;
+
 
 
     private void Start()
@@ -177,5 +181,21 @@ public class UI_MainMenu : MonoBehaviour
     public void HideLobbyWindow()
     {
         lobbyWindow.CloseWindow();
+    }
+
+    public void BTN_ApplySettings()
+    {
+        bool fullscreen;
+        if (windowModeDropdown.value == 0)
+        {
+            fullscreen = true;
+        }
+        else
+        {
+            fullscreen = false;
+        }
+        Screen.fullScreen = fullscreen;
+
+        BTN_OptionReturn();
     }
 }
