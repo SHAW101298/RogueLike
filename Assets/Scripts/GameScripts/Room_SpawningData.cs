@@ -6,6 +6,7 @@ using UnityEngine;
 public class Room_SpawningData : MonoBehaviour
 {
     [SerializeField] List<GameObject> units;
+    [SerializeField] RoomManager room;
     public void SpawnUnits()
     {
         //Debug.Log("Spawning enemies");
@@ -13,9 +14,10 @@ public class Room_SpawningData : MonoBehaviour
         int i = 0;
         foreach(GameObject unit in units)
         {
-            //Debug.Log("Desired position = " + gameObject.transform.position);
+            Debug.Log("Desired position = " + gameObject.transform.position);
             unit_GO = Instantiate(unit, gameObject.transform.position, gameObject.transform.rotation);
             unit_GO.GetComponent<NetworkObject>().Spawn();
+            room.enemiesInRoom.Add(unit_GO.GetComponent<EnemyData>());
         }
     }
 }

@@ -98,5 +98,13 @@ public class RoomManager : NetworkBehaviour
             }
         }
     }
+    public void DestroyEnemiesInRoom()
+    {
+        for(int i = enemiesInRoom.Count -1; i >= 0; i--)
+        {
+            Destroy(enemiesInRoom[i].gameObject);
+        }
+        enemiesInRoom.Clear();
+    }
 
 }

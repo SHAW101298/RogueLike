@@ -152,6 +152,10 @@ public class RoomGenerator : NetworkBehaviour
         //Debug.Log("Error on ID " + id);
         //Debug.Break();
 
+        if(id == 0)
+        {
+            return;
+        }
         if(earliestError == -1)
         {
             earliestError = id;
@@ -195,13 +199,22 @@ public class RoomGenerator : NetworkBehaviour
     {
         for (int i = currentRooms.Count - 1; i > 0; i--)
         {
+            if(i == 0)
+            {
+                Debug.LogWarning("I is = " + i);
+                continue;
+            }
+            Debug.Log("I = " + i + " \n" + currentRooms[i].gameObject.name);
+            currentRooms[i].DestroyEnemiesInRoom();
             Destroy(currentRooms[i].gameObject);
             currentRooms.RemoveAt(i);
         }
+        currentRooms.Clear();
     }
 
     void DelayNavBaking()
     {
+        Debug.Log("Delaying Nav Baking");
         timer = amountToDelay;
     }
     void BuildNavMesh()
@@ -281,9 +294,10 @@ public class RoomGenerator : NetworkBehaviour
 
     void SpawnEnemiesInRooms()
     {
+        Debug.Log("Spawning Enemies in Rooms");
         foreach(RoomManager room in currentRooms)
         {
-            Debug.Log("Spawning for room id " + room.roomTemplate);
+            //Debug.Log("Spawning for room id " + room.roomTemplate);
             room.SpawnEnemies();
         }
     }

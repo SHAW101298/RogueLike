@@ -23,13 +23,13 @@ public class Enemy_AI_Ranged : Enemy_AI
         }
         else
         {
-            float x = Random.Range(0, 1f);
-            float z = Random.Range(0, 1f);
+            float x = Random.Range(-1.5f, 1.5f);
+            float z = Random.Range(-1.5f, 1.5f);
             Vector3 randomPos = new Vector3(x, 0, z);
-            Debug.Log("Random = " + randomPos);
+            //Debug.Log("Random = " + randomPos);
             randomPos += gameObject.transform.position;
             agent.SetDestination(randomPos);
-            Debug.Log("Current pos = " + gameObject.transform.position + "\nDEST = " + agent.destination + " \nRandomPos = " + randomPos);
+            //Debug.Log("Current pos = " + gameObject.transform.position + "\nDEST = " + agent.destination + " \nRandomPos = " + randomPos);
         }
     }
     public override void ActivateAI()
