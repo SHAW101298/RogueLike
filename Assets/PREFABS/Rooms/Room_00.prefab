@@ -228,6 +228,7 @@ MonoBehaviour:
   - {fileID: 6369748041881690598, guid: 37d4116de28e0aa4c8bb057be77a2565, type: 3}
   - {fileID: 6369748041881690598, guid: 37d4116de28e0aa4c8bb057be77a2565, type: 3}
   - {fileID: 6369748041881690598, guid: 37d4116de28e0aa4c8bb057be77a2565, type: 3}
+  room: {fileID: 3516055143464265148}
 --- !u!1 &3380770037659576123
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,6 +50,8 @@ public class RoomGenerator : NetworkBehaviour
         {
             DestroyRoomsExceptSpawn();
             generateRooms = false;
+            navMeshBuiltAlready = false;
+            iteration = 0;
             FirstRoomGeneration();
             DelayNavBaking();
         }
@@ -152,10 +154,6 @@ public class RoomGenerator : NetworkBehaviour
         //Debug.Log("Error on ID " + id);
         //Debug.Break();
 
-        if(id == 0)
-        {
-            return;
-        }
         if(earliestError == -1)
         {
             earliestError = id;
@@ -182,6 +180,7 @@ public class RoomGenerator : NetworkBehaviour
         //Debug.Log("Destroying Rooms from " + earliestError);
         DestroyRoomsToError();
         GenerateRooms(earliestError);
+        Debug.Log("Earliest Error is " + earliestError);
         earliestError = -1;
     }
 
