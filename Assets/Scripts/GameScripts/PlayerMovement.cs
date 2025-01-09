@@ -42,7 +42,7 @@ public class PlayerMovement : NetworkBehaviour
     float dashCooldownTimer;
     Vector3 dashDirection;
     [SerializeField]float dashTimer;
-    bool dashOnCooldown;
+    [SerializeField] bool dashOnCooldown;
 
     [Header("Reference")]
     public CharacterController controller;
@@ -231,6 +231,7 @@ public class PlayerMovement : NetworkBehaviour
             dashDirection.x = input.x;
             dashDirection.z = input.y;
         }
+
 
         // Dane do dasha ustawione
         dashDirection = transform.TransformDirection(dashDirection);

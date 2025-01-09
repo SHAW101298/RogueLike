@@ -25,7 +25,7 @@ public class PlayerStats : MonoBehaviour
             return false;
         }
 
-        ReduceStamina(val);
+        //ReduceStamina(val);
         return true;
     }
     public void ReduceStamina(float val)
