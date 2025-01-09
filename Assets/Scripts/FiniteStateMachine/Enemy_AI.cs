@@ -10,6 +10,7 @@ public abstract class Enemy_AI : NetworkBehaviour
     public NavMeshAgent agent;
     [Space(10)]
     public State currentState;
+    public State_Inactive inactive;
     public State_Idle idle;
     public State_Chase chase;
     public State_Run run;
@@ -53,6 +54,12 @@ public abstract class Enemy_AI : NetworkBehaviour
         dirRotation = Tools.Direction(targetPos, transform.position);
         lookRotation = Quaternion.LookRotation(dirRotation);
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime *rotationSpeed);
+    }
+    public void NotifyAboutPlayer(PlayerData player)
+    {
+        target = player;
+        chase.SetData(player);
+        ChangeState(chase);
     }
 
 
