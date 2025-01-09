@@ -63,7 +63,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 2264350204679147747}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dabae72edff46214592640df570cf146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  phantomBullet: 0
   data: {fileID: 8624074402406383019}
   collideMask:
     serializedVersion: 2

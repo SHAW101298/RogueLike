@@ -6,5 +6,5 @@ public class BulletData : MonoBehaviour
 {
     public ProjectileBehaviour projectileBehaviour;
     public BulletLifeTime bulletLifeTime;
-    public BulletInfo bulletInfo;
+    [SerializeField] public BulletInfo bulletInfo;
 }

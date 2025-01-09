@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[System.Serializable]
 public class BulletInfo
 {
     public List<DamageData> damageData;
@@ -31,9 +31,11 @@ public class ProjectileBehaviour : MonoBehaviour
     {
         if(Tools.CheckIfInMask(collideMask, other.gameObject.layer) == false)
         {
+            Debug.Log("Target not in mask. Tag is " + other.gameObject.tag);
             return;
         }
 
+        Debug.Log("Target in mask");
         switch (other.gameObject.tag)
         {
             case "Player":
@@ -49,6 +51,7 @@ public class ProjectileBehaviour : MonoBehaviour
                 CollisionBreakAble(other);
                 break;
             default:
+                Debug.Log("Unresolved TAG  |  " + other.gameObject.tag);
                 break;
         }
     }
@@ -82,6 +85,7 @@ public class ProjectileBehaviour : MonoBehaviour
 
     void CollisionPlayer(Collider other)
     {
+        Debug.Log("Collistion Player");
         if (phantomBullet == true)
         {
             data.bulletInfo.punchThrough--;
@@ -102,6 +106,7 @@ public class ProjectileBehaviour : MonoBehaviour
     }
     void CollisionEnemy(Collider other)
     {
+        Debug.Log("Collistion Enemy");
         if(phantomBullet == true)
         {
             data.bulletInfo.punchThrough--;
@@ -130,6 +135,7 @@ public class ProjectileBehaviour : MonoBehaviour
     }
     void CollisionHardSurface(Collider other)
     {
+        Debug.Log("Collistion Hard Surface");
         if(phantomBullet == true)
         {
             if (data.bulletInfo.punchThrough <= 0)
@@ -143,6 +149,7 @@ public class ProjectileBehaviour : MonoBehaviour
     }
     void CollisionBreakAble(Collider other)
     {
+        Debug.Log("Collisiton BreakAble");
         if (phantomBullet == true)
         {
             if (data.bulletInfo.punchThrough <= 0)

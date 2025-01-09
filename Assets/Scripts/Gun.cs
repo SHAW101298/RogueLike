@@ -214,9 +214,16 @@ public class Gun : MonoBehaviour
     private void FillBulletData(Vector3 dir, BulletData newBullet)
     {
         Debug.Log("Filling data with dir = " + dir);
-        newBullet.bulletInfo = projectilePrefab.bulletInfo;
+        //newBullet.bulletInfo = projectilePrefab.bulletInfo;
         newBullet.projectileBehaviour.owningFaction = ENUM_Faction.player;
         newBullet.projectileBehaviour.direction = dir * modifiedStats.projectileSpeed;
+
+        newBullet.bulletInfo.damageData = modifiedStats.damageArray;
+        newBullet.bulletInfo.afflictionChance = modifiedStats.afflictionChance;
+        newBullet.bulletInfo.critChance = modifiedStats.critChance;
+        newBullet.bulletInfo.critDamageMultiplier = modifiedStats.critMultiplier;
+        newBullet.bulletInfo.damageModifierWhenAfflicted = modifiedStats.damageMultipliersOnAffliction;
+        newBullet.bulletInfo.punchThrough = modifiedStats.punchThrough;
     }
 
     public void GunDealtDamage(int val)

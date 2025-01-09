@@ -66,7 +66,7 @@ public class EnemyData : UnitData
 
             fullDamage += calcDamage;
         }
-        ModifyHealth(fullDamage);
+        ModifyHealth(-fullDamage);
         return fullDamage;
     }
 
@@ -124,6 +124,7 @@ public class EnemyData : UnitData
     */
     void ModifyHealth(float value)
     {
+        Debug.Log("Modyfing Health of Enemy");
         stats.health += value;
         CheckIfAlive();
     }
