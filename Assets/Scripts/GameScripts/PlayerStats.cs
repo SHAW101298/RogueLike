@@ -58,12 +58,16 @@ public class PlayerStats : MonoBehaviour
                 finalStats.stamina = finalStats.staminaMax;
                 regenerateStamina = false;
             }
+            ui.UpdateStaminaBar(finalStats.stamina / finalStats.staminaMax);
         }
     }
 
     public void CreateFinalStats()
     {
         finalStats.CombineStats(baseStats, bonusStats);
+        finalStats.stamina = finalStats.staminaMax;
+        finalStats.health = finalStats.healthMax;
+        finalStats.shield = finalStats.shieldMax;
     }
 
 }

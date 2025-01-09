@@ -51,7 +51,9 @@ public class PlayerData : NetworkBehaviour
     {
         GameObject characterObject = Instantiate(CharactersList.Instance.GetCharacter(character));
         SeperateGuns();
-        Destroy(characterData.character.gameObject);
+        Destroy(characterData.bodyObject.gameObject);
+        //Destroy(characterData.handsObject.gameObject);
+        //Destroy(characterData.character.gameObject);
 
         characterData = characterObject.GetComponent<CharacterData>();
         

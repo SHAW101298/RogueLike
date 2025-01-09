@@ -86,7 +86,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793204952247988842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -517,7 +517,7 @@ MonoBehaviour:
   moveState: 0
   groundCheckTransform: {fileID: 793204952247988842}
   groundedPlayer: 0
-  groundCheckDistance: 0.1
+  groundCheckDistance: 0.2
   velocity: {x: 0, y: 0, z: 0}
   moveSpeed: 3
   runSpeedMultiplier: 2
