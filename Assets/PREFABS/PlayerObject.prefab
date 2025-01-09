@@ -523,14 +523,15 @@ MonoBehaviour:
   runSpeedMultiplier: 2
   runningStaminaCost: 0.02
   isRunning: 0
-  jumpHeight: 0.5
-  jumpStaminaCost: 0.1
+  jumpHeight: 0.7
+  jumpStaminaCost: 5
   input: {x: 0, y: 0}
   dashDuration: 0.15
   dashStrength: 16
   dashCooldown: 1
-  dashStaminaCost: 0.1
+  dashStaminaCost: 10
   dashTimer: 0
+  dashOnCooldown: 0
   controller: {fileID: 4509776595623541294}
   stats: {fileID: 4509776595623541289}
   data: {fileID: 4509776595623541290}
