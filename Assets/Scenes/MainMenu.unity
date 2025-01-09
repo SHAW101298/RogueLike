@@ -2140,6 +2140,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132453669}
   m_CullTransparentMesh: 1
+--- !u!1 &148838095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 148838096}
+  m_Layer: 0
+  m_Name: ==================
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &148838096
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148838095}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9825938, y: 19.360376, z: -41.348385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &151685386
 GameObject:
   m_ObjectHideFlags: 0
@@ -3610,6 +3641,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248367436}
   m_CullTransparentMesh: 1
+--- !u!1 &251160234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 251160236}
+  - component: {fileID: 251160235}
+  m_Layer: 0
+  m_Name: Medium
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &251160235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251160234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e83a936a577334eb47f8f5fd614f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldMultiplier: 1.2
+  enemyHealthMultiplier: 1.3
+  enemyDamageMultiplier: 1.3
+  playerStaminaMultiplier: 1
+  playerStaminaRegenMultiplier: 1
+  enemyFlatResistanceIncrease:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  enemyPercentResistanceIncrease:
+    data:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+--- !u!4 &251160236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251160234}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.9825938, y: 19.360376, z: -41.348385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &251980458
 GameObject:
   m_ObjectHideFlags: 0
@@ -4920,6 +5016,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345231475}
   m_CullTransparentMesh: 1
+--- !u!1 &352257861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 352257863}
+  - component: {fileID: 352257862}
+  m_Layer: 0
+  m_Name: Very Easy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &352257862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352257861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e83a936a577334eb47f8f5fd614f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldMultiplier: 1.5
+  enemyHealthMultiplier: 0.7
+  enemyDamageMultiplier: 0.7
+  playerStaminaMultiplier: 1.25
+  playerStaminaRegenMultiplier: 1.25
+  enemyFlatResistanceIncrease:
+    data:
+    - -5
+    - -5
+    - -5
+    - -5
+    - -5
+    - -5
+  enemyPercentResistanceIncrease:
+    data:
+    - -20
+    - -20
+    - -20
+    - -20
+    - -20
+    - -20
+--- !u!4 &352257863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352257861}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.9825938, y: 19.360376, z: -41.348385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &362580613
 GameObject:
   m_ObjectHideFlags: 0
@@ -11980,6 +12141,71 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!1 &868613946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 868613948}
+  - component: {fileID: 868613947}
+  m_Layer: 0
+  m_Name: Hard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &868613947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868613946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e83a936a577334eb47f8f5fd614f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldMultiplier: 1.5
+  enemyHealthMultiplier: 1.3
+  enemyDamageMultiplier: 1.5
+  playerStaminaMultiplier: 1
+  playerStaminaRegenMultiplier: 1
+  enemyFlatResistanceIncrease:
+    data:
+    - 5
+    - 5
+    - 5
+    - 5
+    - 5
+    - 5
+  enemyPercentResistanceIncrease:
+    data:
+    - 15
+    - 15
+    - 15
+    - 15
+    - 15
+    - 15
+--- !u!4 &868613948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868613946}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.9825938, y: 19.360376, z: -41.348385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &875691897
 GameObject:
   m_ObjectHideFlags: 0
@@ -14728,6 +14954,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183499736}
   m_CullTransparentMesh: 1
+--- !u!1 &1191196257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1191196259}
+  - component: {fileID: 1191196258}
+  m_Layer: 0
+  m_Name: Easy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1191196258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191196257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e83a936a577334eb47f8f5fd614f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldMultiplier: 1
+  enemyHealthMultiplier: 1
+  enemyDamageMultiplier: 1
+  playerStaminaMultiplier: 1
+  playerStaminaRegenMultiplier: 1
+  enemyFlatResistanceIncrease:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  enemyPercentResistanceIncrease:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+--- !u!4 &1191196259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191196257}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.9825938, y: 19.360376, z: -41.348385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1192651903
 GameObject:
   m_ObjectHideFlags: 0
@@ -17252,7 +17543,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1453541161
 GameObject:
@@ -21724,6 +22015,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665158443}
   m_CullTransparentMesh: 1
+--- !u!1 &1665539409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1665539411}
+  - component: {fileID: 1665539410}
+  m_Layer: 0
+  m_Name: God Intended
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1665539410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665539409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e83a936a577334eb47f8f5fd614f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldMultiplier: 2
+  enemyHealthMultiplier: 1.6
+  enemyDamageMultiplier: 1.6
+  playerStaminaMultiplier: 0.8
+  playerStaminaRegenMultiplier: 0.8
+  enemyFlatResistanceIncrease:
+    data:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+  enemyPercentResistanceIncrease:
+    data:
+    - 25
+    - 25
+    - 25
+    - 25
+    - 25
+    - 25
+--- !u!4 &1665539411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665539409}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.9825938, y: 19.360376, z: -41.348385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1666509215
 GameObject:
   m_ObjectHideFlags: 0
@@ -28124,6 +28480,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2060332570}
   - component: {fileID: 2060332569}
+  - component: {fileID: 2060332571}
+  - component: {fileID: 2060332575}
+  - component: {fileID: 2060332574}
+  - component: {fileID: 2060332573}
+  - component: {fileID: 2060332572}
   m_Layer: 0
   m_Name: Game Options
   m_TagString: Untagged
@@ -28144,6 +28505,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficultyLevel: 0
+  settings:
+  - {fileID: 2060332571}
+  - {fileID: 2060332575}
+  - {fileID: 2060332574}
+  - {fileID: 2060332573}
+  - {fileID: 2060332572}
 --- !u!4 &2060332570
 Transform:
   m_ObjectHideFlags: 0
@@ -28159,6 +28526,171 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2060332571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060332568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e83a936a577334eb47f8f5fd614f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldMultiplier: 1.5
+  enemyHealthMultiplier: 0.7
+  enemyDamageMultiplier: 0.7
+  playerStaminaMultiplier: 1.25
+  playerStaminaRegenMultiplier: 1.25
+  enemyFlatResistanceIncrease:
+    data:
+    - -5
+    - -5
+    - -5
+    - -5
+    - -5
+    - -5
+  enemyPercentResistanceIncrease:
+    data:
+    - -20
+    - -20
+    - -20
+    - -20
+    - -20
+    - -20
+--- !u!114 &2060332572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060332568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e83a936a577334eb47f8f5fd614f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldMultiplier: 2
+  enemyHealthMultiplier: 1.6
+  enemyDamageMultiplier: 1.6
+  playerStaminaMultiplier: 0.8
+  playerStaminaRegenMultiplier: 0.8
+  enemyFlatResistanceIncrease:
+    data:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+  enemyPercentResistanceIncrease:
+    data:
+    - 25
+    - 25
+    - 25
+    - 25
+    - 25
+    - 25
+--- !u!114 &2060332573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060332568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e83a936a577334eb47f8f5fd614f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldMultiplier: 1.5
+  enemyHealthMultiplier: 1.3
+  enemyDamageMultiplier: 1.5
+  playerStaminaMultiplier: 1
+  playerStaminaRegenMultiplier: 1
+  enemyFlatResistanceIncrease:
+    data:
+    - 5
+    - 5
+    - 5
+    - 5
+    - 5
+    - 5
+  enemyPercentResistanceIncrease:
+    data:
+    - 15
+    - 15
+    - 15
+    - 15
+    - 15
+    - 15
+--- !u!114 &2060332574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060332568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e83a936a577334eb47f8f5fd614f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldMultiplier: 1.2
+  enemyHealthMultiplier: 1.3
+  enemyDamageMultiplier: 1.3
+  playerStaminaMultiplier: 1
+  playerStaminaRegenMultiplier: 1
+  enemyFlatResistanceIncrease:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  enemyPercentResistanceIncrease:
+    data:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+--- !u!114 &2060332575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060332568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e83a936a577334eb47f8f5fd614f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldMultiplier: 1
+  enemyHealthMultiplier: 1
+  enemyDamageMultiplier: 1
+  playerStaminaMultiplier: 1
+  playerStaminaRegenMultiplier: 1
+  enemyFlatResistanceIncrease:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  enemyPercentResistanceIncrease:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
 --- !u!1 &2065939761
 GameObject:
   m_ObjectHideFlags: 0

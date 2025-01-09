@@ -20,9 +20,20 @@ public class Stats:MonoBehaviour
     public float shieldRegen;
     public float shieldDelay;
 
-    public float[] flatResistances;
-    public float[] percentResistances;
+    //public float[] flatResistances;
+    //public float[] percentResistances;
+    public ElementalTable flatResistance;
+    public ElementalTable percentResistance;
 
+    public float GetFlatResist(ENUM_DamageType type)
+    {
+        return flatResistance.GetData(type);
+    }
+    public float GetPercentResist(ENUM_DamageType type)
+    {
+        return percentResistance.GetData(type);
+    }
+    /*
     public float GetFlatResist(ENUM_DamageType type)
     {
         return flatResistances[(int)type];
@@ -31,12 +42,15 @@ public class Stats:MonoBehaviour
     {
         return percentResistances[(int)type];
     }
+    */
 
     void CreateResistanceTables()
     {
-        int size = (int)ENUM_DamageType.Piercing + 1;
-        flatResistances = new float[size];
-        percentResistances = new float[size];
+        flatResistance = new ElementalTable();
+        percentResistance = new ElementalTable();
+        //int size = (int)ENUM_DamageType.Piercing + 1;
+        //flatResistances = new float[size];
+        //percentResistances = new float[size];
     }
 
     public void CopyValues(Stats stats1)
@@ -50,11 +64,16 @@ public class Stats:MonoBehaviour
         shieldMax = stats1.shieldMax;
         shieldRegen = stats1.shieldRegen;
         shieldDelay = stats1.shieldDelay;
+
+        flatResistance.SetData(stats1.flatResistance);
+        percentResistance.SetData(stats1.percentResistance);
+        /*
         for(int i = 0; i < 6; i++)
         {
             flatResistances[i] = stats1.flatResistances[i];
             percentResistances[i] = stats1.percentResistances[i];
         }
+        */
     }
     public void CombineStats(Stats stats1, Stats stats2)
     {
@@ -68,11 +87,19 @@ public class Stats:MonoBehaviour
         shieldRegen = stats1.shieldRegen + stats2.shieldRegen;
         shieldDelay = stats1.shieldDelay + stats2.shieldDelay;
 
+        flatResistance.AddData(stats1.flatResistance);
+        flatResistance.AddData(stats2.flatResistance);
+
+        percentResistance.AddData(stats1.percentResistance);
+        percentResistance.AddData(stats2.percentResistance);
+
+        /*
         for (int i = 0; i < 6; i++)
         {
             flatResistances[i] = stats1.flatResistances[i] + stats2.flatResistances[i];
             percentResistances[i] = stats1.percentResistances[i] + stats2.percentResistances[i];
         }
+        */
     }
 
     public Stats()

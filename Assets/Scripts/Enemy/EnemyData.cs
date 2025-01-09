@@ -9,6 +9,8 @@ public class EnemyData : UnitData
     public Afflictions afflictions;
     public Enemy_AI ai;
 
+    [SerializeField] float baseGoldReward;
+
     // Start is called before the first frame update
     void Start()
     {

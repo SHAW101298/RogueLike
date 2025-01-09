@@ -23,9 +23,16 @@ public class GameOptions : MonoBehaviour
 
 
     public ENUM_DifficultySetting difficultyLevel;
+    public DifficultySettings[] settings;
 
     void Start()
     {
         DontDestroyOnLoad(this);
+    }
+
+    public void ApplyDifficultySettings()
+    {
+        int lvl = (int)difficultyLevel;
+        settings[lvl].Apply();
     }
 }
