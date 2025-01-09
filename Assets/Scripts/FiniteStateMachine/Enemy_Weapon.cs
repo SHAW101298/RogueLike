@@ -51,7 +51,7 @@ public class Enemy_Weapon : MonoBehaviour
         GameObject GO_Bullet = Instantiate(projectilePrefab.gameObject);
         GO_Bullet.transform.position = projectileSpawnPosition.position;
         BulletData newBullet = GO_Bullet.GetComponent<BulletData>();
-        Vector3 dir = Tools.Direction(ai.attack.attackTarget.transform.position, projectileSpawnPosition.position);
+        Vector3 dir = Tools.Direction(ai.attack.attackTarget.GetShootTarget(), projectileSpawnPosition.position);
         FillBulletData(dir, newBullet);
     }
     private void FillBulletData(Vector3 dir, BulletData newBullet)

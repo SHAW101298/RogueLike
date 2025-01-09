@@ -17,6 +17,7 @@ public class PlayerData : NetworkBehaviour
     public CharacterData characterData;
     public CameraHookUp cameraHookUp;
     public PlayerAmmunition ammo;
+    [SerializeField] Transform shootTarget;
 
     private void Awake()
     {
@@ -32,6 +33,10 @@ public class PlayerData : NetworkBehaviour
         
     }
 
+    public Vector3 GetShootTarget()
+    {
+        return shootTarget.position;
+    }
     public bool AttemptPickingGun(Gun gun)
     {
         Debug.Log("Attempting to pick gun");

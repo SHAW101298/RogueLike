@@ -118,7 +118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2170068165640874827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -149,20 +149,22 @@ MonoBehaviour:
   shield: 0
   shieldRegen: 0
   shieldDelay: 0
-  flatResistances:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  percentResistances:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  flatResistance:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  percentResistance:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
 --- !u!1 &2659700380123081331
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2659700380123081331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -219,20 +221,22 @@ MonoBehaviour:
   shield: 0
   shieldRegen: 0
   shieldDelay: 0
-  flatResistances:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  percentResistances:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  flatResistance:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  percentResistance:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
 --- !u!1 &3363051622732082189
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +488,7 @@ MonoBehaviour:
   characterData: {fileID: 9058961385685546959}
   cameraHookUp: {fileID: 0}
   ammo: {fileID: 883404448956278866}
+  shootTarget: {fileID: 6102983703050932154}
 --- !u!114 &4509776595623541289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,7 +948,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6257798246643262460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -974,17 +979,19 @@ MonoBehaviour:
   shield: 0
   shieldRegen: 0
   shieldDelay: 0
-  flatResistances:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  percentResistances:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  flatResistance:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  percentResistance:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0

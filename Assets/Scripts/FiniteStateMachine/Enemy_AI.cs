@@ -48,7 +48,9 @@ public abstract class Enemy_AI : NetworkBehaviour
 
     public void RotateTowardsTarget()
     {
-        dirRotation = Tools.Direction(target.transform.position, transform.position + Vector3.up);
+        Vector3 targetPos = target.transform.position;
+        targetPos.y = transform.position.y;
+        dirRotation = Tools.Direction(targetPos, transform.position);
         lookRotation = Quaternion.LookRotation(dirRotation);
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime *rotationSpeed);
     }
