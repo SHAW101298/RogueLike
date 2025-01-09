@@ -203,7 +203,7 @@ public class RoomGenerator : NetworkBehaviour
                 Debug.LogWarning("I is = " + i);
                 continue;
             }
-            Debug.Log("I = " + i + " \n" + currentRooms[i].gameObject.name);
+            //Debug.Log("I = " + i + " \n" + currentRooms[i].gameObject.name);
             currentRooms[i].DestroyEnemiesInRoom();
             Destroy(currentRooms[i].gameObject);
             currentRooms.RemoveAt(i);
@@ -213,7 +213,7 @@ public class RoomGenerator : NetworkBehaviour
 
     void DelayNavBaking()
     {
-        Debug.Log("Delaying Nav Baking");
+        //Debug.Log("Delaying Nav Baking");
         timer = amountToDelay;
     }
     void BuildNavMesh()

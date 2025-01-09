@@ -3967,8 +3967,8 @@ MonoBehaviour:
   healthDelay: 5
   staminaMax: 100
   stamina: 100
-  staminaRegen: 1
-  staminaDelay: 5
+  staminaRegen: 5
+  staminaDelay: 3
   shieldMax: 30
   shield: 30
   shieldRegen: 5
