@@ -65,6 +65,7 @@ public abstract class Enemy_AI : NetworkBehaviour
 
 
 
+
     // In idle state
     // Just chillin
     // Player enters room

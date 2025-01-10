@@ -103,9 +103,12 @@ public class ProjectileBehaviour : MonoBehaviour
         }
         if(owningFaction == ENUM_Faction.enemy)
         {
-            Debug.Log("Player Hit");
+            //Debug.Log("Player Hit");
             PlayerData player = other.gameObject.GetComponent<PlayerData>();
-            player.HitPlayer(data.bulletInfo);
+            if(PlayerList.Instance.GetMyPlayer() == player)
+            {
+                player.HitPlayer(data.bulletInfo);
+            }
 
 
 

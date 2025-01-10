@@ -98,7 +98,7 @@ public class PlayerData : NetworkBehaviour
     bool CheckIfCrit(float critChance)
     {
         int rnd = Random.Range(0, 100);
-        Debug.Log("Rnd = " + rnd + " | chance = " + critChance);
+        //Debug.Log("Rnd = " + rnd + " | chance = " + critChance);
         if (rnd < critChance)
         {
             return true;
@@ -108,7 +108,7 @@ public class PlayerData : NetworkBehaviour
     bool CheckIfAffliction(float affChance)
     {
         int rnd = Random.Range(0, 100);
-        Debug.Log("Rnd = " + rnd + " | chance = " + affChance);
+        //Debug.Log("Rnd = " + rnd + " | chance = " + affChance);
         if (rnd < affChance)
         {
             return true;

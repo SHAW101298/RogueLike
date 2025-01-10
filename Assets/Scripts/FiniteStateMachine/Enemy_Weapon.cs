@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Enemy_Weapon : MonoBehaviour
+public class Enemy_Weapon : NetworkBehaviour
 {
     [Header("Damage Data")]
     [SerializeField] List<DamageData> damage;
@@ -62,6 +63,22 @@ public class Enemy_Weapon : MonoBehaviour
         BulletData newBullet = GO_Bullet.GetComponent<BulletData>();
         Vector3 dir = Tools.Direction(ai.attack.attackTarget.GetShootTarget(), projectileSpawnPosition.position);
         FillBulletData(dir, newBullet);
+        SendBullet_ClientRPC(dir);
+    }
+    [ClientRpc]
+    public void SendBullet_ClientRPC(Vector3 dir)
+    {
+        // Host nie musi wytwarzaæ kopii pocisku
+        if(NetworkManager.Singleton.IsHost == true)
+        {
+            Debug.Log("IM HOST DUH");
+            return;
+        }
+
+        GameObject GO_Bullet = Instantiate(projectilePrefab.gameObject);
+        GO_Bullet.transform.position = projectileSpawnPosition.position;
+        BulletData newBullet = GO_Bullet.GetComponent<BulletData>();
+        FillBulletData(dir, newBullet);
     }
     private void FillBulletData(Vector3 dir, BulletData newBullet)
     {
@@ -93,5 +110,7 @@ public class Enemy_Weapon : MonoBehaviour
     {
         isReloading = true;
     }
+
+    
 
 }

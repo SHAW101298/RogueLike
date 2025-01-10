@@ -58,5 +58,4 @@ public class Enemy_AI_Ranged : Enemy_AI
     {
 
     }
-
 }
