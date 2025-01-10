@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class EnemyData : UnitData
@@ -124,18 +125,25 @@ public class EnemyData : UnitData
         return dealtDamage;
     }
     */
-    void ModifyHealth(float value)
+    [ServerRpc]
+    public void ModifyHealth_ServerRPC(float value)
     {
         Debug.Log("Modyfing Health of Enemy");
         stats.health += value;
         CheckIfAlive();
+    }
+
+    void ModifyHealth(float value)
+    {
+        ModifyHealth_ServerRPC(value);
     }
     void CheckIfAlive()
     {
         if(stats.health <= 0)
         {
             Debug.Log("Begin Dying Procedure");
-            Destroy(gameObject);
+            ai.NetworkObject.Despawn(true);
+            //Destroy(gameObject);
         }
     }
 
