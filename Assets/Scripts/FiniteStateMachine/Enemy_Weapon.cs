@@ -71,7 +71,7 @@ public class Enemy_Weapon : NetworkBehaviour
         // Host nie musi wytwarzaæ kopii pocisku
         if(NetworkManager.Singleton.IsHost == true)
         {
-            Debug.Log("IM HOST DUH");
+            //Debug.Log("IM HOST DUH");
             return;
         }
 
