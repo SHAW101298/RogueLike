@@ -40,6 +40,10 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Animacja przeladowywania");
         doZrobienia.Add("Pobranie listy broni od graczy chwile po stworzeniu ich obiektu w swiecie");
         //doZrobienia.Add("Opcje w grze, typu zmiana rozdzielczosci, tryb okienkowy");
+        doZrobienia.Add("Poziom trudnosci powinien być aplikowany, gdy gracz dołącza do pokoju");
+        doZrobienia.Add("Zapisac poziom trudnosci w lobby");
+        doZrobienia.Add("Zapisywac ilosc pieniedzy kazdego gracza");
+        doZrobienia.Add("Wypadanie rzeczy z przeciwnikow gdy umieraja");
     }
 
 }
