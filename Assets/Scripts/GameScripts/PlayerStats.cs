@@ -14,6 +14,11 @@ public class PlayerStats : MonoBehaviour
 
     float staminaRegenTimer;
     bool regenerateStamina;
+    float shieldRegenTimer;
+    bool regenerateShield;
+    float healthRegenTimer;
+    bool regenerateHealth;
+
     public float accuracy;
 
     public bool CheckIfCanUseStamina(float val)
@@ -35,21 +40,52 @@ public class PlayerStats : MonoBehaviour
         staminaRegenTimer = finalStats.staminaDelay;
         ui.UpdateStaminaBar(finalStats.stamina / finalStats.staminaMax);
     }
-    public void ModifyHealth(float val)
+    public void DecreaseHealth(float val)
     {
-        finalStats.health += val;
-        ui.UpdateHealthBar(finalStats.health / finalStats.healthMax);
-
-
-        if(finalStats.health <= 0)
+        if(finalStats.shield > 0)
         {
-            Debug.LogError("PLAYER DIES");
+            if(val > finalStats.shield)
+            {
+                val -= finalStats.shield;
+                finalStats.shield = 0;
+            }
+            else
+            {
+                float temp = finalStats.shield;
+                finalStats.shield -= val;
+                val -= temp;
+            }
+            regenerateShield = true;
+            shieldRegenTimer = finalStats.shieldDelay;
+            ui.UpdateShieldBar(finalStats.shield/finalStats.shieldMax);
+        }
+
+        if(val > 0)
+        {
+            finalStats.health -= val;
+            ui.UpdateHealthBar(finalStats.health / finalStats.healthMax);
+
+
+            if (finalStats.health <= 0)
+            {
+                Debug.LogError("PLAYER DIES");
+            }
+        }
+    }
+    public void DecreaseShield(float val)
+    {
+        finalStats.shield -= val;
+        if(finalStats.shield < 0)
+        {
+            finalStats.shield = 0;
         }
     }
 
     private void Update()
     {
         StaminaRegeneration();
+        ShieldRegeneration();
+        HealthRegeneration();
     }
 
     void StaminaRegeneration()
@@ -72,9 +108,45 @@ public class PlayerStats : MonoBehaviour
             ui.UpdateStaminaBar(finalStats.stamina / finalStats.staminaMax);
         }
     }
+    void ShieldRegeneration()
+    {
+        if (regenerateShield == false)
+        {
+            return;
+        }
+
+        shieldRegenTimer -= Time.deltaTime;
+        if (shieldRegenTimer <= 0)
+        {
+            shieldRegenTimer = 0;
+            finalStats.shield += finalStats.shieldRegen * Time.deltaTime;
+            if (finalStats.shield > finalStats.shieldMax)
+            {
+                finalStats.shield = finalStats.shieldMax;
+                regenerateStamina = false;
+            }
+            ui.UpdateShieldBar(finalStats.shield / finalStats.shieldMax);
+        }
+    }
     void HealthRegeneration()
     {
+        if (regenerateHealth == false)
+        {
+            return;
+        }
 
+        healthRegenTimer -= Time.deltaTime;
+        if (healthRegenTimer <= 0)
+        {
+            healthRegenTimer = 0;
+            finalStats.health += finalStats.healthRegen * Time.deltaTime;
+            if (finalStats.health > finalStats.healthMax)
+            {
+                finalStats.health = finalStats.healthMax;
+                regenerateStamina = false;
+            }
+            ui.UpdateHealthBar(finalStats.health / finalStats.healthRegen);
+        }
     }
 
     public void CreateFinalStats()

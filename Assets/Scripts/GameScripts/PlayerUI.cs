@@ -13,6 +13,7 @@ public class PlayerUI : MonoBehaviour
     public Text ammoCurrent;
     public Image staminaBar;
     public Image healthBar;
+    public Image shieldBar;
     [Header("REF")]
     public PlayerGunManagement gunManagement;
     public CrossHairAnimation crossAnimation;
@@ -39,6 +40,10 @@ public class PlayerUI : MonoBehaviour
     public void UpdateHealthBar(float percentage)
     {
         healthBar.fillAmount = percentage;
+    }
+    public void UpdateShieldBar(float percentage)
+    {
+        shieldBar.fillAmount = percentage;
     }
     // Start is called before the first frame update
     void Start()

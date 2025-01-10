@@ -93,7 +93,7 @@ public class PlayerData : NetworkBehaviour
 
             fullDamage += calcDamage;
         }
-        stats.ModifyHealth(-fullDamage);
+        stats.DecreaseHealth(fullDamage);
     }
     bool CheckIfCrit(float critChance)
     {
