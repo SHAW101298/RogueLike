@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 6259576926299416044}
   - component: {fileID: 9058961385685546959}
   - component: {fileID: 883404448956278866}
+  - component: {fileID: 1421716081283059870}
   m_Layer: 8
   m_Name: PlayerObject
   m_TagString: Player
@@ -488,6 +489,7 @@ MonoBehaviour:
   characterData: {fileID: 9058961385685546959}
   cameraHookUp: {fileID: 0}
   ammo: {fileID: 883404448956278866}
+  afflictions: {fileID: 1421716081283059870}
   shootTarget: {fileID: 6102983703050932154}
 --- !u!114 &4509776595623541289
 MonoBehaviour:
@@ -578,6 +580,7 @@ MonoBehaviour:
   magazineCurrent: {fileID: 0}
   ammoCurrent: {fileID: 0}
   staminaBar: {fileID: 0}
+  healthBar: {fileID: 0}
   gunManagement: {fileID: 3632390913725360339}
   crossAnimation: {fileID: 0}
   data: {fileID: 4509776595623541290}
@@ -883,7 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bfd97b13dd37454a9be7e488e2153ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  data: {fileID: 4509776595623541290}
   SMG: 350
   SMGMax: 350
   ShotGun: 100
@@ -892,6 +895,37 @@ MonoBehaviour:
   SniperMax: 45
   RocketLauncher: 8
   RocketLauncherMax: 8
+--- !u!114 &1421716081283059870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4509776595623541335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727c051b534eb434fa23930ebeb1606d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  afflictions:
+  - type: 0
+    afflictionActive: 0
+    remainingTime: 0
+  - type: 1
+    afflictionActive: 0
+    remainingTime: 0
+  - type: 2
+    afflictionActive: 0
+    remainingTime: 0
+  - type: 3
+    afflictionActive: 0
+    remainingTime: 0
+  - type: 4
+    afflictionActive: 0
+    remainingTime: 0
+  - type: 5
+    afflictionActive: 0
+    remainingTime: 0
 --- !u!1 &6135379246055899293
 GameObject:
   m_ObjectHideFlags: 0

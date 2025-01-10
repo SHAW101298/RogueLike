@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class Enemy_Weapon : MonoBehaviour
 {
+    [Header("Damage Data")]
+    [SerializeField] List<DamageData> damage;
+    [SerializeField] ElementalTable afflictionModifiers;
+    [SerializeField] float critChance;
+    [SerializeField] float critMultiplier;
+    [SerializeField] float afflictionChance;
+    [SerializeField] int punchThrough;
+    [Header("Ref")]
     [SerializeField] BulletData projectilePrefab;
     [SerializeField] Transform projectileSpawnPosition;
     [SerializeField] Enemy_AI ai;
+    [Header("Limiters")]
     [SerializeField] int magazineCurrent;
     [SerializeField] int magazineMax;
     [SerializeField] float projectileSpeed;
@@ -56,9 +65,16 @@ public class Enemy_Weapon : MonoBehaviour
     }
     private void FillBulletData(Vector3 dir, BulletData newBullet)
     {
-        newBullet.bulletInfo = projectilePrefab.bulletInfo;
+        //newBullet.bulletInfo = projectilePrefab.bulletInfo;
         newBullet.projectileBehaviour.owningFaction = ENUM_Faction.enemy;
         dir *= projectileSpeed;
+
+        newBullet.bulletInfo.damageData = damage;
+        newBullet.bulletInfo.damageModifierWhenAfflicted = afflictionModifiers;
+        newBullet.bulletInfo.critChance = critChance;
+        newBullet.bulletInfo.critDamageMultiplier = critMultiplier;
+        newBullet.bulletInfo.afflictionChance = afflictionChance;
+        newBullet.bulletInfo.punchThrough = punchThrough;
 
         newBullet.projectileBehaviour.direction = dir;
         //Debug.Log("dir * speed = " + dir);

@@ -17,6 +17,7 @@ public class PlayerData : NetworkBehaviour
     public CharacterData characterData;
     public CameraHookUp cameraHookUp;
     public PlayerAmmunition ammo;
+    public Afflictions afflictions;
     [SerializeField] Transform shootTarget;
 
     private void Awake()
@@ -44,6 +45,75 @@ public class PlayerData : NetworkBehaviour
         bool success = gunManagement.TryPickingUpGun(gun);
 
         return success;
+    }
+    public void HitPlayer(BulletInfo info)
+    {
+        float fullDamage = 0;
+        float calcDamage = 0;
+        float dmgModifier = 0;
+        float flatRes = 0;
+        float percRes = 0;
+        float reduction = 0;
+        DamageData dmgData;
+
+        for (int i = 0; i < info.damageData.Count; i++)
+        {
+            dmgData = info.damageData[i];
+            // Base Damage
+            calcDamage = dmgData.damage;
+            // Damage modifier if target under affliction
+            dmgModifier = info.damageModifierWhenAfflicted.GetData(dmgData.damageType);
+
+            flatRes = stats.finalStats.GetFlatResist(dmgData.damageType);
+            percRes = stats.finalStats.GetPercentResist(dmgData.damageType);
+
+            calcDamage -= flatRes;
+            reduction = (calcDamage / 100) * percRes;
+            calcDamage -= reduction;
+
+            if (dmgModifier != 1)
+            {
+                // Modify damage if afflicted
+                if (afflictions.ReturnAfflictionState(dmgData.damageType) == true)
+                {
+                    calcDamage *= dmgModifier;
+                }
+            }
+
+            // Check if scored a crit
+            if (CheckIfCrit(info.critChance) == true)
+            {
+                calcDamage *= info.critDamageMultiplier;
+            }
+            // Check if we apply status
+            if (CheckIfAffliction(info.afflictionChance) == true)
+            {
+                afflictions.ApplyAfflicion(dmgData.damageType);
+            }
+
+            fullDamage += calcDamage;
+        }
+        stats.ModifyHealth(-fullDamage);
+    }
+    bool CheckIfCrit(float critChance)
+    {
+        int rnd = Random.Range(0, 100);
+        Debug.Log("Rnd = " + rnd + " | chance = " + critChance);
+        if (rnd < critChance)
+        {
+            return true;
+        }
+        return false;
+    }
+    bool CheckIfAffliction(float affChance)
+    {
+        int rnd = Random.Range(0, 100);
+        Debug.Log("Rnd = " + rnd + " | chance = " + affChance);
+        if (rnd < affChance)
+        {
+            return true;
+        }
+        return false;
     }
     public void TeleportPlayer(Vector3 pos)
     {

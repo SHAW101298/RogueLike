@@ -101,7 +101,22 @@ public class ProjectileBehaviour : MonoBehaviour
         {
             return;
         }
-        Debug.Log("Player Hit");
+        if(owningFaction == ENUM_Faction.enemy)
+        {
+            Debug.Log("Player Hit");
+            PlayerData player = other.gameObject.GetComponent<PlayerData>();
+            player.HitPlayer(data.bulletInfo);
+
+
+
+
+            data.bulletInfo.punchThrough--;
+            if (data.bulletInfo.punchThrough <= 0)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
 
     }
     void CollisionEnemy(Collider other)

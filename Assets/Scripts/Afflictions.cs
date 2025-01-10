@@ -24,7 +24,7 @@ public class Afflictions : MonoBehaviour
         int size = (int)ENUM_DamageType.Piercing + 1;
         afflictions = new Affliction[size];
         Affliction tempAffliction;
-        for (int i = 0; i < (int)ENUM_DamageType.Piercing; i++)
+        for (int i = 0; i < size; i++)
         {
             tempAffliction = new Affliction();
             tempAffliction.type = (ENUM_DamageType)i;

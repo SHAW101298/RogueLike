@@ -35,6 +35,17 @@ public class PlayerStats : MonoBehaviour
         staminaRegenTimer = finalStats.staminaDelay;
         ui.UpdateStaminaBar(finalStats.stamina / finalStats.staminaMax);
     }
+    public void ModifyHealth(float val)
+    {
+        finalStats.health += val;
+        ui.UpdateHealthBar(finalStats.health / finalStats.healthMax);
+
+
+        if(finalStats.health <= 0)
+        {
+            Debug.LogError("PLAYER DIES");
+        }
+    }
 
     private void Update()
     {
@@ -60,6 +71,10 @@ public class PlayerStats : MonoBehaviour
             }
             ui.UpdateStaminaBar(finalStats.stamina / finalStats.staminaMax);
         }
+    }
+    void HealthRegeneration()
+    {
+
     }
 
     public void CreateFinalStats()

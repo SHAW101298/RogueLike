@@ -63,6 +63,7 @@ public class PlayerInitialization : NetworkBehaviour
             playerData.ui.ammoCurrent = UI_HookUpScript.Instance.ammoCurrent;
             playerData.ui.magazineCurrent = UI_HookUpScript.Instance.magazineCurrent;
             playerData.ui.staminaBar = UI_HookUpScript.Instance.staminaBar;
+            playerData.ui.healthBar = UI_HookUpScript.Instance.healthBar;
             playerData.ui.characterChoosingWindow = UI_HookUpScript.Instance.characterSelector;
             playerData.ui.workShopWindow = UI_HookUpScript.Instance.workshop;
             UI_HookUpScript.Instance.player = playerData;

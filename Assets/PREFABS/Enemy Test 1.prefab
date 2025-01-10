@@ -217,7 +217,7 @@ MonoBehaviour:
   - type: 4
     afflictionActive: 0
     remainingTime: 0
-  - type: 0
+  - type: 5
     afflictionActive: 0
     remainingTime: 0
 --- !u!195 &6369748041881690602
@@ -280,6 +280,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15a31bfe168950468e5b0f805ecf498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage:
+  - damage: 7
+    damageType: 5
+  afflictionModifiers:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  critChance: 0
+  critMultiplier: 1
+  afflictionChance: 0
+  punchThrough: 0
   projectilePrefab: {fileID: 8624074402406383019, guid: c66acb7610255a34595dba7f7f8bc424,
     type: 3}
   projectileSpawnPosition: {fileID: 6369748043423012790}
