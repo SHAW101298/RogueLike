@@ -69,6 +69,12 @@ public class EnemyData : UnitData
 
             fullDamage += calcDamage;
         }
+
+        Debug.Log("Full Damage = " + fullDamage);
+        if(fullDamage < 0)
+        {
+            fullDamage = 1;
+        }
         ModifyHealth(-fullDamage);
         return fullDamage;
     }

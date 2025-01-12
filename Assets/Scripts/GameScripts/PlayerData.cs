@@ -369,7 +369,7 @@ public class PlayerData : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void GunScroll_ServerRPC(int slot, ulong requestingPlayer)
     {
-        Debug.Log("Player " + requestingPlayer + " scrolls into slot = " + slot);
+        //Debug.Log("Player " + requestingPlayer + " scrolls into slot = " + slot);
         GunScroll_ClientRPC(slot, requestingPlayer);
     }
     [ClientRpc]
@@ -377,7 +377,7 @@ public class PlayerData : NetworkBehaviour
     {
         if(requestingPlayer == NetworkManager.Singleton.LocalClientId)
         {
-            Debug.Log("IM the scrolling one");
+            //Debug.Log("IM the scrolling one");
             return;
         }
         gunManagement.SelectGun(slot);

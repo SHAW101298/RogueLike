@@ -35,6 +35,7 @@ public class GameSetup : MonoBehaviour
         CreateBasicGuns();
         roomGenerator.FirstRoomGeneration();
         CreateMapForOtherPlayers();
+        //GameOptions.Instance.ApplyDifficultySettings();
     }
 
 

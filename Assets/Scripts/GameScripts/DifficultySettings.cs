@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DifficultySettings : MonoBehaviour
 {
+    public ENUM_DifficultySetting setting;
     public float goldMultiplier;
     public float enemyHealthMultiplier;
     public float enemyShieldMultiplier;
@@ -20,6 +21,7 @@ public class DifficultySettings : MonoBehaviour
 
     public void Apply()
     {
+        Debug.Log("Applying difficulty setting " + setting.ToString());
         foreach(RoomManager room in RoomGenerator.Instance.currentRooms)
         {
             foreach(EnemyData enemy in room.enemiesInRoom)

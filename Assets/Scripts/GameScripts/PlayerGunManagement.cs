@@ -94,7 +94,7 @@ public class PlayerGunManagement : MonoBehaviour
 
         if(context.performed == true)
         {
-            Debug.Log("Scroll performed");
+            //Debug.Log("Scroll performed");
 
             if (mouseScroll.y > 0)
             {

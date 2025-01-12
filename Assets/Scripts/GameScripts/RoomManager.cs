@@ -89,9 +89,10 @@ public class RoomManager : NetworkBehaviour
 
     public void SpawnEnemies()
     {
+        Debug.Log("Spawning Enemies");
         if (spawningData.Count > 0)
         {
-            Debug.Log("Instances to create = " + spawningData.Count);
+            //Debug.Log("Instances to create = " + spawningData.Count);
             foreach(Room_SpawningData data in spawningData)
             {
                 data.SpawnUnits();

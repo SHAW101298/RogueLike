@@ -180,7 +180,7 @@ public class RoomGenerator : NetworkBehaviour
         //Debug.Log("Destroying Rooms from " + earliestError);
         DestroyRoomsToError();
         GenerateRooms(earliestError);
-        Debug.Log("Earliest Error is " + earliestError);
+        //Debug.Log("Earliest Error is " + earliestError);
         earliestError = -1;
     }
 
@@ -228,6 +228,7 @@ public class RoomGenerator : NetworkBehaviour
             surface.BuildNavMesh();
             navMeshBuiltAlready = true;
             SpawnEnemiesInRooms();
+            GameOptions.Instance.ApplyDifficultySettings();
         }
 
         

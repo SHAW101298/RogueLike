@@ -16,7 +16,7 @@ public class Room_SpawningData : MonoBehaviour
         int i = 0;
         foreach(GameObject unit in units)
         {
-            Debug.Log("Desired position = " + gameObject.transform.position);
+            //Debug.Log("Desired position = " + gameObject.transform.position);
             unit_GO = Instantiate(unit, gameObject.transform.position, gameObject.transform.rotation);
             unit_GO.GetComponent<NetworkObject>().Spawn();
             unit_Data = unit_GO.GetComponent<EnemyData>();

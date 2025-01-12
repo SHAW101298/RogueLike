@@ -33,6 +33,7 @@ public class GameOptions : MonoBehaviour
     public void ApplyDifficultySettings()
     {
         int lvl = (int)difficultyLevel;
+        Debug.Log("Difficulty Level = " + lvl);
         settings[lvl].Apply();
     }
 }
