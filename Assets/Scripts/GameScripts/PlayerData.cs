@@ -356,13 +356,14 @@ public class PlayerData : NetworkBehaviour
         //Debug.Log("Sending Phantom Bullet CLIENT RPC from " + requestingPlayer);
         if(requestingPlayer == NetworkManager.Singleton.LocalClientId)
         {
-            //Debug.Log("IM owner, i just shot");
+            Debug.Log("IM owner, i just shot");
             //Debug.Log("Send Dir = " + dir);
             // Im the one shooting
             return;
         }
 
         // Shoot Phantom Bullet
+        Debug.Log("Sending Phantom Bullet");
         gunManagement.possesedGuns[gunSlot].CreatePhantomProjectile(dir);
     }
 

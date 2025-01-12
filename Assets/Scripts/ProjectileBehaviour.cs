@@ -146,8 +146,11 @@ public class ProjectileBehaviour : MonoBehaviour
 
         float dealtDamage = enemyData.HitEnemy(data.bulletInfo);
 
+        //Debug.Log("Remaining PunchThrough = " + data.bulletInfo.punchThrough);
+
         if (data.bulletInfo.punchThrough <= 0)
         {
+            //Debug.Log("Destroying Object name = " + gameObject.name);
             Destroy(gameObject);
         }
     }

@@ -70,7 +70,7 @@ public class EnemyData : UnitData
             fullDamage += calcDamage;
         }
 
-        Debug.Log("Full Damage = " + fullDamage);
+        //Debug.Log("Full Damage = " + fullDamage);
         if(fullDamage < 0)
         {
             fullDamage = 1;
@@ -156,7 +156,7 @@ public class EnemyData : UnitData
     bool CheckIfCrit(float critChance)
     {
         int rnd = Random.Range(0, 100);
-        Debug.Log("Rnd = " + rnd + " | chance = " + critChance);
+        //Debug.Log("Rnd = " + rnd + " | chance = " + critChance);
         if (rnd < critChance)
         {
             return true;
@@ -166,7 +166,7 @@ public class EnemyData : UnitData
     bool CheckIfAffliction(float affChance)
     {
         int rnd = Random.Range(0, 100);
-        Debug.Log("Rnd = " + rnd + " | chance = " + affChance);
+        //Debug.Log("Rnd = " + rnd + " | chance = " + affChance);
         if (rnd < affChance)
         {
             return true;
