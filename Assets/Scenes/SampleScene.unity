@@ -686,7 +686,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 810141078}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &97491099
 MonoBehaviour:
@@ -701,6 +701,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeLevel: 0
+  value: 0
+  amountIncreaseOnLevel: 0
   criticalMultiplierIncrease:
   - 0.5
   - 1
@@ -3581,7 +3583,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 810141078}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &563113314
 MonoBehaviour:
@@ -3596,6 +3598,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeLevel: 0
+  value: 0
+  amountIncreaseOnLevel: 0
 --- !u!1001 &582681332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5249,6 +5253,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 974959415}
   - {fileID: 1602365345}
   - {fileID: 1483547186}
   - {fileID: 2137222936}
@@ -6343,7 +6348,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 810141078}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &942229133
 MonoBehaviour:
@@ -6358,6 +6363,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeLevel: 0
+  value: 0
+  amountIncreaseOnLevel: 0
 --- !u!1 &956678394
 GameObject:
   m_ObjectHideFlags: 0
@@ -6635,6 +6642,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
+--- !u!1 &974959414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 974959415}
+  - component: {fileID: 974959416}
+  m_Layer: 0
+  m_Name: Chaotic Upgrade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &974959415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974959414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 810141078}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &974959416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974959414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24bd4614f0f6a84e8de7ca1d78871e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeLevel: 0
+  value: 0
+  amountIncreaseOnLevel: 0
+  upgrades: []
 --- !u!1 &988373729
 GameObject:
   m_ObjectHideFlags: 0
@@ -6769,7 +6824,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 810141078}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &990722823
 MonoBehaviour:
@@ -6784,6 +6839,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeLevel: 0
+  value: 0
+  amountIncreaseOnLevel: 0
   afflictionChanceIncrease:
   - 5
   - 10
@@ -7469,7 +7526,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 810141078}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1060549727
 MonoBehaviour:
@@ -7484,6 +7541,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeLevel: 0
+  value: 0
+  amountIncreaseOnLevel: 0
 --- !u!1001 &1065124063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8936,7 +8995,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 810141078}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1284712097
 MonoBehaviour:
@@ -8951,12 +9010,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeLevel: 0
+  value: 0
+  amountIncreaseOnLevel: 0
   criticalChanceIncrease:
   - 10
   - 20
   - 30
   - 40
   - 60
+  amount: 0
 --- !u!1 &1302062459
 GameObject:
   m_ObjectHideFlags: 0
@@ -9934,6 +9996,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeLevel: 0
+  value: 0
+  amountIncreaseOnLevel: 0
 --- !u!4 &1483547186
 Transform:
   m_ObjectHideFlags: 0
@@ -9947,7 +10011,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 810141078}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1491303049
 GameObject:
@@ -10309,6 +10373,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeLevel: 0
+  value: 0
+  amountIncreaseOnLevel: 0
   damageIncreaseOnLevels:
   - 20
   - 40
@@ -10328,7 +10394,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 810141078}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1628193506
 GameObject:
@@ -11414,7 +11480,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 810141078}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1828084592
 MonoBehaviour:
@@ -11429,6 +11495,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeLevel: 0
+  value: 0
+  amountIncreaseOnLevel: 0
 --- !u!1 &1834199275
 GameObject:
   m_ObjectHideFlags: 0
@@ -12821,7 +12889,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 810141078}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2137222937
 MonoBehaviour:
@@ -12836,6 +12904,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeLevel: 0
+  value: 0
+  amountIncreaseOnLevel: 0
 --- !u!1 &2141959057
 GameObject:
   m_ObjectHideFlags: 0

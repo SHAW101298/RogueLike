@@ -6,6 +6,8 @@ using UnityEngine;
 public abstract class GunUpgradeBase : MonoBehaviour
 {
     [SerializeField] protected int upgradeLevel;
+    [SerializeField] protected float value;
+    [SerializeField] protected float amountIncreaseOnLevel;
     public abstract void Apply(Gun gun);
     public abstract void Remove(Gun gun);
     public abstract string GetDescription();

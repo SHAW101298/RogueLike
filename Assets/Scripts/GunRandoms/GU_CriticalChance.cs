@@ -5,6 +5,7 @@ using UnityEngine;
 public class GU_CriticalChance : GunUpgradeBase
 {
     [SerializeField] private float[] criticalChanceIncrease;
+    [SerializeField] float amount;
     public override void Apply(Gun gun)
     {
         gun.modifiedStats.critChance += criticalChanceIncrease[upgradeLevel];
