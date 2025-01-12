@@ -15,7 +15,7 @@ public class UI_HookUpScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Instance Created");
+            //Debug.Log("Instance Created");
             Instance = this;
         }
     }

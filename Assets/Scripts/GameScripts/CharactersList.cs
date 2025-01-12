@@ -58,7 +58,7 @@ public class CharactersList : MonoBehaviour
     }
     public void ChangeCharacterForPlayer(int index, PlayerData player)
     {
-        Debug.Log("Change Character for Other Player");
+        //Debug.Log("Change Character for Other Player");
         player.ChangeCharacter(index);
     }
 }

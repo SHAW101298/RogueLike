@@ -14,7 +14,7 @@ public class CameraHookUp : MonoBehaviour
         }
         else
         {
-            Debug.Log("CAMERA HOOKUP");
+            //Debug.Log("CAMERA HOOKUP");
             Instance = this;
         }
     }

@@ -200,8 +200,8 @@ public class Gun : MonoBehaviour
 
     public void CreatePhantomProjectile(Vector3 dir)
     {
-        Debug.Log("Creating Phantom Projectile");
-        Debug.Log("Received Dir = " + dir);
+        //Debug.Log("Creating Phantom Projectile");
+        //Debug.Log("Received Dir = " + dir);
         GameObject projectile = Instantiate(projectilePrefab.gameObject);
         projectile.transform.position = nozzle.transform.position;
         BulletData bulletData = projectile.GetComponent<BulletData>();
@@ -213,7 +213,7 @@ public class Gun : MonoBehaviour
 
     private void FillBulletData(Vector3 dir, BulletData newBullet)
     {
-        Debug.Log("Filling data with dir = " + dir);
+        //Debug.Log("Filling data with dir = " + dir);
         //newBullet.bulletInfo = projectilePrefab.bulletInfo;
         newBullet.projectileBehaviour.owningFaction = ENUM_Faction.player;
         newBullet.projectileBehaviour.direction = dir * modifiedStats.projectileSpeed;

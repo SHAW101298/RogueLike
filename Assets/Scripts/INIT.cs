@@ -9,7 +9,7 @@ public class INIT : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Init Start");
+        //Debug.Log("Init Start");
         FOO();
     }
 

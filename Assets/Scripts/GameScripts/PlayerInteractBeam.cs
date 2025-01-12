@@ -16,7 +16,7 @@ public class PlayerInteractBeam : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Player Interaction Beam START");
+        //Debug.Log("Player Interaction Beam START");
         if(SceneManager.GetActiveScene().name == "SampleScene")
         {
             Debug.Log("Setting up reycast Gun Data");

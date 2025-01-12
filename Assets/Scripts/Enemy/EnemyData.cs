@@ -134,7 +134,7 @@ public class EnemyData : UnitData
     [ServerRpc]
     public void ModifyHealth_ServerRPC(float value)
     {
-        Debug.Log("Modyfing Health of Enemy");
+        //Debug.Log("Modyfing Health of Enemy");
         stats.health += value;
         CheckIfAlive();
     }

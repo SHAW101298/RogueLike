@@ -40,7 +40,7 @@ public class PlayerData : NetworkBehaviour
     }
     public bool AttemptPickingGun(Gun gun)
     {
-        Debug.Log("Attempting to pick gun");
+        //Debug.Log("Attempting to pick gun");
         //bool success = shooting.AttemptGunChange3(gun);
         bool success = gunManagement.TryPickingUpGun(gun);
 
@@ -135,7 +135,7 @@ public class PlayerData : NetworkBehaviour
 
         if(IsOwner == true)
         {
-            Debug.Log("Owner of changing Character");
+            //Debug.Log("Owner of changing Character");
 
             // Parent to Camera
             characterObject.transform.SetParent(CameraHookUp.Instance.gameObject.transform);
@@ -164,7 +164,7 @@ public class PlayerData : NetworkBehaviour
         }
         else
         {
-            Debug.Log("Not Owner of character");
+            //Debug.Log("Not Owner of character");
 
             // Parent to Body
             characterObject.transform.SetParent(gameObject.transform);
@@ -206,7 +206,7 @@ public class PlayerData : NetworkBehaviour
         // If Owner attach to CameraHookUp
         if (IsOwner == true)
         {
-            Debug.Log("Owner of changing Character");
+            //Debug.Log("Owner of changing Character");
             CameraHookUp.Instance.Attach(gameObject);
             characterData.DisableBodyObject();
             characterData.EnableHandsObject();
@@ -230,7 +230,7 @@ public class PlayerData : NetworkBehaviour
         // If not Owner Attach to PlayerObject
         else
         {
-            Debug.Log("Not Owner of character");
+            //Debug.Log("Not Owner of character");
             characterData.DisableHandsObject();
             characterData.EnableBodyObject();
             ReattachGunsToBody();
@@ -243,7 +243,7 @@ public class PlayerData : NetworkBehaviour
         if (gunManagement.possesedGuns.Count > 1)
         {
             GameObject temp;
-            Debug.Log("Attaching Guns Hands");
+            //Debug.Log("Attaching Guns Hands");
             for (int i = 1; i < gunManagement.possesedGuns.Count; i++)
             {
                 temp = gunManagement.possesedGuns[i].gameObject;
@@ -259,7 +259,7 @@ public class PlayerData : NetworkBehaviour
         {
             GameObject temp;
             /// 
-            Debug.Log("Attaching Guns Body");
+            //Debug.Log("Attaching Guns Body");
             for (int i = 1; i < gunManagement.possesedGuns.Count; i++)
             {
                 temp = gunManagement.possesedGuns[i].gameObject;
@@ -274,7 +274,7 @@ public class PlayerData : NetworkBehaviour
     {
         if (gunManagement.possesedGuns.Count > 1)
         {
-            Debug.Log("Seperating Guns");
+            //Debug.Log("Seperating Guns");
             for (int i = 1; i < gunManagement.possesedGuns.Count; i++)
             {
                 gunManagement.possesedGuns[i].gameObject.transform.SetParent(gameObject.transform);
@@ -285,24 +285,24 @@ public class PlayerData : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void NoticeAboutGunChange_ServerRPC(int gunPreset,int gunSlot, ulong requestingPlayer)
     {
-        Debug.Log("Notice about Gun Change SERVER RPC");
+        //Debug.Log("Notice about Gun Change SERVER RPC");
         PlayerList.Instance.GetPlayer(requestingPlayer).NoticeAboutGunChange_ClientRPC(gunPreset, gunSlot, requestingPlayer);
     }
 
     [ClientRpc]
     public void NoticeAboutGunChange_ClientRPC(int gunPreset, int gunSlot, ulong requestingPlayer)
     {
-        Debug.Log("Notice About Gun Change CLIENT RPC | PRESET IS = " + gunPreset);
+        //Debug.Log("Notice About Gun Change CLIENT RPC | PRESET IS = " + gunPreset);
         if(requestingPlayer == NetworkManager.Singleton.LocalClientId)
         {
-            Debug.Log("IM the requesting Player");
+            //Debug.Log("IM the requesting Player");
             // I already changed my gun
             return;
         }
 
         if(gunManagement.possesedGuns.Count < gunSlot+1)
         {
-            Debug.Log("Thats picked weapon");
+            //Debug.Log("Thats picked weapon");
             // Player Picked Up a Weapon
             Gun newGun = GunManager.Instance.CreateGun(gunPreset);
             newGun.gameObject.transform.SetParent(characterData.bodyGunPosition.transform);
@@ -313,7 +313,7 @@ public class PlayerData : NetworkBehaviour
         }
         else
         {
-            Debug.Log("Thats swapped weapon");
+            //Debug.Log("Thats swapped weapon");
             // Player Swaps a Weapon
             Destroy(gunManagement.possesedGuns[gunSlot].gameObject);
             Gun newGun = GunManager.Instance.CreateGun(gunPreset);
@@ -328,9 +328,9 @@ public class PlayerData : NetworkBehaviour
     [ClientRpc]
     public void ChangeCharacter_ClientRPC(int character, ulong requestingPlayer)
     {
-        Debug.Log(" CLIENTRPC | Character = " + character + "  |  RequestingPlaeyr = " + requestingPlayer);
+        //Debug.Log(" CLIENTRPC | Character = " + character + "  |  RequestingPlaeyr = " + requestingPlayer);
         PlayerData player = PlayerList.Instance.GetPlayer(requestingPlayer);
-        Debug.Log("network ownerclientID = " + player.networkData.OwnerClientId);
+        //Debug.Log("network ownerclientID = " + player.networkData.OwnerClientId);
         player.ChangeCharacter(character);
         //PlayerList.Instance.GetPlayer(requestingPlayer).ChangeCharacter(character);
 
@@ -339,7 +339,7 @@ public class PlayerData : NetworkBehaviour
     public void ChangeCharacter_ServerRPC(int character, ServerRpcParams serverRpcParams = default)
     {
         ulong requestingId = serverRpcParams.Receive.SenderClientId;
-        Debug.Log(" SERVERRPC | Character = " + character + "  |  Requesting ID = " + requestingId);
+        //Debug.Log(" SERVERRPC | Character = " + character + "  |  Requesting ID = " + requestingId);
         ChangeCharacter_ClientRPC(character, requestingId);
     }
 
@@ -347,7 +347,7 @@ public class PlayerData : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void ShootBullet_ServerRPC(Vector3 dir , int gunSlot ,ulong requestingPlayer)
     {
-        Debug.Log("Sending Phantom Bullet SERVER RPC from " + requestingPlayer);
+        //Debug.Log("Sending Phantom Bullet SERVER RPC from " + requestingPlayer);
         ShootBullet_ClientRPC(dir, gunSlot, requestingPlayer);
     }
     [ClientRpc]
@@ -356,14 +356,14 @@ public class PlayerData : NetworkBehaviour
         //Debug.Log("Sending Phantom Bullet CLIENT RPC from " + requestingPlayer);
         if(requestingPlayer == NetworkManager.Singleton.LocalClientId)
         {
-            Debug.Log("IM owner, i just shot");
+            //Debug.Log("IM owner, i just shot");
             //Debug.Log("Send Dir = " + dir);
             // Im the one shooting
             return;
         }
 
         // Shoot Phantom Bullet
-        Debug.Log("Sending Phantom Bullet");
+        //Debug.Log("Sending Phantom Bullet");
         gunManagement.possesedGuns[gunSlot].CreatePhantomProjectile(dir);
     }
 

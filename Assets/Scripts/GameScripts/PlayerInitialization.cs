@@ -16,7 +16,7 @@ public class PlayerInitialization : NetworkBehaviour
     {
         SceneManager.sceneLoaded += OnSceneChanged;
         
-        Debug.Log("Start Is called");
+        //Debug.Log("Start Is called");
         
         if (SceneManager.GetActiveScene().name.Equals("SampleScene"))
         {
@@ -30,7 +30,7 @@ public class PlayerInitialization : NetworkBehaviour
     {
         if(scene.name.Equals("SampleScene"))
         {
-            Debug.Log("Good Scene");
+            //Debug.Log("Good Scene");
             InitializePlayerScripts();
             enabled = false;
         }
@@ -42,16 +42,16 @@ public class PlayerInitialization : NetworkBehaviour
 
     private void Awake()
     {
-        Debug.Log("Awake Is called");        
+        //Debug.Log("Awake Is called");        
     }
     private void InitializePlayerScripts()
     {
         Debug.LogWarning("Dodac zczytywanie nazw graczy. ");
         Debug.Log("Player Initialization for " + playerData.name);
-        Debug.Log("Current scene = " + SceneManager.GetActiveScene().name);
-        Debug.Log("is owner = " + IsOwner);
+        //Debug.Log("Current scene = " + SceneManager.GetActiveScene().name);
+        //Debug.Log("is owner = " + IsOwner);
         PlayerList.Instance.AddPlayer(playerData);
-        Debug.Log("Added player to list");
+        //Debug.Log("Added player to list");
 
         if(IsOwner == true)
         {
@@ -70,7 +70,7 @@ public class PlayerInitialization : NetworkBehaviour
             UI_HookUpScript.Instance.player = playerData;
             transform.position = Vector3.zero;
             
-            Debug.Log("Enabled my scripts");
+            //Debug.Log("Enabled my scripts");
 
             CharactersList.Instance.ChooseCharacter(0);
         }
@@ -89,7 +89,7 @@ public class PlayerInitialization : NetworkBehaviour
             //Destroy(playerData.ui);
             //Destroy(playerData.gameObject.GetComponent<PlayerInput>());
             //Destroy(playerData.rotation.camera);
-            Debug.Log("Disabled other player scripts");
+            //Debug.Log("Disabled other player scripts");
             CharactersList.Instance.ChangeCharacterForPlayer(0,playerData);
             //RoomGenerator.Instance.RequestMapLayout_ServerRPC(NetworkManager.Singleton.LocalClientId);
         }

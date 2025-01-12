@@ -83,7 +83,7 @@ public class PlayerList : MonoBehaviour
 
     void AddPlayerToList(PlayerData player)
     {
-        Debug.Log("Adding Player To List");
+        //Debug.Log("Adding Player To List");
         players.Add(player);
     }
     void RemovePlayerFromList(PlayerData player)

@@ -21,22 +21,22 @@ public class CharacterData : MonoBehaviour
 
     public void DisableBodyObject()
     {
-        Debug.Log("Disabling Body Object");
+        //Debug.Log("Disabling Body Object");
         bodyObject.SetActive(false);
     }
     public void EnableBodyObject()
     {
-        Debug.Log("Enabling Body Object");
+        //Debug.Log("Enabling Body Object");
         bodyObject.SetActive(true);
     }
     public void DisableHandsObject()
     {
-        Debug.Log("Disabling Hands Object");
+        //Debug.Log("Disabling Hands Object");
         handsObject.SetActive(false);
     }
     public void EnableHandsObject()
     {
-        Debug.Log("Enabling Hands Object");
+        //Debug.Log("Enabling Hands Object");
         handsObject.SetActive(true);
     }
     

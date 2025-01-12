@@ -16,7 +16,7 @@ public class GunPickupInteract : InteractableBase
             {
                 Debug.Log("me is = " + child.gameObject.name);
             }
-            Debug.Log("Destroying = " + gameObject.name);
+            //Debug.Log("Destroying = " + gameObject.name);
             Destroy(gameObject);
         }
     }
