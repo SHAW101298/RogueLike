@@ -22,6 +22,7 @@ public class Gun : MonoBehaviour
     public GunStats modifiedStats;
 
     public List<GunUpgradeBase> gunUpgrades;
+    public GU_ChaoticUpgrade chaoticUpgrade;
     [Space(25)]
     public ENUM_GunType gunType;
 
