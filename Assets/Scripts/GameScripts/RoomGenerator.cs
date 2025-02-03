@@ -8,23 +8,26 @@ using UnityEngine;
 public class RoomGenerator : NetworkBehaviour
 {
     #region
+    /*
     public static RoomGenerator Instance;
     public void Awake()
     {
         if(Instance != null && Instance != this)
         {
-            Destroy(this);
+            //Destroy(this);
         }
         else
         {
             Instance = this;
         }
     }
+    */
     #endregion
     public RoomManager spawnArea;
     public NavMeshSurface surface;
     public List<GameObject> possibleRooms;
     public List<RoomManager> currentRooms;
+    public GameObject roomsParent;
 
     [Space(10)]
     public int roomsToGenerate = 4;
@@ -101,6 +104,7 @@ public class RoomGenerator : NetworkBehaviour
             // Position correctly according to exit
             newRoom.transform.position = nextSpot;
             newRoom.transform.eulerAngles = nextRotation;
+            newRoom.transform.SetParent(roomsParent.transform);
             // Save data for next room
             nextSpot = createdRoom.exit.position;
             nextRotation = createdRoom.exit.eulerAngles;
@@ -125,6 +129,7 @@ public class RoomGenerator : NetworkBehaviour
             newRoom = Instantiate(possibleRooms[newRoomTemplate]);
             createdRoom = newRoom.GetComponent<RoomManager>();
             createdRoom.roomValidationScript.id = i;
+            createdRoom.floorParent = this;
             // Position correctly according to exit
             newRoom.transform.position = nextSpot;
             newRoom.transform.eulerAngles = nextRotation;
@@ -230,6 +235,11 @@ public class RoomGenerator : NetworkBehaviour
             navMeshBuiltAlready = true;
             SpawnEnemiesInRooms();
             GameOptions.Instance.ApplyDifficultySettings();
+
+            foreach (RoomManager room in currentRooms)
+            {
+                room.gameObject.SetActive(false);
+            }
         }
 
         
@@ -284,6 +294,7 @@ public class RoomGenerator : NetworkBehaviour
             // Position correctly according to exit
             newRoom.transform.position = nextSpot;
             newRoom.transform.eulerAngles = nextRotation;
+            newRoom.transform.SetParent(roomsParent.transform);
             // Save data for next room
             nextSpot = createdRoom.exit.position;
             nextRotation = createdRoom.exit.eulerAngles;
@@ -291,6 +302,12 @@ public class RoomGenerator : NetworkBehaviour
             currentRooms.Add(createdRoom);
             templateString = "";
         }
+
+        foreach(RoomManager room in currentRooms)
+        {
+            room.gameObject.SetActive(false);
+        }
+
     }
 
     void SpawnEnemiesInRooms()
@@ -300,6 +317,20 @@ public class RoomGenerator : NetworkBehaviour
         {
             //Debug.Log("Spawning for room id " + room.roomTemplate);
             room.SpawnEnemies();
+        }
+    }
+    public void ActivateFloorForMe()
+    {
+        foreach(RoomManager room in currentRooms)
+        {
+            room.gameObject.SetActive(true);
+        }
+    }
+    public void DeactivateFloorForMe()
+    {
+        foreach (RoomManager room in currentRooms)
+        {
+            room.gameObject.SetActive(false);
         }
     }
 }

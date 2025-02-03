@@ -22,6 +22,8 @@ public class DifficultySettings : MonoBehaviour
     public void Apply()
     {
         Debug.Log("Applying difficulty setting " + setting.ToString());
+        Debug.LogError("CHANGED WAYS. APPLY ON ENEMIES SPAWN");
+        /*
         foreach(RoomManager room in RoomGenerator.Instance.currentRooms)
         {
             foreach(EnemyData enemy in room.enemiesInRoom)
@@ -34,6 +36,7 @@ public class DifficultySettings : MonoBehaviour
                 enemy.stats.percentResistance.AddData(enemyPercentResistanceIncrease);
             }
         }
+        */
     }
 
 }

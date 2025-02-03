@@ -10,6 +10,7 @@ public class RoomManager : NetworkBehaviour
     public List<EnemyData> enemiesInRoom;
     [SerializeField] GameObject room;
     public RoomValidationScript roomValidationScript;
+    public RoomGenerator floorParent;
     [Space(15)]
     public Transform entrance;
     public Transform exit;

@@ -19,10 +19,11 @@ public class RoomValidationScript : MonoBehaviour
 
         if(Tools.CheckIfInMask(collisionMask, other.gameObject.layer) == true)
         {
-            int collisionID = other.gameObject.GetComponentInParent<RoomManager>().roomValidationScript.id;
+            RoomManager roomManager = other.gameObject.GetComponentInParent<RoomManager>();
+            int collisionID = roomManager.roomValidationScript.id;
             //Debug.Log(gameObject.name + " | " + "Collided with = " + other.gameObject.name);
             //Debug.Log(id + " | " + " Collided with " + collisionID);
-            RoomGenerator.Instance.Alert_RoomCollide(id);
+            roomManager.floorParent.Alert_RoomCollide(id);
         }
         
     }
@@ -30,10 +31,11 @@ public class RoomValidationScript : MonoBehaviour
     {
         if (Tools.CheckIfInMask(collisionMask, other.gameObject.layer) == true)
         {
-            int collisionID = other.gameObject.GetComponentInParent<RoomManager>().roomValidationScript.id;
+            RoomManager roomManager = other.gameObject.GetComponentInParent<RoomManager>();
+            int collisionID = roomManager.roomValidationScript.id;
             //Debug.Log(gameObject.name + " | " + "Collided with = " + other.gameObject.name);
             //Debug.Log(id + " | " + " Collided with " + collisionID);
-            RoomGenerator.Instance.Alert_RoomCollide(id);
+            roomManager.floorParent.Alert_RoomCollide(id);
         }
     }
 }
