@@ -20,6 +20,7 @@ public class Enemy_Weapon : NetworkBehaviour
     [SerializeField] int magazineCurrent;
     [SerializeField] int magazineMax;
     [SerializeField] float projectileSpeed;
+    [SerializeField] float aimCorrection = 1f;
     public bool isReloading { get; private set;}
     [SerializeField] float reloadTime;
     [SerializeField] float timeBetweenShots;
@@ -61,9 +62,15 @@ public class Enemy_Weapon : NetworkBehaviour
         GameObject GO_Bullet = Instantiate(projectilePrefab.gameObject);
         GO_Bullet.transform.position = projectileSpawnPosition.position;
         BulletData newBullet = GO_Bullet.GetComponent<BulletData>();
-        Vector3 dir = Tools.Direction(ai.attack.attackTarget.GetShootTarget(), projectileSpawnPosition.position);
+        Vector3 dir = Tools.Direction(GetCorrectedPlayerPosition(), projectileSpawnPosition.position);
         FillBulletData(dir, newBullet);
         SendBullet_ClientRPC(dir);
+    }
+    Vector3 GetCorrectedPlayerPosition()
+    {
+        Vector3 dir = ai.attack.attackTarget.GetShootTarget();
+        dir += ai.attack.attackTarget.movement.GetMoveDir() * aimCorrection;
+        return dir;
     }
     [ClientRpc]
     public void SendBullet_ClientRPC(Vector3 dir)

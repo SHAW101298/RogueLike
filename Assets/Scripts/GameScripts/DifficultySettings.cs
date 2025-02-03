@@ -5,6 +5,7 @@ using UnityEngine;
 public class DifficultySettings : MonoBehaviour
 {
     public ENUM_DifficultySetting setting;
+    public float aimCorrection;
     public float goldMultiplier;
     public float enemyHealthMultiplier;
     public float enemyShieldMultiplier;

@@ -397,4 +397,9 @@ public class PlayerMovement : NetworkBehaviour
     {
         moveSpeed = newSpeed;
     }
+    public Vector3 GetMoveDir()
+    {
+        Debug.Log("Move Dir = " + dir);
+        return dir;
+    }
 }

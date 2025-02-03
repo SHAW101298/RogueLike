@@ -541,6 +541,7 @@ GameObject:
   - component: {fileID: 111057924}
   - component: {fileID: 111057923}
   - component: {fileID: 111057922}
+  - component: {fileID: 111057925}
   m_Layer: 11
   m_Name: Hub Ground
   m_TagString: Untagged
@@ -629,6 +630,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111057920}
   m_Mesh: {fileID: -4005871582970846160, guid: d6537108fd40dae4fbc30738edbd0ef1, type: 3}
+--- !u!65 &111057925
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111057920}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25, z: 1}
+  m_Center: {x: 0, y: 0, z: -0.5}
 --- !u!1 &147236359
 GameObject:
   m_ObjectHideFlags: 0
@@ -12228,6 +12242,7 @@ GameObject:
   - component: {fileID: 8550246043491471785}
   - component: {fileID: 3436659051903252402}
   - component: {fileID: 8550246043491471786}
+  - component: {fileID: 8550246043491471787}
   m_Layer: 11
   m_Name: Hub Ground
   m_TagString: Untagged
@@ -12834,6 +12849,19 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 2048
+--- !u!65 &8550246043491471787
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255980611761937781}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25, z: 1}
+  m_Center: {x: 0, y: 0, z: -0.5}
 --- !u!33 &8550246044348127418
 MeshFilter:
   m_ObjectHideFlags: 0

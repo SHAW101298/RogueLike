@@ -42,10 +42,6 @@ public class Teleporter : InteractableBase
                 Debug.Log("Deactivating  " + currentFloor.spawnArea.name);
                 currentFloor.DeactivateFloorForMe();
             }
-            else
-            {
-                Debug.Log("Current floor is " + currentFloor.spawnArea.name);
-            }
         }
 
     }
