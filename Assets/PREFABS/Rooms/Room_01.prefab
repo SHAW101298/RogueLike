@@ -782,7 +782,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4948143918999321659}
   - component: {fileID: 5755747663031494335}
-  - component: {fileID: 5755747663031494334}
   m_Layer: 0
   m_Name: Room_01
   m_TagString: Untagged
@@ -831,22 +830,6 @@ MonoBehaviour:
   spawningData:
   - {fileID: 2880758834182448427}
   - {fileID: 369273307144105689}
---- !u!114 &5755747663031494334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5755747663031494273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 951099334
-  AlwaysReplicateAsRoot: 0
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!1 &6284512104774471435
 GameObject:
   m_ObjectHideFlags: 0
