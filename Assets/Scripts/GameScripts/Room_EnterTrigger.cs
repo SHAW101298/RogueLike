@@ -12,6 +12,7 @@ public class Room_EnterTrigger : MonoBehaviour
         if(Tools.CheckIfInMask(playerLayer, other.gameObject.layer) == true)
         {
             room.EVENT_PlayerEnteringRoom();
+            Destroy(gameObject);
         }
     }
 }

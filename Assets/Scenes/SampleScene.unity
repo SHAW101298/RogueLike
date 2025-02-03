@@ -9817,6 +9817,9 @@ MonoBehaviour:
   - {fileID: 155601453}
   - {fileID: 231866746}
   roomGenerator: {fileID: 1268781157}
+  generators:
+  - {fileID: 1268781157}
+  - {fileID: 992903277}
 --- !u!4 &1860549745
 Transform:
   m_ObjectHideFlags: 0

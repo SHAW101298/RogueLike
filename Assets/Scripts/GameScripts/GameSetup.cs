@@ -26,6 +26,7 @@ public class GameSetup : MonoBehaviour
 
     [SerializeField] Transform[] firstGunSpots;
     [SerializeField] RoomGenerator roomGenerator;
+    [SerializeField] List<RoomGenerator> generators;
 
 
     // Start is called before the first frame update
@@ -33,7 +34,11 @@ public class GameSetup : MonoBehaviour
     {
         Debug.Log("Setting Up a Game");
         CreateBasicGuns();
-        roomGenerator.FirstRoomGeneration();
+        //roomGenerator.FirstRoomGeneration();
+        foreach (RoomGenerator generator in generators)
+        {
+            generator.FirstRoomGeneration();
+        }
         CreateMapForOtherPlayers();
         //GameOptions.Instance.ApplyDifficultySettings();
     }

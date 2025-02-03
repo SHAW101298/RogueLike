@@ -20,7 +20,7 @@ public class Room_GroupActivator : MonoBehaviour
         if(other.tag.Equals("Player"))
         {
             group.NotifyAboutPlayer(other.gameObject);
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 

@@ -134,6 +134,7 @@ public class RoomGenerator : NetworkBehaviour
             // Position correctly according to exit
             newRoom.transform.position = nextSpot;
             newRoom.transform.eulerAngles = nextRotation;
+            newRoom.transform.SetParent(roomsParent.transform);
             // Save data for next room
             nextSpot = createdRoom.exit.position;
             nextRotation = createdRoom.exit.eulerAngles;
@@ -237,10 +238,7 @@ public class RoomGenerator : NetworkBehaviour
             //SpawnEnemiesInRooms();
             GameOptions.Instance.ApplyDifficultySettings();
 
-            foreach (RoomManager room in currentRooms)
-            {
-                room.gameObject.SetActive(false);
-            }
+            DeactivateFloorForMe();
         }
 
         
@@ -322,16 +320,22 @@ public class RoomGenerator : NetworkBehaviour
     }
     public void ActivateFloorForMe()
     {
+        /*
         foreach(RoomManager room in currentRooms)
         {
             room.gameObject.SetActive(true);
         }
+        */
+        roomsParent.SetActive(true);
     }
     public void DeactivateFloorForMe()
     {
+        roomsParent.SetActive(false);
+        /*
         foreach (RoomManager room in currentRooms)
         {
             room.gameObject.SetActive(false);
         }
+        */
     }
 }
