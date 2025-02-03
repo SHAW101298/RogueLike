@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class RoomManager : NetworkBehaviour
+public class RoomManager : MonoBehaviour
 {
     public bool isActive;
     public int roomTemplate;
@@ -41,7 +41,7 @@ public class RoomManager : NetworkBehaviour
             return;
 
         // Called by client to open a room
-        if(IsOwner == false)
+        if(NetworkManager.Singleton.IsHost == false)
         {
             Debug.Log("Im not owner, ask server to activate room");
             // Make RPC call to host to open room
@@ -62,6 +62,10 @@ public class RoomManager : NetworkBehaviour
         // Check if room is already active
         ActivateRoom();
     }
+    public void EVENT_PlayerEnteringRoom()
+    {
+        ActivateRoom();
+    }
 
     [ServerRpc(RequireOwnership = false)]
     public void ActivateThisRoom_ServerRPC()
@@ -76,9 +80,9 @@ public class RoomManager : NetworkBehaviour
     {
         Debug.Log("Called on client ActivateThisRoom");
         // Server tells to activate this room
-        room.SetActive(true);
         isActive = true;
 
+        SpawnEnemies();
 
         // Make enemies Seek players out
         foreach(EnemyData enemy in enemiesInRoom)

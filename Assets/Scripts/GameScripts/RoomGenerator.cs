@@ -101,6 +101,7 @@ public class RoomGenerator : NetworkBehaviour
             newRoom = Instantiate(possibleRooms[newRoomTemplate]);
             createdRoom = newRoom.GetComponent<RoomManager>();
             createdRoom.roomValidationScript.id = i;
+            createdRoom.floorParent = this;
             // Position correctly according to exit
             newRoom.transform.position = nextSpot;
             newRoom.transform.eulerAngles = nextRotation;
@@ -233,7 +234,7 @@ public class RoomGenerator : NetworkBehaviour
             Debug.Log("Building NavMesh");
             surface.BuildNavMesh();
             navMeshBuiltAlready = true;
-            SpawnEnemiesInRooms();
+            //SpawnEnemiesInRooms();
             GameOptions.Instance.ApplyDifficultySettings();
 
             foreach (RoomManager room in currentRooms)

@@ -147,6 +147,7 @@ Transform:
   - {fileID: 2102222111380278589}
   - {fileID: 2452996552560778837}
   - {fileID: 3774316933169261626}
+  - {fileID: 409509659296869671}
   m_Father: {fileID: 2556239894887763026}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -522,6 +523,68 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 24, y: 1, z: 32}
   m_Center: {x: -2, y: -0.5, z: -16}
+--- !u!1 &3556765940069656720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 409509659296869671}
+  - component: {fileID: 6785004051516790145}
+  - component: {fileID: 8184706476973023789}
+  m_Layer: 0
+  m_Name: Room Enter Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &409509659296869671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3556765940069656720}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2556239895016215137}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6785004051516790145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3556765940069656720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8bfcb6897516b42a21635487d2735a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 8878434676356892507}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!65 &8184706476973023789
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3556765940069656720}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 4, z: 1}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &4595832785873045942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,6 +1065,7 @@ MonoBehaviour:
   enemiesInRoom: []
   room: {fileID: 2556239894887763025}
   roomValidationScript: {fileID: 2556239896095568411}
+  floorParent: {fileID: 0}
   entrance: {fileID: 2556239895901666307}
   exit: {fileID: 2556239895579596199}
   portal: {fileID: 2556239895035689825}
