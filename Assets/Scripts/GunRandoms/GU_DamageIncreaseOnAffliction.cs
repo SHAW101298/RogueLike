@@ -5,7 +5,7 @@ using UnityEngine;
 public class GU_DamageIncreaseOnAffliction : GunUpgradeBase
 {
     private float[] damageIncreaseOnLevels;
-    private ENUM_DamageType damageType;
+    [SerializeField] ENUM_DamageType damageType;
 
     public override void Apply(Gun gun)
     {

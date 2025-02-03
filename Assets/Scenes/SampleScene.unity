@@ -2526,6 +2526,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 0
+  damageType: 2
 --- !u!1 &594350942
 GameObject:
   m_ObjectHideFlags: 0
@@ -4536,6 +4537,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 0
+  damageType: 3
 --- !u!1 &953790878
 GameObject:
   m_ObjectHideFlags: 0
@@ -5757,6 +5759,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 0
+  damageType: 4
 --- !u!1 &1069323364
 GameObject:
   m_ObjectHideFlags: 0
@@ -7923,6 +7926,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 0
+  damageType: 0
 --- !u!4 &1483547186
 Transform:
   m_ObjectHideFlags: 0
@@ -9648,6 +9652,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 0
+  damageType: 5
 --- !u!1 &1834199275
 GameObject:
   m_ObjectHideFlags: 0
@@ -11301,6 +11306,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 0
+  damageType: 1
 --- !u!1 &2141959057
 GameObject:
   m_ObjectHideFlags: 0

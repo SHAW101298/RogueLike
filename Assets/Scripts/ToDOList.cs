@@ -45,6 +45,7 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Zapisywac ilosc pieniedzy kazdego gracza");
         doZrobienia.Add("Wypadanie rzeczy z przeciwnikow gdy umieraja");
         doZrobienia.Add("Dodac kazdemu graczowi wszystkie bronie, aby usprawnic proces zmiany broni. Bedzie to synchronizowane na bazie zmieniania Network Variable i aktywowania broni z odpowiednim tempalate ID");
+        doZrobienia.Add("Przeciwnicy spawnuja sie wszyscy na raz, czy dopiero po wejsciu do pomieszczenia ?");
     }
 
 }
