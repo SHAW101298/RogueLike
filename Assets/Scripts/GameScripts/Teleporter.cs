@@ -8,6 +8,8 @@ public class Teleporter : InteractableBase
     public RoomManager interactedRoom;
     public RoomManager currentRoom;
 
+    public RoomManager destinationRoom;
+
     public override void Interact(PlayerData data)
     {
         // Activate Room
@@ -17,5 +19,11 @@ public class Teleporter : InteractableBase
         //interactedRoom.ActivateRoom();
         data.TeleportPlayer(teleportPosition.position);
         currentRoom.DeactivateRoomForMe();
+    }
+
+    void Teleport(PlayerData data)
+    {
+        data.TeleportPlayer(destinationRoom.entrance.position);
+        
     }
 }

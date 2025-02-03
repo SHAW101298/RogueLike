@@ -71,6 +71,7 @@ public class PlayerGunManagement : MonoBehaviour
         selectedGun.gameObject.SetActive(false);
         selectedGun = possesedGuns[index];
         selectedGun.gameObject.SetActive(true);
+        data.currentGunTemplate.Value = selectedGun.presetID;
 
         data.GunScroll_ServerRPC(index, data.networkData.OwnerClientId);
         //ui.UpdateAmmo();
@@ -85,6 +86,7 @@ public class PlayerGunManagement : MonoBehaviour
         selectedGun.gameObject.SetActive(false);
         selectedGun = possesedGuns[index];
         selectedGun.gameObject.SetActive(true);
+        data.currentGunTemplate.Value = selectedGun.presetID;
         data.GunScroll_ServerRPC(index, data.networkData.OwnerClientId);
         //ui.UpdateAmmo();
     }
@@ -117,6 +119,7 @@ public class PlayerGunManagement : MonoBehaviour
         }
         selectedGun = possesedGuns[index];
         selectedGun.gameObject.SetActive(true);
+        data.currentGunTemplate.Value = selectedGun.presetID;
         ui.UpdateAmmo();
     }
 

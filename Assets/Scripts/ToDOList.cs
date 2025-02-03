@@ -44,6 +44,7 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Zapisac poziom trudnosci w lobby");
         doZrobienia.Add("Zapisywac ilosc pieniedzy kazdego gracza");
         doZrobienia.Add("Wypadanie rzeczy z przeciwnikow gdy umieraja");
+        doZrobienia.Add("Dodac kazdemu graczowi wszystkie bronie, aby usprawnic proces zmiany broni. Bedzie to synchronizowane na bazie zmieniania Network Variable i aktywowania broni z odpowiednim tempalate ID");
     }
 
 }

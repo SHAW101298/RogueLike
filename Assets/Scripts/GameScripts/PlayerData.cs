@@ -19,6 +19,7 @@ public class PlayerData : NetworkBehaviour
     public PlayerAmmunition ammo;
     public Afflictions afflictions;
     [SerializeField] Transform shootTarget;
+    public NetworkVariable<int> currentGunTemplate;
 
     private void Awake()
     {

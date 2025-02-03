@@ -23,9 +23,10 @@ public class RoomGenerator : NetworkBehaviour
     #endregion
     public RoomManager spawnArea;
     public NavMeshSurface surface;
-    //public Transform spawnAreaExit;
     public List<GameObject> possibleRooms;
     public List<RoomManager> currentRooms;
+
+    [Space(10)]
     public int roomsToGenerate = 4;
     public int maxIteration = 100;
     public float amountToDelay;
