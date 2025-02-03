@@ -387,7 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeLevel: 0
   value: 0
-  amountIncreaseOnLevel: 0
+  amountIncreaseOnLevel: 0.5
   criticalMultiplierIncrease:
   - 0.5
   - 1
@@ -2525,7 +2525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeLevel: 0
   value: 0
-  amountIncreaseOnLevel: 0
+  amountIncreaseOnLevel: 35
   damageType: 2
 --- !u!1 &594350942
 GameObject:
@@ -4536,7 +4536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeLevel: 0
   value: 0
-  amountIncreaseOnLevel: 0
+  amountIncreaseOnLevel: 35
   damageType: 3
 --- !u!1 &953790878
 GameObject:
@@ -5058,7 +5058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeLevel: 0
   value: 0
-  amountIncreaseOnLevel: 0
+  amountIncreaseOnLevel: 5
   afflictionChanceIncrease:
   - 5
   - 10
@@ -5758,7 +5758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeLevel: 0
   value: 0
-  amountIncreaseOnLevel: 0
+  amountIncreaseOnLevel: 35
   damageType: 4
 --- !u!1 &1069323364
 GameObject:
@@ -7157,7 +7157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeLevel: 0
   value: 0
-  amountIncreaseOnLevel: 0
+  amountIncreaseOnLevel: 10
   criticalChanceIncrease:
   - 10
   - 20
@@ -7925,7 +7925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeLevel: 0
   value: 0
-  amountIncreaseOnLevel: 0
+  amountIncreaseOnLevel: 35
   damageType: 0
 --- !u!4 &1483547186
 Transform:
@@ -8433,7 +8433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeLevel: 0
   value: 0
-  amountIncreaseOnLevel: 0
+  amountIncreaseOnLevel: 20
   damageIncreaseOnLevels:
   - 20
   - 40
@@ -9651,7 +9651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeLevel: 0
   value: 0
-  amountIncreaseOnLevel: 0
+  amountIncreaseOnLevel: 35
   damageType: 5
 --- !u!1 &1834199275
 GameObject:
@@ -11305,7 +11305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeLevel: 0
   value: 0
-  amountIncreaseOnLevel: 0
+  amountIncreaseOnLevel: 35
   damageType: 1
 --- !u!1 &2141959057
 GameObject:

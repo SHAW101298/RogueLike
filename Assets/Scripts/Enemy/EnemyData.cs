@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -9,8 +10,10 @@ public class EnemyData : UnitData
     public Stats stats;
     public Afflictions afflictions;
     public Enemy_AI ai;
+    public SpriteRenderer healthBar;
 
     [SerializeField] float baseGoldReward;
+    float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +23,21 @@ public class EnemyData : UnitData
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        if(timer <= 0.25f)
+        {
+            healthBar.transform.LookAt(PlayerList.Instance.GetMyPlayer().gameObject.transform.position);
+            timer = 0;
+        }
     }
     public float HitEnemy(BulletInfo info)
     {
+        if(ai.CheckIfIdle() == true)
+        {
+            ai.chase.chaseDistance *= 2;
+            
+        }
+
         float fullDamage = 0;
         float calcDamage = 0;
         float dmgModifier = 0;
@@ -76,6 +90,9 @@ public class EnemyData : UnitData
             fullDamage = 1;
         }
         ModifyHealth(-fullDamage);
+        Vector3 newScale = Vector3.one;
+        newScale.x = stats.health / stats.healthMax;
+        healthBar.transform.localScale = newScale;
         return fullDamage;
     }
 

@@ -62,6 +62,13 @@ public abstract class Enemy_AI : NetworkBehaviour
         ChangeState(chase);
     }
 
+    public bool CheckIfIdle()
+    {
+        if (currentState == idle)
+            return true;
+
+        return false;
+    }
 
 
 
