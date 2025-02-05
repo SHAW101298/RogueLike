@@ -52,7 +52,7 @@ public class LobbyManager : MonoBehaviour
     float poolUpdateTimer;
     bool inGame;
     float countdownTimer;
-    async void Start()
+    void Start()
     {
         if (oldListener == null)
         {
@@ -62,12 +62,18 @@ public class LobbyManager : MonoBehaviour
         //gameSetup = GameSetup.Instance;
         DontDestroyOnLoad(this);
 
-        await UnityServices.InitializeAsync();
-        AuthenticationService.Instance.SignedIn += OnPlayerSignIn;
-
-        await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        ConnectToUnityServices();
 
     }
+
+    public async void ConnectToUnityServices()
+    {
+
+        await UnityServices.InitializeAsync();
+        AuthenticationService.Instance.SignedIn += OnPlayerSignIn;
+        await AuthenticationService.Instance.SignInAnonymouslyAsync();
+    }
+    
     private void Update()
     {
         HandleLobbyHeartBeat();

@@ -6,6 +6,7 @@ using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using TMPro;
 using Unity.Netcode;
+using Unity.Services.Authentication;
 
 
 
@@ -45,6 +46,7 @@ public class UI_MainMenu : MonoBehaviour
     [SerializeField] UI_Window charactersWindow;
     [SerializeField] UI_Window optionsWindow;
     [SerializeField] UI_Window exitWindow;
+    [SerializeField] UI_Window reconnectingWindow;
     
 
     [SerializeField] UI_Window changeNameWindow;
@@ -77,14 +79,28 @@ public class UI_MainMenu : MonoBehaviour
     }
     public void BTN_Multiplayer()
     {
+        // Check if connected to Unity Services
+        if(AuthenticationService.Instance.IsSignedIn == false)
+        {
+            reconnectingWindow.OpenWindow();
+            lobbyManager.ConnectToUnityServices();
+        }
+
         multiPlayerWindow.OpenWindow();
         menuWindow.CloseWindow();
+        AuthenticationService.Instance.SignedIn += CloseWindowOnUnityConnected;
         //NetworkManager.Singleton.gameObject.GetComponent<NetworkTypeController>().SetAsRelayTransport();
+    }
+    public void CloseWindowOnUnityConnected()
+    {
+        reconnectingWindow.CloseWindow();
+        AuthenticationService.Instance.SignedIn -= CloseWindowOnUnityConnected;
     }
     public void BTN_MultiplayerReturn()
     {
         multiPlayerWindow.CloseWindow();
         menuWindow.OpenWindow();
+        reconnectingWindow.CloseWindow();
     }
     public void BTN_Characters()
     {
