@@ -26,6 +26,7 @@ public class PlayerMovement : NetworkBehaviour
     Vector3 dir;
     bool blockedMovement;
     [Header("Movement")]
+    [SerializeField] float baseMoveSpeed;
     [SerializeField] float moveSpeed;
     [SerializeField] float runSpeedMultiplier;
     [SerializeField] float runningStaminaCost;
@@ -50,6 +51,12 @@ public class PlayerMovement : NetworkBehaviour
     public PlayerData data;
     public LayerMask groundLayer;
 
+
+
+    private void Start()
+    {
+        moveSpeed = baseMoveSpeed;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -401,5 +408,13 @@ public class PlayerMovement : NetworkBehaviour
     {
         Debug.Log("Move Dir = " + dir);
         return dir;
+    }
+    public void ModifyMovementSpeedByPercent(float val)
+    {
+
+    }
+    public void ModifyMovementSpeedByFlat(float val)
+    {
+
     }
 }

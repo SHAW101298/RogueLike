@@ -20,6 +20,8 @@ public class Stats:MonoBehaviour
     public float shieldRegen;
     public float shieldDelay;
 
+    public float moveSpeed;
+
     //public float[] flatResistances;
     //public float[] percentResistances;
     public ElementalTable flatResistance;

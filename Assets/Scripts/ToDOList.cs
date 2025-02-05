@@ -48,6 +48,7 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Przeciwnicy spawnuja sie wszyscy na raz, czy dopiero po wejsciu do pomieszczenia ?");
         doZrobienia.Add("Sufity w pomieszczeniach na wysokosci 5m+");
         doZrobienia.Add("Skrzynka tworzaca bronie. Do wykorzystaina na spawnie nawet");
+        doZrobienia.Add("System EVentów dla gracza. Last Attacked ENemy, Last Received Damage, Last Enemy that attacked Player, Last Dealt Damage, Last Used Weapon etc");
     }
 
 }

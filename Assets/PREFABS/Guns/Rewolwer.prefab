@@ -96,7 +96,7 @@ MonoBehaviour:
     critChance: 0
     critMultiplier: 0
     afflictionChance: 0
-    numberOfProjectiles: 1
+    numberOfProjectiles: 2
     accuracy: 50
     stability: 50
     magazineMax: 7
