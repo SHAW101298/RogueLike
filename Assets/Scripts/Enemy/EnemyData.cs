@@ -8,16 +8,16 @@ public class EnemyData : UnitData
 {
     public CharacterController controller;
     public Stats stats;
-    public Afflictions afflictions;
+    //public Afflictions afflictions;
     public Enemy_AI ai;
     public SpriteRenderer healthBar;
 
     [SerializeField] float baseGoldReward;
     float timer;
 
-    // Start is called before the first frame update
-    void Start()
+    public override void RecalculateStats()
     {
+        throw new System.NotImplementedException();
     }
 
     // Update is called once per frame

@@ -8,7 +8,9 @@ public abstract class Effect_Base : MonoBehaviour
     public float remainingTime;
     public float timer;
     public bool isPermanent;
+    public bool isVisible;
     public bool canBeRemoved;
+    public bool canBeStacked;
 
     public abstract void Remove();
     public abstract void Apply();

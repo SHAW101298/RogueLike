@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public enum ENUM_Faction
@@ -8,7 +9,13 @@ public enum ENUM_Faction
     enemy,
     boss
 }
-public abstract class UnitData : MonoBehaviour
+public abstract class UnitData : NetworkBehaviour
 {
     public ENUM_Faction faction;
+    public Stats baseStats;
+    public Stats finalStats;
+    public Afflictions afflictions;
+    public AppliedEffectsList effects;
+
+    public abstract void RecalculateStats();
 }

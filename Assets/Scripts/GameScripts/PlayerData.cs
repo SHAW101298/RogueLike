@@ -4,7 +4,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public class PlayerData : NetworkBehaviour
+public class PlayerData : UnitData
 {
     [HideInInspector] public NetworkObject networkData;
     public PlayerStats stats;
@@ -17,10 +17,14 @@ public class PlayerData : NetworkBehaviour
     public CharacterData characterData;
     public CameraHookUp cameraHookUp;
     public PlayerAmmunition ammo;
-    public Afflictions afflictions;
+    //public Afflictions afflictions;
     [SerializeField] Transform shootTarget;
     public NetworkVariable<int> currentGunTemplate;
 
+    public override void RecalculateStats()
+    {
+        throw new System.NotImplementedException();
+    }
     private void Awake()
     {
         networkData = gameObject.GetComponent<NetworkObject>();
