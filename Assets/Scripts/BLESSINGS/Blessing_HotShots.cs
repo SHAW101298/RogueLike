@@ -2,16 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blessing_HotShots : MonoBehaviour
+public class Blessing_HotShots : Blessing_Base
 {
-    // Start is called before the first frame update
-    void Start()
+    PlayerData myPlayer;
+    public int bulletCount;
+    public DamageData damageData;
+    int counter;
+
+    public override void Apply()
     {
-        
+        myPlayer = GetComponentInParent<PlayerData>();
+        myPlayer.events.playerShotBullet.AddListener(ShotCounter);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override string GetDescription()
+    {
+        string text = "Every " +bulletCount + " shot deals additional " + damageData.damage + " fire damage.";
+        return text;
+    }
+    public void ShotCounter()
+    {
+        Debug.Log("Counter works");
+        counter++;
+        if(counter <= bulletCount)
+        {
+            myPlayer.events.lastShotBullet.bulletInfo.damageData.Add(damageData);
+        }
+    }
+
+    private void Update()
     {
         
     }

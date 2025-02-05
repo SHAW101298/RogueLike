@@ -204,7 +204,9 @@ public class Gun : MonoBehaviour
         //bulletData.projectileBehaviour.direction = direction * modifiedStats.projectileSpeed;
         projectile.transform.LookAt(hitPoint);
         FillBulletData(direction, bulletData);
-
+        //Debug.Log(gunManagement.data.events.playerShotBullet.GetPersistentEventCount());
+        gunManagement.data.events.playerShotBullet.Invoke();
+        gunManagement.data.events.lastShotBullet = bulletData;
         gunManagement.data.ShootBullet_ServerRPC(direction, presetID, gunManagement.data.OwnerClientId);
     }
 

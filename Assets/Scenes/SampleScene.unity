@@ -2557,6 +2557,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1114907549}
+  - {fileID: 712040963}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2573,6 +2574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blessings:
+  - {fileID: 712040964}
   - {fileID: 1114907550}
 --- !u!1 &594350942
 GameObject:
@@ -3112,6 +3114,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706800677}
   m_CullTransparentMesh: 0
+--- !u!1 &712040962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 712040963}
+  - component: {fileID: 712040964}
+  m_Layer: 0
+  m_Name: Hot Shots
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &712040963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712040962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 591775503}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &712040964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712040962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afbb77884b53a3647acd108b389a656f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  title: Hot Shots
+  description: Every 4th shot deals additional X fire damage
+  bulletCount: 4
+  damageData:
+    damage: 35
+    damageType: 0
 --- !u!1 &720652698
 GameObject:
   m_ObjectHideFlags: 0
@@ -6360,7 +6413,7 @@ MonoBehaviour:
   id: 0
   title: Gonzales
   description: Increase movement speed by X
-  movementSpeed: 35
+  movementSpeed: 2
   template: {fileID: 1393979599}
 --- !u!1 &1143741439
 GameObject:
@@ -7735,6 +7788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb02233be6051746889b622242182b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   icon: {fileID: 0}
   remainingTime: 0
   timer: 0

@@ -18,6 +18,7 @@ public class PlayerData : UnitData
     public CameraHookUp cameraHookUp;
     public PlayerAmmunition ammo;
     public AcquiredBlessings blessings;
+    public Player_EventSystem events;
     //public Afflictions afflictions;
     [SerializeField] Transform shootTarget;
     public NetworkVariable<int> currentGunTemplate;
@@ -29,7 +30,7 @@ public class PlayerData : UnitData
         finalStats.CopyValues(baseStats);
         blessings.RecalculateStats();
         effects.RecalculateStats();
-
+        movement.ChangeMoveSpeed();
     }
     private void Awake()
     {

@@ -444,6 +444,7 @@ GameObject:
   - component: {fileID: 1421716081283059870}
   - component: {fileID: 5539400731979609595}
   - component: {fileID: 643607986106897383}
+  - component: {fileID: 8680575912805027291}
   m_Layer: 8
   m_Name: PlayerObject
   m_TagString: Player
@@ -563,6 +564,7 @@ MonoBehaviour:
   cameraHookUp: {fileID: 0}
   ammo: {fileID: 883404448956278866}
   blessings: {fileID: 643607986106897383}
+  events: {fileID: 8680575912805027291}
   shootTarget: {fileID: 6102983703050932154}
   currentGunTemplate:
     m_InternalValue: 0
@@ -579,7 +581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 4509776595623541295}
-  data: {fileID: 0}
+  data: {fileID: 4509776595623541290}
   accuracy: 0
 --- !u!114 &4509776595623541288
 MonoBehaviour:
@@ -599,7 +601,6 @@ MonoBehaviour:
   groundedPlayer: 0
   groundCheckDistance: 0.2
   velocity: {x: 0, y: 0, z: 0}
-  baseMoveSpeed: 0
   moveSpeed: 3
   runSpeedMultiplier: 2
   runningStaminaCost: 0.02
@@ -1031,6 +1032,19 @@ MonoBehaviour:
   data: {fileID: 4509776595623541290}
   list: []
   blessingsParent: {fileID: 835488568054079378}
+--- !u!114 &8680575912805027291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4509776595623541335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0592d29ed4291f429275f98a46c4540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastShotBullet: {fileID: 0}
 --- !u!1 &6135379246055899293
 GameObject:
   m_ObjectHideFlags: 0
