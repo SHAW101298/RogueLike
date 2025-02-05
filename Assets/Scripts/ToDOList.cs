@@ -9,9 +9,7 @@ public class ToDOList : MonoBehaviour
     private void Start()
     {
         doZrobienia.Add("Gracze beda alertowac przeciwnikow w okolicy. Szybciej i latwiej w ten sposob");
-        doZrobienia.Add("Sprawdzenie czy gracz zalogowal sie do uslug - czyli czy faktycznie mial internet wlaczajac gre. W razie co sprobowac ponownie polaczyc");
         doZrobienia.Add("Terminal admina");
-        //doZrobienia.Add("W scenie Main Menu powinien być już gracz stworzony. Podchodząc do portalu (warframe !) jest ustawiany Ready-Check");
         doZrobienia.Add("Odporności na obrażenia");
         doZrobienia.Add("LifeSteal");
         doZrobienia.Add("Ai");
@@ -19,14 +17,16 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Pomieszczenia");
         doZrobienia.Add("ModelePrzeciwników");
         doZrobienia.Add("Tworzenie Broni Po Smierci Przeciwników");
-        //doZrobienia.Add("Wyswietlanie Statystyk Broni po wskazaniu");
         doZrobienia.Add("Wyswietlanie Zdrowia Przeciwnikow");
         doZrobienia.Add("Perki Postaci");
         doZrobienia.Add("Modele Broni");
         doZrobienia.Add("Prefaby Broni");
         doZrobienia.Add("Przywrocic lobby. Wybor ilosci pomieszczen, poziomu trudnosci, itp");
-        //doZrobienia.Add("Wyodrebnic State Charging, z attack Ranged");
         doZrobienia.Add("Zdrowie gracza");
+        //doZrobienia.Add("W scenie Main Menu powinien być już gracz stworzony. Podchodząc do portalu (warframe !) jest ustawiany Ready-Check");
+        //doZrobienia.Add("Sprawdzenie czy gracz zalogowal sie do uslug - czyli czy faktycznie mial internet wlaczajac gre. W razie co sprobowac ponownie polaczyc");
+        //doZrobienia.Add("Wyswietlanie Statystyk Broni po wskazaniu");
+        //doZrobienia.Add("Wyodrebnic State Charging, z attack Ranged");
         //doZrobienia.Add("Zamiana pomiedzy posiadanymi broniami");
         //doZrobienia.Add("Przycisk w menu chowajacy okno lobby naprawić"); \/
         //doZrobienia.Add("WYlaczyc pokazywanie lobby podczas tworzenia go");
@@ -36,16 +36,17 @@ public class ToDOList : MonoBehaviour
         //doZrobienia.Add("Loadign Screen");
         //doZrobienia.Add("Przechowanie broni na czas zmiany postaci");
         //doZrobienia.Add("Wysyłanie dla innych graczy mapy - string pokazujacy kolejnośc pomieszczeń ?");
+        //doZrobienia.Add("Opcje w grze, typu zmiana rozdzielczosci, tryb okienkowy");
         doZrobienia.Add("Pasek pokazujacy stan przeładowania");
         doZrobienia.Add("Animacja przeladowywania");
         doZrobienia.Add("Pobranie listy broni od graczy chwile po stworzeniu ich obiektu w swiecie");
-        //doZrobienia.Add("Opcje w grze, typu zmiana rozdzielczosci, tryb okienkowy");
         doZrobienia.Add("Poziom trudnosci powinien być aplikowany, gdy gracz dołącza do pokoju");
         doZrobienia.Add("Zapisac poziom trudnosci w lobby");
         doZrobienia.Add("Zapisywac ilosc pieniedzy kazdego gracza");
         doZrobienia.Add("Wypadanie rzeczy z przeciwnikow gdy umieraja");
         doZrobienia.Add("Dodac kazdemu graczowi wszystkie bronie, aby usprawnic proces zmiany broni. Bedzie to synchronizowane na bazie zmieniania Network Variable i aktywowania broni z odpowiednim tempalate ID");
         doZrobienia.Add("Przeciwnicy spawnuja sie wszyscy na raz, czy dopiero po wejsciu do pomieszczenia ?");
+        doZrobienia.Add("Sufity w pomieszczeniach na wysokosci 5m+");
     }
 
 }
