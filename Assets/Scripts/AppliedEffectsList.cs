@@ -11,10 +11,12 @@ public class AppliedEffectsList : MonoBehaviour
     public void AddEffect(Effect_Base effect)
     {
         effect.gameObject.transform.SetParent(effectParent.transform);
+        list.Add(effect);
     }
     public void RemoveEffect(Effect_Base effect)
     {
         list.Remove(effect);
+        Destroy(effect);
     }
     public void RecalculateStats()
     {

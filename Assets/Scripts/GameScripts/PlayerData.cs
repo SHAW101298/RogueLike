@@ -17,13 +17,19 @@ public class PlayerData : UnitData
     public CharacterData characterData;
     public CameraHookUp cameraHookUp;
     public PlayerAmmunition ammo;
+    public AcquiredBlessings blessings;
     //public Afflictions afflictions;
     [SerializeField] Transform shootTarget;
     public NetworkVariable<int> currentGunTemplate;
 
     public override void RecalculateStats()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
+
+        finalStats.CopyValues(baseStats);
+        blessings.RecalculateStats();
+        effects.RecalculateStats();
+
     }
     private void Awake()
     {
@@ -69,8 +75,8 @@ public class PlayerData : UnitData
             // Damage modifier if target under affliction
             dmgModifier = info.damageModifierWhenAfflicted.GetData(dmgData.damageType);
 
-            flatRes = stats.finalStats.GetFlatResist(dmgData.damageType);
-            percRes = stats.finalStats.GetPercentResist(dmgData.damageType);
+            flatRes = finalStats.GetFlatResist(dmgData.damageType);
+            percRes = finalStats.GetPercentResist(dmgData.damageType);
 
             calcDamage -= flatRes;
             reduction = (calcDamage / 100) * percRes;
@@ -152,8 +158,8 @@ public class PlayerData : UnitData
             characterData.DisableBodyObject();
             characterData.EnableHandsObject();
             ui.HideCharacterSelector();
-            stats.baseStats.CopyValues(characterData.stats);
-            stats.CreateFinalStats();
+            baseStats.CopyValues(characterData.stats);
+            RecalculateStats();
             movement.SetMovementSpeed(characterData.moveSpeed);
 
             // Giving Guns Back
@@ -194,6 +200,7 @@ public class PlayerData : UnitData
         }
     }
 
+    /*
     // Called for all players onto Specific Player Object
     public void ChangeCharacterOLD(int character)
     {
@@ -242,6 +249,7 @@ public class PlayerData : UnitData
         }
 
     }
+    */
 
     private void ReattachGunsToHands()
     {

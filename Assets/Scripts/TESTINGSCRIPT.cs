@@ -10,6 +10,7 @@ public class TESTINGSCRIPT : MonoBehaviour
 
     [Header("Debug")]
     public bool runFunction;
+    public bool runAddBlessingToPlayer;
     public bool runCOO;
     public bool runFOO;
     public bool runROO;
@@ -46,6 +47,11 @@ public class TESTINGSCRIPT : MonoBehaviour
             runROO = false;
             ROO();
         }
+        if(runAddBlessingToPlayer == true)
+        {
+            runAddBlessingToPlayer = false;
+            AddBlessingToPlayer();
+        }
     }
     void COO()
     {
@@ -66,6 +72,12 @@ public class TESTINGSCRIPT : MonoBehaviour
     void ROO()
     {
         room.ActivateRoom();
+    }
+    void AddBlessingToPlayer()
+    {
+
+        player.blessings.AddBlessing(Blessings_Manager.Instance.blessings[0]);
+        //player.blessings.list.Add(Blessings_Manager.Instance.blessings[0]);
     }
 
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Effect_Base : MonoBehaviour
 {
+    public bool isActive;
     public Sprite icon;
     public float remainingTime;
     public float timer;

@@ -9,6 +9,7 @@ public class Effect_MovementSpeedIncreaseFlat : Effect_Base
     {
         UnitData unit = GetComponentInParent<UnitData>();
         unit.finalStats.moveSpeed += value;
+        isActive = true;
     }
 
     public override void Refresh()
@@ -19,6 +20,7 @@ public class Effect_MovementSpeedIncreaseFlat : Effect_Base
     public override void Remove()
     {
         UnitData unit = GetComponentInParent<UnitData>();
+        isActive = false;
         unit.effects.RemoveEffect(this);
         unit.effects.RecalculateStats();
     }
@@ -38,6 +40,8 @@ public class Effect_MovementSpeedIncreaseFlat : Effect_Base
     }
     private void Update()
     {
+        if (isActive == false)
+            return;
         EffectLogic();
     }
 
