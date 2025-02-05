@@ -79,9 +79,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ec636ddeea1fc4782f904f5223dba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  presetID: 0
   baseStats:
     damageArray:
-    - damage: 15
+    - damage: 30
       damageType: 4
     damageMultipliersOnAffliction:
       data:
@@ -95,9 +96,12 @@ MonoBehaviour:
     critChance: 0
     critMultiplier: 0
     afflictionChance: 0
+    numberOfProjectiles: 1
+    accuracy: 50
+    stability: 50
     magazineMax: 7
     reloadTime: 1.2
-    timeBetweenShots: 0.35
+    timeBetweenShots: 0.25
     triggerType: 0
     projectileSpeed: 55
     punchThrough: 1
@@ -115,6 +119,9 @@ MonoBehaviour:
     critChance: 0
     critMultiplier: 0
     afflictionChance: 0
+    numberOfProjectiles: 1
+    accuracy: 20
+    stability: 20
     magazineMax: 0
     reloadTime: 0
     timeBetweenShots: 0
@@ -122,6 +129,7 @@ MonoBehaviour:
     projectileSpeed: 0
     punchThrough: 0
   gunUpgrades: []
+  chaoticUpgrade: {fileID: 0}
   gunType: 0
   magazineCurrent: 7
   bulletMask:

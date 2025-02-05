@@ -159,7 +159,11 @@ public class Gun : MonoBehaviour
 
         shotTimer += modifiedStats.timeBetweenShots;
         magazineCurrent--;
-        CreateProjectile();
+        for(int i = 0; i < modifiedStats.numberOfProjectiles; i++)
+        {
+            CreateProjectile();
+        }
+        //CreateProjectile();
         CheckAmmo();
         
     }
@@ -177,6 +181,11 @@ public class Gun : MonoBehaviour
         GameObject projectile = Instantiate(projectilePrefab.gameObject);
         projectile.transform.position = nozzle.transform.position;
         Vector3 direction = gunManagement.data.cameraHookUp.GetLookDirection();
+        Vector3 rand = Random.insideUnitSphere;
+
+        Vector3 accuracyDifference = rand * 1/modifiedStats.accuracy;
+        direction += accuracyDifference;
+        //Debug.Log(name + " || Accuracy = " + modifiedStats.accuracy +" | divided = " + 1/modifiedStats.accuracy + "\n" + rand + "\n" + accuracyDifference);
 
         // Determine where player wants to shoot
         RaycastHit hit;

@@ -29,10 +29,17 @@ public class GunStats
 {
     public List<DamageData> damageArray;
     public ElementalTable damageMultipliersOnAffliction;
+    [Space(20)]
     public float totalDamageMultiplier = 1;
     public float critChance;
     public float critMultiplier;
     public float afflictionChance;
+    [Space(20)]
+    public int numberOfProjectiles;
+    [Tooltip("Size of CrossHair")]
+    public float accuracy;
+    [Tooltip("Amount of backlash from firing")]
+    public float stability;
     public int magazineMax;
     public float reloadTime;
     public float timeBetweenShots;
@@ -68,6 +75,7 @@ public class GunStats
             damageMultipliersOnAffliction.SetData(i, donor.damageMultipliersOnAffliction.GetData(i));
         }
 
+        numberOfProjectiles = donor.numberOfProjectiles;
         totalDamageMultiplier = donor.totalDamageMultiplier;
         critChance = donor.critChance;
         critMultiplier = donor.critMultiplier;
@@ -79,5 +87,7 @@ public class GunStats
         triggerType = donor.triggerType;
         projectileSpeed = donor.projectileSpeed;
         punchThrough = donor.punchThrough;
+        accuracy = donor.accuracy;
+        stability = donor.stability;
     }
 }

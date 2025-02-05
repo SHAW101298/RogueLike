@@ -132,7 +132,7 @@ MonoBehaviour:
   presetID: 1
   baseStats:
     damageArray:
-    - damage: 5
+    - damage: 15
       damageType: 5
     damageMultipliersOnAffliction:
       data:
@@ -146,6 +146,9 @@ MonoBehaviour:
     critChance: 5
     critMultiplier: 2
     afflictionChance: 5
+    numberOfProjectiles: 1
+    accuracy: 30
+    stability: 30
     magazineMax: 30
     reloadTime: 2
     timeBetweenShots: 0.1
@@ -166,6 +169,9 @@ MonoBehaviour:
     critChance: 0
     critMultiplier: 0
     afflictionChance: 0
+    numberOfProjectiles: 0
+    accuracy: 0
+    stability: 0
     magazineMax: 0
     reloadTime: 0
     timeBetweenShots: 0
@@ -173,6 +179,7 @@ MonoBehaviour:
     projectileSpeed: 0
     punchThrough: 0
   gunUpgrades: []
+  chaoticUpgrade: {fileID: 0}
   gunType: 1
   magazineCurrent: 30
   bulletMask:

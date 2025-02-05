@@ -134,7 +134,7 @@ MonoBehaviour:
   presetID: 3
   baseStats:
     damageArray:
-    - damage: 20
+    - damage: 80
       damageType: 5
     damageMultipliersOnAffliction:
       data:
@@ -148,6 +148,9 @@ MonoBehaviour:
     critChance: 30
     critMultiplier: 2
     afflictionChance: 5
+    numberOfProjectiles: 1
+    accuracy: 80
+    stability: 80
     magazineMax: 6
     reloadTime: 3
     timeBetweenShots: 0.5
@@ -168,6 +171,9 @@ MonoBehaviour:
     critChance: 0
     critMultiplier: 0
     afflictionChance: 0
+    numberOfProjectiles: 0
+    accuracy: 0
+    stability: 0
     magazineMax: 0
     reloadTime: 0
     timeBetweenShots: 0

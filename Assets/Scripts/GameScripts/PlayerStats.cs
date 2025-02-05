@@ -30,6 +30,7 @@ public class PlayerStats : MonoBehaviour
             return false;
         }
 
+        regenerateStamina = true;
         //ReduceStamina(val);
         return true;
     }
@@ -123,7 +124,7 @@ public class PlayerStats : MonoBehaviour
             if (finalStats.shield > finalStats.shieldMax)
             {
                 finalStats.shield = finalStats.shieldMax;
-                regenerateStamina = false;
+                regenerateShield = false;
             }
             ui.UpdateShieldBar(finalStats.shield / finalStats.shieldMax);
         }
@@ -143,7 +144,7 @@ public class PlayerStats : MonoBehaviour
             if (finalStats.health > finalStats.healthMax)
             {
                 finalStats.health = finalStats.healthMax;
-                regenerateStamina = false;
+                regenerateHealth = false;
             }
             ui.UpdateHealthBar(finalStats.health / finalStats.healthRegen);
         }
