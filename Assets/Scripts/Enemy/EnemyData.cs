@@ -11,6 +11,7 @@ public class EnemyData : UnitData
     //public Afflictions afflictions;
     public Enemy_AI ai;
     public SpriteRenderer healthBar;
+    public SpriteRenderer healthBarBG;
 
     [SerializeField] float baseGoldReward;
     float timer;
@@ -27,6 +28,7 @@ public class EnemyData : UnitData
         if(timer <= 0.25f)
         {
             healthBar.transform.LookAt(PlayerList.Instance.GetMyPlayer().gameObject.transform.position);
+            healthBarBG.transform.LookAt(PlayerList.Instance.GetMyPlayer().gameObject.transform.position);
             timer = 0;
         }
     }
@@ -69,12 +71,9 @@ public class EnemyData : UnitData
                     calcDamage *= dmgModifier;
                 }
             }
-
             // Check if scored a crit
-            if(CheckIfCrit(info.critChance) == true )
-            {
-                calcDamage *= info.critDamageMultiplier;
-            }
+            calcDamage = CalculateForCrit(info.critChance, calcDamage, info.critDamageMultiplier);
+
             // Check if we apply status
             if(CheckIfAffliction(info.afflictionChance) == true)
             {
@@ -179,6 +178,27 @@ public class EnemyData : UnitData
             return true;
         }
         return false;
+    }
+    float CalculateForCrit(float critChance, float currentDamage, float critModifier)
+    {
+        float newDamage = currentDamage;
+
+        // Calculate for Big Crits
+        int x = (int)critChance;
+        x = x / 100;
+
+        // Calculate Big Crit
+        for (int i = 0; i < x; i++)
+        {
+            newDamage *= critModifier;
+        }
+    
+        int rnd = Random.Range(0,100);
+        if(rnd < critChance)
+        {
+            newDamage *= critModifier;
+        }
+        return newDamage;
     }
     bool CheckIfAffliction(float affChance)
     {

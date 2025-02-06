@@ -54,8 +54,7 @@ public class ToDOList : MonoBehaviour
 
 }
 
-/* 
- Poziom trudności zmienia :
+/* Poziom trudności zmienia :
 - Życie przeciwników.
 - Obrażenia przeciwników 
 - Ilość pieniędzy
@@ -228,4 +227,25 @@ Players can block off sections, which forces those left out to find other way or
      R  R 
 
 
+ */
+
+/* Pomysły na perki
+ Zwiększenie podstawowych statystyk postaci
+    zdrowie
+    stamina
+    tarcza
+    szybkosc ruchu
+    regeneracja zdrowia
+    regeneracja staminy
+    regeneracja tarczy
+    odpornosci
+ Wywolanie efektu podczas otrzymania obrazen
+ Wywolanie efektu podczas zadawania obrazen
+ Zwiekszenie obrazen gdy jest sie w Affliction
+ Zwiekszenie otrzymywanego zlota
+ Zwiekszenie zbieranej amunicji
+ Leczenie ostatnio otrzymanych obrazen
+ Leczenie o ilosc ostatnio zadanych obrazen
+ Zwiekszenie czegoś po przeładowaniu
+ Zwiekszenie czegoś gdy pełne/mało  zdrowia lub staminy
  */

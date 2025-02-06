@@ -229,11 +229,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faction: 1
+  baseStats: {fileID: 0}
+  finalStats: {fileID: 0}
+  afflictions: {fileID: 6369748041881690604}
+  effects: {fileID: 0}
   controller: {fileID: 0}
   stats: {fileID: 6369748041881690605}
-  afflictions: {fileID: 6369748041881690604}
   ai: {fileID: 6369748041881690512}
   healthBar: {fileID: 6369748043440714479}
+  healthBarBG: {fileID: 3510183727155430180}
   baseGoldReward: 0
 --- !u!114 &6369748041881690605
 MonoBehaviour:
@@ -259,6 +263,7 @@ MonoBehaviour:
   shield: 0
   shieldRegen: 0
   shieldDelay: 0
+  moveSpeed: 0
   flatResistance:
     data:
     - 0
@@ -704,7 +709,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6369748043440714477}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2.468, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
