@@ -32,6 +32,12 @@ public class PlayerData : UnitData
         effects.RecalculateStats();
         movement.ChangeMoveSpeed();
     }
+    public void MaxOutStats()
+    {
+        finalStats.health = finalStats.healthMax;
+        finalStats.stamina = finalStats.staminaMax;
+        finalStats.shield = finalStats.shieldMax;
+    }
     private void Awake()
     {
         networkData = gameObject.GetComponent<NetworkObject>();
@@ -161,6 +167,7 @@ public class PlayerData : UnitData
             ui.HideCharacterSelector();
             baseStats.CopyValues(characterData.stats);
             RecalculateStats();
+            MaxOutStats();
             movement.SetMovementSpeed(characterData.moveSpeed);
 
             // Giving Guns Back
