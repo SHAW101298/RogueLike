@@ -69,6 +69,7 @@ public class Stats:MonoBehaviour
 
         flatResistance.SetData(stats1.flatResistance);
         percentResistance.SetData(stats1.percentResistance);
+        moveSpeed = stats1.moveSpeed;
         /*
         for(int i = 0; i < 6; i++)
         {

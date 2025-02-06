@@ -3973,6 +3973,7 @@ MonoBehaviour:
   shield: 30
   shieldRegen: 5
   shieldDelay: 5
+  moveSpeed: 5
   flatResistance:
     data:
     - 0
