@@ -102,6 +102,7 @@ public class Gun : MonoBehaviour
         if (magazineCurrent <= 0)
         {
             reload = true;
+            playerData.ui.ShowReloadBar();
         }
     }
     void Reload()
@@ -109,6 +110,8 @@ public class Gun : MonoBehaviour
         if(reload == true)
         {
             reloadTimer += Time.deltaTime;
+            playerData.ui.ShowReloadBar();
+            playerData.ui.UpdateReloadBar(reloadTimer/modifiedStats.reloadTime);
 
             if(reloadTimer >= modifiedStats.reloadTime)
             {
@@ -131,7 +134,7 @@ public class Gun : MonoBehaviour
                     playerData.ammo.ModifyAmmo(gunType, -modifiedStats.magazineMax);
                     magazineCurrent += modifiedStats.magazineMax;
                 }
-
+                playerData.ui.HideReloadBar();
                 gunManagement.GunReloaded();
             }
         }
@@ -143,6 +146,7 @@ public class Gun : MonoBehaviour
         playerData.ammo.ModifyAmmo(gunType, remainingAmount);
         magazineCurrent = 0;
         playerData.ui.UpdateAmmo();
+        playerData.ui.ShowReloadBar();
     }
     public void Shoot()
     {

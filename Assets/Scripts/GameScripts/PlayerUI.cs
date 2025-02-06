@@ -14,6 +14,8 @@ public class PlayerUI : MonoBehaviour
     public Image staminaBar;
     public Image healthBar;
     public Image shieldBar;
+    public Image reloadBar;
+    public GameObject reloadWindow;
     [Header("REF")]
     public PlayerGunManagement gunManagement;
     public CrossHairAnimation crossAnimation;
@@ -44,6 +46,18 @@ public class PlayerUI : MonoBehaviour
     public void UpdateShieldBar(float percentage)
     {
         shieldBar.fillAmount = percentage;
+    }
+    public void UpdateReloadBar(float percentage)
+    {
+        reloadBar.fillAmount = percentage;
+    }
+    public void ShowReloadBar()
+    {
+        reloadWindow.SetActive(true);
+    }
+    public void HideReloadBar()
+    {
+        reloadWindow.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()

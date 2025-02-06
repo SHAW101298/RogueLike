@@ -26,6 +26,8 @@ public class UI_HookUpScript : MonoBehaviour
     public Image staminaBar;
     public Image healthBar;
     public Image shieldBar;
+    public Image reloadBar;
+    public GameObject reloadWindow;
     public GameObject characterSelector;
     public GameObject workshop;
     // Start is called before the first frame update

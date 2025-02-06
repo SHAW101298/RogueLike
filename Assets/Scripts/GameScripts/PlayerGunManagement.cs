@@ -97,6 +97,7 @@ public class PlayerGunManagement : MonoBehaviour
         if(context.performed == true)
         {
             //Debug.Log("Scroll performed");
+            data.ui.HideReloadBar();
 
             if (mouseScroll.y > 0)
             {
@@ -106,6 +107,7 @@ public class PlayerGunManagement : MonoBehaviour
             {
                 SelectPreviousGun();
             }
+            
             ui.UpdateAmmo();
         }
 

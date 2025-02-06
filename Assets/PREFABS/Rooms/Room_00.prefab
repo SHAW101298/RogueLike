@@ -681,6 +681,7 @@ MonoBehaviour:
   placementColliders: {fileID: 4303588314569624692}
   spawningData:
   - {fileID: 144935297114645208}
+  - {fileID: 1336120620143851483}
 --- !u!1 &4035295018786596760
 GameObject:
   m_ObjectHideFlags: 0
