@@ -652,11 +652,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterChoosingWindow: {fileID: 0}
   workShopWindow: {fileID: 0}
+  statusWindow: {fileID: 0}
   magazineCurrent: {fileID: 0}
   ammoCurrent: {fileID: 0}
   staminaBar: {fileID: 0}
   healthBar: {fileID: 0}
   shieldBar: {fileID: 0}
+  reloadBar: {fileID: 0}
+  reloadWindow: {fileID: 0}
   gunManagement: {fileID: 3632390913725360339}
   crossAnimation: {fileID: 0}
   data: {fileID: 4509776595623541290}
@@ -909,6 +912,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ac70cbc5-cd67-4547-abc7-93944adf3e72
     m_ActionName: Player/Reload[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4509776595623541295}
+        m_TargetAssemblyTypeName: PlayerUI, Assembly-CSharp
+        m_MethodName: ShowStatusWindow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7e6dbf58-b296-4002-9485-40d27bff963f
+    m_ActionName: Player/StatusWindow[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1044,6 +1063,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0592d29ed4291f429275f98a46c4540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerShotBullet:
+    m_PersistentCalls:
+      m_Calls: []
   lastShotBullet: {fileID: 0}
 --- !u!1 &6135379246055899293
 GameObject:

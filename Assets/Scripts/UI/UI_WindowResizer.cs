@@ -6,13 +6,21 @@ public class UI_WindowResizer : MonoBehaviour
 {
     [SerializeField] List<UI_WindowSizeCalculator> objects;
     [SerializeField] float distanceBetweenObjects;
-    [SerializeField] RectTransform rectTransform;
+    public RectTransform rectTransform;
 
     public void Calculate()
     {
+        CollectChildren();
+
         float height = 0;
         for(int i = 0; i < objects.Count; i++)
         {
+            objects[i].rectTransform.anchoredPosition = new Vector2()
+            {
+                x = 0,
+                y = -height
+            };
+
             objects[i].CalculateAndSetHeight();
             height += objects[i].rectTransform.sizeDelta.y;
             height += distanceBetweenObjects;

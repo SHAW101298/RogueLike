@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
@@ -90,10 +91,22 @@ public class PlayerUI : MonoBehaviour
         workShopWindow.SetActive(false);
         DisableMouse();
     }
-    public void ShowStatusWindow()
+    public void ShowStatusWindow(InputAction.CallbackContext context)
     {
-        statusWindow.SetActive(true);
-        ActivateMouse();
+        if(context.phase == InputActionPhase.Performed)
+        {
+            if(statusWindow.activeSelf == false)
+            {
+                statusWindow.SetActive(true);
+                ActivateMouse();
+                UI_StatusWindow.Instance.UpdateWeaponData();
+            }
+            else
+            {
+                HideStatusWindow();
+            }
+        }
+        
     }
     public void HideStatusWindow()
     {
