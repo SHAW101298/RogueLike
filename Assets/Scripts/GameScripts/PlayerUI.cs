@@ -7,6 +7,7 @@ public class PlayerUI : MonoBehaviour
 {
     public GameObject characterChoosingWindow;
     public GameObject workShopWindow;
+    public GameObject statusWindow;
 
     [Header("UI Objects")]
     public Text magazineCurrent;
@@ -87,6 +88,16 @@ public class PlayerUI : MonoBehaviour
     public void HideWorkShopWindow()
     {
         workShopWindow.SetActive(false);
+        DisableMouse();
+    }
+    public void ShowStatusWindow()
+    {
+        statusWindow.SetActive(true);
+        ActivateMouse();
+    }
+    public void HideStatusWindow()
+    {
+        statusWindow.SetActive(false);
         DisableMouse();
     }
 

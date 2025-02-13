@@ -69,6 +69,7 @@ public class PlayerInitialization : NetworkBehaviour
             playerData.ui.reloadWindow = UI_HookUpScript.Instance.reloadWindow;
             playerData.ui.characterChoosingWindow = UI_HookUpScript.Instance.characterSelector;
             playerData.ui.workShopWindow = UI_HookUpScript.Instance.workshop;
+            playerData.ui.statusWindow = UI_HookUpScript.Instance.statusWindow;
             UI_HookUpScript.Instance.player = playerData;
             transform.position = Vector3.zero;
             

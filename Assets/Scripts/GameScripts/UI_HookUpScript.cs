@@ -30,6 +30,7 @@ public class UI_HookUpScript : MonoBehaviour
     public GameObject reloadWindow;
     public GameObject characterSelector;
     public GameObject workshop;
+    public GameObject statusWindow;
     // Start is called before the first frame update
 
     public PlayerData player;
