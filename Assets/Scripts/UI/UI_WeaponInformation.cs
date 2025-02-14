@@ -39,9 +39,9 @@ public class UI_WeaponInformation : MonoBehaviour
         }
 
         Gun gun = player.gunManagement.possesedGuns[index];
-        criticalChance.text = gun.modifiedStats.critChance.ToString();
-        criticalMultiplier.text = gun.modifiedStats.critMultiplier.ToString();
-        afflictionChance.text = gun.modifiedStats.afflictionChance.ToString();
+        criticalChance.text = gun.modifiedStats.critChance.ToString() + "%";
+        criticalMultiplier.text ="x " +  gun.modifiedStats.critMultiplier.ToString();
+        afflictionChance.text = gun.modifiedStats.afflictionChance.ToString() + "%";
         magazineSize.text = gun.modifiedStats.magazineMax.ToString();
         rateOfFire.text = (gun.modifiedStats.timeBetweenShots * 100).ToString();
 
