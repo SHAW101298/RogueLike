@@ -29,6 +29,10 @@ public class UI_WeaponInformation : MonoBehaviour
         {
             player = PlayerList.Instance.GetMyPlayer(); 
         }
+        if(player.gunManagement.possesedGuns.Count <= index)
+        {
+            return;
+        }
         if (player.gunManagement.possesedGuns[index] == null)
         {
             return;
