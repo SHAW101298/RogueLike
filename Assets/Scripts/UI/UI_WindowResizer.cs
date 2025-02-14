@@ -32,6 +32,7 @@ public class UI_WindowResizer : MonoBehaviour
     public void CollectChildren()
     {
         objects.Clear();
+        Debug.Log("Child number = " + transform.childCount);
         for(int i = 0; i < transform.childCount; i++)
         {
             objects.Add(transform.GetChild(i).gameObject.GetComponent<UI_WindowSizeCalculator>());

@@ -47,16 +47,34 @@ public class UI_WeaponInformation : MonoBehaviour
 
         GameObject temp;
         UI_DataField tempField;
+
+        foreach(Transform child in damageInfo.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
         for(int i = 0; i < gun.modifiedStats.damageArray.Count; i++)
         {
             temp = Instantiate(damagePrefab);
             temp.transform.SetParent(damageInfo.transform);
             temp.transform.localScale = Vector3.one;
             tempField = temp.GetComponent<UI_DataField>();
-            tempField.UpdateBoth(gun.modifiedStats.damageArray[i].damageType.ToString(), gun.modifiedStats.damageArray[i].damage);
+            if(gun.modifiedStats.numberOfProjectiles > 1)
+            {
+                tempField.UpdateBoth(gun.modifiedStats.damageArray[i].damageType.ToString(), gun.modifiedStats.numberOfProjectiles + "x" + gun.modifiedStats.damageArray[i].damage);
+            }
+            else
+            {
+                tempField.UpdateBoth(gun.modifiedStats.damageArray[i].damageType.ToString(), gun.modifiedStats.damageArray[i].damage);
+            }
         }
         damageInfo.Calculate();
-        for(int i = 0; i < gun.gunUpgrades.Count; i++)
+
+        foreach (Transform child in bonusesInfo.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        for (int i = 0; i < gun.gunUpgrades.Count; i++)
         {
             temp = Instantiate(bonusPrefab);
             temp.transform.SetParent(bonusesInfo.transform);
@@ -70,5 +88,23 @@ public class UI_WeaponInformation : MonoBehaviour
         Vector2 pos = new Vector2(0, -damageInfo.rectTransform.sizeDelta.y - 10);
 
         bonusesInfo.rectTransform.anchoredPosition = pos;
+    }
+
+    public void ClearWindow()
+    {
+        criticalChance.text = "";
+        criticalMultiplier.text = "";
+        afflictionChance.text = "";
+        magazineSize.text = "";
+        rateOfFire.text = "";
+
+        foreach (Transform child in damageInfo.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in bonusesInfo.transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }

@@ -11,6 +11,7 @@ public class PlayerInteractBeam : MonoBehaviour
     [SerializeField] Transform centerOfView;
     [SerializeField] float rayDistance;
     [SerializeField] LayerMask interactableLayers;
+    [SerializeField] LayerMask infoLayers;
 
     [SerializeField] UI_RaycastedGunData ui_RaycastedGunData;
 
@@ -60,13 +61,14 @@ public class PlayerInteractBeam : MonoBehaviour
         //Debug.LogWarning("Foo");
         RaycastHit hit;
         Vector3 dir = centerOfView.position - cameraPosition.position;
-        if(Physics.Raycast(cameraPosition.position, dir, out hit, rayDistance, interactableLayers) == true)
+        if(Physics.Raycast(cameraPosition.position, dir, out hit, rayDistance, infoLayers) == true)
         {
             //Debug.Log("We hit = " + hit.collider.gameObject.name);
             // We definitely Hit something
             if(hit.collider.gameObject.CompareTag("GunPickUp"))
             {
-                ui_RaycastedGunData.ShowGunData(hit.collider.gameObject.GetComponent<GunPickupInteract>().thisGun);
+                ui_RaycastedGunData.ShowGunData(hit.collider.gameObject.GetComponent<GunPickup_InformationDeliver>().gun);
+                //ui_RaycastedGunData.ShowGunData(hit.collider.gameObject.GetComponent<GunPickupInteract>().thisGun);
             }
         }
     }

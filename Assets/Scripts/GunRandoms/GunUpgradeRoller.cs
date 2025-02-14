@@ -18,10 +18,15 @@ public class GunUpgradeRoller : MonoBehaviour
         randomUpgrade = availableUpgrades[randomNumber];
         return randomUpgrade;
     }
-
-    public void BuildUpgradesDatabase()
+    public void AddRandomUpgradesToGun(Gun gun, int numberOfUpgrades)
     {
+        GunUpgradeBase rndUpgrade;
 
+        for(int i = 0; i < numberOfUpgrades; i++)
+        {
+            rndUpgrade = GetRandomRoll();
+            gun.AddUpgrade(rndUpgrade);
+        }
     }
 
 }

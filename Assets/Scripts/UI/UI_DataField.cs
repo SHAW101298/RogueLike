@@ -10,7 +10,11 @@ public class UI_DataField : MonoBehaviour
 
     public void UpdateBoth(string text, float val)
     {
-        if(text != "")
+        
+    }
+    public void UpdateBoth(string text, string val)
+    {
+        if (text != "")
         {
             label.text = text;
         }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class GunManager : MonoBehaviour
 {
@@ -32,6 +33,19 @@ public class GunManager : MonoBehaviour
         GameObject createdGunObject = Instantiate(gunList[preset]);
         Gun createdGun = createdGunObject.GetComponent<Gun>();
         return createdGun;
+    }
+    public Gun CreateRandomGun()
+    {
+        int rand = Random.Range(0, gunList.Count);
+        Gun gun = CreateGun(rand);
+        return gun;
+    }
+    public Gun CreateRandomGun(int upgradesNumber)
+    {
+        int rand = Random.Range(0, gunList.Count);
+        Gun gun = CreateGun(rand);
+        GunUpgradeRoller.ins.AddRandomUpgradesToGun(gun, upgradesNumber);
+        return gun;
     }
     public Gun CreateGunOnGround(int preset, Vector3 pos)
     {

@@ -17,6 +17,7 @@ public class Gun : MonoBehaviour
 {
     public int presetID;
     public string gunName;
+    public Sprite gunIcon;
     [Header("Data")]
     public GunStats baseStats;
     [Space(10)]
@@ -94,6 +95,10 @@ public class Gun : MonoBehaviour
             upgrade.Apply(this);
         }
         //Debug.Log("Created Modified Stats for " + gameObject.name);
+    }
+    public void AddUpgrade(GunUpgradeBase upgrade)
+    {
+        gunUpgrades.Add(upgrade);
     }
 
 

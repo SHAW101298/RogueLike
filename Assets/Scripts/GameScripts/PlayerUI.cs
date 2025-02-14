@@ -103,6 +103,7 @@ public class PlayerUI : MonoBehaviour
             }
             else
             {
+                UI_StatusWindow.Instance.ClearData();
                 HideStatusWindow();
             }
         }

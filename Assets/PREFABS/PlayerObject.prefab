@@ -701,6 +701,9 @@ MonoBehaviour:
   interactableLayers:
     serializedVersion: 2
     m_Bits: 1024
+  infoLayers:
+    serializedVersion: 2
+    m_Bits: 4096
   ui_RaycastedGunData: {fileID: 0}
 --- !u!114 &5435765896860109091
 MonoBehaviour:

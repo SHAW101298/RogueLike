@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GunFloatingScript : MonoBehaviour
 {
+    [SerializeField] GameObject objectToWobble;
     [SerializeField] Vector3 baseRotation = new Vector3(0,0,-20f);
     [SerializeField] Vector3 rotateSpeed = new Vector3(0, 0.1f, 0);
     [SerializeField] float boopingSpeed = 0.05f;
@@ -15,7 +16,7 @@ public class GunFloatingScript : MonoBehaviour
 
     private void Start()
     {
-        basePos = transform.position;
+        basePos = objectToWobble.transform.position;
         //transform.localEulerAngles = baseRotation;
     }
     private void Update()
@@ -24,9 +25,9 @@ public class GunFloatingScript : MonoBehaviour
     }
     void WobbleAnim()
     {
-        transform.Translate(boopingSpeed * Time.deltaTime * boopingDir);
-        transform.Rotate(rotateSpeed);
-        if (transform.position.y >= basePos.y + boopingHeight || transform.position.y <= basePos.y - boopingHeight)
+        objectToWobble.transform.Translate(boopingSpeed * Time.deltaTime * boopingDir);
+        objectToWobble.transform.Rotate(rotateSpeed);
+        if (objectToWobble.transform.position.y >= basePos.y + boopingHeight || objectToWobble.transform.position.y <= basePos.y - boopingHeight)
         {
             boopingDir *= -1;
         }

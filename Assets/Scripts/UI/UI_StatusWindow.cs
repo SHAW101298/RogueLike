@@ -32,5 +32,10 @@ public class UI_StatusWindow : MonoBehaviour
         weapon1.ShowInfo(1);
         weapon2.ShowInfo(2);
     }
+    public void ClearData()
+    {
+        weapon1.ClearWindow();
+        weapon2.ClearWindow();
+    }
 
 }
