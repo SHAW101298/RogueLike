@@ -22,6 +22,7 @@ public class UI_RaycastedGunData : MonoBehaviour
         }
     }
     #endregion
+    [SerializeField] TMP_Text nameField;
     [SerializeField] TMP_Text critChanceField;
     [SerializeField] TMP_Text critMultiplierField;
     [SerializeField] TMP_Text afflictionChanceField;
@@ -71,6 +72,7 @@ public class UI_RaycastedGunData : MonoBehaviour
         }
         lastGun = gun;
         HideWindow();
+        nameField.text = gun.gunName;
         ShowDamage(gun);
         ShowSimpleData(gun);
         ShowBonuses(gun);

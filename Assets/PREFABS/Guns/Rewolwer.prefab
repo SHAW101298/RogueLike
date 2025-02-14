@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   presetID: 0
+  gunName: Basic Pistol
   baseStats:
     damageArray:
     - damage: 30

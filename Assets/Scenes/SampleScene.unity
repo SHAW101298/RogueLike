@@ -6576,6 +6576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399913180ed61084cbcc3bb641a2513f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameField: {fileID: 722106698}
   critChanceField: {fileID: 190045118}
   critMultiplierField: {fileID: 1013404145}
   afflictionChanceField: {fileID: 103592412}

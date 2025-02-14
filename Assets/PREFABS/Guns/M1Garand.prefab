@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   presetID: 3
+  gunName: Basic Sniper
   baseStats:
     damageArray:
     - damage: 80

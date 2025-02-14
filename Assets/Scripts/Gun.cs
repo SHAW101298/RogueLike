@@ -16,6 +16,7 @@ public enum ENUM_GunType
 public class Gun : MonoBehaviour
 {
     public int presetID;
+    public string gunName;
     [Header("Data")]
     public GunStats baseStats;
     [Space(10)]

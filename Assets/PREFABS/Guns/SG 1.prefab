@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   presetID: 2
+  gunName: Basic Shotgun
   baseStats:
     damageArray:
     - damage: 18
