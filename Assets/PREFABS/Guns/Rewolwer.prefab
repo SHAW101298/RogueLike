@@ -81,6 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   presetID: 0
   gunName: Basic Pistol
+  gunIcon: {fileID: 0}
   baseStats:
     damageArray:
     - damage: 30
@@ -97,7 +98,7 @@ MonoBehaviour:
     critChance: 0
     critMultiplier: 0
     afflictionChance: 0
-    numberOfProjectiles: 2
+    numberOfProjectiles: 1
     accuracy: 50
     stability: 50
     magazineMax: 7

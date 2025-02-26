@@ -31,12 +31,16 @@ public class UI_WeaponInformation : MonoBehaviour
         }
         if(player.gunManagement.possesedGuns.Count <= index)
         {
+            gameObject.SetActive(false);
             return;
         }
         if (player.gunManagement.possesedGuns[index] == null)
         {
+            gameObject.SetActive(false);
             return;
         }
+            
+        gameObject.SetActive(true);
 
         Gun gun = player.gunManagement.possesedGuns[index];
         criticalChance.text = gun.modifiedStats.critChance.ToString() + "%";
