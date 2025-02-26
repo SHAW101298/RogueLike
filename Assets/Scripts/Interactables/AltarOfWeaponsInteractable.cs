@@ -27,10 +27,15 @@ public class AltarOfWeaponsInteractable : InteractableBase
                 //Debug.Log("me is = " + child.gameObject.name);
             }
             //Debug.Log("Destroying = " + gameObject.name);
-            altar.GunChoosen();
+            altar.GunChoosen(gun);
             //Destroy(gameObject);
         }
         
+    }
+    public void DisablePickUP()
+    {
+        gun.gameObject.SetActive(false);
+        gunInfo.gameObject.SetActive(false);
     }
 
 }

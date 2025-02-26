@@ -8,12 +8,14 @@ public class AltarOfWeapons : MonoBehaviour
     public int numberOfWeapons;
     public int numberOfUpgrades;
 
-    public void GunChoosen()
+    public void GunChoosen(Gun gun)
     {
         foreach(AltarOfWeaponsInteractable interactable in interactables)
         {
+            interactable.DisablePickUP();
             interactable.isActive = false;
         }
+        gun.gameObject.SetActive(true);
     }
 
     private void Start()
