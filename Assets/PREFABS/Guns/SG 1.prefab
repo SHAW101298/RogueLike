@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   presetID: 2
   gunName: Basic Shotgun
+  gunIcon: {fileID: 0}
   baseStats:
     damageArray:
     - damage: 18
@@ -68,7 +69,7 @@ MonoBehaviour:
     stability: 20
     magazineMax: 1
     reloadTime: 1.5
-    timeBetweenShots: 0.1
+    timeBetweenShots: 0.5
     triggerType: 0
     projectileSpeed: 45
     punchThrough: 1

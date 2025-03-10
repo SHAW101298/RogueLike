@@ -50,6 +50,7 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Skrzynka tworzaca bronie. Do wykorzystaina na spawnie nawet");
         doZrobienia.Add("System EVentów dla gracza. Last Attacked ENemy, Last Received Damage, Last Enemy that attacked Player, Last Dealt Damage, Last Used Weapon etc");
         doZrobienia.Add("Przenieść statystyki do UnitData");
+        doZrobienia.Add("Aim Correction przenieść na zewnatrz. Nie jest aplikowane podczas wybierania poziomu trudnosci");
     }
 
 }
@@ -211,10 +212,10 @@ Passively regenerates 1 health every 5 seconds. Healing from First Aid Kits and 
 +    Zwiekszenie obrazen na przeciwnikach pod wyplywem statusu
 +    Zwiekszenie szansy na krytyk
 +    Zwiekszenie crit multiplier
-    Zwiekszenie szybkosci strzelania
-    Zwiekszenie amunicji
++    Zwiekszenie szybkosci strzelania
++    Zwiekszenie amunicji
 +    Zwiekszenie affliction Chance
-    Zmniejszenie czasu przeładowania
++    Zmniejszenie czasu przeładowania
  */
 
 /* Crazy ideas

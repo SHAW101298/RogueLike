@@ -39,5 +39,14 @@ public class DifficultySettings : MonoBehaviour
         }
         */
     }
+    public void Apply(EnemyData enemy)
+    {
+        enemy.stats.healthMax *= enemyHealthMultiplier;
+        enemy.stats.health *= enemyHealthMultiplier;
+        enemy.stats.shieldMax *= enemyShieldMultiplier;
+        enemy.stats.shield *= enemyShieldMultiplier;
+        enemy.stats.flatResistance.AddData(enemyFlatResistanceIncrease);
+        enemy.stats.percentResistance.AddData(enemyPercentResistanceIncrease);
+    }
 
 }

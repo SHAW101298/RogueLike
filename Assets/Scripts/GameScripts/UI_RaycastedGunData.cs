@@ -96,7 +96,15 @@ public class UI_RaycastedGunData : MonoBehaviour
             Transform child = tempGO.transform.Find("Label");
             child.GetComponent<TMP_Text>().text = dmgData.damageType.ToString();
             child = tempGO.transform.Find("Data");
-            child.GetComponent<TMP_Text>().text = dmgData.damage.ToString();
+            if(gun.modifiedStats.numberOfProjectiles > 1)
+            {
+                child.GetComponent<TMP_Text>().text = gun.modifiedStats.numberOfProjectiles + "x" +  dmgData.damage.ToString();
+            }
+            else
+            {
+                child.GetComponent<TMP_Text>().text = dmgData.damage.ToString();
+            }
+            
             size += 25;
         }
         size += damageLayout.padding.top + damageLayout.padding.bottom;
