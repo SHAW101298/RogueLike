@@ -14,6 +14,7 @@ public class PlayerInteractBeam : MonoBehaviour
     [SerializeField] LayerMask infoLayers;
 
     [SerializeField] UI_RaycastedGunData ui_RaycastedGunData;
+    [SerializeField] UI_RayCastedBlessingInformation ui_RayCastedBlessingInformation;
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class PlayerInteractBeam : MonoBehaviour
         {
             Debug.Log("Setting up reycast Gun Data");
             ui_RaycastedGunData = UI_RaycastedGunData.Instance;
+            ui_RayCastedBlessingInformation = UI_RayCastedBlessingInformation.Instance;
         }
     }
     public void SetData()
@@ -29,6 +31,7 @@ public class PlayerInteractBeam : MonoBehaviour
         cameraPosition = CameraHookUp.Instance.gameObject.transform;
         centerOfView = CameraHookUp.Instance.forwardPos;
         ui_RaycastedGunData = UI_RaycastedGunData.Instance;
+        ui_RayCastedBlessingInformation = UI_RayCastedBlessingInformation.Instance;
     }
 
     private void Update()
@@ -69,6 +72,20 @@ public class PlayerInteractBeam : MonoBehaviour
             {
                 ui_RaycastedGunData.ShowGunData(hit.collider.gameObject.GetComponent<GunPickup_InformationDeliver>().gun);
                 //ui_RaycastedGunData.ShowGunData(hit.collider.gameObject.GetComponent<GunPickupInteract>().thisGun);
+            }
+            
+            switch(hit.collider.gameObject.tag)
+            {
+                case "GunPickUp":
+                    ui_RaycastedGunData.ShowGunData(hit.collider.gameObject.GetComponent<GunPickup_InformationDeliver>().gun);
+                    break;
+                case "BlessingPickUp":
+                    ui_RayCastedBlessingInformation.ShowData(hit.collider.gameObject.GetComponent<BlessingPickup_InformationDeliver>().blessing);
+                    break;
+                default:
+                    Debug.LogError("Unkown Info Deliver switch case");
+                    break;
+
             }
         }
     }

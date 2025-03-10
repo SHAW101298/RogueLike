@@ -73,7 +73,6 @@ public class EnemyData : UnitData
             }
             // Check if scored a crit
             calcDamage = CalculateForCrit(info.critChance, calcDamage, info.critDamageMultiplier);
-
             // Check if we apply status
             if(CheckIfAffliction(info.afflictionChance) == true)
             {

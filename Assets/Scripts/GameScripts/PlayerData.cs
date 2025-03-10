@@ -404,4 +404,8 @@ public class PlayerData : UnitData
         }
         gunManagement.SelectGun(slot);
     }
+    public void GiveBlessing(Blessing_Base blessing)
+    {
+        blessings.AddBlessing(blessing);
+    }
 }

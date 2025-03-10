@@ -21,4 +21,14 @@ public class Blessings_Manager : MonoBehaviour
     #endregion
 
     public List<Blessing_Base> blessings;
+
+    public Blessing_Base GetRandomBlessing()
+    {
+        int rand = Random.Range(0, blessings.Count);
+        return blessings[rand];
+    }
+    public Blessing_Base GetBlessing(int id)
+    {
+        return blessings[id];
+    }
 }

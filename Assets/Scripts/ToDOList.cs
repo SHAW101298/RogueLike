@@ -51,6 +51,7 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("System EVentów dla gracza. Last Attacked ENemy, Last Received Damage, Last Enemy that attacked Player, Last Dealt Damage, Last Used Weapon etc");
         doZrobienia.Add("Przenieść statystyki do UnitData");
         doZrobienia.Add("Aim Correction przenieść na zewnatrz. Nie jest aplikowane podczas wybierania poziomu trudnosci");
+        doZrobienia.Add("Gun Total Damage nie dziala prawdopodobnie ?");
     }
 
 }
