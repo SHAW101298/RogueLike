@@ -253,3 +253,18 @@ Players can block off sections, which forces those left out to find other way or
  Zwiekszenie czegoś po przeładowaniu
  Zwiekszenie czegoś gdy pełne/mało  zdrowia lub staminy
  */
+
+/* IKONY
+Crosshair - Crit Chance
+headshot - critical damage
+heat - heat
+cold - cold
+flash - electricity
+toxin - toxin
+ammo - magazine
+reload - reload
+
+status chance
+projectile amount
+fire rate
+ */
