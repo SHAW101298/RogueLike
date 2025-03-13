@@ -162,7 +162,9 @@ public class EnemyData : UnitData
     {
         if(stats.health <= 0)
         {
+            LootDrop();
             Debug.Log("Begin Dying Procedure");
+
             ai.NetworkObject.Despawn(true);
             //Destroy(gameObject);
         }
@@ -213,5 +215,24 @@ public class EnemyData : UnitData
     {
         Debug.LogWarning("Implement AI activation");
         ai.ActivateAI();
+    }
+    void LootDrop()
+    {
+        DifficultySettings setting = GameOptions.Instance.GetCurrentDifficultySetting();
+        int rand = Random.Range(0, 100);
+
+        if(rand <= setting.gunDropChance)
+        {
+            // DROP a gun
+            Debug.LogWarning("Get Floor Number, and based on that add upgrade numbers");
+            GunManager.Instance.CreateRandomGunOnGround(gameObject.transform.position, 2);
+
+        }
+        rand = Random.Range(0, 100);
+        if (rand <= setting.blessingDropChance)
+        {
+            // DROP a Blessing
+            Blessings_Manager.Instance.CreateRandomBlessingOnGround(transform.position);
+        }
     }
 }

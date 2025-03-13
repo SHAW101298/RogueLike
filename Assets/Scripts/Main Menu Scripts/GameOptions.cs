@@ -48,4 +48,8 @@ public class GameOptions : MonoBehaviour
         //Debug.Log("Difficulty Level = " + lvl);
         settings[lvl].ApplyForPlayer(player);
     }
+    public DifficultySettings GetCurrentDifficultySetting()
+    {
+        return settings[(int)difficultyLevel];
+    }
 }

@@ -66,6 +66,7 @@ public class GunManager : MonoBehaviour
 
         GunPickupInteract interaction = gunPickupSpot.GetComponent<GunPickupInteract>();
         interaction.thisGun = createdGun;
+        interaction.info.gun = createdGun;
         return createdGun;
     }
     public void CreateGunOnGround(Gun gun, Vector3 pos)
@@ -90,6 +91,13 @@ public class GunManager : MonoBehaviour
     {
         int rand = Random.Range(0, gunList.Count);
         Gun gun = CreateGunOnGround(rand, pos);
+        return gun;
+    }
+    public Gun CreateRandomGunOnGround(Vector3 pos, int upgradesNumber)
+    {
+        int rand = Random.Range(0, gunList.Count);
+        Gun gun = CreateGunOnGround(rand, pos);
+        GunUpgradeRoller.ins.AddRandomUpgradesToGun(gun, upgradesNumber);
         return gun;
     }
     private void Update()

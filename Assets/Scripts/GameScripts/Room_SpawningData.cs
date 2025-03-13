@@ -19,6 +19,7 @@ public class Room_SpawningData : MonoBehaviour
             //Debug.Log("Desired position = " + gameObject.transform.position);
             unit_GO = Instantiate(unit, gameObject.transform.position, gameObject.transform.rotation);
             unit_GO.GetComponent<NetworkObject>().Spawn();
+            unit_GO.transform.SetParent(transform);
             unit_Data = unit_GO.GetComponent<EnemyData>();
             room.enemiesInRoom.Add(unit_Data);
             spawnedUnits.Add(unit_Data);

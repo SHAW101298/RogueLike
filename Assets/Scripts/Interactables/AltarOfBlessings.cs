@@ -22,4 +22,9 @@ public class AltarOfBlessings : MonoBehaviour
         blessing = Blessings_Manager.Instance.GetRandomBlessing();
         info.blessing = blessing;
     }
+    public void AssignBlessing(Blessing_Base newblessing)
+    {
+        blessing = newblessing;
+        info.blessing = newblessing;
+    }
 }

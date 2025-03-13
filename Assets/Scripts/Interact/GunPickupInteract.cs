@@ -3,6 +3,7 @@
 public class GunPickupInteract : InteractableBase
 {
     public Gun thisGun;
+    public GunPickup_InformationDeliver info;
     public override void Interact(PlayerData data)
     {
         //thisGun = GetComponentInChildren<Gun>();

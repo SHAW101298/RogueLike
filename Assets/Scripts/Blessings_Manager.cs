@@ -21,6 +21,7 @@ public class Blessings_Manager : MonoBehaviour
     #endregion
 
     public List<Blessing_Base> blessings;
+    public GameObject blessingPickUpPrefab;
 
     public Blessing_Base GetRandomBlessing()
     {
@@ -30,5 +31,12 @@ public class Blessings_Manager : MonoBehaviour
     public Blessing_Base GetBlessing(int id)
     {
         return blessings[id];
+    }
+    public void CreateRandomBlessingOnGround(Vector3 pos)
+    {
+        GameObject temp = Instantiate(blessingPickUpPrefab);
+        temp.transform.position = pos;
+        AltarOfBlessings newAltar = temp.GetComponent<AltarOfBlessings>();
+        newAltar.GenerateBlessing();
     }
 }
