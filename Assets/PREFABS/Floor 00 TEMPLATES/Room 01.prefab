@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 6881364099888074329}
   - component: {fileID: 6881364099888074328}
   m_Layer: 0
-  m_Name: Room 00
+  m_Name: Room 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -412,36 +412,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -7674923503234155378, guid: 01051d7a4cca35742a5cf16ad8d558ce,
         type: 3}
-    - target: {fileID: 3242666119881751291, guid: 696f5159e06ebee499ae2a53fa438144,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3242666119881751291, guid: 696f5159e06ebee499ae2a53fa438144,
-        type: 3}
-      propertyPath: m_TagString
-      value: HardSurface
-      objectReference: {fileID: 0}
-    - target: {fileID: 4876577144691250056, guid: 696f5159e06ebee499ae2a53fa438144,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4876577144691250056, guid: 696f5159e06ebee499ae2a53fa438144,
-        type: 3}
-      propertyPath: m_TagString
-      value: HardSurface
-      objectReference: {fileID: 0}
-    - target: {fileID: 7071813385352779466, guid: 696f5159e06ebee499ae2a53fa438144,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7071813385352779466, guid: 696f5159e06ebee499ae2a53fa438144,
-        type: 3}
-      propertyPath: m_TagString
-      value: HardSurface
-      objectReference: {fileID: 0}
     - target: {fileID: 8392371199818362315, guid: 696f5159e06ebee499ae2a53fa438144,
         type: 3}
       propertyPath: m_RootOrder

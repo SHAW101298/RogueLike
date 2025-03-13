@@ -31594,11 +31594,8 @@ MonoBehaviour:
   spawnArea: {fileID: 919132149453840400}
   surface: {fileID: 919132149453840401}
   possibleRooms:
-  - {fileID: 3516055143464265146, guid: 57f4edea415107e40bcf64ccfa8db05c, type: 3}
-  - {fileID: 5755747663031494273, guid: 58d9af1ae39919349b60235deb087094, type: 3}
-  - {fileID: 2230732197828538499, guid: e2d44dfad07ebc54d95e78c82a6b5740, type: 3}
-  - {fileID: 8878434676356892505, guid: b96648f443315bc4499fa344c0db7188, type: 3}
-  - {fileID: 5813579039614727419, guid: 0e1d3253c8b8dfb429f4c60bd42a8546, type: 3}
+  - {fileID: 6881364099888074310, guid: 4d36adc4aef65e94eaaac8962f6c3a70, type: 3}
+  - {fileID: 6881364099888074310, guid: c99c9ff16b46962479f5d2a63405d617, type: 3}
   currentRooms: []
   roomsParent: {fileID: 403521218}
   roomsToGenerate: 15
