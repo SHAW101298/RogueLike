@@ -22,11 +22,11 @@ public class Blessing_HotShots : Blessing_Base
     }
     public void ShotCounter()
     {
-        Debug.Log("Counter works");
+        //Debug.Log("Counter works");
         counter++;
         if(counter >= bulletCount)
         {
-            Debug.Log("Adding damage");
+            //Debug.Log("Adding damage");
             myPlayer.events.lastShotBullet.bulletInfo.damageData.Add(damageData);
             counter = 0;
         }

@@ -88,7 +88,7 @@ public class RoomManager : MonoBehaviour
         foreach(EnemyData enemy in enemiesInRoom)
         {
             enemy.ActivateEnemy();
-            GameOptions.Instance.ApplyDifficultySettings(enemy);
+            //GameOptions.Instance.ApplyDifficultySettings(enemy);
         }
 
     }

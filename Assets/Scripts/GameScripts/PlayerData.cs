@@ -183,6 +183,8 @@ public class PlayerData : UnitData
 
             // Applying Difficulty Modifier
             GameOptions.Instance.ApplyDifficultySettings(this);
+            RecalculateStats();
+            MaxOutStats();
         }
         else
         {

@@ -3678,16 +3678,20 @@ MonoBehaviour:
   enemyDamageMultiplier: 1.3
   playerStaminaMultiplier: 1
   playerStaminaRegenMultiplier: 1
+  playerHealthMultiplier: 1
+  playerHealthRegenMultiplier: 1
+  playerShieldMultiplier: 1
+  playerShieldRegenMultiplier: 1
   gunDropChance: 6
   blessingDropChance: 3
   enemyFlatResistanceIncrease:
     data:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
   enemyPercentResistanceIncrease:
     data:
     - 10
@@ -5059,6 +5063,10 @@ MonoBehaviour:
   enemyDamageMultiplier: 0.7
   playerStaminaMultiplier: 1.25
   playerStaminaRegenMultiplier: 1.25
+  playerHealthMultiplier: 1.25
+  playerHealthRegenMultiplier: 1.25
+  playerShieldMultiplier: 1.25
+  playerShieldRegenMultiplier: 1.25
   gunDropChance: 10
   blessingDropChance: 5
   enemyFlatResistanceIncrease:
@@ -12324,16 +12332,20 @@ MonoBehaviour:
   enemyDamageMultiplier: 1.5
   playerStaminaMultiplier: 1
   playerStaminaRegenMultiplier: 1
+  playerHealthMultiplier: 1
+  playerHealthRegenMultiplier: 1
+  playerShieldMultiplier: 1
+  playerShieldRegenMultiplier: 1
   gunDropChance: 4
   blessingDropChance: 2
   enemyFlatResistanceIncrease:
     data:
-    - 5
-    - 5
-    - 5
-    - 5
-    - 5
-    - 5
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
   enemyPercentResistanceIncrease:
     data:
     - 15
@@ -15195,6 +15207,10 @@ MonoBehaviour:
   enemyDamageMultiplier: 1
   playerStaminaMultiplier: 1
   playerStaminaRegenMultiplier: 1
+  playerHealthMultiplier: 1
+  playerHealthRegenMultiplier: 1
+  playerShieldMultiplier: 1
+  playerShieldRegenMultiplier: 1
   gunDropChance: 8
   blessingDropChance: 4
   enemyFlatResistanceIncrease:
@@ -21925,12 +21941,6 @@ MonoBehaviour:
       type: 3}
     NetworkPrefabs:
     - Override: 0
-      Prefab: {fileID: 5815798120099494858, guid: cdf15c48f35e7e84ba0d0ec72703c68d,
-        type: 3}
-      SourcePrefabToOverride: {fileID: 0}
-      SourceHashToOverride: 0
-      OverridingTargetPrefab: {fileID: 0}
-    - Override: 0
       Prefab: {fileID: 6369748041881690598, guid: 37d4116de28e0aa4c8bb057be77a2565,
         type: 3}
       SourcePrefabToOverride: {fileID: 0}
@@ -22338,16 +22348,20 @@ MonoBehaviour:
   enemyDamageMultiplier: 1.6
   playerStaminaMultiplier: 0.8
   playerStaminaRegenMultiplier: 0.8
+  playerHealthMultiplier: 0.8
+  playerHealthRegenMultiplier: 0.8
+  playerShieldMultiplier: 0.8
+  playerShieldRegenMultiplier: 0.8
   gunDropChance: 2
   blessingDropChance: 1
   enemyFlatResistanceIncrease:
     data:
-    - 10
-    - 10
-    - 10
-    - 10
-    - 10
-    - 10
+    - 6
+    - 6
+    - 6
+    - 6
+    - 6
+    - 6
   enemyPercentResistanceIncrease:
     data:
     - 25

@@ -22,6 +22,7 @@ public class Room_SpawningData : MonoBehaviour
             unit_Data = unit_GO.GetComponent<EnemyData>();
             room.enemiesInRoom.Add(unit_Data);
             spawnedUnits.Add(unit_Data);
+            GameOptions.Instance.ApplyDifficultySettings(unit_Data);
         }
     }
     public void NotifyAboutPlayer(GameObject playerObject)
