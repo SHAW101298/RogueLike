@@ -20,6 +20,7 @@ public class UI_HookUpScript : MonoBehaviour
         }
     }
     #endregion
+    public PlayerData player;
     [Header("UI Objects")]
     public Text magazineCurrent;
     public Text ammoCurrent;
@@ -31,12 +32,35 @@ public class UI_HookUpScript : MonoBehaviour
     public GameObject characterSelector;
     public GameObject workshop;
     public GameObject statusWindow;
+    [Header("Status Windows")]
+    public GameObject weaponsWindow;
+    public GameObject blessingsWindow;
+    public GameObject statsWindow;
     // Start is called before the first frame update
 
-    public PlayerData player;
+    
 
     public void BTN_CloseWorkShopWindow()
     {
         player.ui.HideWorkShopWindow();
+    }
+    public void BTN_WeaponsWindow()
+    {
+        weaponsWindow.SetActive(true);
+        blessingsWindow.SetActive(false);
+        statsWindow.SetActive(false);
+    }
+    public void BTN_BlessingsWindow()
+    {
+        player.ui.UpdateBlessingsContent();
+        weaponsWindow.SetActive(false);
+        blessingsWindow.SetActive(true);
+        statsWindow.SetActive(false);
+    }
+    public void BTN_StatsWindow()
+    {
+        weaponsWindow.SetActive(false);
+        blessingsWindow.SetActive(false);
+        statsWindow.SetActive(true);
     }
 }

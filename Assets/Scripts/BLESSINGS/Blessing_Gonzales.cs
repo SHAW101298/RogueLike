@@ -21,7 +21,7 @@ public class Blessing_Gonzales : Blessing_Base
     }
     public override string GetDescription()
     {
-        string text = "Increase movement speed by " + movementSpeed + " %";
+        string text = "Increase movement speed by " + movementSpeed.ToString();
         return text;
     }
    

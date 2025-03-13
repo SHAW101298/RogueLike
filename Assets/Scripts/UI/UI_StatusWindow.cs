@@ -17,16 +17,24 @@ public class UI_StatusWindow : MonoBehaviour
             Instance = this;
         }    
     }
-#endregion
-
+    #endregion
+    public PlayerData player;
     public GameObject weaponWindow;
     public GameObject blessingsWindow;
     public GameObject statusWindow;
-    [Space(10)]
-
+    [Header("Weapons")]
     [SerializeField] UI_WeaponInformation weapon1;
     [SerializeField] UI_WeaponInformation weapon2;
+    [Header("Blessings")]
+    [SerializeField] GameObject blessingsContent;
+    [SerializeField] GameObject blessingPrefab;
 
+    public void ShowWeaponWindow()
+    {
+        weaponWindow.SetActive(true);
+        blessingsWindow.SetActive(false);
+        blessingsWindow.SetActive(false);
+    }
     public void UpdateWeaponData()
     {
         weapon1.ShowInfo(1);
@@ -36,6 +44,29 @@ public class UI_StatusWindow : MonoBehaviour
     {
         weapon1.ClearWindow();
         weapon2.ClearWindow();
+    }
+    public void UpdateBlessingsData()
+    {
+        foreach(Transform child in blessingsContent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        GameObject temp;
+        UI_BlessingInfo tempInfo;
+        Blessing_Base tempBlessing;
+        for(int i = 0; i < player.blessings.list.Count;i++)
+        {
+            temp = Instantiate(blessingPrefab);
+            temp.transform.SetParent(blessingsContent.transform);
+            temp.gameObject.transform.localScale = Vector3.one;
+            tempInfo = temp.GetComponent<UI_BlessingInfo>();
+            tempBlessing = player.blessings.list[i];
+            tempInfo.UpdateInfo(tempBlessing.title, tempBlessing.GetDescription(), 0);
+        }
+    }
+    public void UpdateStatsData()
+    {
+
     }
 
 }

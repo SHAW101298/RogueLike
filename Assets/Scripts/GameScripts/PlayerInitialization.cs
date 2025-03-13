@@ -71,6 +71,7 @@ public class PlayerInitialization : NetworkBehaviour
             playerData.ui.workShopWindow = UI_HookUpScript.Instance.workshop;
             playerData.ui.statusWindow = UI_HookUpScript.Instance.statusWindow;
             UI_HookUpScript.Instance.player = playerData;
+            UI_StatusWindow.Instance.player = playerData;
             transform.position = Vector3.zero;
             
             //Debug.Log("Enabled my scripts");

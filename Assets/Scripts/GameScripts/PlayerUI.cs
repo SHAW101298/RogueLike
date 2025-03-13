@@ -100,6 +100,7 @@ public class PlayerUI : MonoBehaviour
                 statusWindow.SetActive(true);
                 ActivateMouse();
                 UI_StatusWindow.Instance.UpdateWeaponData();
+                UI_StatusWindow.Instance.ShowWeaponWindow();
             }
             else
             {
@@ -107,8 +108,13 @@ public class PlayerUI : MonoBehaviour
                 HideStatusWindow();
             }
         }
-        
     }
+
+    public void UpdateBlessingsContent()
+    {
+        UI_StatusWindow.Instance.UpdateBlessingsData();
+    }
+
     public void HideStatusWindow()
     {
         statusWindow.SetActive(false);
