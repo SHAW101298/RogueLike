@@ -3678,6 +3678,8 @@ MonoBehaviour:
   enemyDamageMultiplier: 1.3
   playerStaminaMultiplier: 1
   playerStaminaRegenMultiplier: 1
+  gunDropChance: 6
+  blessingDropChance: 3
   enemyFlatResistanceIncrease:
     data:
     - 0
@@ -5057,6 +5059,8 @@ MonoBehaviour:
   enemyDamageMultiplier: 0.7
   playerStaminaMultiplier: 1.25
   playerStaminaRegenMultiplier: 1.25
+  gunDropChance: 10
+  blessingDropChance: 5
   enemyFlatResistanceIncrease:
     data:
     - -5
@@ -12320,6 +12324,8 @@ MonoBehaviour:
   enemyDamageMultiplier: 1.5
   playerStaminaMultiplier: 1
   playerStaminaRegenMultiplier: 1
+  gunDropChance: 4
+  blessingDropChance: 2
   enemyFlatResistanceIncrease:
     data:
     - 5
@@ -15189,6 +15195,8 @@ MonoBehaviour:
   enemyDamageMultiplier: 1
   playerStaminaMultiplier: 1
   playerStaminaRegenMultiplier: 1
+  gunDropChance: 8
+  blessingDropChance: 4
   enemyFlatResistanceIncrease:
     data:
     - 0
@@ -22330,6 +22338,8 @@ MonoBehaviour:
   enemyDamageMultiplier: 1.6
   playerStaminaMultiplier: 0.8
   playerStaminaRegenMultiplier: 0.8
+  gunDropChance: 2
+  blessingDropChance: 1
   enemyFlatResistanceIncrease:
     data:
     - 10

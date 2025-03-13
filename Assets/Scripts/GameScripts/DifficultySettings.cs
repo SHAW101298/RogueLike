@@ -7,11 +7,20 @@ public class DifficultySettings : MonoBehaviour
     public ENUM_DifficultySetting setting;
     public float aimCorrection;
     public float goldMultiplier;
+    [Space(10)]
     public float enemyHealthMultiplier;
     public float enemyShieldMultiplier;
     public float enemyDamageMultiplier;
     public float playerStaminaMultiplier;
     public float playerStaminaRegenMultiplier;
+    public float playerHealthMultiplier;
+    public float playerHealthRegenMultiplier;
+    public float playerShieldMultiplier;
+    public float playerShieldRegenMultiplier;
+    [Space(10)]
+    public float gunDropChance;
+    public float blessingDropChance;
+    [Space(10)]
     public ElementalTable enemyFlatResistanceIncrease;
     public ElementalTable enemyPercentResistanceIncrease;
 
@@ -47,6 +56,15 @@ public class DifficultySettings : MonoBehaviour
         enemy.stats.shield *= enemyShieldMultiplier;
         enemy.stats.flatResistance.AddData(enemyFlatResistanceIncrease);
         enemy.stats.percentResistance.AddData(enemyPercentResistanceIncrease);
+    }
+    public void ApplyForPlayer(PlayerData player)
+    {
+        player.baseStats.healthMax *= playerHealthMultiplier;
+        player.baseStats.healthRegen *= playerHealthRegenMultiplier;
+        player.baseStats.staminaMax *= playerStaminaMultiplier;
+        player.baseStats.staminaRegen *= playerStaminaRegenMultiplier;
+        player.baseStats.shieldMax *= playerShieldMultiplier;
+        player.baseStats.shieldRegen *= playerShieldRegenMultiplier;
     }
 
 }

@@ -180,6 +180,9 @@ public class PlayerData : UnitData
             gunManagement.SelectGun(0);
             ReattachGunsToHands();
             gunManagement.selectedGun.CatchReference(this);
+
+            // Applying Difficulty Modifier
+            GameOptions.Instance.ApplyDifficultySettings(this);
         }
         else
         {

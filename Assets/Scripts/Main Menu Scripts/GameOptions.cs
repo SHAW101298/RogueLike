@@ -42,4 +42,10 @@ public class GameOptions : MonoBehaviour
         //Debug.Log("Difficulty Level = " + lvl);
         settings[lvl].Apply(enemy);
     }
+    public void ApplyDifficultySettings(PlayerData player)
+    {
+        int lvl = (int)difficultyLevel;
+        //Debug.Log("Difficulty Level = " + lvl);
+        settings[lvl].ApplyForPlayer(player);
+    }
 }

@@ -52,6 +52,8 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Przenieść statystyki do UnitData");
         doZrobienia.Add("Aim Correction przenieść na zewnatrz. Nie jest aplikowane podczas wybierania poziomu trudnosci");
         doZrobienia.Add("Gun Total Damage nie dziala prawdopodobnie ?");
+        doZrobienia.Add("Przeciwnicy powinni isc do gracza dopoki nie maja na niego czystego pola strzalu, a nie dopoki nie dotarli na odpowiedni dystans");
+        doZrobienia.Add("Late Enemy Trigger. Gdy gracz zaatakuje przeciwnika ktory nie jest pobudzony, system powinien to wychwycic i zaalarmowac cala grupe");
     }
 
 }
