@@ -37,7 +37,7 @@ public class ToDOList : MonoBehaviour
         //doZrobienia.Add("Przechowanie broni na czas zmiany postaci");
         //doZrobienia.Add("Wysyłanie dla innych graczy mapy - string pokazujacy kolejnośc pomieszczeń ?");
         //doZrobienia.Add("Opcje w grze, typu zmiana rozdzielczosci, tryb okienkowy");
-        doZrobienia.Add("Pasek pokazujacy stan przeładowania");
+        //doZrobienia.Add("Pasek pokazujacy stan przeładowania");
         doZrobienia.Add("Animacja przeladowywania");
         doZrobienia.Add("Pobranie listy broni od graczy chwile po stworzeniu ich obiektu w swiecie");
         doZrobienia.Add("Poziom trudnosci powinien być aplikowany, gdy gracz dołącza do pokoju");
