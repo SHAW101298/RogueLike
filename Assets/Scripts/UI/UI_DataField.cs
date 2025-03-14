@@ -54,4 +54,8 @@ public class UI_DataField : MonoBehaviour
     {
         label.text = text;
     }
+    public void UpdateIcon(Sprite newIcon)
+    {
+        icon.sprite = newIcon;
+    }
 }

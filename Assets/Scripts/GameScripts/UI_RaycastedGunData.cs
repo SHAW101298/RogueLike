@@ -135,13 +135,16 @@ public class UI_RaycastedGunData : MonoBehaviour
             tempGO.transform.SetParent(bonusesParent);
             tempGO.transform.localScale = Vector3.one;
             tempDataFields = tempGO.GetComponent<UI_DataField>();
-
             tempDataFields.UpdateLabel(upgrade.GetDescription());
+            tempDataFields.UpdateIcon(upgrade.GetIcon());
+            tempDataFields.gameObject.GetComponent<UI_WindowSizeCalculator>().CalculateAndSetHeight();
             //textField = tempGO.GetComponentInChildren<TMP_Text>();
             //textField.text = upgrade.GetDescription();
-            newHeight = tempDataFields.label.preferredHeight;
-            tempTransform = textField.transform.parent.GetComponent<RectTransform>();
-            tempTransform.sizeDelta = new Vector2(tempTransform.rect.width, newHeight);
+            //newHeight = tempDataFields.label.preferredHeight;
+
+            tempTransform = tempDataFields.GetComponent<RectTransform>();
+            newHeight = tempTransform.sizeDelta.y;
+            // tempTransform.sizeDelta = new Vector2(tempTransform.rect.width, newHeight);
             size += newHeight;
         }
         size += bonusesLayout.padding.bottom + bonusesLayout.padding.top;
