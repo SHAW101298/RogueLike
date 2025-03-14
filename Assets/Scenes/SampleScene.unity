@@ -1085,6 +1085,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 0.5
+  icon: {fileID: 21300000, guid: 154f624bab796e44fa1035b4291e65c9, type: 3}
   criticalMultiplierIncrease:
   - 0.5
   - 1
@@ -4277,6 +4278,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 35
+  icon: {fileID: 21300000, guid: e94b4eb233ab7b24eb6f488e3161ac6b, type: 3}
   damageType: 2
 --- !u!1 &591775502
 GameObject:
@@ -4541,6 +4543,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 660137914}
+  - component: {fileID: 660137915}
   m_Layer: 0
   m_Name: Icon List
   m_TagString: Untagged
@@ -4563,6 +4566,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &660137915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660137913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9f53c5615b0c4468a41af2ee058426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  afflictionsIcons:
+  - {fileID: 21300000, guid: e2a5d927bb201f94aac90e60ce1ba6e7, type: 3}
+  - {fileID: 21300000, guid: 33319cbf19be7714ba561211f71a52f4, type: 3}
+  - {fileID: 21300000, guid: e94b4eb233ab7b24eb6f488e3161ac6b, type: 3}
+  - {fileID: 21300000, guid: ac3fd0c3f80035349875b94dd6f19a73, type: 3}
+  - {fileID: 21300000, guid: c126978086513584ebf612e3521c1ba4, type: 3}
+  - {fileID: 21300000, guid: 5883de2fe362f36428003ff14e91aeb3, type: 3}
+  allIcons:
+  - {fileID: 21300000, guid: d5a8237bc4f00864d842431bec6376db, type: 3}
+  - {fileID: 21300000, guid: 0ce4105d625f23943b5e8c92f00a18dc, type: 3}
+  - {fileID: 21300000, guid: 154f624bab796e44fa1035b4291e65c9, type: 3}
+  - {fileID: 21300000, guid: f77dddf69c90c6a4dae4d9ed16cb50b0, type: 3}
+  - {fileID: 21300000, guid: e77f9a3b520f2284eb330e1666c2ce6e, type: 3}
 --- !u!1 &664171714
 GameObject:
   m_ObjectHideFlags: 0
@@ -7528,6 +7556,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 0
+  icon: {fileID: 21300000, guid: d5a8237bc4f00864d842431bec6376db, type: 3}
   reloadTime:
   - 0.2
   - 0.4
@@ -7596,6 +7625,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 35
+  icon: {fileID: 21300000, guid: ac3fd0c3f80035349875b94dd6f19a73, type: 3}
   damageType: 3
 --- !u!1 &951458371
 GameObject:
@@ -8043,6 +8073,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 0
+  icon: {fileID: 0}
   upgrades: []
 --- !u!1 &988373729
 GameObject:
@@ -8196,6 +8227,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 5
+  icon: {fileID: 0}
   afflictionChanceIncrease:
   - 5
   - 10
@@ -8963,6 +8995,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 0.5
+  icon: {fileID: 21300000, guid: e77f9a3b520f2284eb330e1666c2ce6e, type: 3}
   projectileCount: 0100000002000000030000000400000005000000
 --- !u!4 &1052471785
 Transform:
@@ -9063,6 +9096,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 35
+  icon: {fileID: 21300000, guid: c126978086513584ebf612e3521c1ba4, type: 3}
   damageType: 4
 --- !u!1 &1069323364
 GameObject:
@@ -11213,6 +11247,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 0
+  icon: {fileID: 0}
   timeBetweenShots:
   - 0.05
   - 0.1
@@ -11840,6 +11875,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 10
+  icon: {fileID: 21300000, guid: f77dddf69c90c6a4dae4d9ed16cb50b0, type: 3}
   criticalChanceIncrease:
   - 10
   - 20
@@ -13653,6 +13689,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 35
+  icon: {fileID: 21300000, guid: e2a5d927bb201f94aac90e60ce1ba6e7, type: 3}
   damageType: 0
 --- !u!4 &1483547186
 Transform:
@@ -14556,6 +14593,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 20
+  icon: {fileID: 0}
   damageIncreaseOnLevels:
   - 20
   - 40
@@ -15737,6 +15775,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 0
+  icon: {fileID: 21300000, guid: 0ce4105d625f23943b5e8c92f00a18dc, type: 3}
   magazineSize: 050000000a0000000f0000001400000019000000
 --- !u!4 &1708412260
 Transform:
@@ -17114,6 +17153,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 35
+  icon: {fileID: 21300000, guid: 5883de2fe362f36428003ff14e91aeb3, type: 3}
   damageType: 5
 --- !u!1 &1832423918
 GameObject:
@@ -20058,6 +20098,7 @@ MonoBehaviour:
   upgradeLevel: 0
   value: 0
   amountIncreaseOnLevel: 35
+  icon: {fileID: 21300000, guid: 33319cbf19be7714ba561211f71a52f4, type: 3}
   damageType: 1
 --- !u!1 &2141959057
 GameObject:

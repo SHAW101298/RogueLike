@@ -120,6 +120,7 @@ public class UI_RaycastedGunData : MonoBehaviour
     void ShowBonuses(Gun gun)
     {
         GameObject tempGO;
+        UI_DataField tempDataFields;
         float newHeight = 0;
         float size = 0;
         TMP_Text textField;
@@ -133,9 +134,12 @@ public class UI_RaycastedGunData : MonoBehaviour
             tempGO = Instantiate(bonusPrefab);
             tempGO.transform.SetParent(bonusesParent);
             tempGO.transform.localScale = Vector3.one;
-            textField = tempGO.GetComponentInChildren<TMP_Text>();
-            textField.text = upgrade.GetDescription();
-            newHeight = textField.preferredHeight;
+            tempDataFields = tempGO.GetComponent<UI_DataField>();
+
+            tempDataFields.UpdateLabel(upgrade.GetDescription());
+            //textField = tempGO.GetComponentInChildren<TMP_Text>();
+            //textField.text = upgrade.GetDescription();
+            newHeight = tempDataFields.label.preferredHeight;
             tempTransform = textField.transform.parent.GetComponent<RectTransform>();
             tempTransform.sizeDelta = new Vector2(tempTransform.rect.width, newHeight);
             size += newHeight;

@@ -65,11 +65,13 @@ public class UI_WeaponInformation : MonoBehaviour
             tempField = temp.GetComponent<UI_DataField>();
             if(gun.modifiedStats.numberOfProjectiles > 1)
             {
-                tempField.UpdateBoth(gun.modifiedStats.damageArray[i].damageType.ToString(), gun.modifiedStats.numberOfProjectiles + "x" + gun.modifiedStats.damageArray[i].damage);
+                //tempField.UpdateBoth(gun.modifiedStats.damageArray[i].damageType.ToString(), gun.modifiedStats.numberOfProjectiles + "x" + gun.modifiedStats.damageArray[i].damage);
+                tempField.UpdateAll(gun.modifiedStats.damageArray[i].damageType.ToString(), gun.modifiedStats.numberOfProjectiles + "x" + gun.modifiedStats.damageArray[i].damage, IconsManager.Instance.GetAfflictionIcon(gun.modifiedStats.damageArray[i].damageType));
             }
             else
             {
                 tempField.UpdateBoth(gun.modifiedStats.damageArray[i].damageType.ToString(), gun.modifiedStats.damageArray[i].damage);
+                tempField.UpdateAll(gun.modifiedStats.damageArray[i].damageType.ToString(), gun.modifiedStats.damageArray[i].damage, IconsManager.Instance.GetAfflictionIcon(gun.modifiedStats.damageArray[i].damageType));
             }
         }
         damageInfo.Calculate();
