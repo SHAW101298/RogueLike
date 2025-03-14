@@ -87,6 +87,7 @@ public class UI_WeaponInformation : MonoBehaviour
             temp.transform.localScale = Vector3.one;
             tempField = temp.GetComponent<UI_DataField>();
             tempField.UpdateLabel(gun.gunUpgrades[i].GetDescription());
+            tempField.UpdateIcon(gun.gunUpgrades[i].GetIcon());
         }
         bonusesInfo.Calculate();
 
