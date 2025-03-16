@@ -33,7 +33,8 @@ public class GameSetup : MonoBehaviour
     void Start()
     {
         Debug.Log("Setting Up a Game");
-        CreateBasicGuns();
+        GameData.Instance.SetNewPlayerAmount(NetworkManager.Singleton.ConnectedClientsIds.Count);
+        //CreateBasicGuns();
         //roomGenerator.FirstRoomGeneration();
         foreach (RoomGenerator generator in generators)
         {
