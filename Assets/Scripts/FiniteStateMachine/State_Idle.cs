@@ -31,4 +31,8 @@ public class State_Idle : State
     {
         timer = timerDelay;
     }
+    public override string ToString()
+    {
+        return "Idle";
+    }
 }

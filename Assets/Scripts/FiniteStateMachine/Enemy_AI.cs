@@ -9,7 +9,7 @@ public abstract class Enemy_AI : NetworkBehaviour
     public EnemyData data;
     public NavMeshAgent agent;
     [Space(10)]
-    public State currentState;
+    [SerializeField] protected State currentState;
     public State_Inactive inactive;
     public State_Idle idle;
     public State_Chase chase;
@@ -28,12 +28,14 @@ public abstract class Enemy_AI : NetworkBehaviour
     {
         //Debug.Log("Changing state from " + currentState + "to"  + newState);
         currentState.Exit();
+        Debug.Log(currentState.ToString() + " -> " + newState.ToString());
         currentState = newState;
         currentState.Enter();
     }
 
     public void PlayersEnteredRoom()
     {
+        Debug.Log("Players Entered Room");
         PlayerData closestPlayer = PlayerList.Instance.GetClosestPlayer(transform.position);
         chase.SetData(closestPlayer);
         target = closestPlayer;
@@ -41,6 +43,7 @@ public abstract class Enemy_AI : NetworkBehaviour
     }
     public void PlayerLeftChaseDistance()
     {
+        Debug.Log("Player Left Chase Distance");
         ChangeState(idle);
         target = null;
     }

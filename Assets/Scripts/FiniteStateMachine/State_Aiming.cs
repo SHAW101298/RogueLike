@@ -43,5 +43,8 @@ public class State_Aiming : State
     {
 
     }
-
+    public override string ToString()
+    {
+        return "Aiming";
+    }
 }

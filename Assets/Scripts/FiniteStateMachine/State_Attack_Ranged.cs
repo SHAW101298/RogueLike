@@ -88,6 +88,9 @@ public class State_Attack_Ranged : State_Attack
         }
     }
     */
-
+    public override string ToString()
+    {
+        return "AttackRanged";
+    }
 
 }

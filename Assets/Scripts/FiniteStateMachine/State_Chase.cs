@@ -64,9 +64,11 @@ public class State_Chase : State
     }
     public override void Exit()
     {
-        Debug.Log("Leaving Chase");
+        //Debug.Log("Leaving Chase");
         chasedPlayer = null;
-        agent.SetDestination(transform.position);
+        //Debug.Log("Current DEST = " + agent.destination);
+        agent.SetDestination(ai.transform.position);
+        //Debug.Log("New Dest = " + agent.destination);
     }
     public override void FixedDo()
     {
@@ -82,12 +84,15 @@ public class State_Chase : State
         float currentClosestDistance = Vector3.Distance(transform.position, currentClosestPlayer.transform.position);
 
         bool reset = false;
-        if (agent.remainingDistance > chaseDistance)
+        float remainingDistance = Vector3.Distance(agent.transform.position, chasedPlayer.transform.position);
+        if (remainingDistance > chaseDistance)
         {
+            //Debug.Log("Remaining Distance = " + remainingDistance + " | Chase Distance = " + chaseDistance);
             reset = true;
         }
-        if(currentClosestDistance < agent.remainingDistance && currentClosestDistance < chaseDistance)
+        if(currentClosestDistance < remainingDistance && currentClosestDistance < chaseDistance)
         {
+            //Debug.Log("Current closest = " + currentClosestDistance);
             reset = false;
         }
         if(reset == true)
@@ -103,11 +108,15 @@ public class State_Chase : State
         if (dist <= ai.attack.attackDistance)
         {
             //Debug.Log("Checking distance");
-            agent.SetDestination(transform.position);
             Vector3 dir = chasedPlayer.GetShootTarget() - ai.data.rayCastPosition.position;
             RaycastHit info;
             if(Physics.Raycast(ai.data.rayCastPosition.position, dir, out info, 100f, unitsLayer) == true)
             {
+                if(info.collider.gameObject.CompareTag("Player"))
+                {
+                    decision = ai.CloseEnoughToAttack(chasedPlayer);
+                }
+                /*
                 //Debug.Log("We hit a unit " + info.collider.gameObject.name);
                 if(info.collider.gameObject.GetComponent<UnitData>().faction == ENUM_Faction.player)
                 {
@@ -115,6 +124,7 @@ public class State_Chase : State
                     // Checking if enemy is reloading
                     decision = ai.CloseEnoughToAttack(chasedPlayer);
                 }
+                */
             }
             //Debug.Log("Remaining Distance is " + agent.remainingDistance);
             //decision = ai.CloseEnoughToAttack(chasedPlayer);
@@ -133,5 +143,9 @@ public class State_Chase : State
             return true;
         }
         return false;
+    }
+    public override string ToString()
+    {
+        return "Chasing";
     }
 }
