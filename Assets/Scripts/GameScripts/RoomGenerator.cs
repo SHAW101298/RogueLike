@@ -309,15 +309,6 @@ public class RoomGenerator : NetworkBehaviour
 
     }
 
-    void SpawnEnemiesInRooms()
-    {
-        Debug.Log("Spawning Enemies in Rooms");
-        foreach(RoomManager room in currentRooms)
-        {
-            //Debug.Log("Spawning for room id " + room.roomTemplate);
-            room.SpawnEnemies();
-        }
-    }
     public void ActivateFloorForMe()
     {
         /*
