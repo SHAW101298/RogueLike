@@ -23,6 +23,7 @@ public class Enemy_AI_Ranged : Enemy_AI
         }
         else
         {
+            // Makes Enemies move slightly out of spawn positions
             float x = Random.Range(-1.5f, 1.5f);
             float z = Random.Range(-1.5f, 1.5f);
             Vector3 randomPos = new Vector3(x, 0, z);
@@ -52,6 +53,7 @@ public class Enemy_AI_Ranged : Enemy_AI
 
         attack.SetData(player);
         ChangeState(aiming);
+        Debug.Log("Changing State to Aiming");
         return true;
     }
     public void PlayerTooClose()

@@ -33,6 +33,7 @@ public class GameData : MonoBehaviour
     }
     public void SetNewPlayerAmount(int amount)
     {
+        Debug.Log("Setting new Amount of players to " + amount);
         for(int i = 0; i < amount; i++)
         {
             playerGold.Add(0);

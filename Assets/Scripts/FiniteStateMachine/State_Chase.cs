@@ -5,9 +5,12 @@ using UnityEngine;
 public class State_Chase : State
 {
     PlayerData chasedPlayer;
-    float timer;
+    float distancetimer;
+    float destinationtimer;
     [SerializeField] float distanceCheckTime;
+    [SerializeField] float destinationSetTime;
     public float chaseDistance;
+    public LayerMask unitsLayer;
 
     
     public override void Enter()
@@ -28,22 +31,32 @@ public class State_Chase : State
     }
     public override void Do()
     {
-        agent.SetDestination(chasedPlayer.transform.position);
-        if(CheckIfCloseEnoughToAttack() == true)
+        destinationtimer += Time.deltaTime;
+        if(destinationtimer >= destinationSetTime)
         {
-            return;
+            agent.SetDestination(chasedPlayer.transform.position);
+            destinationtimer = 0;
+
+            if (CheckIfCloseEnoughToAttack() == true)
+            {
+                //agent.SetDestination(transform.position);
+                return;
+            }
         }
+
+        /*
         if(CheckIfPlayerIsTooNear() == true)
         {
             ai.ChangeState(ai.run);
             return;
         }
+        */
 
 
-        timer -= Time.deltaTime;
-        if(timer <= 0)
+        distancetimer -= Time.deltaTime;
+        if(distancetimer <= 0)
         {
-            timer = distanceCheckTime;
+            distancetimer = distanceCheckTime;
             CheckIfPlayerRanAway();
         }
         
@@ -51,6 +64,7 @@ public class State_Chase : State
     }
     public override void Exit()
     {
+        Debug.Log("Leaving Chase");
         chasedPlayer = null;
         agent.SetDestination(transform.position);
     }
@@ -88,9 +102,24 @@ public class State_Chase : State
 
         if (dist <= ai.attack.attackDistance)
         {
+            //Debug.Log("Checking distance");
             agent.SetDestination(transform.position);
+            Vector3 dir = chasedPlayer.GetShootTarget() - ai.data.rayCastPosition.position;
+            RaycastHit info;
+            if(Physics.Raycast(ai.data.rayCastPosition.position, dir, out info, 100f, unitsLayer) == true)
+            {
+                //Debug.Log("We hit a unit " + info.collider.gameObject.name);
+                if(info.collider.gameObject.GetComponent<UnitData>().faction == ENUM_Faction.player)
+                {
+                    //Debug.Log("Its a player");
+                    // Checking if enemy is reloading
+                    decision = ai.CloseEnoughToAttack(chasedPlayer);
+                }
+            }
             //Debug.Log("Remaining Distance is " + agent.remainingDistance);
-            decision = ai.CloseEnoughToAttack(chasedPlayer);
+            //decision = ai.CloseEnoughToAttack(chasedPlayer);
+
+
         }
         return decision;
     }

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class EnemyData : UnitData
 {
+    [Space(10)]
     public CharacterController controller;
     public Stats stats;
     //public Afflictions afflictions;
@@ -14,6 +15,7 @@ public class EnemyData : UnitData
     public SpriteRenderer healthBarBG;
 
     [SerializeField] float baseGoldReward;
+    public Transform rayCastPosition;
     float timer;
 
     public override void RecalculateStats()
