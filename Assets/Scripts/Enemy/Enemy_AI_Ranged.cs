@@ -8,6 +8,7 @@ public class Enemy_AI_Ranged : Enemy_AI
 {
     public State_Aiming aiming;
     public State_Attack_Ranged attackRanged;
+    public State_Reloading reloading;
     [Space(10)]
     public Enemy_Weapon weapon;
 
@@ -35,8 +36,8 @@ public class Enemy_AI_Ranged : Enemy_AI
     }
     public override void ActivateAI()
     {
-        PlayersEnteredRoom();
-        
+        //Debug.Log("Nothing Happening here");
+        ChangeState(idle);
     }
 
     private void Update()
@@ -53,7 +54,7 @@ public class Enemy_AI_Ranged : Enemy_AI
 
         attack.SetData(player);
         ChangeState(aiming);
-        Debug.Log("Changing State to Aiming");
+        //Debug.Log("Changing State to Aiming");
         return true;
     }
     public void PlayerTooClose()

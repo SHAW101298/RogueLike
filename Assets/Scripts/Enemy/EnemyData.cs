@@ -39,7 +39,7 @@ public class EnemyData : UnitData
         if(ai.CheckIfIdle() == true)
         {
             ai.chase.chaseDistance *= 2;
-            
+            ai.NotifyAboutPlayer(ai.GetClosestPlayer());
         }
 
         float fullDamage = 0;

@@ -32,15 +32,6 @@ public abstract class Enemy_AI : NetworkBehaviour
         currentState = newState;
         currentState.Enter();
     }
-
-    public void PlayersEnteredRoom()
-    {
-        Debug.Log("Players Entered Room");
-        PlayerData closestPlayer = PlayerList.Instance.GetClosestPlayer(transform.position);
-        chase.SetData(closestPlayer);
-        target = closestPlayer;
-        ChangeState(chase);
-    }
     public void PlayerLeftChaseDistance()
     {
         Debug.Log("Player Left Chase Distance");
@@ -71,6 +62,11 @@ public abstract class Enemy_AI : NetworkBehaviour
             return true;
 
         return false;
+    }
+    public PlayerData GetClosestPlayer()
+    {
+        PlayerData closestPlayer = PlayerList.Instance.GetClosestPlayer(transform.position);
+        return closestPlayer;
     }
 
 

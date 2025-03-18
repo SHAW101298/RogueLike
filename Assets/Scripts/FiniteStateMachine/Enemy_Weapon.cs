@@ -15,7 +15,7 @@ public class Enemy_Weapon : NetworkBehaviour
     [Header("Ref")]
     [SerializeField] BulletData projectilePrefab;
     [SerializeField] Transform projectileSpawnPosition;
-    [SerializeField] Enemy_AI ai;
+    [SerializeField] Enemy_AI_Ranged ai;
     [Header("Limiters")]
     [SerializeField] int magazineCurrent;
     [SerializeField] int magazineMax;
@@ -109,7 +109,7 @@ public class Enemy_Weapon : NetworkBehaviour
         {
             isReloading = true;
             ai.chase.SetData(ai.attack.attackTarget);
-            ai.ChangeState(ai.chase);
+            ai.ChangeState(ai.reloading);
             Debug.LogWarning("Change state to something different than chase or attack");
         }
     }

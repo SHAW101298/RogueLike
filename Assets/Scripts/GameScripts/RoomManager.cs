@@ -83,14 +83,6 @@ public class RoomManager : MonoBehaviour
         isActive = true;
 
         SpawnEnemies();
-
-        // Make enemies Seek players out
-        foreach(EnemyData enemy in enemiesInRoom)
-        {
-            enemy.ActivateEnemy();
-            //GameOptions.Instance.ApplyDifficultySettings(enemy);
-        }
-
     }
 
     public void SpawnEnemies()
