@@ -38,6 +38,8 @@ public class BreakAbles : MonoBehaviour
     public void TakeDamage(float damage)
     {
         //Debug.Log("Taking " + damage + " damage");
+        if (health <= 0)
+            return;
         health -= damage;
         if(health <= 0)
         {
@@ -47,6 +49,11 @@ public class BreakAbles : MonoBehaviour
     }
     void CheckLoot()
     {
+        if (LootTable.Length == 0)
+        {
+            return;
+        }
+
         foreach (Loot loot in LootTable)
         {
             // Check if Loot was obtained
@@ -66,6 +73,12 @@ public class BreakAbles : MonoBehaviour
     }
     void CreateBrokenObject()
     {
+        if(brokenReplacement == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         GameObject temp = Instantiate(brokenReplacement);
         temp.transform.position = transform.position;
         Destroy(gameObject);

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4958513497421942938
+--- !u!1 &7798212050931860119
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5736457197955631648}
-  - component: {fileID: 8661590834085348741}
-  - component: {fileID: 6904248787393261903}
-  - component: {fileID: -7359160992858190094}
-  - component: {fileID: 6495116275769499857}
+  - component: {fileID: 7454301978689443885}
+  - component: {fileID: 5826773579593258888}
+  - component: {fileID: 8590665746233254722}
+  - component: {fileID: 5513393482035060891}
+  - component: {fileID: 8561145037576452929}
   m_Layer: 9
-  m_Name: Vase_00_Broken
+  m_Name: Vase_01_Broken
   m_TagString: BreakAble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5736457197955631648
+--- !u!4 &7454301978689443885
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4958513497421942938}
+  m_GameObject: {fileID: 7798212050931860119}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8661590834085348741
+--- !u!33 &5826773579593258888
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4958513497421942938}
-  m_Mesh: {fileID: -8391807214187347470, guid: 1680798f64560794cbd0ca13535c17ff, type: 3}
---- !u!23 &6904248787393261903
+  m_GameObject: {fileID: 7798212050931860119}
+  m_Mesh: {fileID: 2365046958659560368, guid: 4f7fd6d8b10b94c4da9db1098e935da2, type: 3}
+--- !u!23 &8590665746233254722
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4958513497421942938}
+  m_GameObject: {fileID: 7798212050931860119}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -85,13 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-7359160992858190094
+--- !u!114 &5513393482035060891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4958513497421942938}
+  m_GameObject: {fileID: 7798212050931860119}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8f97d458f521b2468a7c1d6350230f0, type: 3}
@@ -100,16 +100,16 @@ MonoBehaviour:
   health: 10
   LootTable: []
   brokenReplacement: {fileID: 0}
---- !u!65 &6495116275769499857
+--- !u!65 &8561145037576452929
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4958513497421942938}
+  m_GameObject: {fileID: 7798212050931860119}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.37249547, y: 0.4297557, z: 0.3672611}
-  m_Center: {x: 0.0015570298, y: 0.21487784, z: 0.00074617565}
+  m_Size: {x: 0.4631653, y: 0.75, z: 0.43473884}
+  m_Center: {x: 0.019816115, y: 0.375, z: 0.07144193}

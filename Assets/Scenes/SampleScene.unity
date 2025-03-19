@@ -11440,6 +11440,7 @@ MonoBehaviour:
   navMeshBuiltAlready: 0
   breakables:
   - {fileID: 4485840487184811741, guid: 57f65024ede7792418816c8bca400900, type: 3}
+  - {fileID: 4688785766431990211, guid: 0d4ed6ae499e81c40be18915ad420641, type: 3}
   specialInteractables: []
   challengeRooms: []
   breakableSpawnChance: 30

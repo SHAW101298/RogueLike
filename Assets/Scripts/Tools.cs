@@ -27,7 +27,7 @@ public static class Tools
     public static Vector3 GetPositionOnGround(Vector3 pos)
     {
         //Debug.Log("POS = " + pos);
-        pos.y += 10f;
+        pos.y += 1f;
         //Debug.Log("POS 2 = " + pos);
         Vector3 groundPos = new Vector3();
         LayerMask terrainLayer = LayerMask.GetMask("Terrain");
