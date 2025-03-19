@@ -252,6 +252,8 @@ Players can block off sections, which forces those left out to find other way or
  Leczenie o ilosc ostatnio zadanych obrazen
  Zwiekszenie czegoś po przeładowaniu
  Zwiekszenie czegoś gdy pełne/mało  zdrowia lub staminy
+
+GRA SWORN
  */
 
 /* IKONY
@@ -315,4 +317,11 @@ Do zrobienia
 
 /* GAMBLING
 
+ */
+
+/* UI elements
+Gdy zadawane są obrażenia, pokazywanie obrażeń nad przeciwnikami
+Gdy zbierane jest złoto, małe powiadomienie w rogu ekranu
+Gdy zbierane jest życie / amunicja jakiś flash ekranu
+Słup światła na leżących przedmiotach
  */

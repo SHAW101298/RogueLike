@@ -16,6 +16,7 @@ public class EnemyData : UnitData
 
     [SerializeField] float baseGoldReward;
     public Transform rayCastPosition;
+    public Transform damageVisualizerPosition;
     float timer;
 
     public override void RecalculateStats()
@@ -82,6 +83,7 @@ public class EnemyData : UnitData
             }
 
             fullDamage += calcDamage;
+            UI_DamageDealtVisualizer.Instance.ShowDamageNumber(damageVisualizerPosition.position, calcDamage, info.damageData[i].damageType);
         }
 
         //Debug.Log("Full Damage = " + fullDamage);
@@ -90,6 +92,7 @@ public class EnemyData : UnitData
             fullDamage = 1;
         }
         ModifyHealth(-fullDamage);
+        
         Vector3 newScale = Vector3.one;
         newScale.x = stats.health / stats.healthMax;
         healthBar.transform.localScale = newScale;
@@ -158,6 +161,7 @@ public class EnemyData : UnitData
 
     void ModifyHealth(float value)
     {
+        
         ModifyHealth_ServerRPC(value);
     }
     void CheckIfAlive()

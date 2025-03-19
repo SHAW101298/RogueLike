@@ -315,6 +315,14 @@ public class RoomGenerator : NetworkBehaviour
 
     }
 
+
+
+    [ServerRpc(RequireOwnership = false)]
+    void RequestRoomBreakablesLayout_ServerRPC(ulong requestingPlayer)
+    {
+
+    }
+
     public void ActivateFloorForMe()
     {
         /*

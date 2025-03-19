@@ -319,6 +319,7 @@ MonoBehaviour:
   healthBarBG: {fileID: 3510183727155430180}
   baseGoldReward: 0
   rayCastPosition: {fileID: 2810482900991229682}
+  damageVisualizerPosition: {fileID: 1959723477503764743}
 --- !u!114 &6369748041881690605
 MonoBehaviour:
   m_ObjectHideFlags: 0
