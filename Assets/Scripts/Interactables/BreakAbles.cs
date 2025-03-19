@@ -23,6 +23,11 @@ public class Loot
     {
         return Random.Range(min, max);
     }
+    public ENUM_GunType CalculateType()
+    {
+        int rand = Random.Range(0, (int)ENUM_GunType.rocketLauncher);
+        return (ENUM_GunType)rand;
+    }
 }
 public class BreakAbles : MonoBehaviour
 {
@@ -32,6 +37,7 @@ public class BreakAbles : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        //Debug.Log("Taking " + damage + " damage");
         health -= damage;
         if(health <= 0)
         {
@@ -54,7 +60,7 @@ public class BreakAbles : MonoBehaviour
                 temp.transform.position = lootPos;
                 // Calculate Amount of Loot
                 LootReward tempReward= temp.GetComponent<LootReward>();
-                tempReward.SetRewardAmount(loot.CalculateReward());
+                tempReward.SetRewardAmount(loot.CalculateReward(), loot.CalculateType());
             }
         }
     }

@@ -18,6 +18,9 @@ public class RoomManager : MonoBehaviour
     [SerializeField] GameObject placementColliders;
     [Header("Enemies Spawning")]
     [SerializeField] List<Room_SpawningData> spawningData;
+    [Header("Randoms")]
+    public Transform interactablePosition;
+    public List<Transform> breakablesPositions;
 
 
 

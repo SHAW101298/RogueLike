@@ -9,13 +9,13 @@ public class WalkPickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter");
+        //Debug.Log("OnTriggerEnter");
         if(Tools.CheckIfInMask(playerLayer, other.gameObject.layer))
         {
-            Debug.Log("In Mask");
+            //Debug.Log("In Mask");
             if(other.gameObject.CompareTag("Player"))
             {
-                Debug.Log("Is Player");
+                //Debug.Log("Is Player");
                 PlayerData player = other.gameObject.GetComponent<PlayerData>();
                 loot.GiveReward(player);
                 Destroy(gameObject);

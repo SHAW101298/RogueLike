@@ -4551,81 +4551,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629150611}
   m_CullTransparentMesh: 1
---- !u!1001 &632475792
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2011300535}
-    m_Modifications:
-    - target: {fileID: 3822210880268344423, guid: 57f65024ede7792418816c8bca400900,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3822210880268344423, guid: 57f65024ede7792418816c8bca400900,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3822210880268344423, guid: 57f65024ede7792418816c8bca400900,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3822210880268344423, guid: 57f65024ede7792418816c8bca400900,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3822210880268344423, guid: 57f65024ede7792418816c8bca400900,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3822210880268344423, guid: 57f65024ede7792418816c8bca400900,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3822210880268344423, guid: 57f65024ede7792418816c8bca400900,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3822210880268344423, guid: 57f65024ede7792418816c8bca400900,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3822210880268344423, guid: 57f65024ede7792418816c8bca400900,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3822210880268344423, guid: 57f65024ede7792418816c8bca400900,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3822210880268344423, guid: 57f65024ede7792418816c8bca400900,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4485840487184811741, guid: 57f65024ede7792418816c8bca400900,
-        type: 3}
-      propertyPath: m_Name
-      value: Vase_00
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 57f65024ede7792418816c8bca400900, type: 3}
---- !u!4 &632475793 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3822210880268344423, guid: 57f65024ede7792418816c8bca400900,
-    type: 3}
-  m_PrefabInstance: {fileID: 632475792}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &635659094
 GameObject:
   m_ObjectHideFlags: 0
@@ -7063,6 +6988,8 @@ MonoBehaviour:
   portal: {fileID: 635659095}
   placementColliders: {fileID: 111057920}
   spawningData: []
+  interactablePosition: {fileID: 0}
+  breakablesPositions: []
 --- !u!1 &869478464
 GameObject:
   m_ObjectHideFlags: 0
@@ -8273,6 +8200,8 @@ MonoBehaviour:
   portal: {fileID: 256785788}
   placementColliders: {fileID: 1089880414}
   spawningData: []
+  interactablePosition: {fileID: 0}
+  breakablesPositions: []
 --- !u!114 &988373733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8433,6 +8362,10 @@ MonoBehaviour:
   iteration: 0
   timer: 1
   navMeshBuiltAlready: 0
+  breakables: []
+  specialInteractables: []
+  challengeRooms: []
+  breakableSpawnChance: 0
   generateRooms: 0
   clearRooms: 0
 --- !u!1 &1009115093
@@ -10028,6 +9961,8 @@ MonoBehaviour:
   portal: {fileID: 421966244}
   placementColliders: {fileID: 6255980613111485542}
   spawningData: []
+  interactablePosition: {fileID: 0}
+  breakablesPositions: []
 --- !u!1 &1114907548
 GameObject:
   m_ObjectHideFlags: 0
@@ -11503,6 +11438,11 @@ MonoBehaviour:
   iteration: 0
   timer: 1
   navMeshBuiltAlready: 0
+  breakables:
+  - {fileID: 4485840487184811741, guid: 57f65024ede7792418816c8bca400900, type: 3}
+  specialInteractables: []
+  challengeRooms: []
+  breakableSpawnChance: 30
   generateRooms: 0
   clearRooms: 0
 --- !u!114 &1268781158
@@ -19038,7 +18978,6 @@ Transform:
   - {fileID: 403521219}
   - {fileID: 866994781}
   - {fileID: 95989747}
-  - {fileID: 632475793}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20560,6 +20499,8 @@ MonoBehaviour:
   portal: {fileID: 383831647}
   placementColliders: {fileID: 6255980611761937781}
   spawningData: []
+  interactablePosition: {fileID: 0}
+  breakablesPositions: []
 --- !u!114 &919132149453840401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21512,6 +21453,8 @@ MonoBehaviour:
   portal: {fileID: 1421714088}
   placementColliders: {fileID: 4133204187818446049}
   spawningData: []
+  interactablePosition: {fileID: 0}
+  breakablesPositions: []
 --- !u!114 &7495989836922776355
 MonoBehaviour:
   m_ObjectHideFlags: 0

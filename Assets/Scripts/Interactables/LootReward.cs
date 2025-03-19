@@ -6,6 +6,7 @@ public enum ENUM_LootRewardType
 {
     gold,
     health,
+    ammo,
     blessing,
     gun
 }
@@ -13,10 +14,12 @@ public class LootReward : MonoBehaviour
 {
     [SerializeField] int amount;
     [SerializeField] ENUM_LootRewardType rewardType;
+    [SerializeField] ENUM_GunType gunType;
 
-    public void SetRewardAmount(int val)
+    public void SetRewardAmount(int val, ENUM_GunType type)
     {
         amount = val;
+        gunType = type;
     }
 
     public void GiveReward(PlayerData player)
@@ -28,6 +31,9 @@ public class LootReward : MonoBehaviour
                 break;
             case ENUM_LootRewardType.health:
                 player.AddCurrentHealth(amount);
+                break;
+            case ENUM_LootRewardType.ammo:
+                player.ammo.ModifyAmmo(gunType, amount);
                 break;
             case ENUM_LootRewardType.blessing:
                 break;

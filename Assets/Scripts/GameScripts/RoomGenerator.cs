@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
@@ -39,6 +38,13 @@ public class RoomGenerator : NetworkBehaviour
     public int iteration = 0;
     public float timer = 1;
     public bool navMeshBuiltAlready;
+
+    [Header("Random Map Objects")]
+    public List<GameObject> breakables;
+    public List<GameObject> specialInteractables;
+    public List<GameObject> challengeRooms;
+    public int breakableSpawnChance;
+
 
     [Header("Debug")]
     public bool generateRooms;
@@ -147,10 +153,10 @@ public class RoomGenerator : NetworkBehaviour
     }
     int GetRandomRoomExcept(int x)
     {
-        int val = UnityEngine.Random.Range(0, possibleRooms.Count);
+        int val = Random.Range(0, possibleRooms.Count);
         while (val == x)
         {
-            val = UnityEngine.Random.Range(0, possibleRooms.Count);
+            val = Random.Range(0, possibleRooms.Count);
         }
         return val;
     }
@@ -239,9 +245,9 @@ public class RoomGenerator : NetworkBehaviour
             GameOptions.Instance.ApplyDifficultySettings();
 
             DeactivateFloorForMe();
+            GenerateBreakAblesInRooms();
         }
 
-        
     }
     string GetMapLayout()
     {
@@ -328,5 +334,46 @@ public class RoomGenerator : NetworkBehaviour
             room.gameObject.SetActive(false);
         }
         */
+    }
+
+    public void GenerateBreakAblesInRooms()
+    {
+        for(int i = 0; i < currentRooms.Count; i++)
+        {
+            CreateBreakAblesInRooms(currentRooms[i]);
+        }
+    }
+    public void CreateBreakAblesInRooms(RoomManager room)
+    {
+
+        int randChance;
+        int randBreakable;
+        GameObject temp;
+
+        // Loop for Spots
+        for(int i = 0; i < room.breakablesPositions.Count; i++)
+        {
+            randChance = Random.Range(0, 100);
+
+            // Generate Breakables at specified Positions
+            if (randChance <= breakableSpawnChance)
+            {
+                randBreakable = Random.Range(0, breakables.Count);
+                temp = Instantiate(breakables[randBreakable]);
+                temp.transform.SetParent(room.breakablesPositions[i]);
+                temp.transform.localPosition = Vector3.zero;
+                temp.transform.localEulerAngles = Vector3.zero;
+            }
+        }
+        // Destroy Empty Spots
+        for(int i = room.breakablesPositions.Count-1; i > 0;i--)
+        {
+            if (room.breakablesPositions[i].childCount == 0)
+            {
+                Destroy(room.breakablesPositions[i].gameObject);
+            }
+        }
+        room.breakablesPositions.TrimExcess();
+
     }
 }
