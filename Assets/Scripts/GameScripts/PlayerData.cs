@@ -111,7 +111,19 @@ public class PlayerData : UnitData
 
             fullDamage += calcDamage;
         }
-        stats.DecreaseHealth(fullDamage);
+        stats.DealDamage(fullDamage);
+    }
+    public bool AddCurrentHealth(float val)
+    {
+        if (finalStats.health >= finalStats.healthMax)
+            return false;
+
+        stats.AddCurrentHealth(val);
+        return true;
+    }
+    public void DecreaseHealth(float val)
+    {
+        stats.DecreaseHealth(val);
     }
     bool CheckIfCrit(float critChance)
     {

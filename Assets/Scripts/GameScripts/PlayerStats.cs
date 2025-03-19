@@ -39,7 +39,7 @@ public class PlayerStats : MonoBehaviour
         staminaRegenTimer = data.finalStats.staminaDelay;
         ui.UpdateStaminaBar(data.finalStats.stamina / data.finalStats.staminaMax);
     }
-    public void DecreaseHealth(float val)
+    public void DealDamage(float val)
     {
         if(data.finalStats.shield > 0)
         {
@@ -70,6 +70,24 @@ public class PlayerStats : MonoBehaviour
                 Debug.LogError("PLAYER DIES");
             }
         }
+    }
+    public void AddCurrentHealth(float val)
+    {
+        data.finalStats.health += val;
+        if(data.finalStats.health >= data.finalStats.healthMax)
+        {
+            data.finalStats.health = data.finalStats.healthMax;
+        }
+        ui.UpdateHealthBar(data.finalStats.health / data.finalStats.healthMax);
+    }
+    public void DecreaseHealth(float val)
+    {
+        data.finalStats.health += val;
+        if (data.finalStats.health <= 0)
+        {
+            Debug.LogError("PLAYER DIES");
+        }
+        ui.UpdateHealthBar(data.finalStats.health / data.finalStats.healthMax);
     }
     public void DecreaseShield(float val)
     {

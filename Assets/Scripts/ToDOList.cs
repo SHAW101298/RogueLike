@@ -268,3 +268,51 @@ status chance
 projectile amount
 fire rate
  */
+
+/* SKLEPIKARZE
+ * 
+ */
+
+/* ZNISZCZALNE OBIEKTY NA MAPIE
+Proste modele obiektów które da się zniszczyć poprzez zadawanie im obrażeń umiejetnosciami / przedmiotami / broniami. Jest szansa na wypadniecie zlota lub przedmiotow z nich.
+Do zrobienia
+    - Modele zniszczalnych obiektów
+    - Modele zniszczonych obiektów
+    - Skrypt BreakAbleObject
+        Przechowuje zdrowie oraz Loot Table
+    - Tworzenie tych obiektow na mapie w losowy sposob
+        Nie zawsze się pojawiają, są zapisane miejsca w których mogą się pojawić
+ */
+
+/* OLTARZE POSWIECEN
+Interaktywny spot, w którym można poświęcić część złota / zdrowia / statystyk, aby coś zyskać wzamian.
+Do zrobienia
+    - Modele Ołtarzy Gotowych
+    - Modele Ołtarzy Użytych
+    - Skrypt do interakcji z ołtarzem
+    - Skrypt zabierający statystykę a dający nagrodę
+    - Stworzenie UI do ołtarza
+        * Ikona poświecanej statystyki
+        * Ikona zyskiwanej nagrody
+        * Reakcja na przyciski w UI
+ */
+
+/* ZUZYWALNE PRZEDMIOTY
+
+ */
+
+/* BUFFY CZASOWE
+
+ */
+
+/* SPAWNERY PRZECIWNIKOW
+
+ */
+
+/* CHALLENGE ROOM
+
+ */
+
+/* GAMBLING
+
+ */

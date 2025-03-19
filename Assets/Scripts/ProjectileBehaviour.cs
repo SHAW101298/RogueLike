@@ -179,9 +179,13 @@ public class ProjectileBehaviour : MonoBehaviour
                 return;
             }
         }
-
-        Debug.Log("Probably Some HP Implementation");
-        Destroy(other.gameObject);
+        BreakAbles breakable = other.gameObject.GetComponent<BreakAbles>();
+        float damage = 0;
+        foreach(DamageData dmg in data.bulletInfo.damageData)
+        {
+            damage += dmg.damage;
+        }
+        breakable.TakeDamage(damage);
         data.bulletInfo.punchThrough--;
 
         if (data.bulletInfo.punchThrough <= 0)
