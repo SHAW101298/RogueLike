@@ -28,13 +28,13 @@ public abstract class Enemy_AI : NetworkBehaviour
     {
         //Debug.Log("Changing state from " + currentState + "to"  + newState);
         currentState.Exit();
-        Debug.Log(currentState.ToString() + " -> " + newState.ToString());
+        //Debug.Log(currentState.ToString() + " -> " + newState.ToString());
         currentState = newState;
         currentState.Enter();
     }
     public void PlayerLeftChaseDistance()
     {
-        Debug.Log("Player Left Chase Distance");
+        //Debug.Log("Player Left Chase Distance");
         ChangeState(idle);
         target = null;
     }

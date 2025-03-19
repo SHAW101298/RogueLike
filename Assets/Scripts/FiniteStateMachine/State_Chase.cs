@@ -95,7 +95,7 @@ public class State_Chase : State
     }
     void CheckIfPlayerRanAway()
     {
-        Debug.Log("Check if player Ran Away");
+        //Debug.Log("Check if player Ran Away");
         PlayerData currentClosestPlayer = PlayerList.Instance.GetClosestPlayer(transform.position);
         float currentClosestDistance = Vector3.Distance(transform.position, currentClosestPlayer.transform.position);
 
@@ -113,15 +113,15 @@ public class State_Chase : State
         }
         if(reset == true)
         {
-            Debug.Log("Player Ran Away");
+            //Debug.Log("Player Ran Away");
             ai.PlayerLeftChaseDistance();
         }
     }
     bool CheckIfCloseEnoughToAttack()
     {
-        Debug.Log("Check if Close Enough to Attack");
+        //Debug.Log("Check if Close Enough to Attack");
         float dist = Vector3.Distance(transform.position, chasedPlayer.transform.position);
-        Debug.Log("Dist = " + dist);
+        //Debug.Log("Dist = " + dist);
         bool decision = false;
 
         if (dist <= ai.attack.attackDistance)
@@ -148,7 +148,7 @@ public class State_Chase : State
             //Debug.Log("Remaining Distance is " + agent.remainingDistance);
             //decision = ai.CloseEnoughToAttack(chasedPlayer);
         }
-        Debug.Log("Decision = " + decision);
+        //Debug.Log("Decision = " + decision);
         return decision;
     }
     bool CheckIfPlayerIsTooNear()
