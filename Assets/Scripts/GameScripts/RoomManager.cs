@@ -94,8 +94,10 @@ public class RoomManager : MonoBehaviour
             foreach(Room_SpawningData data in spawningData)
             {
                 data.SpawnUnits();
+                data.ActivateAIForEnemies();
             }
         }
+
     }
     public void DestroyEnemiesInRoom()
     {

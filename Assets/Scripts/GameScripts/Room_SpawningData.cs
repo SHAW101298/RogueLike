@@ -26,6 +26,13 @@ public class Room_SpawningData : MonoBehaviour
             GameOptions.Instance.ApplyDifficultySettings(unit_Data);
         }
     }
+    public void ActivateAIForEnemies()
+    {
+        foreach(EnemyData enemy in spawnedUnits)
+        {
+            enemy.ai.ActivateAI();
+        }
+    }
     public void NotifyAboutPlayer(GameObject playerObject)
     {
         PlayerData player = playerObject.GetComponent<PlayerData>();

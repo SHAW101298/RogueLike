@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class State_Chase : State
 {
@@ -11,8 +12,14 @@ public class State_Chase : State
     [SerializeField] float destinationSetTime;
     public float chaseDistance;
     public LayerMask unitsLayer;
+    [SerializeField] NavMeshPath path;
 
-    
+
+    private void Start()
+    {
+        path = new NavMeshPath();
+    }
+
     public override void Enter()
     {
         if(chasedPlayer == null)
@@ -25,17 +32,42 @@ public class State_Chase : State
             else
             {
                 chasedPlayer = ai.target;
+                agent.SetDestination(chasedPlayer.transform.position);
             }
+        }
+        else
+        {
+            agent.SetDestination(chasedPlayer.transform.position);
         }
         // Set animation data maybe
     }
     public override void Do()
     {
-        destinationtimer += Time.deltaTime;
-        if(destinationtimer >= destinationSetTime)
+        //agent.SetDestination(chasedPlayer.transform.position);
+        //Debug.Log("Is path pending ? " + agent.pathPending + "\nPath Status is " + agent.pathStatus.ToString());
+        AttackRangeCheck();
+        PlayerRunningAwayCheck();
+    }
+
+    private void PlayerRunningAwayCheck()
+    {
+        distancetimer -= Time.deltaTime;
+        if (distancetimer <= 0)
         {
-            agent.SetDestination(chasedPlayer.transform.position);
+            distancetimer = distanceCheckTime;
+            CheckIfPlayerRanAway();
+        }
+    }
+
+    private void AttackRangeCheck()
+    {
+        destinationtimer += Time.deltaTime;
+        if (destinationtimer >= destinationSetTime)
+        {
+            NavMesh.CalculatePath(ai.transform.position, chasedPlayer.transform.position, NavMesh.AllAreas, path);
+            agent.SetPath(path);
             destinationtimer = 0;
+
 
             if (CheckIfCloseEnoughToAttack() == true)
             {
@@ -43,25 +75,8 @@ public class State_Chase : State
                 return;
             }
         }
-
-        /*
-        if(CheckIfPlayerIsTooNear() == true)
-        {
-            ai.ChangeState(ai.run);
-            return;
-        }
-        */
-
-
-        distancetimer -= Time.deltaTime;
-        if(distancetimer <= 0)
-        {
-            distancetimer = distanceCheckTime;
-            CheckIfPlayerRanAway();
-        }
-        
-
     }
+
     public override void Exit()
     {
         //Debug.Log("Leaving Chase");
@@ -80,6 +95,7 @@ public class State_Chase : State
     }
     void CheckIfPlayerRanAway()
     {
+        Debug.Log("Check if player Ran Away");
         PlayerData currentClosestPlayer = PlayerList.Instance.GetClosestPlayer(transform.position);
         float currentClosestDistance = Vector3.Distance(transform.position, currentClosestPlayer.transform.position);
 
@@ -97,12 +113,15 @@ public class State_Chase : State
         }
         if(reset == true)
         {
+            Debug.Log("Player Ran Away");
             ai.PlayerLeftChaseDistance();
         }
     }
     bool CheckIfCloseEnoughToAttack()
     {
+        Debug.Log("Check if Close Enough to Attack");
         float dist = Vector3.Distance(transform.position, chasedPlayer.transform.position);
+        Debug.Log("Dist = " + dist);
         bool decision = false;
 
         if (dist <= ai.attack.attackDistance)
@@ -128,9 +147,8 @@ public class State_Chase : State
             }
             //Debug.Log("Remaining Distance is " + agent.remainingDistance);
             //decision = ai.CloseEnoughToAttack(chasedPlayer);
-
-
         }
+        Debug.Log("Decision = " + decision);
         return decision;
     }
     bool CheckIfPlayerIsTooNear()

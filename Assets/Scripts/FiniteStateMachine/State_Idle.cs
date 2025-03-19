@@ -19,7 +19,7 @@ public class State_Idle : State
             PlayerData closestPlayer = PlayerList.Instance.GetClosestPlayer(transform.position);
             if(Vector3.Distance(closestPlayer.transform.position, transform.position) < ai.chase.chaseDistance)
             {
-                ai.NotifyAboutPlayer(closestPlayer);
+                //ai.NotifyAboutPlayer(closestPlayer);
             }
         }
     }
