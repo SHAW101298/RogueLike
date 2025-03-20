@@ -359,12 +359,20 @@ OnJump
 OnShoot
 OnWeaponSwap
 
+Every X seconds
+Every X meters moved
+Every X jump
+Every X shot
+
  */
 
 /*Player Perks
-OnWeaponSwap
     Fill magazine
     Increase Damage of first shot
     Increase Damage of some shots
-    
+    Restore Health
+    Restore Shields
+    Restore Stamina
+    Grant Immunity
+    Grant Resistance
 */
