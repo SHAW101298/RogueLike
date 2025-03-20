@@ -27,6 +27,7 @@ public class DamageData
 [System.Serializable]
 public class GunStats
 {
+    public DamageData basedamage;
     public List<DamageData> damageArray;
     public ElementalTable damageMultipliersOnAffliction;
     [Space(20)]
