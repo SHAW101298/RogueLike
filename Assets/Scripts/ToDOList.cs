@@ -54,6 +54,7 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Gun Total Damage nie dziala prawdopodobnie ?");
         doZrobienia.Add("Przeciwnicy powinni isc do gracza dopoki nie maja na niego czystego pola strzalu, a nie dopoki nie dotarli na odpowiedni dystans");
         doZrobienia.Add("Late Enemy Trigger. Gdy gracz zaatakuje przeciwnika ktory nie jest pobudzony, system powinien to wychwycic i zaalarmowac cala grupe");
+        doZrobienia.Add("Breakables nie są przesylane do innych graczy");
     }
 
 }
@@ -105,6 +106,8 @@ Bazoomkas
 
 
 //Kazda postac posiadac bedzie 1-2 umiejetnosci uzywalne w czasie gry.
+// Gracze mogący zwiekszyc poziom trudnosci pomieszczen na wlasne zyczenie, zwiekszajac zdobywane nagrody.
+// Zmienic system broni. Kazda statystyka ma poziom 1-5, i zostaje ulepszona wraz z poziomem broni. 
 
 /*      START LOOP
  1. Pojawienie się menu głównego
@@ -325,3 +328,43 @@ Gdy zbierane jest złoto, małe powiadomienie w rogu ekranu
 Gdy zbierane jest życie / amunicja jakiś flash ekranu
 Słup światła na leżących przedmiotach
  */
+
+/* Player Triggers
+OnEnemyWeaponHit
+OnEnemyAbilityHit
+OnEnemyBlessingHit
+
+OnReloadEmpty
+OnReloadHalfEmpty
+OnReload
+
+OnHealthPickUp
+OnAmmoPickUp
+OnGoldPickUp
+OnBlessingPickUp
+OnGunPickUp
+
+OnTakeHealthDamage
+OnTakeShieldDamage
+
+OnEnemyKill
+OnDeath
+OnBossKill
+OnChallengeRoomCompleted
+
+OnDash
+OnItemBought
+OnAbilityUse
+OnJump
+OnShoot
+OnWeaponSwap
+
+ */
+
+/*Player Perks
+OnWeaponSwap
+    Fill magazine
+    Increase Damage of first shot
+    Increase Damage of some shots
+    
+*/
