@@ -18,6 +18,10 @@ public class Blessing_Damage : Blessing_Base
         effect.isVisible = false;
         player.effects.AddEffect(effect);
     }
+    public override void Remove()
+    {
+        throw new System.NotImplementedException();
+    }
     public override string GetDescription()
     {
         string text = "Increase damage by " + damage + " %";

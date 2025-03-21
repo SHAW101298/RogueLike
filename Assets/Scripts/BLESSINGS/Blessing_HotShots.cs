@@ -14,6 +14,10 @@ public class Blessing_HotShots : Blessing_Base
         myPlayer = GetComponentInParent<PlayerData>();
         myPlayer.events.playerShotBullet.AddListener(ShotCounter);
     }
+    public override void Remove()
+    {
+        myPlayer.events.playerShotBullet.RemoveListener(ShotCounter);
+    }
 
     public override string GetDescription()
     {

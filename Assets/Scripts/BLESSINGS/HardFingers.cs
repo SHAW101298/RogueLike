@@ -5,12 +5,16 @@ using UnityEngine;
 public class HardFingers : Blessing_Base
 {
     [SerializeField] float damageIncrease;
-    [SerializeField] PlayerData player;
+    //[SerializeField] PlayerData player;
 
     public override void Apply()
     {
         player = GetComponentInParent<PlayerData>();
-        player.events.OnNonCriticalHitEvent.AddListener(ReactToNonCrit);
+        player.events.OnNonCriticalHitEvent.AddListener(BlessingLogic);
+    }
+    public override void Remove()
+    {
+        player.events.OnNonCriticalHitEvent.RemoveListener(BlessingLogic);
     }
 
     public override string GetDescription()
@@ -19,7 +23,7 @@ public class HardFingers : Blessing_Base
         return text;
     }
 
-    public void ReactToNonCrit()
+    public void BlessingLogic()
     {
         float damage = player.hitInfo.GetCurrentDamage();
         damage = damage + (damage * (damageIncrease / 100));

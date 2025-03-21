@@ -19,6 +19,10 @@ public class Blessing_Gonzales : Blessing_Base
         effect.isVisible = false;
         player.effects.AddEffect(effect);
     }
+    public override void Remove()
+    {
+        
+    }
     public override string GetDescription()
     {
         string text = "Increase movement speed by " + movementSpeed.ToString();
