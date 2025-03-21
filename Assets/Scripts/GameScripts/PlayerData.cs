@@ -19,6 +19,7 @@ public class PlayerData : UnitData
     public PlayerAmmunition ammo;
     public AcquiredBlessings blessings;
     public Player_EventSystem events;
+    public HitInfo_Player hitInfo;
     //public Afflictions afflictions;
     [SerializeField] Transform shootTarget;
     public NetworkVariable<int> currentGunTemplate;

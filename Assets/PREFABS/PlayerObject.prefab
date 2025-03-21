@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 5539400731979609595}
   - component: {fileID: 643607986106897383}
   - component: {fileID: 8680575912805027291}
+  - component: {fileID: 6033561868206370170}
   m_Layer: 8
   m_Name: PlayerObject
   m_TagString: Player
@@ -565,6 +566,7 @@ MonoBehaviour:
   ammo: {fileID: 883404448956278866}
   blessings: {fileID: 643607986106897383}
   events: {fileID: 8680575912805027291}
+  hitInfo: {fileID: 6033561868206370170}
   shootTarget: {fileID: 6102983703050932154}
   currentGunTemplate:
     m_InternalValue: 0
@@ -705,6 +707,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   ui_RaycastedGunData: {fileID: 0}
+  ui_RayCastedBlessingInformation: {fileID: 0}
 --- !u!114 &5435765896860109091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1070,6 +1073,102 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   lastShotBullet: {fileID: 0}
+  hitInfoPlayer: {fileID: 0}
+  OnEnemyWeaponHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnemyAbilityHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnemyBlessingHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCriticalHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNonCriticalHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAfflictionAppliedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnReloadEmptyEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnReloadHalfEmptyEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnReloadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealthPickUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAmmoPickUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGoldPickUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBlessingPickUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGunPickUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeHealthDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeShieldDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnemyKillEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBossKillEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnChallengeRoomCompletedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDashEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnItemBoughtEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAbilityUseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnJumpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWeaponSwapEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6033561868206370170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4509776595623541335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2504c068dee618d4ebb3ba32a5a28b6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gun: {fileID: 0}
+  enemy: {fileID: 0}
+  isWeakSpot: 0
+  Simulate: 0
+  currentDamage: 0
 --- !u!1 &6135379246055899293
 GameObject:
   m_ObjectHideFlags: 0

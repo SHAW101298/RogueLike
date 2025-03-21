@@ -133,7 +133,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   presetID: 3
   gunName: Basic Sniper
+  gunIcon: {fileID: 0}
   baseStats:
+    basedamage:
+      damage: 80
+      damageType: 5
     damageArray:
     - damage: 80
       damageType: 5
@@ -159,6 +163,9 @@ MonoBehaviour:
     projectileSpeed: 50
     punchThrough: 2
   modifiedStats:
+    basedamage:
+      damage: 0
+      damageType: 0
     damageArray: []
     damageMultipliersOnAffliction:
       data:

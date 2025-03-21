@@ -83,6 +83,9 @@ MonoBehaviour:
   gunName: Basic Pistol
   gunIcon: {fileID: 0}
   baseStats:
+    basedamage:
+      damage: 30
+      damageType: 4
     damageArray:
     - damage: 30
       damageType: 4
@@ -108,6 +111,9 @@ MonoBehaviour:
     projectileSpeed: 55
     punchThrough: 1
   modifiedStats:
+    basedamage:
+      damage: 0
+      damageType: 0
     damageArray: []
     damageMultipliersOnAffliction:
       data:

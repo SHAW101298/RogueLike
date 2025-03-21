@@ -55,6 +55,7 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Przeciwnicy powinni isc do gracza dopoki nie maja na niego czystego pola strzalu, a nie dopoki nie dotarli na odpowiedni dystans");
         doZrobienia.Add("Late Enemy Trigger. Gdy gracz zaatakuje przeciwnika ktory nie jest pobudzony, system powinien to wychwycic i zaalarmowac cala grupe");
         doZrobienia.Add("Breakables nie są przesylane do innych graczy");
+        doZrobienia.Add("Afflicitons never end. Add Timer");
     }
 
 }

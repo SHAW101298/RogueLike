@@ -99,6 +99,11 @@ public class EnemyData : UnitData
         return fullDamage;
     }
 
+    public float HitEnemy(float damage)
+    {
+        return damage;
+    }
+
     /*
     public float HitEnemy(Gun gun)
     {

@@ -131,7 +131,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   presetID: 1
   gunName: Basic SMG
+  gunIcon: {fileID: 0}
   baseStats:
+    basedamage:
+      damage: 15
+      damageType: 5
     damageArray:
     - damage: 15
       damageType: 5
@@ -157,6 +161,9 @@ MonoBehaviour:
     projectileSpeed: 40
     punchThrough: 1
   modifiedStats:
+    basedamage:
+      damage: 0
+      damageType: 0
     damageArray: []
     damageMultipliersOnAffliction:
       data:

@@ -49,6 +49,9 @@ MonoBehaviour:
   gunName: Basic Shotgun
   gunIcon: {fileID: 0}
   baseStats:
+    basedamage:
+      damage: 18
+      damageType: 5
     damageArray:
     - damage: 18
       damageType: 5
@@ -74,6 +77,9 @@ MonoBehaviour:
     projectileSpeed: 45
     punchThrough: 1
   modifiedStats:
+    basedamage:
+      damage: 0
+      damageType: 0
     damageArray: []
     damageMultipliersOnAffliction:
       data:
