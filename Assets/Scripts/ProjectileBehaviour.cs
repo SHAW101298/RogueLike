@@ -44,6 +44,9 @@ public class ProjectileBehaviour : MonoBehaviour
             case "Enemy":
                 CollisionEnemy(other);
                 break;
+            case "EnemyWeakSpot":
+                CollisionEnemyWeakSpot(other);
+                break;
             case "HardSurface":
                 CollisionHardSurface(other);
                 break;
@@ -55,33 +58,6 @@ public class ProjectileBehaviour : MonoBehaviour
                 break;
         }
     }
-
-
-    /*
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("collision with = " + collision.collider.gameObject);
-        switch (collision.collider.gameObject.tag)
-        {
-            case "Player":
-                CollisionPlayer(collision);
-                break;
-            case "Enemy":
-                CollisionEnemy(collision);
-                break;
-            case "HardSurface":
-                CollisionHardSurface(collision);
-                break;
-            case "BreakAble":
-                CollisionBreakAble(collision);
-                break;
-            default:
-                break;
-        }
-        
-        
-    }
-    */
 
     void CollisionPlayer(Collider other)
     {
@@ -143,14 +119,53 @@ public class ProjectileBehaviour : MonoBehaviour
         data.bulletInfo.punchThrough--;
 
         EnemyData enemyData = other.gameObject.GetComponent<EnemyData>();
+        HitInfo_Player hitInfo = data.owningGun.playerData.hitInfo;
+        hitInfo.SetData(data.owningGun, enemyData, false);
+        hitInfo.Calculate();
+        DamageInfo damageInfo = hitInfo.damageInfo;
+        float calculatedDamage = damageInfo.GetDamageAmount();
+        HitResult result = enemyData.HitEnemy(damageInfo);
+        result.TriggerEvents();
 
-        float dealtDamage = enemyData.HitEnemy(data.bulletInfo);
-
-        //Debug.Log("Remaining PunchThrough = " + data.bulletInfo.punchThrough);
 
         if (data.bulletInfo.punchThrough <= 0)
         {
             //Debug.Log("Destroying Object name = " + gameObject.name);
+            Destroy(gameObject);
+        }
+    }
+    void CollisionEnemyWeakSpot(Collider other)
+    {
+        if (phantomBullet == true)
+        {
+            data.bulletInfo.punchThrough--;
+            if (data.bulletInfo.punchThrough <= 0)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+
+        // Bullet Shot by Enemy hit enemy
+        if (owningFaction != ENUM_Faction.player)
+        {
+            return;
+        }
+        data.bulletInfo.punchThrough--;
+
+        // Calculate damage Dealt
+        EnemyData enemyData = other.gameObject.GetComponent<EnemyData>();
+        HitInfo_Player hitInfo = data.owningGun.playerData.hitInfo;
+        hitInfo.SetData(data.owningGun, enemyData, true);
+        hitInfo.Calculate();
+        DamageInfo damageInfo = hitInfo.damageInfo;
+        float calculatedDamage = damageInfo.GetDamageAmount();
+        HitResult result = enemyData.HitEnemy(damageInfo);
+        result.TriggerEvents();
+
+        // Destroy bullet if it hit its limit
+        if (data.bulletInfo.punchThrough <= 0)
+        {
             Destroy(gameObject);
         }
     }

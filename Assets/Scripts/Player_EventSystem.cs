@@ -44,6 +44,9 @@ public class Player_EventSystem : MonoBehaviour
     public UnityEvent OnShootEvent;
     public UnityEvent OnWeaponSwapEvent;
 
+    public UnityEvent OnFirstHit;
+    public UnityEvent OnHalfHealthTap;
+
     //Every X seconds
     //Every X meters moved
     //Every X jump

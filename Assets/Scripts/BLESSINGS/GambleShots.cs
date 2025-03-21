@@ -15,7 +15,7 @@ public class GambleShots : Blessing_Base
     }
     public override void Remove()
     {
-        player.events.OnEnemyWeaponHitEvent.RemoveListener(ReactOnHit);
+        player.events.OnEnemyWeaponHitEvent.RemoveListener(BlessingLogic);
     }
 
     public override string GetDescription()

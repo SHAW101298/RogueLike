@@ -2,6 +2,80 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ENUM_HitResult
+{
+    firstHit,
+    kill,
+    halfHP,
+    alive
+}
+public class HitResult
+{
+    ENUM_HitResult result;
+    float percentOfHealthDealt;
+    public bool firstHit;
+    public bool halfhealth;
+    public bool death;
+
+    public ENUM_HitResult GetResult()
+    {
+        return result;
+    }
+    public float GetHealthPercent()
+    {
+        return percentOfHealthDealt;
+    }
+
+    public void SetData(ENUM_HitResult newResult, float newHealth)
+    {
+        result = newResult;
+        percentOfHealthDealt = newHealth;
+    }
+
+    public void TriggerEvents()
+    {
+        PlayerData player = PlayerList.Instance.GetMyPlayer();
+        if(firstHit == true)
+        {
+            player.events.OnFirstHit.Invoke();
+        }
+        if(halfhealth == true)
+        {
+            player.events.OnHalfHealthTap.Invoke();
+        }
+        if(death == true)
+        {
+            player.events.OnEnemyKillEvent.Invoke();
+        }
+    }
+}
+public class DamageInfo
+{
+    float damage;
+    ENUM_DamageType type;
+    
+
+    public void SetData(float newDamage, ENUM_DamageType newType)
+    {
+        damage = newDamage;
+        type = newType;
+    }
+    public void SetDamage(float newDamage)
+    {
+        damage = newDamage;
+    }
+    public float GetDamageAmount()
+    {
+        return damage;
+    }
+    public ENUM_DamageType GetDamageType()
+    {
+        return type;
+    }
+    
+
+}
+
 public class HitInfo_Player : MonoBehaviour
 {
     [SerializeField] Gun gun;
@@ -9,31 +83,23 @@ public class HitInfo_Player : MonoBehaviour
     [SerializeField] bool isWeakSpot;
 
     [SerializeField] bool Simulate;
-    [SerializeField] float currentDamage;
+    public DamageInfo damageInfo;
 
     public void Calculate()
     {
-        //Debug.Log("Calculate");
-        currentDamage = gun.baseStats.basedamage.damage;
-        //float damage = gun.baseStats.basedamage.damage;
+        damageInfo.SetData(gun.baseStats.basedamage.damage, gun.baseStats.basedamage.damageType);
         if(isWeakSpot == true)
         {
-            currentDamage *= 2;
+            damageInfo.SetDamage(damageInfo.GetDamageAmount()*2);
         }
-        //Debug.Log("Current Damage = " + currentDamage);
         CalculateCrit();
-        //Debug.Log("Current Damage = " + currentDamage);
         ReduceByResistance();
-        //Debug.Log("Current Damage = " + currentDamage);
         IncreaseByAfflictionModdifiers();
-        //Debug.Log("Current Damage = " + currentDamage);
         CheckIfAffliction();
-        //Debug.Log("Current Damage = " + currentDamage);
     }
 
     void CalculateCrit()
     {
-        Debug.Log("Calculate Crit");
         float critChance = gun.baseStats.critChance;
         int random;
         bool isCrit = false;
@@ -44,7 +110,7 @@ public class HitInfo_Player : MonoBehaviour
             random = Random.Range(0, 100);
             if(random <= critChance)
             {
-                currentDamage *= gun.baseStats.critMultiplier;
+                damageInfo.SetDamage(damageInfo.GetDamageAmount() * gun.baseStats.critMultiplier);
                 isCrit = true;
                 gun.playerData.events.OnCriticalHitEvent.Invoke();
             }
@@ -72,11 +138,12 @@ public class HitInfo_Player : MonoBehaviour
         //Debug.Log("Reduce By Resistance");
         
         float res = enemy.stats.GetFlatResist(gun.baseStats.basedamage.damageType);
-        currentDamage -= res;
+        damageInfo.SetDamage(damageInfo.GetDamageAmount() - res);
 
         res = enemy.stats.GetPercentResist(gun.baseStats.basedamage.damageType);
         res /= 100;
-        currentDamage = currentDamage - (currentDamage * res);
+        res = damageInfo.GetDamageAmount() * res;
+        damageInfo.SetDamage(damageInfo.GetDamageAmount() - res);
     }
     void IncreaseByAfflictionModdifiers()
     {
@@ -91,7 +158,8 @@ public class HitInfo_Player : MonoBehaviour
                 modifier = gun.baseStats.damageMultipliersOnAffliction.GetData(i) / 100;
                 if (modifier != 0)
                 {
-                    currentDamage = currentDamage + (currentDamage * modifier);
+                    modifier = damageInfo.GetDamageAmount() * modifier;
+                    damageInfo.SetDamage(damageInfo.GetDamageAmount() + modifier);
                 }
             }
             
@@ -105,13 +173,10 @@ public class HitInfo_Player : MonoBehaviour
         enemy = newEnemy;
         isWeakSpot = weak;
     }
-    public float GetCurrentDamage()
-    {
-        return currentDamage;
-    }
+
     public void SetCurrentDamage(float damage)
     {
-        currentDamage = damage;
+        damageInfo.SetDamage(damage);
     }
 
     private void Update()

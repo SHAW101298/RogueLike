@@ -35,6 +35,7 @@ public class EnemyData : UnitData
             timer = 0;
         }
     }
+    /*
     public float HitEnemy(BulletInfo info)
     {
         if(ai.CheckIfIdle() == true)
@@ -98,10 +99,43 @@ public class EnemyData : UnitData
         healthBar.transform.localScale = newScale;
         return fullDamage;
     }
+    */
 
-    public float HitEnemy(float damage)
+    public HitResult HitEnemy(DamageInfo info)
     {
-        return damage;
+        if (ai.CheckIfIdle() == true)
+        {
+            ai.chase.chaseDistance *= 2;
+            ai.NotifyAboutPlayer(ai.GetClosestPlayer());
+        }
+
+        HitResult result = new HitResult();
+        UI_DamageDealtVisualizer.Instance.ShowDamageNumber(damageVisualizerPosition.position, info.GetDamageAmount(), info.GetDamageType());
+        if(stats.health == stats.healthMax)
+        {
+            result.firstHit = true;
+        }
+
+        float percent = info.GetDamageAmount() / stats.healthMax;
+        result.SetData(ENUM_HitResult.firstHit, percent);
+        if (percent >= 50)
+        {
+            result.halfhealth = true;
+        }
+
+        float predictedHealth = stats.health - info.GetDamageAmount();
+        if (predictedHealth <= 0)
+        {
+            result.death = true;
+        }
+        ModifyHealth(info.GetDamageAmount());
+
+        // Modify HealthBar
+        Vector3 newScale = Vector3.one;
+        newScale.x = stats.health / stats.healthMax;
+        healthBar.transform.localScale = newScale;
+
+        return result;
     }
 
     /*
@@ -179,48 +213,6 @@ public class EnemyData : UnitData
             ai.NetworkObject.Despawn(true);
             //Destroy(gameObject);
         }
-    }
-
-    bool CheckIfCrit(float critChance)
-    {
-        int rnd = Random.Range(0, 100);
-        //Debug.Log("Rnd = " + rnd + " | chance = " + critChance);
-        if (rnd < critChance)
-        {
-            return true;
-        }
-        return false;
-    }
-    float CalculateForCrit(float critChance, float currentDamage, float critModifier)
-    {
-        float newDamage = currentDamage;
-
-        // Calculate for Big Crits
-        int x = (int)critChance;
-        x = x / 100;
-
-        // Calculate Big Crit
-        for (int i = 0; i < x; i++)
-        {
-            newDamage *= critModifier;
-        }
-    
-        int rnd = Random.Range(0,100);
-        if(rnd < critChance)
-        {
-            newDamage *= critModifier;
-        }
-        return newDamage;
-    }
-    bool CheckIfAffliction(float affChance)
-    {
-        int rnd = Random.Range(0, 100);
-        //Debug.Log("Rnd = " + rnd + " | chance = " + affChance);
-        if (rnd < affChance)
-        {
-            return true;
-        }
-        return false;
     }
     public void ActivateEnemy()
     {
