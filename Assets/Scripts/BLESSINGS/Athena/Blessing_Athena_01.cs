@@ -39,6 +39,7 @@ public class Blessing_Athena_01 : Blessing_Base
 
     void BlessingLogicDepleted()
     {
+        Debug.Log("Activating " + title);
         if (activeBlessing == true)
         {
             return;
@@ -49,6 +50,7 @@ public class Blessing_Athena_01 : Blessing_Base
     }
     void BlessingLogicRestoration()
     {
+        Debug.Log("Deactivating " + title);
         if(activeBlessing == false)
         {
             return;

@@ -9,6 +9,7 @@ public class Blessing_Athena_02 : Blessing_Base
 
     public override void Apply()
     {
+        Debug.Log("Activating " + title);
         GetParent();
         player.bonusStats.elementalDamageModifier.AddDataToAll(elementalDamageIncrease);
     }
@@ -21,6 +22,7 @@ public class Blessing_Athena_02 : Blessing_Base
 
     public override void Remove()
     {
+        Debug.Log("Deactivating " + title);
         player.bonusStats.elementalDamageModifier.SubstractDataFromAll(elementalDamageIncrease);
     }
 

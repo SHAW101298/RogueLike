@@ -61,6 +61,7 @@ public class Player_EventSystem : MonoBehaviour
         OnEnemyWeaponHitEvent.AddListener(OnGunHit);
         OnCriticalHitEvent.AddListener(OnCriticalHit);
         OnNonCriticalHitEvent.AddListener(OnNonCritHit);
+        OnWeaponSwapEvent.AddListener(OnWeaponSwap);
     }
     void OnShieldDepleted()
     {
@@ -68,15 +69,19 @@ public class Player_EventSystem : MonoBehaviour
     }
     void OnGunHit()
     {
-        Debug.Log("On Hit");
+        //Debug.Log("On Hit");
     }
     void OnCriticalHit()
     {
-        Debug.Log("On Critical Hit");
+        //Debug.Log("On Critical Hit");
     }
     void OnNonCritHit()
     {
-        Debug.Log("On Non Crit Hit");
+        //Debug.Log("On Non Crit Hit");
+    }
+    void OnWeaponSwap()
+    {
+        Debug.Log("On Weapon Swap");
     }
 
 }

@@ -28,6 +28,7 @@ public class Blessing_Athena_00 : Blessing_Base
 
     void BlessingLogicWeapon()
     {
+        Debug.Log("Activating " + title);
         currentDamage = player.events.hitInfoPlayer.GetCurrentDamage();
         currentModifier = player.finalStats.shield / player.finalStats.shieldMax;
         currentModifier *= damageIncrease;
@@ -36,6 +37,7 @@ public class Blessing_Athena_00 : Blessing_Base
     }
     void BlessingLogicAbility()
     {
+        Debug.Log("Activating " + title);
         currentDamage = player.events.hitInfoPlayer.GetCurrentDamage();
         currentModifier = player.finalStats.shield / player.finalStats.shieldMax;
         currentModifier *= damageIncrease;

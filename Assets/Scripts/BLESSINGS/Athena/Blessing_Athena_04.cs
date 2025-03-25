@@ -32,8 +32,9 @@ public class Blessing_Athena_04 : Blessing_Base
 
     public void BlessingLogicWeaponSwap()
     {
+        Debug.Log("Activating " + title);
         // Refresh
-        if(activeBlessing == true)
+        if (activeBlessing == true)
         {
             timer = 0;
             return;
@@ -45,6 +46,7 @@ public class Blessing_Athena_04 : Blessing_Base
     }
     public void BlessingLogicTimeOut()
     {
+        Debug.Log("Deactivating " + title);
         if (activeBlessing == false)
         {
             return;

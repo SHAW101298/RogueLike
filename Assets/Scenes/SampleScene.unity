@@ -259,6 +259,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2338171}
   m_CullTransparentMesh: 1
+--- !u!1001 &13324218
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248496364166585688, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Blessing Loot (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.7544928
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.3009901
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a0e35c2f1ab947a327fda2090b2e2, type: 3}
 --- !u!1 &21982493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,6 +1626,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147236359}
   m_CullTransparentMesh: 1
+--- !u!1001 &154785800
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248496364166585688, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Blessing Loot (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0054546595
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.8133382
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a0e35c2f1ab947a327fda2090b2e2, type: 3}
 --- !u!1 &155601452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,7 +1755,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &166305298
 GameObject:
@@ -2568,6 +2706,75 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &277144711
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248496364166585688, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Blessing Loot (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.0221553
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.407652
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a0e35c2f1ab947a327fda2090b2e2, type: 3}
 --- !u!1 &289834834
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,7 +2826,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &306032647
 GameObject:
@@ -3225,6 +3432,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 394536486}
   m_CullTransparentMesh: 1
+--- !u!1001 &395259988
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248496364166585688, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Blessing Loot (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.0163
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.2132053
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a0e35c2f1ab947a327fda2090b2e2, type: 3}
 --- !u!1 &403521218
 GameObject:
   m_ObjectHideFlags: 0
@@ -3714,7 +3990,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &437190619
 GameObject:
@@ -3927,6 +4203,75 @@ RectTransform:
   m_AnchoredPosition: {x: -730, y: 350}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &458019070
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248496364166585688, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Blessing Loot (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.536006
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.3124466
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a0e35c2f1ab947a327fda2090b2e2, type: 3}
 --- !u!1 &461419998
 GameObject:
   m_ObjectHideFlags: 0
@@ -4012,7 +4357,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &475083907
 GameObject:
@@ -4372,6 +4717,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505670911}
   m_CullTransparentMesh: 1
+--- !u!1001 &546856702
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248496364166585688, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Blessing Loot (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.3307786
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.0261855
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a0e35c2f1ab947a327fda2090b2e2, type: 3}
 --- !u!1 &549117273
 GameObject:
   m_ObjectHideFlags: 0
@@ -4535,6 +4949,75 @@ MonoBehaviour:
   counterPart: {fileID: 949140165}
   isCorrupted: 0
   damageIncrease: 0.5
+--- !u!1001 &588871493
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248496364166585688, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Blessing Loot (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.675935
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.9266787
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a0e35c2f1ab947a327fda2090b2e2, type: 3}
 --- !u!1 &591775502
 GameObject:
   m_ObjectHideFlags: 0
@@ -4576,7 +5059,7 @@ Transform:
   - {fileID: 697275287}
   - {fileID: 475083908}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &591775504
 MonoBehaviour:
@@ -4837,7 +5320,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &660137915
 MonoBehaviour:
@@ -5489,7 +5972,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &706800677
 GameObject:
@@ -6316,7 +6799,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &801569359
 GameObject:
@@ -6481,7 +6964,7 @@ Transform:
   - {fileID: 928346798}
   - {fileID: 1246406879}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &812317952
 GameObject:
@@ -8334,7 +8817,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &966935629
 GameObject:
@@ -8365,7 +8848,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &970680125
 GameObject:
@@ -9388,7 +9871,7 @@ RectTransform:
   - {fileID: 1519910667}
   - {fileID: 57144623}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10061,6 +10544,75 @@ MonoBehaviour:
   objects: []
   distanceBetweenObjects: 5
   rectTransform: {fileID: 1089981472}
+--- !u!1001 &1094823801
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248496364166585688, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Blessing Loot (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.789379
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.3334417
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a0e35c2f1ab947a327fda2090b2e2, type: 3}
 --- !u!1 &1097992448
 GameObject:
   m_ObjectHideFlags: 0
@@ -10360,7 +10912,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1110168655
 MonoBehaviour:
@@ -10403,6 +10955,75 @@ MonoBehaviour:
   spawningData: []
   interactablePosition: {fileID: 0}
   breakablesPositions: []
+--- !u!1001 &1110477442
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248496364166585688, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Blessing Loot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.021687
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.93551135
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a0e35c2f1ab947a327fda2090b2e2, type: 3}
 --- !u!1 &1114907548
 GameObject:
   m_ObjectHideFlags: 0
@@ -11147,6 +11768,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179975790}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1181333871
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248496364166585688, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Blessing Loot (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.1874537
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6865506
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a0e35c2f1ab947a327fda2090b2e2, type: 3}
 --- !u!1 &1187901560
 GameObject:
   m_ObjectHideFlags: 0
@@ -11852,6 +12542,75 @@ Transform:
   m_Father: {fileID: 2020930287}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1256768767
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248496364166585688, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Blessing Loot (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.4027404
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.9924448
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a0e35c2f1ab947a327fda2090b2e2, type: 3}
 --- !u!1 &1260691570
 GameObject:
   m_ObjectHideFlags: 0
@@ -12638,7 +13397,7 @@ Transform:
   m_Children:
   - {fileID: 1393979600}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1307817315
 GameObject:
@@ -13993,7 +14752,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1447612257
 GameObject:
@@ -14088,7 +14847,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14239,6 +14998,75 @@ Transform:
   m_Father: {fileID: 1707417033}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1463457543
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248496364166585688, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Blessing Loot (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.1340427
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.4777932
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a0e35c2f1ab947a327fda2090b2e2, type: 3}
 --- !u!1 &1465560323
 GameObject:
   m_ObjectHideFlags: 0
@@ -14396,7 +15224,7 @@ Transform:
   - {fileID: 1268781159}
   - {fileID: 992903275}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1488887881
 MonoBehaviour:
@@ -14553,7 +15381,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 230, y: -30, z: 0}
 --- !u!1 &1506365566
 GameObject:
@@ -14766,7 +15594,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1569849548
 GameObject:
@@ -15217,7 +16045,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1602365342
 GameObject:
@@ -15856,6 +16684,75 @@ MonoBehaviour:
     type: 3}
   bonusPrefab: {fileID: 4734992078977719901, guid: 17c04fc6fa78e01439c5ee11f3e12d5f,
     type: 3}
+--- !u!1001 &1668904856
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248496364166585688, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Blessing Loot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a0e35c2f1ab947a327fda2090b2e2, type: 3}
 --- !u!1 &1671372968
 GameObject:
   m_ObjectHideFlags: 0
@@ -16379,7 +17276,7 @@ Transform:
   m_Children:
   - {fileID: 1454947000}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1707417034
 MonoBehaviour:
@@ -17087,6 +17984,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735372829}
   m_CullTransparentMesh: 1
+--- !u!1001 &1742587095
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248496364166585688, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Blessing Loot (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.4934504
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.35187364
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a0e35c2f1ab947a327fda2090b2e2, type: 3}
 --- !u!1 &1744103593
 GameObject:
   m_ObjectHideFlags: 0
@@ -17596,7 +18562,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1807917961
 MonoBehaviour:
@@ -18024,6 +18990,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834199275}
   m_CullTransparentMesh: 1
+--- !u!1001 &1845810816
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248496364166585688, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Blessing Loot (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.8428566
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1040411
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248496364166585690, guid: 4e2a0e35c2f1ab947a327fda2090b2e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a0e35c2f1ab947a327fda2090b2e2, type: 3}
 --- !u!1 &1860549743
 GameObject:
   m_ObjectHideFlags: 0
@@ -18074,7 +19109,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1866948412
 GameObject:
@@ -18289,7 +19324,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1882461565
 GameObject:
@@ -18320,7 +19355,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1883081663
 GameObject:
@@ -18400,7 +19435,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1906070268
 PrefabInstance:
@@ -19574,7 +20609,7 @@ Transform:
   - {fileID: 866994781}
   - {fileID: 95989747}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2014722255
 PrefabInstance:
@@ -20165,7 +21200,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2093155196
 GameObject:

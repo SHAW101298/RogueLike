@@ -22,10 +22,12 @@ public class Blessing_Athena_07 : Blessing_Base
 
     public override void Remove()
     {
+        Debug.Log("Deactivating " + title);
         throw new System.NotImplementedException();
     }
     public void BlessingLogicOnHit()
     {
+        Debug.Log("Activating " + title);
         currentDamage = player.events.hitInfoPlayer.GetCurrentDamage();
         currentModifier = player.finalStats.health / player.finalStats.healthMax;
         currentModifier *= damageIncrease;

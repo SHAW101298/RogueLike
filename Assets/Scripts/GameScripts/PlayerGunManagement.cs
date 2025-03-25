@@ -96,6 +96,7 @@ public class PlayerGunManagement : MonoBehaviour
 
         if(context.performed == true)
         {
+            data.events.OnWeaponSwapEvent.Invoke();
             //Debug.Log("Scroll performed");
             data.ui.HideReloadBar();
 
@@ -115,6 +116,7 @@ public class PlayerGunManagement : MonoBehaviour
     public void SelectGun(int i)
     {
         index = i;
+        data.events.OnWeaponSwapEvent.Invoke();
         if(selectedGun != null)
         {
             selectedGun.gameObject.SetActive(false);

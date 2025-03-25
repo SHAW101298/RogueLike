@@ -28,6 +28,7 @@ public class Blessing_Athena_06 : Blessing_Base
 
     public void BlessingLogicShieldDepleted()
     {
+        Debug.Log("Activating " + title);
         if (activeBlessing == true)
         {
             return;
@@ -37,6 +38,7 @@ public class Blessing_Athena_06 : Blessing_Base
     }
     public void BlessingLogic_TimeOut()
     {
+        Debug.Log("Deactivating " + title);
         if (activeBlessing == false)
         {
             return;

@@ -25,10 +25,12 @@ public class Blessing_Athena_03 : Blessing_Base
 
     public override void Remove()
     {
+        Debug.Log("Deactivating " + title);
         player.events.OnEnemyWeaponHitEvent.RemoveListener(BlessingLogic);
     }
     void BlessingLogic()
     {
+        Debug.Log("Activating " + title);
         currentDamage = player.hitInfo.GetCurrentDamage();
         rand = Random.Range(minDamage, maxDamage);
         currentDamage *= (float)rand / 100;
