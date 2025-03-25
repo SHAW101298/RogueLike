@@ -99,8 +99,8 @@ public class HitInfo_Player : MonoBehaviour
     {
         damageInfo.SetData(gun.baseStats.basedamage.damage, gun.baseStats.basedamage.damageType);
         float damage = damageInfo.GetDamageAmount();
-        damage += gun.playerData.stats.globalDamageModifier * damage;
-        damage += gun.playerData.stats.globalGunDamageModifier * damage;
+        damage += gun.playerData.finalStats.damageModifier * damage;
+        damage += gun.playerData.finalStats.gunDamageModifier * damage;
         damageInfo.SetDamage(damage);
 
         gun.playerData.events.OnEnemyWeaponHitEvent.Invoke();
@@ -133,7 +133,7 @@ public class HitInfo_Player : MonoBehaviour
     void CalculateCrit()
     {
         float critChance = gun.baseStats.critChance;
-        critChance += gun.playerData.stats.globalCriticalChanceModifier;
+        critChance += gun.playerData.finalStats.criticalChanceModifier;
         int random;
         bool isCrit = false;
 
@@ -143,7 +143,7 @@ public class HitInfo_Player : MonoBehaviour
             random = Random.Range(0, 100);
             if(random <= critChance)
             {
-                damageInfo.SetDamage(damageInfo.GetDamageAmount() * (gun.baseStats.critMultiplier + gun.playerData.stats.globalCriticalMultiplierModifier));
+                damageInfo.SetDamage(damageInfo.GetDamageAmount() * (gun.baseStats.critMultiplier + gun.playerData.finalStats.criticalDamageModifier));
                 isCrit = true;
                 gun.playerData.events.OnCriticalHitEvent.Invoke();
             }
@@ -160,7 +160,7 @@ public class HitInfo_Player : MonoBehaviour
         //Debug.Log("Check if Affliction");
         int random = Random.Range(0,100);
         float afflictionChance = gun.baseStats.afflictionChance;
-        afflictionChance += gun.playerData.stats.globalAfflictionChanceModifier;
+        afflictionChance += gun.playerData.finalStats.afflictionChanceModifier;
 
         while(afflictionChance > 0)
         {
@@ -209,27 +209,23 @@ public class HitInfo_Player : MonoBehaviour
     {
         ENUM_DamageType damageType = damageInfo.GetDamageType();
         float damage = damageInfo.GetDamageAmount();
-        switch(damageType)
+        damage += damage * gun.playerData.finalStats.totalElementalDamageModifier;
+        switch (damageType)
         {
             case ENUM_DamageType.Heat:
-                damage += damage * gun.playerData.stats.globalElementalDamageModifier;
-                damage += damage * gun.playerData.stats.globalHeatDamageModifier;
+                damage += damage * gun.playerData.finalStats.elementalDamageModifier.GetData(ENUM_DamageType.Heat);
                 break;
             case ENUM_DamageType.Ice:
-                damage += damage * gun.playerData.stats.globalElementalDamageModifier;
-                damage += damage * gun.playerData.stats.globalIceDamageModifier;
+                damage += damage * gun.playerData.finalStats.elementalDamageModifier.GetData(ENUM_DamageType.Ice);
                 break;
             case ENUM_DamageType.Toxin:
-                damage += damage * gun.playerData.stats.globalElementalDamageModifier;
-                damage += damage * gun.playerData.stats.globalToxinDamageModifier;
+                damage += damage * gun.playerData.finalStats.elementalDamageModifier.GetData(ENUM_DamageType.Toxin);
                 break;
             case ENUM_DamageType.Electricity:
-                damage += damage * gun.playerData.stats.globalElementalDamageModifier;
-                damage += damage * gun.playerData.stats.globalElectricityDamageModifier;
+                damage += damage * gun.playerData.finalStats.elementalDamageModifier.GetData(ENUM_DamageType.Electricity);
                 break;
             case ENUM_DamageType.Chaos:
-                damage += damage * gun.playerData.stats.globalElementalDamageModifier;
-                damage += damage * gun.playerData.stats.globalChaosDamageModifier;
+                damage += damage * gun.playerData.finalStats.elementalDamageModifier.GetData(ENUM_DamageType.Chaos);
                 break;
             case ENUM_DamageType.Piercing:
                 break;

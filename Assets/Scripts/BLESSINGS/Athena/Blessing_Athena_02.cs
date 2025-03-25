@@ -9,8 +9,8 @@ public class Blessing_Athena_02 : Blessing_Base
 
     public override void Apply()
     {
-        player = GetComponentInParent<PlayerData>();
-        player.stats.globalElementalDamageModifier += elementalDamageIncrease;
+        GetParent();
+        player.bonusStats.elementalDamageModifier.AddDataToAll(elementalDamageIncrease);
     }
 
     public override string GetDescription()
@@ -21,7 +21,7 @@ public class Blessing_Athena_02 : Blessing_Base
 
     public override void Remove()
     {
-        player.stats.globalElementalDamageModifier -= elementalDamageIncrease;
+        player.bonusStats.elementalDamageModifier.SubstractDataFromAll(elementalDamageIncrease);
     }
 
 

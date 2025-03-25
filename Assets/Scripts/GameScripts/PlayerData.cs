@@ -8,6 +8,7 @@ public class PlayerData : UnitData
 {
     [HideInInspector] public NetworkObject networkData;
     public PlayerStats stats;
+    
     public PlayerMovement movement;
     public PlayerRotation rotation;
     public PlayerGunManagement gunManagement;

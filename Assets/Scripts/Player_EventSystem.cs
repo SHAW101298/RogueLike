@@ -31,7 +31,7 @@ public class Player_EventSystem : MonoBehaviour
 
     public UnityEvent OnTakeHealthDamageEvent;
     public UnityEvent OnTakeShieldDamageEvent;
-    public UnityEvent OnShieldDepleted;
+    public UnityEvent OnShieldDepletedEvent;
     public UnityEvent OnShieldRegenerationStart;
 
     public UnityEvent OnEnemyKillEvent;
@@ -57,5 +57,15 @@ public class Player_EventSystem : MonoBehaviour
 
     private void Start()
     {
+        OnShieldDepletedEvent.AddListener(OnShieldDepleted);
+        OnEnemyWeaponHitEvent.AddListener(OnGunHit);
+    }
+    void OnShieldDepleted()
+    {
+        Debug.Log("On Shield Depleted");
+    }
+    void OnGunHit()
+    {
+        Debug.Log("On Hit");
     }
 }

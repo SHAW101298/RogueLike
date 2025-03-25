@@ -18,4 +18,8 @@ public abstract class Blessing_Base : MonoBehaviour
     {
         return counterPart;
     }
+    public void GetParent()
+    {
+        player = GetComponentInParent<PlayerData>();
+    }
 }

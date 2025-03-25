@@ -9,9 +9,9 @@ public class Blessing_Athena_00 : Blessing_Base
     float currentModifier;
     public override void Apply()
     {
-        player = GetComponentInParent<PlayerData>();
-        player.events.OnEnemyWeaponHitEvent.AddListener(BlessingLogic);
-        player.events.OnEnemyAbilityHitEvent.AddListener(BlessingLogic);
+        GetParent();
+        player.events.OnEnemyWeaponHitEvent.AddListener(BlessingLogicWeapon);
+        player.events.OnEnemyAbilityHitEvent.AddListener(BlessingLogicAbility);
     }
 
     public override string GetDescription()
@@ -22,11 +22,11 @@ public class Blessing_Athena_00 : Blessing_Base
 
     public override void Remove()
     {
-        player.events.OnEnemyWeaponHitEvent.RemoveListener(BlessingLogic);
-        player.events.OnEnemyAbilityHitEvent.RemoveListener(BlessingLogic);
+        player.events.OnEnemyWeaponHitEvent.RemoveListener(BlessingLogicWeapon);
+        player.events.OnEnemyAbilityHitEvent.RemoveListener(BlessingLogicAbility);
     }
 
-    void BlessingLogic()
+    void BlessingLogicWeapon()
     {
         currentDamage = player.events.hitInfoPlayer.GetCurrentDamage();
         currentModifier = player.finalStats.shield / player.finalStats.shieldMax;
@@ -34,4 +34,13 @@ public class Blessing_Athena_00 : Blessing_Base
         currentDamage = currentDamage + (currentDamage * currentModifier);
         player.events.hitInfoPlayer.SetCurrentDamage(currentDamage);
     }
+    void BlessingLogicAbility()
+    {
+        currentDamage = player.events.hitInfoPlayer.GetCurrentDamage();
+        currentModifier = player.finalStats.shield / player.finalStats.shieldMax;
+        currentModifier *= damageIncrease;
+        currentDamage = currentDamage + (currentDamage * currentModifier);
+        player.events.hitInfoPlayer.SetCurrentDamage(currentDamage);
+    }
+
 }

@@ -212,7 +212,8 @@ MonoBehaviour:
   shieldRegen: 0
   shieldDelay: 0
   moveSpeed: 0
-  flatResistance:
+  percentDamageResistance: 0
+  flatElementalResistance:
     data:
     - 0
     - 0
@@ -220,7 +221,8 @@ MonoBehaviour:
     - 0
     - 0
     - 0
-  percentResistance:
+  flatNonElementalResistance: 0
+  percentElementalResistance:
     data:
     - 0
     - 0
@@ -228,6 +230,23 @@ MonoBehaviour:
     - 0
     - 0
     - 0
+  percentNonElementalResistance: 0
+  elementalDamageModifier:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  nonElementalDamageModifier: 0
+  totalElementalDamageModifier: 0
+  damageModifier: 0
+  gunDamageModifier: 0
+  abilityDamageModifier: 0
+  criticalChanceModifier: 0
+  criticalDamageModifier: 0
+  afflictionChanceModifier: 0
 --- !u!1 &2659700380123081331
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +304,8 @@ MonoBehaviour:
   shieldRegen: 0
   shieldDelay: 0
   moveSpeed: 0
-  flatResistance:
+  percentDamageResistance: 0
+  flatElementalResistance:
     data:
     - 0
     - 0
@@ -293,7 +313,8 @@ MonoBehaviour:
     - 0
     - 0
     - 0
-  percentResistance:
+  flatNonElementalResistance: 0
+  percentElementalResistance:
     data:
     - 0
     - 0
@@ -301,6 +322,23 @@ MonoBehaviour:
     - 0
     - 0
     - 0
+  percentNonElementalResistance: 0
+  elementalDamageModifier:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  nonElementalDamageModifier: 0
+  totalElementalDamageModifier: 0
+  damageModifier: 0
+  gunDamageModifier: 0
+  abilityDamageModifier: 0
+  criticalChanceModifier: 0
+  criticalDamageModifier: 0
+  afflictionChanceModifier: 0
 --- !u!1 &3363051622732082189
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   faction: 0
   baseStats: {fileID: 6607601143468082502}
+  bonusStats: {fileID: 5394138879646092440}
   finalStats: {fileID: 2839127631587658660}
   afflictions: {fileID: 1421716081283059870}
   effects: {fileID: 5539400731979609595}
@@ -1073,7 +1112,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   lastShotBullet: {fileID: 0}
-  hitInfoPlayer: {fileID: 0}
+  hitInfoPlayer: {fileID: 6033561868206370170}
   OnEnemyWeaponHitEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1122,6 +1161,12 @@ MonoBehaviour:
   OnTakeShieldDamageEvent:
     m_PersistentCalls:
       m_Calls: []
+  OnShieldDepleted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShieldRegenerationStart:
+    m_PersistentCalls:
+      m_Calls: []
   OnEnemyKillEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1152,6 +1197,15 @@ MonoBehaviour:
   OnWeaponSwapEvent:
     m_PersistentCalls:
       m_Calls: []
+  OnFirstHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHalfHealthTap:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWeakPointHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6033561868206370170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,7 +1222,6 @@ MonoBehaviour:
   enemy: {fileID: 0}
   isWeakSpot: 0
   Simulate: 0
-  currentDamage: 0
 --- !u!1 &6135379246055899293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1310,8 @@ MonoBehaviour:
   shieldRegen: 0
   shieldDelay: 0
   moveSpeed: 0
-  flatResistance:
+  percentDamageResistance: 0
+  flatElementalResistance:
     data:
     - 0
     - 0
@@ -1265,7 +1319,8 @@ MonoBehaviour:
     - 0
     - 0
     - 0
-  percentResistance:
+  flatNonElementalResistance: 0
+  percentElementalResistance:
     data:
     - 0
     - 0
@@ -1273,3 +1328,20 @@ MonoBehaviour:
     - 0
     - 0
     - 0
+  percentNonElementalResistance: 0
+  elementalDamageModifier:
+    data:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  nonElementalDamageModifier: 0
+  totalElementalDamageModifier: 0
+  damageModifier: 0
+  gunDamageModifier: 0
+  abilityDamageModifier: 0
+  criticalChanceModifier: 0
+  criticalDamageModifier: 0
+  afflictionChanceModifier: 0

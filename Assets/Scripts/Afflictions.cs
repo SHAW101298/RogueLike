@@ -58,7 +58,8 @@ public class ElementalTable
     }
     public void SetData(ElementalTable table)
     {
-        for(int i = 0; i < data.Length; i++)
+        int x = data.Length;
+        for(int i = 0; i < x; i++)
         {
             data[i] = table.data[i];
         }
@@ -73,14 +74,31 @@ public class ElementalTable
     }
     public void AddData(ElementalTable table)
     {
-        for(int i = 0; i < data.Length; i++)
+        int x = data.Length;
+        for(int i = 0; i < x; i++)
         {
             data[i] += table.data[i];
+        }
+    }
+    public void AddDataToAll(float val)
+    {
+        int x = data.Length;
+        for (int i = 0; i < x; i++)
+        {
+            data[i] += val;
         }
     }
     public void SubstractData(ENUM_DamageType type, float val)
     {
         data[(int)type] -= val;
+    }
+    public void SubstractDataFromAll(float val)
+    {
+        int x = data.Length;
+        for (int i = 0; i < x; i++)
+        {
+            data[i] -= val;
+        }
     }
     public float GetData(int i)
     {

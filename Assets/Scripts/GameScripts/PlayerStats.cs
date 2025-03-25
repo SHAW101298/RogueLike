@@ -9,8 +9,6 @@ public class PlayerStats : MonoBehaviour
     public PlayerData data;
 
     [Header("Data")]
-
-    Stats test;
     float staminaRegenTimer;
     bool regenerateStamina;
     float shieldRegenTimer;
@@ -19,25 +17,6 @@ public class PlayerStats : MonoBehaviour
     bool regenerateHealth;
 
     public float accuracy;
-
-    public float globalElementalDamageModifier;
-    public float globalGunDamageModifier;
-    public float globalAbilityDamageModifier;
-    public float globalDamageModifier;
-    public float globalCriticalChanceModifier;
-    public float globalCriticalMultiplierModifier;
-    public float globalAfflictionChanceModifier;
-
-    public float globalHeatDamageModifier;
-    public float globalIceDamageModifier;
-    public float globalToxinDamageModifier;
-    public float globalElectricityDamageModifier;
-    public float globalChaosDamageModifier;
-
-    public float globalDamageReductionFlat;
-    public float globalDamageReductionPercent;
-    public float globalDamageElementalReductionFlat;
-    public float globalDamageElementalReductionPercent;
 
 
     public bool CheckIfCanUseStamina(float val)
@@ -64,11 +43,14 @@ public class PlayerStats : MonoBehaviour
     {
         if(data.finalStats.shield > 0)
         {
+            // Damage is more than current Shield
             if(val > data.finalStats.shield)
             {
                 val -= data.finalStats.shield;
                 data.finalStats.shield = 0;
+                data.events.OnShieldDepleted.Invoke();
             }
+            // Damage is less than current shield
             else
             {
                 float temp = data.finalStats.shield;
@@ -156,6 +138,7 @@ public class PlayerStats : MonoBehaviour
         shieldRegenTimer -= Time.deltaTime;
         if (shieldRegenTimer <= 0)
         {
+            data.events.OnShieldRegenerationStart.Invoke();
             shieldRegenTimer = 0;
             data.finalStats.shield += data.finalStats.shieldRegen * Time.deltaTime;
             if (data.finalStats.shield > data.finalStats.shieldMax)

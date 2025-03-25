@@ -24,19 +24,31 @@ public class Stats:MonoBehaviour
 
     //public float[] flatResistances;
     //public float[] percentResistances;
-    public ElementalTable flatResistance;
-    public ElementalTable percentResistance;
+    [Header("Resistance")]
+    public float percentDamageResistance;
+    public ElementalTable flatElementalResistance;
+    public float flatNonElementalResistance;
+    public ElementalTable percentElementalResistance;
+    public float percentNonElementalResistance;
+    [Header("Damage")]
     public ElementalTable elementalDamageModifier;
     public float nonElementalDamageModifier;
-    public float DamageModifier;
+    public float totalElementalDamageModifier;
+    public float damageModifier;
+    public float gunDamageModifier;
+    public float abilityDamageModifier;
+    public float criticalChanceModifier;
+    public float criticalDamageModifier;
+    public float afflictionChanceModifier;
+    
 
     public float GetFlatResist(ENUM_DamageType type)
     {
-        return flatResistance.GetData(type);
+        return flatElementalResistance.GetData(type);
     }
     public float GetPercentResist(ENUM_DamageType type)
     {
-        return percentResistance.GetData(type);
+        return percentElementalResistance.GetData(type);
     }
     /*
     public float GetFlatResist(ENUM_DamageType type)
@@ -51,8 +63,8 @@ public class Stats:MonoBehaviour
 
     void CreateResistanceTables()
     {
-        flatResistance = new ElementalTable();
-        percentResistance = new ElementalTable();
+        flatElementalResistance = new ElementalTable();
+        percentElementalResistance = new ElementalTable();
         //int size = (int)ENUM_DamageType.Piercing + 1;
         //flatResistances = new float[size];
         //percentResistances = new float[size];
@@ -70,8 +82,8 @@ public class Stats:MonoBehaviour
         shieldRegen = stats1.shieldRegen;
         shieldDelay = stats1.shieldDelay;
 
-        flatResistance.SetData(stats1.flatResistance);
-        percentResistance.SetData(stats1.percentResistance);
+        flatElementalResistance.SetData(stats1.flatElementalResistance);
+        percentElementalResistance.SetData(stats1.percentElementalResistance);
         moveSpeed = stats1.moveSpeed;
         /*
         for(int i = 0; i < 6; i++)
@@ -93,11 +105,11 @@ public class Stats:MonoBehaviour
         shieldRegen = stats1.shieldRegen + stats2.shieldRegen;
         shieldDelay = stats1.shieldDelay + stats2.shieldDelay;
 
-        flatResistance.AddData(stats1.flatResistance);
-        flatResistance.AddData(stats2.flatResistance);
+        flatElementalResistance.AddData(stats1.flatElementalResistance);
+        flatElementalResistance.AddData(stats2.flatElementalResistance);
 
-        percentResistance.AddData(stats1.percentResistance);
-        percentResistance.AddData(stats2.percentResistance);
+        percentElementalResistance.AddData(stats1.percentElementalResistance);
+        percentElementalResistance.AddData(stats2.percentElementalResistance);
 
         /*
         for (int i = 0; i < 6; i++)

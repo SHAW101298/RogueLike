@@ -12,7 +12,7 @@ public class Blessing_Athena_03 : Blessing_Base
 
     public override void Apply()
     {
-        player = GetComponentInParent<PlayerData>();
+        GetParent();
         player.events.OnEnemyWeaponHitEvent.AddListener(BlessingLogic);
 
     }

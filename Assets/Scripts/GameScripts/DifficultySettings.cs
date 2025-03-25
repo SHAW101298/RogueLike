@@ -54,8 +54,8 @@ public class DifficultySettings : MonoBehaviour
         enemy.stats.health *= enemyHealthMultiplier;
         enemy.stats.shieldMax *= enemyShieldMultiplier;
         enemy.stats.shield *= enemyShieldMultiplier;
-        enemy.stats.flatResistance.AddData(enemyFlatResistanceIncrease);
-        enemy.stats.percentResistance.AddData(enemyPercentResistanceIncrease);
+        enemy.bonusStats.flatElementalResistance.AddData(enemyFlatResistanceIncrease);
+        enemy.bonusStats.percentElementalResistance.AddData(enemyPercentResistanceIncrease);
     }
     public void ApplyForPlayer(PlayerData player)
     {

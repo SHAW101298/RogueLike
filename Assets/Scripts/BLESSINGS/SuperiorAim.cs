@@ -30,7 +30,7 @@ public class SuperiorAim : Blessing_Base
         if (stacks >= maxStacks)
             return;
         stacks++;
-        player.stats.globalCriticalChanceModifier += critChanceIncrease;
+        player.bonusStats.criticalChanceModifier += critChanceIncrease;
     }
 
     private void Update()
@@ -39,7 +39,7 @@ public class SuperiorAim : Blessing_Base
         if(timer >= timeBeforeRemoval)
         {
             timer = 0;
-            player.stats.globalCriticalChanceModifier -= stacks * critChanceIncrease;
+            player.bonusStats.criticalChanceModifier -= stacks * critChanceIncrease;
             stacks = 0;
         }
     }
