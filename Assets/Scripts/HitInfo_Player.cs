@@ -116,6 +116,7 @@ public class HitInfo_Player : MonoBehaviour
         CheckIfAffliction();
     }
 
+    /*
     public void Calculate()
     {
         damageInfo.SetData(gun.baseStats.basedamage.damage, gun.baseStats.basedamage.damageType);
@@ -129,7 +130,7 @@ public class HitInfo_Player : MonoBehaviour
         IncreaseByAfflictionModdifiers();
         CheckIfAffliction();
     }
-
+    */
     void CalculateCrit()
     {
         float critChance = gun.baseStats.critChance;
@@ -258,7 +259,7 @@ public class HitInfo_Player : MonoBehaviour
         if(Simulate == true)
         {
             Simulate = false;
-            Calculate();
+            CalculateForGun();
         }
     }
 

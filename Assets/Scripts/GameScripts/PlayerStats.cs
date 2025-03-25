@@ -48,7 +48,7 @@ public class PlayerStats : MonoBehaviour
             {
                 val -= data.finalStats.shield;
                 data.finalStats.shield = 0;
-                data.events.OnShieldDepleted.Invoke();
+                data.events.OnShieldDepletedEvent.Invoke();
             }
             // Damage is less than current shield
             else
@@ -138,7 +138,7 @@ public class PlayerStats : MonoBehaviour
         shieldRegenTimer -= Time.deltaTime;
         if (shieldRegenTimer <= 0)
         {
-            data.events.OnShieldRegenerationStart.Invoke();
+            data.events.OnShieldRegenerationStartEvent.Invoke();
             shieldRegenTimer = 0;
             data.finalStats.shield += data.finalStats.shieldRegen * Time.deltaTime;
             if (data.finalStats.shield > data.finalStats.shieldMax)

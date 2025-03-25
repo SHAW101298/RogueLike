@@ -32,7 +32,7 @@ public class Player_EventSystem : MonoBehaviour
     public UnityEvent OnTakeHealthDamageEvent;
     public UnityEvent OnTakeShieldDamageEvent;
     public UnityEvent OnShieldDepletedEvent;
-    public UnityEvent OnShieldRegenerationStart;
+    public UnityEvent OnShieldRegenerationStartEvent;
 
     public UnityEvent OnEnemyKillEvent;
     public UnityEvent OnDeathEvent;
@@ -59,6 +59,8 @@ public class Player_EventSystem : MonoBehaviour
     {
         OnShieldDepletedEvent.AddListener(OnShieldDepleted);
         OnEnemyWeaponHitEvent.AddListener(OnGunHit);
+        OnCriticalHitEvent.AddListener(OnCriticalHit);
+        OnNonCriticalHitEvent.AddListener(OnNonCritHit);
     }
     void OnShieldDepleted()
     {
@@ -68,4 +70,13 @@ public class Player_EventSystem : MonoBehaviour
     {
         Debug.Log("On Hit");
     }
+    void OnCriticalHit()
+    {
+        Debug.Log("On Critical Hit");
+    }
+    void OnNonCritHit()
+    {
+        Debug.Log("On Non Crit Hit");
+    }
+
 }

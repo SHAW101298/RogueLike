@@ -125,7 +125,7 @@ public class ProjectileBehaviour : MonoBehaviour
         EnemyData enemyData = other.gameObject.GetComponentInParent<EnemyData>();
         HitInfo_Player hitInfo = data.owningGun.playerData.hitInfo;
         hitInfo.SetData(data.owningGun, enemyData, false);
-        hitInfo.Calculate();
+        hitInfo.CalculateForGun();
         DamageInfo damageInfo = hitInfo.damageInfo;
         float calculatedDamage = damageInfo.GetDamageAmount();
         HitResult result = enemyData.HitEnemy(damageInfo);
@@ -166,7 +166,7 @@ public class ProjectileBehaviour : MonoBehaviour
         EnemyData enemyData = other.gameObject.GetComponentInParent<EnemyData>();
         HitInfo_Player hitInfo = data.owningGun.playerData.hitInfo;
         hitInfo.SetData(data.owningGun, enemyData, true);
-        hitInfo.Calculate();
+        hitInfo.CalculateForGun();
         DamageInfo damageInfo = hitInfo.damageInfo;
         float calculatedDamage = damageInfo.GetDamageAmount();
         HitResult result = enemyData.HitEnemy(damageInfo);

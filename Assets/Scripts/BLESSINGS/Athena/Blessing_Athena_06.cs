@@ -11,7 +11,7 @@ public class Blessing_Athena_06 : Blessing_Base
     public override void Apply()
     {
         GetParent();
-        player.events.OnShieldDepleted.AddListener(BlessingLogicShieldDepleted);
+        player.events.OnShieldDepletedEvent.AddListener(BlessingLogicShieldDepleted);
     }
 
     public override string GetDescription()
@@ -22,7 +22,7 @@ public class Blessing_Athena_06 : Blessing_Base
 
     public override void Remove()
     {
-        player.events.OnShieldDepleted.AddListener(BlessingLogicShieldDepleted);
+        player.events.OnShieldDepletedEvent.AddListener(BlessingLogicShieldDepleted);
         BlessingLogic_TimeOut();
     }
 

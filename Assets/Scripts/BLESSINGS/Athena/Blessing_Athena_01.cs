@@ -11,8 +11,8 @@ public class Blessing_Athena_01 : Blessing_Base
     public override void Apply()
     {
         GetParent();
-        player.events.OnShieldDepleted.AddListener(BlessingLogicDepleted);
-        player.events.OnShieldRegenerationStart.AddListener(BlessingLogicRestoration);
+        player.events.OnShieldDepletedEvent.AddListener(BlessingLogicDepleted);
+        player.events.OnShieldRegenerationStartEvent.AddListener(BlessingLogicRestoration);
 
         // Check if max shield is 0
         if (player.finalStats.shieldMax == 0)
@@ -33,8 +33,8 @@ public class Blessing_Athena_01 : Blessing_Base
         {
             BlessingLogicRestoration();
         }
-        player.events.OnShieldDepleted.RemoveListener(BlessingLogicDepleted);
-        player.events.OnShieldRegenerationStart.RemoveListener(BlessingLogicRestoration);
+        player.events.OnShieldDepletedEvent.RemoveListener(BlessingLogicDepleted);
+        player.events.OnShieldRegenerationStartEvent.RemoveListener(BlessingLogicRestoration);
     }
 
     void BlessingLogicDepleted()

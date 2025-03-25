@@ -30,6 +30,7 @@ public class PlayerData : UnitData
         //throw new System.NotImplementedException();
 
         finalStats.CopyValues(baseStats);
+        finalStats.CombineStats(baseStats, bonusStats);
         blessings.RecalculateStats();
         effects.RecalculateStats();
         movement.ChangeMoveSpeed();
