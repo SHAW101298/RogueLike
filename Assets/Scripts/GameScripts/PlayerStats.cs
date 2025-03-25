@@ -10,6 +10,7 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Data")]
 
+    Stats test;
     float staminaRegenTimer;
     bool regenerateStamina;
     float shieldRegenTimer;
@@ -18,6 +19,26 @@ public class PlayerStats : MonoBehaviour
     bool regenerateHealth;
 
     public float accuracy;
+
+    public float globalElementalDamageModifier;
+    public float globalGunDamageModifier;
+    public float globalAbilityDamageModifier;
+    public float globalDamageModifier;
+    public float globalCriticalChanceModifier;
+    public float globalCriticalMultiplierModifier;
+    public float globalAfflictionChanceModifier;
+
+    public float globalHeatDamageModifier;
+    public float globalIceDamageModifier;
+    public float globalToxinDamageModifier;
+    public float globalElectricityDamageModifier;
+    public float globalChaosDamageModifier;
+
+    public float globalDamageReductionFlat;
+    public float globalDamageReductionPercent;
+    public float globalDamageElementalReductionFlat;
+    public float globalDamageElementalReductionPercent;
+
 
     public bool CheckIfCanUseStamina(float val)
     {

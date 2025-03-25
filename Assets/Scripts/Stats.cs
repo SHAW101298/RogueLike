@@ -26,6 +26,9 @@ public class Stats:MonoBehaviour
     //public float[] percentResistances;
     public ElementalTable flatResistance;
     public ElementalTable percentResistance;
+    public ElementalTable elementalDamageModifier;
+    public float nonElementalDamageModifier;
+    public float DamageModifier;
 
     public float GetFlatResist(ENUM_DamageType type)
     {

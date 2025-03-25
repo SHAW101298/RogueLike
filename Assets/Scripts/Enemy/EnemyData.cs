@@ -128,7 +128,7 @@ public class EnemyData : UnitData
         {
             result.death = true;
         }
-        ModifyHealth(info.GetDamageAmount());
+        ModifyHealth(-info.GetDamageAmount());
 
         // Modify HealthBar
         Vector3 newScale = Vector3.one;

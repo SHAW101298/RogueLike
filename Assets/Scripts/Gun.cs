@@ -241,6 +241,7 @@ public class Gun : MonoBehaviour
 
         newBullet.projectileBehaviour.owningFaction = ENUM_Faction.player;
         newBullet.projectileBehaviour.direction = dir * modifiedStats.projectileSpeed;
+        newBullet.owningGun = this;
 
         //newBullet.bulletInfo.damageData = modifiedStats.damageArray;
         newBullet.bulletInfo.damageData = new List<DamageData>();

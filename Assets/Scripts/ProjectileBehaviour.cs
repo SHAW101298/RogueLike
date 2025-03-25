@@ -101,7 +101,7 @@ public class ProjectileBehaviour : MonoBehaviour
     void CollisionEnemy(Collider other)
     {
         //Debug.Log("Collistion Enemy");
-        if(phantomBullet == true)
+        if (phantomBullet == true)
         {
             data.bulletInfo.punchThrough--;
             if (data.bulletInfo.punchThrough <= 0)
@@ -112,13 +112,17 @@ public class ProjectileBehaviour : MonoBehaviour
         }
 
         // Bullet Shot by Enemy hit enemy
-        if(owningFaction != ENUM_Faction.player)
+        if (owningFaction != ENUM_Faction.player)
+        {
+            return;
+        }
+        if (data.bulletInfo.punchThrough <= 0)
         {
             return;
         }
         data.bulletInfo.punchThrough--;
 
-        EnemyData enemyData = other.gameObject.GetComponent<EnemyData>();
+        EnemyData enemyData = other.gameObject.GetComponentInParent<EnemyData>();
         HitInfo_Player hitInfo = data.owningGun.playerData.hitInfo;
         hitInfo.SetData(data.owningGun, enemyData, false);
         hitInfo.Calculate();
@@ -136,6 +140,7 @@ public class ProjectileBehaviour : MonoBehaviour
     }
     void CollisionEnemyWeakSpot(Collider other)
     {
+        //Debug.Log("Collision Weak Spot");
         if (phantomBullet == true)
         {
             data.bulletInfo.punchThrough--;
@@ -151,10 +156,14 @@ public class ProjectileBehaviour : MonoBehaviour
         {
             return;
         }
+        if(data.bulletInfo.punchThrough <= 0)
+        {
+            return;
+        }
         data.bulletInfo.punchThrough--;
 
         // Calculate damage Dealt
-        EnemyData enemyData = other.gameObject.GetComponent<EnemyData>();
+        EnemyData enemyData = other.gameObject.GetComponentInParent<EnemyData>();
         HitInfo_Player hitInfo = data.owningGun.playerData.hitInfo;
         hitInfo.SetData(data.owningGun, enemyData, true);
         hitInfo.Calculate();
@@ -185,7 +194,7 @@ public class ProjectileBehaviour : MonoBehaviour
     }
     void CollisionBreakAble(Collider other)
     {
-        //Debug.Log("Collisiton BreakAble");
+        Debug.Log("Collisiton BreakAble");
         if (phantomBullet == true)
         {
             if (data.bulletInfo.punchThrough <= 0)

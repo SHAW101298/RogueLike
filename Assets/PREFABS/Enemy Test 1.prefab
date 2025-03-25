@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2810482900991229682}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ray Cast Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,9 +271,9 @@ GameObject:
   - component: {fileID: 6369748041881690512}
   - component: {fileID: 6369748041881690513}
   - component: {fileID: 8599813927891827987}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy Test 1
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

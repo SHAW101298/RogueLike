@@ -1426,8 +1426,10 @@ MonoBehaviour:
   id: 2
   title: Hard Fingers
   description: Increase damge of Non-Crit hits
-  damageIncrease: 35
   player: {fileID: 0}
+  counterPart: {fileID: 0}
+  isCorrupted: 0
+  damageIncrease: 35
 --- !u!1 &147236359
 GameObject:
   m_ObjectHideFlags: 0
@@ -4377,6 +4379,57 @@ MonoBehaviour:
   amountIncreaseOnLevel: 35
   icon: {fileID: 21300000, guid: e94b4eb233ab7b24eb6f488e3161ac6b, type: 3}
   damageType: 2
+--- !u!1 &564728001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 564728002}
+  - component: {fileID: 564728003}
+  m_Layer: 0
+  m_Name: Athena 00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &564728002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564728001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 591775503}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &564728003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564728001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35c7ee3ceb98c547a0bc5bb0ec41e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 3
+  title: Athena 00
+  description: "Za ka\u017Cdy % tarczy, dodatkowe zadawane obra\u017Cenia"
+  player: {fileID: 0}
+  counterPart: {fileID: 949140165}
+  isCorrupted: 0
+  damageIncrease: 0.5
 --- !u!1 &591775502
 GameObject:
   m_ObjectHideFlags: 0
@@ -4409,6 +4462,10 @@ Transform:
   - {fileID: 1114907549}
   - {fileID: 712040963}
   - {fileID: 143864404}
+  - {fileID: 564728002}
+  - {fileID: 949140164}
+  - {fileID: 1143394662}
+  - {fileID: 916344016}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4428,6 +4485,10 @@ MonoBehaviour:
   - {fileID: 712040964}
   - {fileID: 1114907550}
   - {fileID: 143864405}
+  - {fileID: 564728003}
+  - {fileID: 949140165}
+  - {fileID: 1143394663}
+  - {fileID: 916344017}
   blessingPickUpPrefab: {fileID: 5624804656279370435, guid: f31a8dfebfe077b4c9e26eadf79db05e,
     type: 3}
 --- !u!1 &594350942
@@ -5387,6 +5448,9 @@ MonoBehaviour:
   id: 1
   title: Hot Shots
   description: Every 4th shot deals additional X fire damage
+  player: {fileID: 0}
+  counterPart: {fileID: 0}
+  isCorrupted: 0
   bulletCount: 4
   damageData:
     damage: 35
@@ -7380,6 +7444,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896839047}
   m_CullTransparentMesh: 1
+--- !u!1 &916344015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 916344016}
+  - component: {fileID: 916344017}
+  m_Layer: 0
+  m_Name: Athena 03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &916344016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916344015}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 591775503}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &916344017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916344015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9972d3f9c7adfde4a82dd5934faa00ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 6
+  title: Athena 03
+  description: "Ka\u017Cdy strza\u0142, zadaje rozbie\u017Cn\u0105 ilo\u015B\u0107
+    obra\u017Ce\u0144 50% - 200%"
+  player: {fileID: 0}
+  counterPart: {fileID: 1143394663}
+  isCorrupted: 1
+  minDamage: 50
+  maxDamage: 200
 --- !u!1 &926126586
 GameObject:
   m_ObjectHideFlags: 0
@@ -7728,6 +7845,59 @@ MonoBehaviour:
   amountIncreaseOnLevel: 35
   icon: {fileID: 21300000, guid: ac3fd0c3f80035349875b94dd6f19a73, type: 3}
   damageType: 3
+--- !u!1 &949140163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 949140164}
+  - component: {fileID: 949140165}
+  m_Layer: 0
+  m_Name: Athena 01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &949140164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949140163}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 591775503}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &949140165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949140163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c34c4596ee2b3489e4e3ba9a63fc1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 4
+  title: Athena 01
+  description: "Gdy tarcza jest r\xF3wna 0, zwi\u0119kszenie szansy na status i krytyczne
+    ciosy"
+  player: {fileID: 0}
+  counterPart: {fileID: 564728003}
+  isCorrupted: 1
+  criticalChanceIncrease: 60
+  afflictionChanceIncrease: 40
 --- !u!1 &951458371
 GameObject:
   m_ObjectHideFlags: 0
@@ -10061,8 +10231,62 @@ MonoBehaviour:
   id: 0
   title: Gonzales
   description: Increase movement speed by X
+  player: {fileID: 0}
+  counterPart: {fileID: 0}
+  isCorrupted: 0
   movementSpeed: 2
   template: {fileID: 1393979599}
+--- !u!1 &1143394661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1143394662}
+  - component: {fileID: 1143394663}
+  m_Layer: 0
+  m_Name: Athena 02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1143394662
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143394661}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 591775503}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1143394663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143394661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f7f16c35ad766f44ba158f630df3b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 5
+  title: Athena 02
+  description: "Zwi\u0119kszenie obra\u017Ce\u0144 elementalnych"
+  player: {fileID: 0}
+  counterPart: {fileID: 916344017}
+  isCorrupted: 0
+  elementalDamageIncrease: 35
 --- !u!1 &1143741439
 GameObject:
   m_ObjectHideFlags: 0

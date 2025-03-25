@@ -49,6 +49,7 @@ public class HitResult
         }
     }
 }
+[System.Serializable]
 public class DamageInfo
 {
     float damage;
@@ -83,7 +84,37 @@ public class HitInfo_Player : MonoBehaviour
     [SerializeField] bool isWeakSpot;
 
     [SerializeField] bool Simulate;
-    public DamageInfo damageInfo;
+    [SerializeField] public DamageInfo damageInfo;
+
+    private void Start()
+    {
+        damageInfo = new DamageInfo();
+    }
+
+    public void CalculateForAbility()
+    {
+
+    }
+    public void CalculateForGun()
+    {
+        damageInfo.SetData(gun.baseStats.basedamage.damage, gun.baseStats.basedamage.damageType);
+        float damage = damageInfo.GetDamageAmount();
+        damage += gun.playerData.stats.globalDamageModifier * damage;
+        damage += gun.playerData.stats.globalGunDamageModifier * damage;
+        damageInfo.SetDamage(damage);
+
+        gun.playerData.events.OnEnemyWeaponHitEvent.Invoke();
+
+        if (isWeakSpot == true)
+        {
+            damageInfo.SetDamage(damageInfo.GetDamageAmount() * 2);
+        }
+        IncreaseByElementalType();
+        CalculateCrit();
+        ReduceByResistance();
+        IncreaseByAfflictionModdifiers();
+        CheckIfAffliction();
+    }
 
     public void Calculate()
     {
@@ -92,6 +123,7 @@ public class HitInfo_Player : MonoBehaviour
         {
             damageInfo.SetDamage(damageInfo.GetDamageAmount()*2);
         }
+        IncreaseByElementalType();
         CalculateCrit();
         ReduceByResistance();
         IncreaseByAfflictionModdifiers();
@@ -101,6 +133,7 @@ public class HitInfo_Player : MonoBehaviour
     void CalculateCrit()
     {
         float critChance = gun.baseStats.critChance;
+        critChance += gun.playerData.stats.globalCriticalChanceModifier;
         int random;
         bool isCrit = false;
 
@@ -110,7 +143,7 @@ public class HitInfo_Player : MonoBehaviour
             random = Random.Range(0, 100);
             if(random <= critChance)
             {
-                damageInfo.SetDamage(damageInfo.GetDamageAmount() * gun.baseStats.critMultiplier);
+                damageInfo.SetDamage(damageInfo.GetDamageAmount() * (gun.baseStats.critMultiplier + gun.playerData.stats.globalCriticalMultiplierModifier));
                 isCrit = true;
                 gun.playerData.events.OnCriticalHitEvent.Invoke();
             }
@@ -124,19 +157,26 @@ public class HitInfo_Player : MonoBehaviour
     }
     void CheckIfAffliction()
     {
-        Debug.Log("Check if Affliction");
+        //Debug.Log("Check if Affliction");
         int random = Random.Range(0,100);
+        float afflictionChance = gun.baseStats.afflictionChance;
+        afflictionChance += gun.playerData.stats.globalAfflictionChanceModifier;
 
-        if(random <= gun.baseStats.afflictionChance)
+        while(afflictionChance > 0)
         {
-            gun.playerData.events.OnAfflictionAppliedEvent.Invoke();
-            enemy.afflictions.ApplyAfflicion(gun.baseStats.basedamage.damageType);
+            random = Random.Range(0, 100);
+            if (random <= gun.baseStats.afflictionChance)
+            {
+                gun.playerData.events.OnAfflictionAppliedEvent.Invoke();
+                enemy.afflictions.ApplyAfflicion(gun.baseStats.basedamage.damageType);
+                afflictionChance -= 100;
+            }
         }
+        
     }
     void ReduceByResistance()
     {
         //Debug.Log("Reduce By Resistance");
-        
         float res = enemy.stats.GetFlatResist(gun.baseStats.basedamage.damageType);
         damageInfo.SetDamage(damageInfo.GetDamageAmount() - res);
 
@@ -147,10 +187,11 @@ public class HitInfo_Player : MonoBehaviour
     }
     void IncreaseByAfflictionModdifiers()
     {
-        Debug.Log("Increase By Affliction Modifiers");
+        //Debug.Log("Increase By Affliction Modifiers");
         float modifier;
+        int typeLimit = (int)ENUM_DamageType.Piercing;
 
-        for(int i = 0; i < (int)ENUM_DamageType.Piercing;i++)
+        for(int i = 0; i < typeLimit; i++)
         {
             // Is enemy Afflicted ?
             if(enemy.afflictions.ReturnAfflictionState( (ENUM_DamageType)i ) == true)
@@ -162,8 +203,41 @@ public class HitInfo_Player : MonoBehaviour
                     damageInfo.SetDamage(damageInfo.GetDamageAmount() + modifier);
                 }
             }
-            
         }
+    }
+    void IncreaseByElementalType()
+    {
+        ENUM_DamageType damageType = damageInfo.GetDamageType();
+        float damage = damageInfo.GetDamageAmount();
+        switch(damageType)
+        {
+            case ENUM_DamageType.Heat:
+                damage += damage * gun.playerData.stats.globalElementalDamageModifier;
+                damage += damage * gun.playerData.stats.globalHeatDamageModifier;
+                break;
+            case ENUM_DamageType.Ice:
+                damage += damage * gun.playerData.stats.globalElementalDamageModifier;
+                damage += damage * gun.playerData.stats.globalIceDamageModifier;
+                break;
+            case ENUM_DamageType.Toxin:
+                damage += damage * gun.playerData.stats.globalElementalDamageModifier;
+                damage += damage * gun.playerData.stats.globalToxinDamageModifier;
+                break;
+            case ENUM_DamageType.Electricity:
+                damage += damage * gun.playerData.stats.globalElementalDamageModifier;
+                damage += damage * gun.playerData.stats.globalElectricityDamageModifier;
+                break;
+            case ENUM_DamageType.Chaos:
+                damage += damage * gun.playerData.stats.globalElementalDamageModifier;
+                damage += damage * gun.playerData.stats.globalChaosDamageModifier;
+                break;
+            case ENUM_DamageType.Piercing:
+                break;
+            default:
+                Debug.LogError("Unknown Damage TYPE");
+                break;
+        }
+        damageInfo.SetDamage(damage);
     }
 
 
@@ -177,6 +251,10 @@ public class HitInfo_Player : MonoBehaviour
     public void SetCurrentDamage(float damage)
     {
         damageInfo.SetDamage(damage);
+    }
+    public float GetCurrentDamage()
+    {
+        return damageInfo.GetDamageAmount();
     }
 
     private void Update()

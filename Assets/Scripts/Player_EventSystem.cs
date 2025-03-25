@@ -31,6 +31,8 @@ public class Player_EventSystem : MonoBehaviour
 
     public UnityEvent OnTakeHealthDamageEvent;
     public UnityEvent OnTakeShieldDamageEvent;
+    public UnityEvent OnShieldDepleted;
+    public UnityEvent OnShieldRegenerationStart;
 
     public UnityEvent OnEnemyKillEvent;
     public UnityEvent OnDeathEvent;
@@ -46,6 +48,7 @@ public class Player_EventSystem : MonoBehaviour
 
     public UnityEvent OnFirstHit;
     public UnityEvent OnHalfHealthTap;
+    public UnityEvent OnWeakPointHit;
 
     //Every X seconds
     //Every X meters moved

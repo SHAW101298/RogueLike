@@ -8,8 +8,14 @@ public abstract class Blessing_Base : MonoBehaviour
     public string title;
     public string description;
     [SerializeField] protected PlayerData player;
+    [SerializeField] Blessing_Base counterPart;
+    public bool isCorrupted;
 
     public abstract void Apply();
     public abstract void Remove();
     public abstract string GetDescription();
+    public Blessing_Base GetCounterPart()
+    {
+        return counterPart;
+    }
 }

@@ -32,7 +32,7 @@ public class DifficultySettings : MonoBehaviour
     public void Apply()
     {
         Debug.Log("Applying difficulty setting " + setting.ToString());
-        Debug.LogError("CHANGED WAYS. APPLY ON ENEMIES SPAWN");
+        //Debug.LogError("CHANGED WAYS. APPLY ON ENEMIES SPAWN");
         /*
         foreach(RoomManager room in RoomGenerator.Instance.currentRooms)
         {
