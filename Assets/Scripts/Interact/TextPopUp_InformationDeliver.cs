@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunPickup_InformationDeliver : MonoBehaviour
+public class TextPopUp_InformationDeliver : MonoBehaviour
 {
-    public Gun gun;
-
-
-
+    public string text;
 }

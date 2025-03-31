@@ -54,13 +54,15 @@ public class ProjectileBehaviour : MonoBehaviour
                 CollisionBreakAble(other);
                 break;
             default:
-                //Debug.Log("Unresolved TAG  |  " + other.gameObject.tag);
+                Debug.LogError("Unresolved TAG  |  " + other.gameObject.tag);
                 break;
         }
     }
 
     void CollisionPlayer(Collider other)
     {
+        // Remake along the HitInfoScript
+
         //Debug.Log("Collistion Player");
         if (phantomBullet == true)
         {
@@ -194,7 +196,7 @@ public class ProjectileBehaviour : MonoBehaviour
     }
     void CollisionBreakAble(Collider other)
     {
-        Debug.Log("Collisiton BreakAble");
+        //Debug.Log("Collisiton BreakAble");
         if (phantomBullet == true)
         {
             if (data.bulletInfo.punchThrough <= 0)
@@ -216,6 +218,5 @@ public class ProjectileBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 }

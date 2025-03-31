@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TESTINGSCRIPT : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class TESTINGSCRIPT : MonoBehaviour
     public bool runCOO;
     public bool runFOO;
     public bool runROO;
+    public bool runDOO;
 
     [Header("FOO")]
     public GameObject teleportObject;
@@ -23,6 +26,13 @@ public class TESTINGSCRIPT : MonoBehaviour
     [Header("ROO")]
     public GameObject rotSource;
     public RoomManager room;
+
+    [Header("DOO")]
+    public Sprite[] sprites;
+    public Image img;
+    public float changeTime;
+    float dooTimer;
+    int x;
     // Start is called before the first frame update
 
     void Start()
@@ -46,6 +56,10 @@ public class TESTINGSCRIPT : MonoBehaviour
         {
             runROO = false;
             ROO();
+        }
+        if(runDOO == true)
+        {
+            DOO();
         }
         if(runAddBlessingToPlayer == true)
         {
@@ -78,6 +92,21 @@ public class TESTINGSCRIPT : MonoBehaviour
 
         player.blessings.AddBlessing(Blessings_Manager.Instance.blessings[0]);
         //player.blessings.list.Add(Blessings_Manager.Instance.blessings[0]);
+    }
+    void DOO()
+    {
+        dooTimer += Time.deltaTime;
+        if(dooTimer >= changeTime)
+        {
+            dooTimer = 0;
+
+            x++;
+            if (x > 3)
+            {
+                x = 0;
+            }
+            img.sprite = sprites[x];
+        }
     }
 
 }

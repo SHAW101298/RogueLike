@@ -15,6 +15,7 @@ public class PlayerInteractBeam : MonoBehaviour
 
     [SerializeField] UI_RaycastedGunData ui_RaycastedGunData;
     [SerializeField] UI_RayCastedBlessingInformation ui_RayCastedBlessingInformation;
+    [SerializeField] UI_SimpleTextPopUp ui_SimpleTextPopUp;
 
     private void Start()
     {
@@ -32,11 +33,12 @@ public class PlayerInteractBeam : MonoBehaviour
         centerOfView = CameraHookUp.Instance.forwardPos;
         ui_RaycastedGunData = UI_RaycastedGunData.Instance;
         ui_RayCastedBlessingInformation = UI_RayCastedBlessingInformation.Instance;
+        ui_SimpleTextPopUp = UI_SimpleTextPopUp.Instance;
     }
 
     private void Update()
     {
-        RaycastForShowingGunData();
+        RaycastForShowingData();
     }
 
     public void Interact(InputAction.CallbackContext context)
@@ -59,7 +61,7 @@ public class PlayerInteractBeam : MonoBehaviour
         interactable.Interact(playerData);
     }
 
-    public void RaycastForShowingGunData()
+    public void RaycastForShowingData()
     {
         //Debug.LogWarning("Foo");
         RaycastHit hit;
@@ -81,6 +83,9 @@ public class PlayerInteractBeam : MonoBehaviour
                     break;
                 case "BlessingPickUp":
                     ui_RayCastedBlessingInformation.ShowData(hit.collider.gameObject.GetComponent<BlessingPickup_InformationDeliver>().blessing);
+                    break;
+                case "SimpleText":
+                    ui_SimpleTextPopUp.ShowText(hit.collider.gameObject.GetComponent<TextPopUp_InformationDeliver>().text);
                     break;
                 default:
                     Debug.LogError("Unkown Info Deliver switch case");

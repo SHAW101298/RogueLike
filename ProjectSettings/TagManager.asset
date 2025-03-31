@@ -12,6 +12,7 @@ TagManager:
   - GunPickUp
   - BlessingPickUp
   - EnemyWeakSpot
+  - SimpleText
   layers:
   - Default
   - TransparentFX
