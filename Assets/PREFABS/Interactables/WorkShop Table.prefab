@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89406b71f05cc5f409646c51bfbdec3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: Interact ( E )
+  text: ( E ) Workshop
 --- !u!65 &1748056763816731588
 BoxCollider:
   m_ObjectHideFlags: 0
