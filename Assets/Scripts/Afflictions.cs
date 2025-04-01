@@ -6,8 +6,27 @@ public class Afflictions : MonoBehaviour
 {
     public Affliction[] afflictions;
 
-    private void Awake()
+    private void Update()
     {
+        LoopThroughAfflictionsTimers();
+    }
+    void LoopThroughAfflictionsTimers()
+    {
+        // Loop through all afflictions
+        for (int i = 0; i < afflictions.Length; i++)
+        {
+            // If affliction is active
+            if (afflictions[i].afflictionActive == true)
+            {
+                // Affliction time remaining
+                afflictions[i].remainingTime -= Time.deltaTime;
+                if (afflictions[i].remainingTime <= 0)
+                {
+                    afflictions[i].afflictionActive = false;
+                    afflictions[i].remainingTime = 0;
+                }
+            }
+        }
     }
 
     public bool ReturnAfflictionState(ENUM_DamageType damageType)
@@ -17,6 +36,7 @@ public class Afflictions : MonoBehaviour
     public void ApplyAfflicion(ENUM_DamageType damageType)
     {
         afflictions[(int)damageType].afflictionActive = true;
+        afflictions[(int)damageType].remainingTime = 10;
     }
 
     void CreateAfflictions()
@@ -31,6 +51,8 @@ public class Afflictions : MonoBehaviour
             afflictions[i] = tempAffliction;
         }
     }
+
+    
     public Afflictions()
     {
         CreateAfflictions();
