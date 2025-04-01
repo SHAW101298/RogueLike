@@ -31,6 +31,7 @@ public class Loot
 }
 public class BreakAbles : MonoBehaviour
 {
+    public int templateID;
     public float health;
     public Loot[] LootTable;
     public GameObject brokenReplacement;

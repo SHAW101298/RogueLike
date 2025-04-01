@@ -353,7 +353,7 @@ public class RoomGenerator : NetworkBehaviour
     }
     public void CreateBreakAblesInRooms(RoomManager room)
     {
-
+        Debug.LogWarning("Save this data in room, for use later");
         int randChance;
         int randBreakable;
         GameObject temp;

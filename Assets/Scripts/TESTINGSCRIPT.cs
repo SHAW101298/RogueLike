@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -24,8 +25,8 @@ public class TESTINGSCRIPT : MonoBehaviour
     public PlayerData player;
 
     [Header("ROO")]
-    public GameObject rotSource;
-    public RoomManager room;
+    public string text;
+    public int textX;
 
     [Header("DOO")]
     public Sprite[] sprites;
@@ -37,6 +38,7 @@ public class TESTINGSCRIPT : MonoBehaviour
 
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -85,7 +87,8 @@ public class TESTINGSCRIPT : MonoBehaviour
     }
     void ROO()
     {
-        room.ActivateRoom();
+        textX = Convert.ToInt32(text);
+        Debug.Log("text = " + text + "\textX = " + textX);
     }
     void AddBlessingToPlayer()
     {

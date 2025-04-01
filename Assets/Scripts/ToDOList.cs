@@ -55,7 +55,7 @@ public class ToDOList : MonoBehaviour
         doZrobienia.Add("Przeciwnicy powinni isc do gracza dopoki nie maja na niego czystego pola strzalu, a nie dopoki nie dotarli na odpowiedni dystans");
         doZrobienia.Add("Late Enemy Trigger. Gdy gracz zaatakuje przeciwnika ktory nie jest pobudzony, system powinien to wychwycic i zaalarmowac cala grupe");
         doZrobienia.Add("Breakables nie są przesylane do innych graczy");
-        doZrobienia.Add("Afflicitons never end. Add Timer");
+        //doZrobienia.Add("Afflicitons never end. Add Timer");
     }
 
 }
@@ -79,6 +79,18 @@ public class ToDOList : MonoBehaviour
  Gdzieś w miedzyczasie spawnują się przeciwnicy na mapie ( lub przygotowane jest wcześniej wywoływanie spawnowania triggerem ? )
  Gdy gracze zblizają się do przeciwników lub do nich zaczynają strzelać, rozpoczyna sie walka i cała gra
 */
+
+/* LOOP
+Wybranie Trybu Gry
+Start
+Zmiana Sceny
+Wytworzenie postaci graczy
+Teleport postaci gracza do HUB
+Istnieje portal z hub do startowego pomieszczenia pietra.
+Po wejsciu do HUB, HOST tworzy u siebie całą mapę. Wysyła dla graczy tylko pierwsze pomieszczenie po pomieszczeniu startowym. 
+Gdy gracz wejdzie do pomieszczenia, prosi hosta o ID nastepnego pomieszczenia oraz jego wnętrze. Brak Loading Screenu dla graczy, jedynie drobny lag dla hosta podczas generowania NAVMESH
+Host wykrywa u siebie, gdy jakiś gracz wchodzi do pomieszczenia również, co pozwala na aktywację pomieszczenia w dowolny zaprogramowany sposób.
+ */
 
 /*
 Bronie na start będą miały 1-2 sloty na bonusy. Zależnie od piętra ( poziomu broni), ilość bonusów będzie się zwiększać. 

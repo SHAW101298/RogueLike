@@ -7,6 +7,7 @@ public class RoomManager : MonoBehaviour
 {
     public bool isActive;
     public int roomTemplate;
+    public int orderID;
     public List<EnemyData> enemiesInRoom;
     [SerializeField] GameObject room;
     public RoomValidationScript roomValidationScript;
@@ -109,6 +110,26 @@ public class RoomManager : MonoBehaviour
             Destroy(enemiesInRoom[i].gameObject);
         }
         enemiesInRoom.Clear();
+    }
+
+    public string ReturnBreakablesData()
+    {
+        string data = "";
+
+        if(orderID < 10)
+        {
+            data += "0";
+        }
+        data += orderID.ToString();
+        // Add Data when creating breakables
+
+
+        return data;
+    }
+
+    public void InterpetBreakablesData(string data)
+    {
+
     }
 
 }

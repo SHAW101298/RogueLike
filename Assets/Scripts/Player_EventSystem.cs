@@ -81,7 +81,7 @@ public class Player_EventSystem : MonoBehaviour
     }
     void OnWeaponSwap()
     {
-        Debug.Log("On Weapon Swap");
+        //Debug.Log("On Weapon Swap");
     }
 
 }
