@@ -40,7 +40,7 @@ public class RoomGenerator : NetworkBehaviour
     public bool navMeshBuiltAlready;
 
     [Header("Random Map Objects")]
-    public List<GameObject> breakables;
+    public List<BreakAbles> breakables;
     public List<GameObject> specialInteractables;
     public List<GameObject> challengeRooms;
     public int breakableSpawnChance;
@@ -86,6 +86,8 @@ public class RoomGenerator : NetworkBehaviour
 
     
 
+
+
     public void FirstRoomGeneration()
     {
         Debug.Log("Generating Rooms");
@@ -129,12 +131,14 @@ public class RoomGenerator : NetworkBehaviour
         Vector3 nextRotation = currentRooms[startingId].exit.eulerAngles;
         GameObject newRoom;
         RoomManager createdRoom;
-        int lastRoomTemplate = -currentRooms[startingId].roomTemplate;
+        int lastRoomTemplate = currentRooms[startingId-1].roomTemplate;
+        //Debug.Log("Last room template = " + lastRoomTemplate);
         for (int i = startingId +1; i < roomsToGenerate; i++)
         {
             int newRoomTemplate = GetRandomRoomExcept(lastRoomTemplate);
             newRoom = Instantiate(possibleRooms[newRoomTemplate]);
             createdRoom = newRoom.GetComponent<RoomManager>();
+            //Debug.Log("NEW ROOM TEMPLATE = " + createdRoom.roomTemplate);
             createdRoom.roomValidationScript.id = i;
             createdRoom.floorParent = this;
             // Position correctly according to exit
@@ -148,6 +152,7 @@ public class RoomGenerator : NetworkBehaviour
             // Cache In the Room
             currentRooms.Add(createdRoom);
             lastRoomTemplate = createdRoom.roomTemplate;
+            //Debug.Log("SET lastRoomTemplate = " + lastRoomTemplate);
         }
         iteration++;
     }
@@ -346,42 +351,11 @@ public class RoomGenerator : NetworkBehaviour
 
     public void GenerateBreakAblesInRooms()
     {
+
         for(int i = 0; i < currentRooms.Count; i++)
         {
-            CreateBreakAblesInRooms(currentRooms[i]);
+            currentRooms[i].GenerateBreakablesInRoom();
+            //CreateBreakAblesInRooms(currentRooms[i]);
         }
-    }
-    public void CreateBreakAblesInRooms(RoomManager room)
-    {
-        Debug.LogWarning("Save this data in room, for use later");
-        int randChance;
-        int randBreakable;
-        GameObject temp;
-
-        // Loop for Spots
-        for(int i = 0; i < room.breakablesPositions.Count; i++)
-        {
-            randChance = Random.Range(0, 100);
-
-            // Generate Breakables at specified Positions
-            if (randChance <= breakableSpawnChance)
-            {
-                randBreakable = Random.Range(0, breakables.Count);
-                temp = Instantiate(breakables[randBreakable]);
-                temp.transform.SetParent(room.breakablesPositions[i]);
-                temp.transform.localPosition = Vector3.zero;
-                temp.transform.localEulerAngles = Vector3.zero;
-            }
-        }
-        // Destroy Empty Spots
-        for(int i = room.breakablesPositions.Count-1; i > 0;i--)
-        {
-            if (room.breakablesPositions[i].childCount == 0)
-            {
-                Destroy(room.breakablesPositions[i].gameObject);
-            }
-        }
-        room.breakablesPositions.TrimExcess();
-
     }
 }

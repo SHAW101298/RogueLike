@@ -31,7 +31,7 @@ public class Loot
 }
 public class BreakAbles : MonoBehaviour
 {
-    public int templateID;
+    [SerializeField] int templateID;
     public float health;
     public Loot[] LootTable;
     public GameObject brokenReplacement;
@@ -83,6 +83,16 @@ public class BreakAbles : MonoBehaviour
         GameObject temp = Instantiate(brokenReplacement);
         temp.transform.position = transform.position;
         Destroy(gameObject);
+    }
+    public string GetTemplateID()
+    {
+        string id = "";
+        if(templateID < 10)
+        {
+            id += "0";
+        }
+        id += templateID.ToString();
+        return id;
     }
 
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -7,21 +8,24 @@ public class RoomManager : MonoBehaviour
 {
     public bool isActive;
     public int roomTemplate;
-    public int orderID;
     public List<EnemyData> enemiesInRoom;
-    [SerializeField] GameObject room;
+    //[SerializeField] GameObject room;
     public RoomValidationScript roomValidationScript;
     public RoomGenerator floorParent;
     [Space(15)]
     public Transform entrance;
     public Transform exit;
     public Transform portal;
-    [SerializeField] GameObject placementColliders;
+    //[SerializeField] GameObject placementColliders;
     [Header("Enemies Spawning")]
     [SerializeField] List<Room_SpawningData> spawningData;
+    //public Transform interactablePosition;
     [Header("Randoms")]
-    public Transform interactablePosition;
     public List<Transform> breakablesPositions;
+    public string breakablesLayOut;
+
+
+    public bool Run_FOO;
 
 
 
@@ -33,12 +37,17 @@ public class RoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(Run_FOO == true)
+        {
+            Run_FOO = false;
+            FOO();
+        }
     }
 
     public void ActivateRoom()
     {
-        room.SetActive(true);
+        gameObject.SetActive(true);
+        //room.SetActive(true);
 
         // Room already active, nothing to do
         if (isActive == true)
@@ -59,7 +68,7 @@ public class RoomManager : MonoBehaviour
     }
     public void DeactivateRoomForMe()
     {
-        room.SetActive(false);
+        gameObject.SetActive(false);
     }
     public void EVENT_PlayerEnteringPortal()
     {
@@ -112,24 +121,84 @@ public class RoomManager : MonoBehaviour
         enemiesInRoom.Clear();
     }
 
-    public string ReturnBreakablesData()
-    {
-        string data = "";
-
-        if(orderID < 10)
-        {
-            data += "0";
-        }
-        data += orderID.ToString();
-        // Add Data when creating breakables
-
-
-        return data;
-    }
-
     public void InterpetBreakablesData(string data)
     {
 
+    }
+    public void GenerateBreakablesInRoom()
+    {
+        //Debug.LogWarning("Save this data in room, for use later");
+        int randChance;
+        int randBreakable;
+        GameObject temp;
+        BreakAbles tempBreakAble;
+        if(roomValidationScript.id < 10)
+        {
+            breakablesLayOut += "0";
+        }
+        breakablesLayOut += roomValidationScript.id;
+
+        // Loop for Spots
+        for (int i = 0; i < breakablesPositions.Count; i++)
+        {
+            randChance = UnityEngine.Random.Range(0, 100);
+
+
+            // Generate Breakables at specified Positions
+            if (randChance <= floorParent.breakableSpawnChance)
+            {
+                randBreakable = UnityEngine.Random.Range(0, floorParent.breakables.Count);
+                tempBreakAble = floorParent.breakables[randBreakable];
+                temp = Instantiate(tempBreakAble.gameObject);
+                temp.transform.SetParent(breakablesPositions[i]);
+                temp.transform.localPosition = Vector3.zero;
+                temp.transform.localEulerAngles = Vector3.zero;
+
+                breakablesLayOut += tempBreakAble.GetTemplateID();
+            }
+            else
+            {
+                breakablesLayOut += "00";
+            }
+        }
+
+        /* Destroy Empty Spots
+        for (int i = room.breakablesPositions.Count - 1; i > 0; i--)
+        {
+            if (room.breakablesPositions[i].childCount == 0)
+            {
+                Destroy(room.breakablesPositions[i].gameObject);
+            }
+        }
+        room.breakablesPositions.TrimExcess();
+        */
+    }
+
+    void FOO()
+    {
+        string temp = "" + breakablesLayOut[0] + breakablesLayOut[1];
+        int breakAbleTemplate = 0;
+        int x = breakablesLayOut.Length;
+        GameObject tempGO;
+
+        int room = Convert.ToInt32(temp);
+        Debug.Log("Validation is = " + roomValidationScript.id + "| Room is = " + room);
+        temp = "";
+        for(int i = 2; i < x; i+= 2)
+        {
+            Debug.Log("i = " + i);
+            temp += "" + breakablesLayOut[i] + breakablesLayOut[i+1];
+            Debug.Log("temp = " + temp);
+            breakAbleTemplate = Convert.ToInt32(temp);
+            Debug.Log("breakAbleTemplate =  " + breakAbleTemplate);
+            if(breakAbleTemplate != 0)
+            {
+                tempGO = Instantiate(floorParent.breakables[breakAbleTemplate-1].gameObject);
+                tempGO.transform.SetParent(breakablesPositions[(i / 2)-1].transform);
+                tempGO.transform.localPosition = Vector3.zero;
+            }
+            temp = "";
+        }
     }
 
 }

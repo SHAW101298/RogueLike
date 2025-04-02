@@ -23,10 +23,7 @@ public class GameSetup : MonoBehaviour
     }
     #endregion
 
-
-    [SerializeField] Transform[] firstGunSpots;
-    [SerializeField] RoomGenerator roomGenerator;
-    [SerializeField] List<RoomGenerator> generators;
+    [SerializeField] MapManager mapManager;
 
 
     // Start is called before the first frame update
@@ -34,42 +31,20 @@ public class GameSetup : MonoBehaviour
     {
         Debug.Log("Setting Up a Game");
         GameData.Instance.SetNewPlayerAmount(NetworkManager.Singleton.ConnectedClientsIds.Count);
-        //CreateBasicGuns();
-        //roomGenerator.FirstRoomGeneration();
-        foreach (RoomGenerator generator in generators)
-        {
-            generator.FirstRoomGeneration();
-        }
-        CreateMapForOtherPlayers();
-        //GameOptions.Instance.ApplyDifficultySettings();
+   
+        CreateMap();
     }
 
 
-    void CreateBasicGuns()
-    {
-        int possibleGuns = GunManager.Instance.gunList.Count;
-        int randomVal;
-        Gun tempGun;
-        GunUpgradeBase upgrade;
-        foreach(Transform spot in firstGunSpots)
-        {
-            tempGun = GunManager.Instance.CreateRandomGunOnGround(spot.position);
-            upgrade = GunUpgradeRoller.ins.GetRandomRoll();
-            tempGun.gunUpgrades.Add(upgrade);
-            //randomVal = Random.Range(0, possibleGuns);
-            //tempGun = GunManager.Instance.CreateGunOnGround(randomVal, spot.position);
-        }
-        //GunManager.Instance.CreateGunOnGround(possibleGuns, firstGunSpots[0].position);
-    }
-
-    public void CreateMapForOtherPlayers()
+    public void CreateMap()
     {
         // If Im host, i dont request for map
         if(NetworkManager.Singleton.IsHost == true)
         {
+            mapManager.GenerateFloors();
             return;
         }
-
-        roomGenerator.RequestMapLayout_ServerRPC(NetworkManager.Singleton.LocalClientId);
+        mapManager.RequestMapLayout();
+        //roomGenerator.RequestMapLayout_ServerRPC(NetworkManager.Singleton.LocalClientId);
     }
 }

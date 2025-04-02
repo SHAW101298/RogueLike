@@ -17,6 +17,7 @@ public class RoomValidationScript : MonoBehaviour
         }
         */
 
+        // Both Rooms will report Each Other
         if(Tools.CheckIfInMask(collisionMask, other.gameObject.layer) == true)
         {
             RoomManager roomManager = other.gameObject.GetComponentInParent<RoomManager>();
@@ -29,12 +30,13 @@ public class RoomValidationScript : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
+        // Both Rooms will report Each Other
         if (Tools.CheckIfInMask(collisionMask, other.gameObject.layer) == true)
         {
             RoomManager roomManager = other.gameObject.GetComponentInParent<RoomManager>();
             int collisionID = roomManager.roomValidationScript.id;
             //Debug.Log(gameObject.name + " | " + "Collided with = " + other.gameObject.name);
-            //Debug.Log(id + " | " + " Collided with " + collisionID);
+            //Debug.Log(id + " | " + " Still Collides with " + collisionID);
             roomManager.floorParent.Alert_RoomCollide(id);
         }
     }

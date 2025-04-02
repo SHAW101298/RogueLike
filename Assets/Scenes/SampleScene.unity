@@ -3275,6 +3275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 403521219}
+  - component: {fileID: 403521220}
   m_Layer: 0
   m_Name: Floor 1
   m_TagString: Untagged
@@ -3293,10 +3294,27 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 558974558}
   m_Father: {fileID: 2011300535}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &403521220
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403521218}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1 &408204484
 GameObject:
   m_ObjectHideFlags: 0
@@ -4478,6 +4496,134 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1001 &558974557
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 403521219}
+    m_Modifications:
+    - target: {fileID: 505342001461523570, guid: 03e7c27cb929d614287fadc33813e337,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 505342001461523570, guid: 03e7c27cb929d614287fadc33813e337,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 505342001461523570, guid: 03e7c27cb929d614287fadc33813e337,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 505342001461523570, guid: 03e7c27cb929d614287fadc33813e337,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 505342001461523570, guid: 03e7c27cb929d614287fadc33813e337,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 505342001461523570, guid: 03e7c27cb929d614287fadc33813e337,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 505342001461523570, guid: 03e7c27cb929d614287fadc33813e337,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 505342001461523570, guid: 03e7c27cb929d614287fadc33813e337,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 505342001461523570, guid: 03e7c27cb929d614287fadc33813e337,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 505342001461523570, guid: 03e7c27cb929d614287fadc33813e337,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 505342001461523570, guid: 03e7c27cb929d614287fadc33813e337,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 885104059730800328, guid: 03e7c27cb929d614287fadc33813e337,
+        type: 3}
+      propertyPath: m_Name
+      value: Rooms_00_StartingRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609410814238920618, guid: 03e7c27cb929d614287fadc33813e337,
+        type: 3}
+      propertyPath: floorParent
+      value: 
+      objectReference: {fileID: 1268781157}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 03e7c27cb929d614287fadc33813e337, type: 3}
+--- !u!4 &558974558 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 505342001461523570, guid: 03e7c27cb929d614287fadc33813e337,
+    type: 3}
+  m_PrefabInstance: {fileID: 558974557}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &558974559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 885104059730800328, guid: 03e7c27cb929d614287fadc33813e337,
+    type: 3}
+  m_PrefabInstance: {fileID: 558974557}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &558974560 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5609410814238920618, guid: 03e7c27cb929d614287fadc33813e337,
+    type: 3}
+  m_PrefabInstance: {fileID: 558974557}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558974559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d4aad333224cd4fbe5080616461a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &558974561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558974559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 0}
+  m_BuildHeightMesh: 0
 --- !u!1 &563113312
 GameObject:
   m_ObjectHideFlags: 0
@@ -7432,18 +7578,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
-  roomTemplate: 0
+  roomTemplate: -1
   enemiesInRoom: []
-  room: {fileID: 1260691570}
   roomValidationScript: {fileID: 111057922}
   floorParent: {fileID: 992903277}
   entrance: {fileID: 957082749}
   exit: {fileID: 635659095}
   portal: {fileID: 635659095}
-  placementColliders: {fileID: 111057920}
   spawningData: []
-  interactablePosition: {fileID: 0}
   breakablesPositions: []
+  breakablesLayOut: 
 --- !u!1 &869478464
 GameObject:
   m_ObjectHideFlags: 0
@@ -8887,16 +9031,14 @@ MonoBehaviour:
   isActive: 0
   roomTemplate: 0
   enemiesInRoom: []
-  room: {fileID: 1302062459}
   roomValidationScript: {fileID: 1089880419}
   floorParent: {fileID: 0}
   entrance: {fileID: 256785788}
   exit: {fileID: 1732800444}
   portal: {fileID: 256785788}
-  placementColliders: {fileID: 1089880414}
   spawningData: []
-  interactablePosition: {fileID: 0}
   breakablesPositions: []
+  breakablesLayOut: 
 --- !u!114 &988373733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9045,8 +9187,8 @@ MonoBehaviour:
   spawnArea: {fileID: 866994783}
   surface: {fileID: 866994782}
   possibleRooms:
-  - {fileID: 6881364099888074310, guid: 4d36adc4aef65e94eaaac8962f6c3a70, type: 3}
-  - {fileID: 6881364099888074310, guid: 7a1100fdceef92e4f870addeb09cc1a5, type: 3}
+  - {fileID: 6140792888681291122, guid: a96a6225a8a9fbc4d9b297fa181e110f, type: 3}
+  - {fileID: 4406207231905466783, guid: abc593ed45d14964ea6a0a90dcc5d5c2, type: 3}
   currentRooms: []
   roomsParent: {fileID: 95989746}
   roomsToGenerate: 15
@@ -9057,7 +9199,9 @@ MonoBehaviour:
   iteration: 0
   timer: 1
   navMeshBuiltAlready: 0
-  breakables: []
+  breakables:
+  - {fileID: 7070615578798844382, guid: 57f65024ede7792418816c8bca400900, type: 3}
+  - {fileID: 7057651299432218170, guid: 0d4ed6ae499e81c40be18915ad420641, type: 3}
   specialInteractables: []
   challengeRooms: []
   breakableSpawnChance: 0
@@ -10649,16 +10793,14 @@ MonoBehaviour:
   isActive: 0
   roomTemplate: 0
   enemiesInRoom: []
-  room: {fileID: 1883081663}
   roomValidationScript: {fileID: 0}
   floorParent: {fileID: 0}
   entrance: {fileID: 171841963}
   exit: {fileID: 1421714088}
   portal: {fileID: 421966244}
-  placementColliders: {fileID: 6255980613111485542}
   spawningData: []
-  interactablePosition: {fileID: 0}
   breakablesPositions: []
+  breakablesLayOut: 
 --- !u!1 &1114907548
 GameObject:
   m_ObjectHideFlags: 0
@@ -12173,11 +12315,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb4c7f04dd6bc6245bb240e6db70008d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnArea: {fileID: 919132149453840400}
+  spawnArea: {fileID: 558974560}
   surface: {fileID: 919132149453840401}
   possibleRooms:
-  - {fileID: 6881364099888074310, guid: 4d36adc4aef65e94eaaac8962f6c3a70, type: 3}
-  - {fileID: 6881364099888074310, guid: 7a1100fdceef92e4f870addeb09cc1a5, type: 3}
+  - {fileID: 6140792888681291122, guid: a96a6225a8a9fbc4d9b297fa181e110f, type: 3}
+  - {fileID: 4406207231905466783, guid: abc593ed45d14964ea6a0a90dcc5d5c2, type: 3}
   currentRooms: []
   roomsParent: {fileID: 403521218}
   roomsToGenerate: 15
@@ -12189,8 +12331,8 @@ MonoBehaviour:
   timer: 1
   navMeshBuiltAlready: 0
   breakables:
-  - {fileID: 4485840487184811741, guid: 57f65024ede7792418816c8bca400900, type: 3}
-  - {fileID: 4688785766431990211, guid: 0d4ed6ae499e81c40be18915ad420641, type: 3}
+  - {fileID: 7070615578798844382, guid: 57f65024ede7792418816c8bca400900, type: 3}
+  - {fileID: 7057651299432218170, guid: 0d4ed6ae499e81c40be18915ad420641, type: 3}
   specialInteractables: []
   challengeRooms: []
   breakableSpawnChance: 30
@@ -14729,6 +14871,9 @@ MonoBehaviour:
   mapParent: {fileID: 2011300534}
   floorSpawns: []
   floorParents: []
+  floorGenerators:
+  - {fileID: 1268781157}
+  - {fileID: 992903277}
 --- !u!1 &1491303049
 GameObject:
   m_ObjectHideFlags: 0
@@ -18562,14 +18707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57b2153cabf3864bbb83e2fec615507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstGunSpots:
-  - {fileID: 1724048716}
-  - {fileID: 155601453}
-  - {fileID: 231866746}
-  roomGenerator: {fileID: 1268781157}
-  generators:
-  - {fileID: 1268781157}
-  - {fileID: 992903277}
+  mapManager: {fileID: 1488887881}
 --- !u!4 &1860549745
 Transform:
   m_ObjectHideFlags: 0
@@ -18784,8 +18922,8 @@ MonoBehaviour:
   teleportObject: {fileID: 0}
   teleportPosition: {fileID: 0}
   player: {fileID: 0}
-  rotSource: {fileID: 0}
-  room: {fileID: 0}
+  text: 
+  textX: 0
   sprites: []
   img: {fileID: 0}
   changeTime: 0
@@ -21799,18 +21937,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
-  roomTemplate: 0
+  roomTemplate: -1
   enemiesInRoom: []
-  room: {fileID: 1719209152}
   roomValidationScript: {fileID: 8550246043491471786}
   floorParent: {fileID: 1268781157}
   entrance: {fileID: 1251642004}
   exit: {fileID: 383831647}
   portal: {fileID: 383831647}
-  placementColliders: {fileID: 6255980611761937781}
   spawningData: []
-  interactablePosition: {fileID: 0}
   breakablesPositions: []
+  breakablesLayOut: 
 --- !u!114 &919132149453840401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22755,16 +22891,14 @@ MonoBehaviour:
   isActive: 0
   roomTemplate: 0
   enemiesInRoom: []
-  room: {fileID: 2000038938}
   roomValidationScript: {fileID: 9122377560702961191}
   floorParent: {fileID: 0}
   entrance: {fileID: 171841963}
   exit: {fileID: 1421714088}
   portal: {fileID: 1421714088}
-  placementColliders: {fileID: 4133204187818446049}
   spawningData: []
-  interactablePosition: {fileID: 0}
   breakablesPositions: []
+  breakablesLayOut: 
 --- !u!114 &7495989836922776355
 MonoBehaviour:
   m_ObjectHideFlags: 0
