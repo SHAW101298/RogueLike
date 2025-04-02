@@ -819,6 +819,7 @@ MonoBehaviour:
   - {fileID: 4275813379807528574}
   - {fileID: 1362058659834243897}
   breakablesLayOut: 
+  Run_FOO: 0
 --- !u!1 &4588038825351454074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,7 +1040,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7957322299286140177, guid: 5137a10aab2d856409c5e01495a0083f, type: 3}
+  - {fileID: 2100000, guid: d025ace9d9145444ea373fd02222baff, type: 2}
+  - {fileID: 2100000, guid: 1dca6f8afd77d2f48bbee13caf490022, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

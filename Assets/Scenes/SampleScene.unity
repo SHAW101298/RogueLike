@@ -7588,6 +7588,7 @@ MonoBehaviour:
   spawningData: []
   breakablesPositions: []
   breakablesLayOut: 
+  Run_FOO: 0
 --- !u!1 &869478464
 GameObject:
   m_ObjectHideFlags: 0
@@ -9039,6 +9040,7 @@ MonoBehaviour:
   spawningData: []
   breakablesPositions: []
   breakablesLayOut: 
+  Run_FOO: 0
 --- !u!114 &988373733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10801,6 +10803,7 @@ MonoBehaviour:
   spawningData: []
   breakablesPositions: []
   breakablesLayOut: 
+  Run_FOO: 0
 --- !u!1 &1114907548
 GameObject:
   m_ObjectHideFlags: 0
@@ -12320,6 +12323,7 @@ MonoBehaviour:
   possibleRooms:
   - {fileID: 6140792888681291122, guid: a96a6225a8a9fbc4d9b297fa181e110f, type: 3}
   - {fileID: 4406207231905466783, guid: abc593ed45d14964ea6a0a90dcc5d5c2, type: 3}
+  - {fileID: 7764988465126063990, guid: e55f9c3d539cf474aad63b2a5138f149, type: 3}
   currentRooms: []
   roomsParent: {fileID: 403521218}
   roomsToGenerate: 15
@@ -21947,6 +21951,7 @@ MonoBehaviour:
   spawningData: []
   breakablesPositions: []
   breakablesLayOut: 
+  Run_FOO: 0
 --- !u!114 &919132149453840401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22899,6 +22904,7 @@ MonoBehaviour:
   spawningData: []
   breakablesPositions: []
   breakablesLayOut: 
+  Run_FOO: 0
 --- !u!114 &7495989836922776355
 MonoBehaviour:
   m_ObjectHideFlags: 0
