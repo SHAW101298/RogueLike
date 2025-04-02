@@ -182,15 +182,15 @@ public class RoomManager : MonoBehaviour
         GameObject tempGO;
 
         int room = Convert.ToInt32(temp);
-        Debug.Log("Validation is = " + roomValidationScript.id + "| Room is = " + room);
+        //Debug.Log("Validation is = " + roomValidationScript.id + "| Room is = " + room);
         temp = "";
         for(int i = 2; i < x; i+= 2)
         {
-            Debug.Log("i = " + i);
+            //Debug.Log("i = " + i);
             temp += "" + breakablesLayOut[i] + breakablesLayOut[i+1];
-            Debug.Log("temp = " + temp);
+            //Debug.Log("temp = " + temp);
             breakAbleTemplate = Convert.ToInt32(temp);
-            Debug.Log("breakAbleTemplate =  " + breakAbleTemplate);
+            //Debug.Log("breakAbleTemplate =  " + breakAbleTemplate);
             if(breakAbleTemplate != 0)
             {
                 tempGO = Instantiate(floorParent.breakables[breakAbleTemplate-1].gameObject);
