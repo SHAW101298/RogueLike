@@ -554,6 +554,9 @@ MonoBehaviour:
   baseGoldReward: 0
   rayCastPosition: {fileID: 2810482900991229682}
   damageVisualizerPosition: {fileID: 1959723477503764743}
+  unitsLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &6369748041881690604
 MonoBehaviour:
   m_ObjectHideFlags: 0

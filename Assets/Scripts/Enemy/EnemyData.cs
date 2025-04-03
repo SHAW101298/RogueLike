@@ -19,6 +19,8 @@ public class EnemyData : UnitData
     public Transform damageVisualizerPosition;
     float timer;
 
+    [SerializeField] LayerMask unitsLayerMask;
+
     public override void RecalculateStats()
     {
         throw new System.NotImplementedException();
@@ -106,7 +108,15 @@ public class EnemyData : UnitData
         if (ai.CheckIfIdle() == true)
         {
             ai.chase.chaseDistance *= 2;
-            ai.NotifyAboutPlayer(ai.GetClosestPlayer());
+            PlayerData closestPlayer = ai.GetClosestPlayer();
+            ai.NotifyAboutPlayer(closestPlayer);
+            Collider[] hits;
+            hits = Physics.OverlapSphere(transform.position, 3, unitsLayerMask);
+            
+            foreach(Collider hit in hits)
+            {
+                hit.gameObject.GetComponentInParent<EnemyData>().NotifyOthersAboutDamage(closestPlayer);
+            }
         }
 
         HitResult result = new HitResult();
@@ -136,6 +146,15 @@ public class EnemyData : UnitData
         healthBar.transform.localScale = newScale;
 
         return result;
+    }
+    public void NotifyOthersAboutDamage(PlayerData player)
+    {
+        if (ai.CheckIfIdle() == true)
+        {
+            //Debug.Log("Notifying");
+            ai.chase.chaseDistance *= 2;
+            ai.NotifyAboutPlayer(player);
+        }
     }
 
     /*
