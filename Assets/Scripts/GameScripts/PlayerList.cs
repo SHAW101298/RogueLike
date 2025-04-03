@@ -31,6 +31,7 @@ public class PlayerList : MonoBehaviour
         sceneName = currentSceneName;
         if(currentSceneName.Equals("GameScene") || currentSceneName.Equals("SampleScene"))
         {
+            RegisterToEvents();
             //AddPlayers();
         }
     }
@@ -38,8 +39,10 @@ public class PlayerList : MonoBehaviour
 
     public void RegisterToEvents()
     {
+        Debug.Log("Registering to Events");
         NetworkManager.Singleton.SceneManager.OnLoadComplete += SceneLoadCompleted;
         NetworkManager.Singleton.OnClientDisconnectCallback += PlayerDisconected;
+        NetworkManager.Singleton.OnClientConnectedCallback += PlayerConnected;
     }
     public void UnregisterFromEvents()
     {
@@ -47,12 +50,21 @@ public class PlayerList : MonoBehaviour
         NetworkManager.Singleton.OnClientDisconnectCallback -= PlayerDisconected;
     }
 
-    private void PlayerDisconected(ulong obj)
+    private void PlayerDisconected(ulong id)
     {
+        Debug.Log("Player Disconnected with id = " + id);
         players.Clear();
         AddPlayers();
     }
 
+    private void PlayerConnected(ulong id)
+    {
+        Debug.Log("Player Connected with ID = " + id);
+        if(NetworkManager.Singleton.IsHost == true)
+        {
+            GameData.Instance.GetPlayerCount_ServerRPC();
+        }
+    }
     private void SceneLoadCompleted(ulong clientId, string sceneName, LoadSceneMode loadSceneMode)
     {
         if(sceneName.Equals("GameScene") || sceneName.Equals("SampleScene"))
@@ -61,17 +73,13 @@ public class PlayerList : MonoBehaviour
             //AddPlayers();
         }
     }
+    
 
     private void AddPlayers()
     {
-        NetworkClient client;
-        int playerCount = NetworkManager.Singleton.ConnectedClients.Count;
-        for (int i = 0; i < playerCount; i++)
-        {
-            client = NetworkManager.Singleton.ConnectedClientsList[i];
-            AddPlayerToList(client.PlayerObject.gameObject.GetComponent<PlayerData>());
-        }
+        
     }
+
     public void AddPlayer(PlayerData player)
     {
         AddPlayerToList(player);
