@@ -280,6 +280,8 @@ public class RoomGenerator : NetworkBehaviour
         {
             Debug.LogWarning("CREATE MAP");
             CreateRoomsFromLayout(layout);
+            Debug.Log("Rooms Created On Client");
+            RequestBreakablesData(1);
         }
     }
     void CreateRoomsFromLayout(string layout)
@@ -306,6 +308,7 @@ public class RoomGenerator : NetworkBehaviour
             newRoom = Instantiate(possibleRooms[template]);
             createdRoom = newRoom.GetComponent<RoomManager>();
             validationScript = createdRoom.roomValidationScript;
+            createdRoom.floorParent = this;
             // Position correctly according to exit
             newRoom.transform.position = nextSpot;
             newRoom.transform.eulerAngles = nextRotation;
@@ -350,6 +353,8 @@ public class RoomGenerator : NetworkBehaviour
         Debug.Log("Activating First Rooms");
         currentRooms[0].ActivateRoom();
         currentRooms[1].ActivateRoom();
+
+
     }
 
     public void GenerateBreakAblesInRooms()
@@ -359,6 +364,33 @@ public class RoomGenerator : NetworkBehaviour
         {
             currentRooms[i].GenerateBreakablesInRoom();
             //CreateBreakAblesInRooms(currentRooms[i]);
+        }
+    }
+    public void RequestBreakablesData(int room)
+    {
+        ulong clientID = NetworkManager.Singleton.LocalClientId;
+        //Debug.Log("Requesting Breakables Layout for room = " + room + "  |By ID = " + clientID);
+        RequestBreakablesData_ServerRPC(room, clientID);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void RequestBreakablesData_ServerRPC(int roomID, ulong requestingPlayer)
+    {
+        //Debug.Log("RequestBreakablesData_ServerRPC");
+        string layout = currentRooms[roomID].breakablesLayOut;
+        RequestBreakablesData_ClientRPC(layout, requestingPlayer);
+    }
+    [ClientRpc]
+    public void RequestBreakablesData_ClientRPC(string layout, ulong requestingPlayer)
+    {
+        //Debug.Log("RequestBreakablesData_ClientRPC");
+        if (requestingPlayer == NetworkManager.Singleton.LocalClientId)
+        {
+            //Debug.Log("requestingPlayer = " + requestingPlayer + " | layout = " + layout);
+            string roomID = "" + layout[0] + layout[1];
+            int id = System.Convert.ToInt32(roomID);
+            currentRooms[id].breakablesLayOut = layout;
+            currentRooms[id].GenerateBreakablesInRoomFromLayout();
         }
     }
 }

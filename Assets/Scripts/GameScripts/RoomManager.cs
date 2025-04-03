@@ -40,7 +40,6 @@ public class RoomManager : MonoBehaviour
         if(Run_FOO == true)
         {
             Run_FOO = false;
-            FOO();
         }
     }
 
@@ -121,10 +120,6 @@ public class RoomManager : MonoBehaviour
         enemiesInRoom.Clear();
     }
 
-    public void InterpetBreakablesData(string data)
-    {
-
-    }
     public void GenerateBreakablesInRoom()
     {
         //Debug.LogWarning("Save this data in room, for use later");
@@ -174,7 +169,7 @@ public class RoomManager : MonoBehaviour
         */
     }
 
-    void FOO()
+    public void GenerateBreakablesInRoomFromLayout()
     {
         string temp = "" + breakablesLayOut[0] + breakablesLayOut[1];
         int breakAbleTemplate = 0;

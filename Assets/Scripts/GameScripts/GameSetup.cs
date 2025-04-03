@@ -47,6 +47,7 @@ public class GameSetup : MonoBehaviour
         }
         Debug.Log("Requesting Map Layout");
         mapManager.RequestMapLayout();
+
         //roomGenerator.RequestMapLayout_ServerRPC(NetworkManager.Singleton.LocalClientId);
     }
 }
