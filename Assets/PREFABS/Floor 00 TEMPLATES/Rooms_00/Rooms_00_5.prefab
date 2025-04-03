@@ -556,6 +556,7 @@ Transform:
   - {fileID: 1279937815551564146}
   - {fileID: 7451733596268797259}
   - {fileID: 4385734207666516407}
+  - {fileID: 6540260120035755960}
   m_Father: {fileID: 1420790979281212111}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1054,6 +1055,68 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8, y: 9, z: 1}
   m_Center: {x: 0, y: -0.40007615, z: 0}
+--- !u!1 &5812794598995488749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6540260120035755960}
+  - component: {fileID: 2635939292583332982}
+  - component: {fileID: 1172398072979193251}
+  m_Layer: 0
+  m_Name: Enter Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6540260120035755960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5812794598995488749}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5892785414312884144}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2635939292583332982
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5812794598995488749}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3.9999998, z: 4}
+  m_Center: {x: 0.5, y: 2, z: 0}
+--- !u!114 &1172398072979193251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5812794598995488749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8bfcb6897516b42a21635487d2735a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 6140792888681291121}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &6118597449432888683
 GameObject:
   m_ObjectHideFlags: 0

@@ -55,7 +55,7 @@ public class RoomManager : MonoBehaviour
         // Called by client to open a room
         if(NetworkManager.Singleton.IsHost == false)
         {
-            Debug.Log("Im not owner, ask server to activate room");
+            //Debug.Log("Im not owner, ask server to activate room");
             // Make RPC call to host to open room
             ActivateThisRoom_ServerRPC();
         }
@@ -76,7 +76,11 @@ public class RoomManager : MonoBehaviour
     }
     public void EVENT_PlayerEnteringRoom()
     {
-        ActivateRoom();
+        // Ask host for breakables Data for next room
+        // Activate next room
+
+        floorParent.RequestBreakablesData(roomValidationScript.id + 1);
+        floorParent.ActivateRoom(roomValidationScript.id + 1);
     }
 
     [ServerRpc(RequireOwnership = false)]

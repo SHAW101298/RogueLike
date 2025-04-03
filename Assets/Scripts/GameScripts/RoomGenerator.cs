@@ -131,7 +131,16 @@ public class RoomGenerator : NetworkBehaviour
         Vector3 nextRotation = currentRooms[startingId].exit.eulerAngles;
         GameObject newRoom;
         RoomManager createdRoom;
-        int lastRoomTemplate = currentRooms[startingId-1].roomTemplate;
+        //Debug.Log("starting id == " + startingId);
+        int lastRoomTemplate;
+        if(startingId == 0)
+        {
+            lastRoomTemplate = -1;
+        }
+        else
+        {
+            lastRoomTemplate = currentRooms[startingId-1].roomTemplate;
+        }
         //Debug.Log("Last room template = " + lastRoomTemplate);
         for (int i = startingId +1; i < roomsToGenerate; i++)
         {
@@ -332,20 +341,17 @@ public class RoomGenerator : NetworkBehaviour
 
     public void ActivateFloorForMe()
     {
-        /*
-        foreach(RoomManager room in currentRooms)
+        foreach (RoomManager room in currentRooms)
         {
             room.gameObject.SetActive(true);
         }
-        */
-        roomsParent.SetActive(true);
     }
     public void DeactivateFloorForMe()
     {     
         Debug.Log("Deactivating Whole floor");
         foreach(RoomManager room in currentRooms)
         {
-            room.gameObject.SetActive(true);
+            room.gameObject.SetActive(false);
         }
     }
     public void ActivateFirstRooms()
@@ -368,6 +374,11 @@ public class RoomGenerator : NetworkBehaviour
     }
     public void RequestBreakablesData(int room)
     {
+        if (room >= currentRooms.Count)
+        {
+            // Outside of current rooms
+            return;
+        }
         ulong clientID = NetworkManager.Singleton.LocalClientId;
         //Debug.Log("Requesting Breakables Layout for room = " + room + "  |By ID = " + clientID);
         RequestBreakablesData_ServerRPC(room, clientID);
@@ -392,5 +403,14 @@ public class RoomGenerator : NetworkBehaviour
             currentRooms[id].breakablesLayOut = layout;
             currentRooms[id].GenerateBreakablesInRoomFromLayout();
         }
+    }
+    public void ActivateRoom(int room)
+    {
+        if (room >= currentRooms.Count)
+        {
+            // Outside of current rooms
+            return;
+        }
+        currentRooms[room].ActivateRoom();
     }
 }
