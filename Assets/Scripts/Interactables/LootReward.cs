@@ -27,7 +27,7 @@ public class LootReward : MonoBehaviour
         switch(rewardType)
         {
             case ENUM_LootRewardType.gold:
-                GameData.Instance.ModifyPlayersGold((int)player.networkData.OwnerClientId,amount);
+                GameData.Instance.ModifyPlayersGold(amount);
                 break;
             case ENUM_LootRewardType.health:
                 player.AddCurrentHealth(amount);

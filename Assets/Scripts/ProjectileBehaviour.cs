@@ -131,6 +131,7 @@ public class ProjectileBehaviour : MonoBehaviour
         DamageInfo damageInfo = hitInfo.damageInfo;
         float calculatedDamage = damageInfo.GetDamageAmount();
         HitResult result = enemyData.HitEnemy(damageInfo);
+        GameData.Instance.ModifyPlayersDamage(calculatedDamage);
         result.TriggerEvents();
 
 
@@ -172,6 +173,7 @@ public class ProjectileBehaviour : MonoBehaviour
         DamageInfo damageInfo = hitInfo.damageInfo;
         float calculatedDamage = damageInfo.GetDamageAmount();
         HitResult result = enemyData.HitEnemy(damageInfo);
+        GameData.Instance.ModifyPlayersDamage(calculatedDamage);
         result.TriggerEvents();
 
         // Destroy bullet if it hit its limit

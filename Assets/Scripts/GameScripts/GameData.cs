@@ -21,62 +21,34 @@ public class GameData : NetworkBehaviour
 #endregion
 
     public int currentFloor;
-    public List<int> playerGold;
-    public List<int> playerKills;
-    public List<float> playerDamage;
+    public int playerGold;
+    public int playerKills;
+    public float playerDamage;
 
     public void ResetData()
     {
         currentFloor = 0;
-        playerGold.Clear();
-        playerKills.Clear();
-        playerDamage.Clear();
+        playerGold = 0;
+        playerKills = 0;
+        playerDamage = 0;
     }
-    public void SetNewPlayerAmount(int amount)
-    {
-        Debug.Log("Setting new Amount of players to " + amount);
-        for(int i = 0; i < amount; i++)
-        {
-            playerGold.Add(0);
-            playerKills.Add(0);
-            playerDamage.Add(0);
-        }
-    }
-    public void SetNewPlayerAmount()
-    {
 
-    }
     public void SetFloor(int floor)
     {
         currentFloor = floor;
     }
 
-    public void ModifyPlayersGold(int player, int gold)
+    public void ModifyPlayersGold(int gold)
     {
-        if (player > playerGold.Count)
-        {
-            Debug.LogError("Trying to change gold data of nonexistent Player");
-            return;
-        }
-        playerGold[player] += gold;
+        playerGold += gold;
     }
-    public void ModifyPlayersKills(int player, int kills)
+    public void ModifyPlayersKills(int kills)
     {
-        if (player > playerKills.Count)
-        {
-            Debug.LogError("Trying to change kills data of nonexistent Player");
-            return;
-        }
-        playerKills[player] += kills;
+        playerKills += kills;
     }
-    public void ModifyPlayersDamage(int player, float damage)
+    public void ModifyPlayersDamage(float damage)
     {
-        if (player > playerDamage.Count)
-        {
-            Debug.LogError("Trying to change damage data of nonexistent Player");
-            return;
-        }
-        playerDamage[player] += damage;
+        playerDamage += damage;
     }
 
 
@@ -91,8 +63,7 @@ public class GameData : NetworkBehaviour
     [ClientRpc] 
     public void GetPlayerCount_ClientRPC(int count)
     {
-        ResetData();
-        SetNewPlayerAmount(count);
+
     }
 
 }

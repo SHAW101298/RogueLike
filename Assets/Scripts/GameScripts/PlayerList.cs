@@ -52,9 +52,17 @@ public class PlayerList : MonoBehaviour
 
     private void PlayerDisconected(ulong id)
     {
-        Debug.Log("Player Disconnected with id = " + id);
+        //Debug.Log("Player Disconnected with id = " + id);
         players.Clear();
         AddPlayers();
+
+        //Debug.Log("CHECKING IF PLAYER STILL EXISTS");
+        int count = NetworkManager.Singleton.ConnectedClientsList.Count;
+        //Debug.Log("Count = " + count);
+        for(int i = 0; i < count; i++)
+        {
+            //Debug.Log( NetworkManager.Singleton.ConnectedClientsList[i].ClientId + "  | Is still here ");
+        }
     }
 
     private void PlayerConnected(ulong id)
