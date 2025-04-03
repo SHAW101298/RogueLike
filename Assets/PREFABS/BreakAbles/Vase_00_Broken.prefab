@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6904248787393261903}
   - component: {fileID: -7359160992858190094}
   - component: {fileID: 6495116275769499857}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Vase_00_Broken
   m_TagString: BreakAble
   m_Icon: {fileID: 0}

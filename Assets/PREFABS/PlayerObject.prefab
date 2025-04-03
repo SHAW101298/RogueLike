@@ -660,7 +660,7 @@ MonoBehaviour:
   data: {fileID: 4509776595623541290}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1792
 --- !u!114 &4509776595623541293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,6 +747,7 @@ MonoBehaviour:
     m_Bits: 4096
   ui_RaycastedGunData: {fileID: 0}
   ui_RayCastedBlessingInformation: {fileID: 0}
+  ui_SimpleTextPopUp: {fileID: 0}
 --- !u!114 &5435765896860109091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1161,10 +1162,10 @@ MonoBehaviour:
   OnTakeShieldDamageEvent:
     m_PersistentCalls:
       m_Calls: []
-  OnShieldDepleted:
+  OnShieldDepletedEvent:
     m_PersistentCalls:
       m_Calls: []
-  OnShieldRegenerationStart:
+  OnShieldRegenerationStartEvent:
     m_PersistentCalls:
       m_Calls: []
   OnEnemyKillEvent:

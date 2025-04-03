@@ -250,6 +250,7 @@ public class RoomGenerator : NetworkBehaviour
             GameOptions.Instance.ApplyDifficultySettings();
 
             DeactivateFloorForMe();
+            ActivateFirstRooms();
             GenerateBreakAblesInRooms();
         }
 
@@ -319,9 +320,6 @@ public class RoomGenerator : NetworkBehaviour
         }
 
     }
-
-
-
     [ServerRpc(RequireOwnership = false)]
     void RequestRoomBreakablesLayout_ServerRPC(ulong requestingPlayer)
     {
@@ -339,19 +337,23 @@ public class RoomGenerator : NetworkBehaviour
         roomsParent.SetActive(true);
     }
     public void DeactivateFloorForMe()
-    {
-        roomsParent.SetActive(false);
-        /*
-        foreach (RoomManager room in currentRooms)
+    {     
+        Debug.Log("Deactivating Whole floor");
+        foreach(RoomManager room in currentRooms)
         {
-            room.gameObject.SetActive(false);
+            room.gameObject.SetActive(true);
         }
-        */
+    }
+    public void ActivateFirstRooms()
+    {
+        Debug.Log("Activating First Rooms");
+        currentRooms[0].ActivateRoom();
+        currentRooms[1].ActivateRoom();
     }
 
     public void GenerateBreakAblesInRooms()
     {
-
+        Debug.Log("Generating Breakables In Rooms");
         for(int i = 0; i < currentRooms.Count; i++)
         {
             currentRooms[i].GenerateBreakablesInRoom();

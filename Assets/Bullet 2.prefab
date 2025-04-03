@@ -84,7 +84,7 @@ MonoBehaviour:
   data: {fileID: 8624074402406383019}
   collideMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 1792
   owningFaction: 0
   rb: {fileID: 5500477643141358311}
   direction: {x: 0, y: 0, z: 0}
