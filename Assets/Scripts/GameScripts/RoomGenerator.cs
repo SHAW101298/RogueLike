@@ -287,8 +287,11 @@ public class RoomGenerator : NetworkBehaviour
         currentRooms.Add(spawnArea);
         Vector3 nextSpot = spawnArea.exit.position;
         Vector3 nextRotation = spawnArea.exit.eulerAngles;
+        spawnArea.roomValidationScript.id = 0;
+
         GameObject newRoom;
         RoomManager createdRoom;
+        RoomValidationScript validationScript;
         int template;
         string templateString = "";
 
@@ -302,6 +305,7 @@ public class RoomGenerator : NetworkBehaviour
             //Debug.Log("Template is " + template);
             newRoom = Instantiate(possibleRooms[template]);
             createdRoom = newRoom.GetComponent<RoomManager>();
+            validationScript = createdRoom.roomValidationScript;
             // Position correctly according to exit
             newRoom.transform.position = nextSpot;
             newRoom.transform.eulerAngles = nextRotation;
@@ -311,14 +315,11 @@ public class RoomGenerator : NetworkBehaviour
             nextRotation = createdRoom.exit.eulerAngles;
             // Cache In the Room
             currentRooms.Add(createdRoom);
+            validationScript.id = i+1;
             templateString = "";
         }
-
-        foreach(RoomManager room in currentRooms)
-        {
-            room.gameObject.SetActive(false);
-        }
-
+        DeactivateFloorForMe();
+        ActivateFirstRooms();
     }
     [ServerRpc(RequireOwnership = false)]
     void RequestRoomBreakablesLayout_ServerRPC(ulong requestingPlayer)

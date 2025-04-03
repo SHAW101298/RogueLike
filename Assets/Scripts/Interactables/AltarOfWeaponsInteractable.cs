@@ -34,7 +34,7 @@ public class AltarOfWeaponsInteractable : InteractableBase
     }
     public void DisablePickUP()
     {
-        gun.gameObject.SetActive(false);
+        //gun.gameObject.SetActive(false);
         gunInfo.gameObject.SetActive(false);
     }
 

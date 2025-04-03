@@ -23,7 +23,7 @@ public class PlayerData : UnitData
     public HitInfo_Player hitInfo;
     //public Afflictions afflictions;
     [SerializeField] Transform shootTarget;
-    public NetworkVariable<int> currentGunTemplate;
+    public NetworkVariable<int> currentGunTemplate = new NetworkVariable<int>(0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
     public override void RecalculateStats()
     {

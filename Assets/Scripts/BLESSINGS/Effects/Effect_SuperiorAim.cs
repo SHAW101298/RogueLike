@@ -6,7 +6,7 @@ public class Effect_SuperiorAim : Effect_Base
 {
     public float timeBeforeRemoval;
     public int maxStacks;
-    float timer;
+    //float timer;
     int stacks;
 
     public override void Apply()

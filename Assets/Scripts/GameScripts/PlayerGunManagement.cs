@@ -94,6 +94,9 @@ public class PlayerGunManagement : MonoBehaviour
     {
         mouseScroll = context.ReadValue<Vector2>();
 
+        // CurrentGunTemplate should only be modified here. Or Only on Owner.
+        // Read current gun of other players from that value, and change accordingly
+
         if(context.performed == true)
         {
             data.events.OnWeaponSwapEvent.Invoke();

@@ -30,7 +30,8 @@ public class GameSetup : MonoBehaviour
     void Start()
     {
         Debug.Log("Setting Up a Game");
-        GameData.Instance.SetNewPlayerAmount(NetworkManager.Singleton.ConnectedClientsIds.Count);
+        Debug.LogWarning("Request amount of players after starting the game from the host");
+        //GameData.Instance.SetNewPlayerAmount(NetworkManager.Singleton.ConnectedClientsIds.Count);
    
         CreateMap();
     }
@@ -44,6 +45,7 @@ public class GameSetup : MonoBehaviour
             mapManager.GenerateFloors();
             return;
         }
+        Debug.Log("Requesting Map Layout");
         mapManager.RequestMapLayout();
         //roomGenerator.RequestMapLayout_ServerRPC(NetworkManager.Singleton.LocalClientId);
     }
