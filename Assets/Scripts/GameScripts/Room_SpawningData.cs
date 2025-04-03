@@ -38,6 +38,10 @@ public class Room_SpawningData : MonoBehaviour
         PlayerData player = playerObject.GetComponent<PlayerData>();
         foreach (EnemyData enemy in spawnedUnits)
         {
+            if(enemy == null)
+            {
+                continue;
+            }
             enemy.ai.NotifyAboutPlayer(player);
         }
     }

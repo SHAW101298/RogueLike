@@ -194,7 +194,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 768
   canBeSwapped: 0
-  projectilePrefab: {fileID: 8624074402406383019, guid: c66acb7610255a34595dba7f7f8bc424,
+  projectilePrefab: {fileID: 8624074402406383019, guid: 59e0584ebe471a0458589cbd1f2ce613,
     type: 3}
   nozzle: {fileID: 5126867334962659692}
   gunManagement: {fileID: 0}
