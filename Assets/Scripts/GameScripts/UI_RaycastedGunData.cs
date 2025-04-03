@@ -70,6 +70,7 @@ public class UI_RaycastedGunData : MonoBehaviour
             //Debug.Log("Returning");
             return;
         }
+        Debug.Log("Gun = " + gun);
         lastGun = gun;
         HideWindow();
         nameField.text = gun.gunName;

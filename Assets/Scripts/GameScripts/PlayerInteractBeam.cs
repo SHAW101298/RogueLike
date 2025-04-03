@@ -70,11 +70,13 @@ public class PlayerInteractBeam : MonoBehaviour
         {
             //Debug.Log("We hit = " + hit.collider.gameObject.name);
             // We definitely Hit something
+            /*
             if(hit.collider.gameObject.CompareTag("GunPickUp"))
             {
                 ui_RaycastedGunData.ShowGunData(hit.collider.gameObject.GetComponent<GunPickup_InformationDeliver>().gun);
                 //ui_RaycastedGunData.ShowGunData(hit.collider.gameObject.GetComponent<GunPickupInteract>().thisGun);
             }
+            */
             
             switch(hit.collider.gameObject.tag)
             {

@@ -33,5 +33,15 @@ public class AltarOfWeapons : MonoBehaviour
             interactables[i].gun = tempGun;
             interactables[i].gunInfo.gun = tempGun;
         }
+        // Disable other Spots
+        if(numberOfWeapons == 2)
+        {
+            interactables[2].gameObject.SetActive(false);
+        }
+        else if(numberOfWeapons == 1)
+        {
+            interactables[2].gameObject.SetActive(false);
+            interactables[1].gameObject.SetActive(false);
+        }
     }
 }
