@@ -6,9 +6,6 @@ public class Blessing_Athena_10 : Blessing_Base
 {
     // Po na³o¿eniu statusu, szansa na na³o¿enie dodatkowego losowego statusu
     [SerializeField] float afflictionChance;
-    [SerializeField] float cooldown;
-    float timer;
-    bool regenerating;
     public override void Apply()
     {
         GetParent();
@@ -27,6 +24,8 @@ public class Blessing_Athena_10 : Blessing_Base
     }
     public void BlessingLogicOnAfflictionApplied()
     {
-
+        EnemyData enemy = player.events.AfflictionAppliedEventData.target.GetComponent<EnemyData>();
+        int rand = Random.Range(0, (int)ENUM_DamageType.Piercing);
+        enemy.afflictions.ApplyAfflicion((ENUM_DamageType)rand);
     }
 }
