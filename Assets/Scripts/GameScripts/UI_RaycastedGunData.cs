@@ -134,6 +134,7 @@ public class UI_RaycastedGunData : MonoBehaviour
     {
         GameObject tempGO;
         UI_DataField tempDataFields;
+        UI_WindowSizeCalculator tempSizeCalculator;
         float newHeight = 0;
         float size = 0;
         TMP_Text textField;
@@ -150,6 +151,8 @@ public class UI_RaycastedGunData : MonoBehaviour
             tempDataFields = tempGO.GetComponent<UI_DataField>();
             tempDataFields.UpdateLabel(upgrade.GetDescription());
             tempDataFields.UpdateIcon(upgrade.GetIcon());
+            tempSizeCalculator = tempGO.GetComponent<UI_WindowSizeCalculator>();
+            tempSizeCalculator.CalculateAndSetHeight();
             //tempDataFields.gameObject.GetComponent<UI_WindowSizeCalculator>().CalculateAndSetHeight();
             //textField = tempGO.GetComponentInChildren<TMP_Text>();
             //textField.text = upgrade.GetDescription();
