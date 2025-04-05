@@ -7,6 +7,7 @@ public class UI_WeaponInformation : MonoBehaviour
 {
     PlayerData player;
     [Header("Text Fields")]
+    [SerializeField] UI_DataField damageField;
     [SerializeField] TMP_Text criticalChance;
     [SerializeField] TMP_Text criticalMultiplier;
     [SerializeField] TMP_Text afflictionChance;
@@ -52,11 +53,16 @@ public class UI_WeaponInformation : MonoBehaviour
         GameObject temp;
         UI_DataField tempField;
 
+        /*
         foreach(Transform child in damageInfo.transform)
         {
             Destroy(child.gameObject);
         }
+        */
 
+        damageField.UpdateAll(gun.modifiedStats.basedamage.damageType.ToString(), gun.modifiedStats.numberOfProjectiles + "x" + gun.modifiedStats.basedamage.damage, IconsManager.Instance.GetAfflictionIcon(gun.modifiedStats.basedamage.damageType));
+
+        /*
         for(int i = 0; i < gun.modifiedStats.damageArray.Count; i++)
         {
             temp = Instantiate(damagePrefab);
@@ -74,8 +80,11 @@ public class UI_WeaponInformation : MonoBehaviour
                 tempField.UpdateAll(gun.modifiedStats.damageArray[i].damageType.ToString(), gun.modifiedStats.damageArray[i].damage, IconsManager.Instance.GetAfflictionIcon(gun.modifiedStats.damageArray[i].damageType));
             }
         }
-        damageInfo.Calculate();
+        */
 
+        //damageInfo.Calculate();
+
+        
         foreach (Transform child in bonusesInfo.transform)
         {
             Destroy(child.gameObject);
@@ -89,12 +98,15 @@ public class UI_WeaponInformation : MonoBehaviour
             tempField.UpdateLabel(gun.gunUpgrades[i].GetDescription());
             tempField.UpdateIcon(gun.gunUpgrades[i].GetIcon());
         }
+        /*
         bonusesInfo.Calculate();
 
         damageInfo.rectTransform.anchoredPosition = new Vector2(0, 0);
         Vector2 pos = new Vector2(0, -damageInfo.rectTransform.sizeDelta.y - 10);
 
         bonusesInfo.rectTransform.anchoredPosition = pos;
+        */
+        
     }
 
     public void ClearWindow()
@@ -105,10 +117,6 @@ public class UI_WeaponInformation : MonoBehaviour
         magazineSize.text = "";
         rateOfFire.text = "";
 
-        foreach (Transform child in damageInfo.transform)
-        {
-            Destroy(child.gameObject);
-        }
         foreach (Transform child in bonusesInfo.transform)
         {
             Destroy(child.gameObject);

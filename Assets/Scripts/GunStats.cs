@@ -51,7 +51,7 @@ public class GunStats
 
     public GunStats()
     {
-        damageArray = new List<DamageData>();
+        basedamage = new DamageData();
         damageMultipliersOnAffliction = new ElementalTable();
         for(int i = 0; i < damageMultipliersOnAffliction.Count(); i++)
         {
@@ -61,15 +61,8 @@ public class GunStats
 
     public void CopyDataFrom(GunStats donor)
     {
-        damageArray.Clear();
-        for(int i = 0; i < donor.damageArray.Count; i++)
-        {
-            DamageData data = new DamageData();
-            data.damage = donor.damageArray[i].damage;
-            data.damageType = donor.damageArray[i].damageType;
-            damageArray.Add(data);
-        }
-
+        basedamage.damage = donor.basedamage.damage;
+        basedamage.damageType = donor.basedamage.damageType;
         for(int i = 0; i < damageMultipliersOnAffliction.Count(); i++)
         {
             damageMultipliersOnAffliction.SetData(i, donor.damageMultipliersOnAffliction.GetData(i));

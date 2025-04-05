@@ -86,6 +86,8 @@ public class Gun : MonoBehaviour
 
     public void CreateModifiedStats()
     {
+        //Debug.Log("base damage = " + baseStats.basedamage.damage);
+        //Debug.Log("base type = " + baseStats.basedamage.damageType);
         //Debug.Log("Creating Modified Stats");
         modifiedStats = new GunStats();
         modifiedStats.CopyDataFrom(baseStats);
@@ -245,10 +247,14 @@ public class Gun : MonoBehaviour
 
         //newBullet.bulletInfo.damageData = modifiedStats.damageArray;
         newBullet.bulletInfo.damageData = new List<DamageData>();
+        newBullet.bulletInfo.damageData.Add(modifiedStats.basedamage);
+
+        /*
         for(int i = 0; i < modifiedStats.damageArray.Count; i++)
         {
             newBullet.bulletInfo.damageData.Add(modifiedStats.damageArray[i]);
         }
+        */
         newBullet.bulletInfo.afflictionChance = modifiedStats.afflictionChance;
         newBullet.bulletInfo.critChance = modifiedStats.critChance;
         newBullet.bulletInfo.critDamageMultiplier = modifiedStats.critMultiplier;

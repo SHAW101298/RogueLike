@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4734992078977719900}
-  - component: {fileID: 3827347352700609686}
   - component: {fileID: -3445127248745727893}
   m_Layer: 5
   m_Name: Bonus
@@ -40,21 +39,6 @@ RectTransform:
   m_AnchoredPosition: {x: -190, y: -620.5}
   m_SizeDelta: {x: 380, y: 25}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &3827347352700609686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4734992078977719901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 162b423a68fef144e97854eb962ce3d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textField: {fileID: 4734992079084375826}
-  rectTransform: {fileID: 4734992078977719900}
-  imageTransform: {fileID: 5548336844062840182}
 --- !u!114 &-3445127248745727893
 MonoBehaviour:
   m_ObjectHideFlags: 0

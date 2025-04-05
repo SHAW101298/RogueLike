@@ -23,6 +23,9 @@ public class UI_RaycastedGunData : MonoBehaviour
     }
     #endregion
     [SerializeField] TMP_Text nameField;
+    [SerializeField] TMP_Text damageTypeField;
+    [SerializeField] Image damageTypeIcon;
+    [SerializeField] TMP_Text damageAmountField;
     [SerializeField] TMP_Text critChanceField;
     [SerializeField] TMP_Text critMultiplierField;
     [SerializeField] TMP_Text afflictionChanceField;
@@ -74,12 +77,14 @@ public class UI_RaycastedGunData : MonoBehaviour
         lastGun = gun;
         HideWindow();
         nameField.text = gun.gunName;
-        ShowDamage(gun);
+        //ShowDamage(gun);
+        ShowDamageNew(gun);
         ShowSimpleData(gun);
         ShowBonuses(gun);
         ResizeWindow();
         ShowWindow();
     }
+    /* OLD SHOW DAMAGE
     void ShowDamage(Gun gun)
     {
         GameObject tempGO;
@@ -111,6 +116,13 @@ public class UI_RaycastedGunData : MonoBehaviour
         size += damageLayout.padding.top + damageLayout.padding.bottom;
         damageParent.sizeDelta = new Vector2(damageParent.rect.width, size);
     }
+    */
+    void ShowDamageNew(Gun gun)
+    {
+        damageTypeField.text = gun.modifiedStats.basedamage.damageType.ToString();
+        damageAmountField.text = gun.modifiedStats.basedamage.damage.ToString();
+        damageTypeIcon.sprite = IconsManager.Instance.GetAfflictionIcon(gun.modifiedStats.basedamage.damageType);
+    }
     void ShowSimpleData(Gun gun)
     {
         critChanceField.text = gun.modifiedStats.critChance.ToString();
@@ -138,18 +150,18 @@ public class UI_RaycastedGunData : MonoBehaviour
             tempDataFields = tempGO.GetComponent<UI_DataField>();
             tempDataFields.UpdateLabel(upgrade.GetDescription());
             tempDataFields.UpdateIcon(upgrade.GetIcon());
-            tempDataFields.gameObject.GetComponent<UI_WindowSizeCalculator>().CalculateAndSetHeight();
+            //tempDataFields.gameObject.GetComponent<UI_WindowSizeCalculator>().CalculateAndSetHeight();
             //textField = tempGO.GetComponentInChildren<TMP_Text>();
             //textField.text = upgrade.GetDescription();
             //newHeight = tempDataFields.label.preferredHeight;
 
-            tempTransform = tempDataFields.GetComponent<RectTransform>();
-            newHeight = tempTransform.sizeDelta.y;
+            //tempTransform = tempDataFields.GetComponent<RectTransform>();
+            //newHeight = tempTransform.sizeDelta.y;
             // tempTransform.sizeDelta = new Vector2(tempTransform.rect.width, newHeight);
-            size += newHeight;
+            //size += newHeight;
         }
-        size += bonusesLayout.padding.bottom + bonusesLayout.padding.top;
-        bonusesParent.sizeDelta = new Vector2(bonusesParent.rect.width, size);
+        //size += bonusesLayout.padding.bottom + bonusesLayout.padding.top;
+        //bonusesParent.sizeDelta = new Vector2(bonusesParent.rect.width, size);
     }
     void ResizeWindow()
     {

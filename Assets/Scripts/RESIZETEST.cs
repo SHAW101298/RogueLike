@@ -47,6 +47,7 @@ public class RESIZETEST : MonoBehaviour
     }
     void Foo()
     {
+        Debug.LogError("FOO");
         window.SetActive(false);
         GameObject tempGO;
         float size = 0;
@@ -55,6 +56,7 @@ public class RESIZETEST : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        /*
         foreach(DamageData dmgData in testGun.modifiedStats.damageArray)
         {
             tempGO = Instantiate(damagePrefab);
@@ -67,6 +69,7 @@ public class RESIZETEST : MonoBehaviour
             child.GetComponent<TMP_Text>().text = dmgData.damage.ToString();
 
         }
+        */
         size += 20; // Space for Spacer
         damageTransform.sizeDelta = new Vector2(damageTransform.rect.width, size);
 
@@ -75,6 +78,7 @@ public class RESIZETEST : MonoBehaviour
         window.SetActive(true);
 
     }
+
     public void ShowData(Gun gun)
     {
         // MAKE IT CHECK IF ITS THE SAME GUN
@@ -86,6 +90,7 @@ public class RESIZETEST : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        /*
         foreach (DamageData dmgData in gun.modifiedStats.damageArray)
         {
             tempGO = Instantiate(damagePrefab);
@@ -97,6 +102,7 @@ public class RESIZETEST : MonoBehaviour
             child = tempGO.transform.Find("Data");
             child.GetComponent<TMP_Text>().text = dmgData.damage.ToString();
         }
+        */
         size += 20; // Space for Spacer
         damageTransform.sizeDelta = new Vector2(damageTransform.rect.width, size);
 
