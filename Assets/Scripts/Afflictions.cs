@@ -38,6 +38,10 @@ public class Afflictions : MonoBehaviour
         afflictions[(int)damageType].afflictionActive = true;
         afflictions[(int)damageType].remainingTime = 10;
     }
+    public Affliction GetAffliction(ENUM_DamageType type)
+    {
+        return afflictions[(int)type];
+    }
 
     void CreateAfflictions()
     {

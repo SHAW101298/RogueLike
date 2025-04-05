@@ -168,8 +168,9 @@ public class HitInfo_Player : MonoBehaviour
             random = Random.Range(0, 100);
             if (random <= gun.baseStats.afflictionChance)
             {
-                gun.playerData.events.OnAfflictionAppliedEvent.Invoke();
                 enemy.afflictions.ApplyAfflicion(gun.baseStats.basedamage.damageType);
+                gun.playerData.events.AfflictionAppliedEventData.SetData(enemy.afflictions.GetAffliction(gun.modifiedStats.basedamage.damageType), enemy);
+                gun.playerData.events.OnAfflictionAppliedEvent.Invoke();
                 afflictionChance -= 100;
             }
         }

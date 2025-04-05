@@ -124,6 +124,10 @@ public class PlayerData : UnitData
         stats.AddCurrentHealth(val);
         return true;
     }
+    public void AddCurrentShieldPercent(float val)
+    {
+        stats.AddShield((finalStats.shieldMax / 100) * val);
+    }
     public void DecreaseHealth(float val)
     {
         stats.DecreaseHealth(val);

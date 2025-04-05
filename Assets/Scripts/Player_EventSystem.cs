@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class Player_EventSystem : MonoBehaviour
 {
     public UnityEvent playerShotBullet;
     public BulletData lastShotBullet;
     public HitInfo_Player hitInfoPlayer;
+    public AfflictionAppliedEventData AfflictionAppliedEventData;
 
 
     public UnityEvent OnEnemyWeaponHitEvent;
@@ -57,6 +59,7 @@ public class Player_EventSystem : MonoBehaviour
 
     private void Start()
     {
+        InitializeDataHolders();
         OnShieldDepletedEvent.AddListener(OnShieldDepleted);
         OnEnemyWeaponHitEvent.AddListener(OnGunHit);
         OnCriticalHitEvent.AddListener(OnCriticalHit);
@@ -84,4 +87,19 @@ public class Player_EventSystem : MonoBehaviour
         //Debug.Log("On Weapon Swap");
     }
 
+    void InitializeDataHolders()
+    {
+        AfflictionAppliedEventData = new AfflictionAppliedEventData();
+    }
+}
+[System.Serializable]
+public class AfflictionAppliedEventData
+{
+    public Affliction appliedAffliction;
+    public UnitData target;
+    public void SetData(Affliction affliction, UnitData victim)
+    {
+        appliedAffliction = affliction;
+        target = victim;
+    }
 }

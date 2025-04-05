@@ -99,6 +99,16 @@ public class PlayerStats : MonoBehaviour
         {
             data.finalStats.shield = 0;
         }
+        ui.UpdateShieldBar(data.finalStats.shield / data.finalStats.shieldMax);
+    }
+    public void AddShield(float val)
+    {
+        data.finalStats.shield += val;
+        if(data.finalStats.shield >= data.finalStats.shieldMax)
+        {
+            data.finalStats.shield = data.finalStats.shieldMax;
+        }
+        ui.UpdateShieldBar(data.finalStats.shield / data.finalStats.shieldMax);
     }
 
     private void Update()

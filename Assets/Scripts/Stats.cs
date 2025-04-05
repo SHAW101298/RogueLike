@@ -40,6 +40,7 @@ public class Stats:MonoBehaviour
     public float criticalChanceModifier;
     public float criticalDamageModifier;
     public float afflictionChanceModifier;
+    public float gunFireRate;
     
 
     public float GetFlatResist(ENUM_DamageType type)
@@ -100,6 +101,7 @@ public class Stats:MonoBehaviour
         criticalChanceModifier = stats1.criticalChanceModifier;
         criticalDamageModifier = stats1.criticalDamageModifier;
         afflictionChanceModifier = stats1.afflictionChanceModifier;
+        gunFireRate = stats1.gunFireRate;
     /*
     for(int i = 0; i < 6; i++)
     {
@@ -143,6 +145,7 @@ public class Stats:MonoBehaviour
         criticalChanceModifier = stats1.criticalChanceModifier + stats2.criticalChanceModifier;
         criticalDamageModifier = stats1.criticalDamageModifier + stats2.criticalDamageModifier;
         afflictionChanceModifier = stats1.afflictionChanceModifier + stats2.afflictionChanceModifier;
+        gunFireRate = stats1.gunFireRate + stats2.gunFireRate;
 
         /*
         for (int i = 0; i < 6; i++)
