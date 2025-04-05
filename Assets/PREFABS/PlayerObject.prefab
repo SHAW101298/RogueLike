@@ -247,6 +247,7 @@ MonoBehaviour:
   criticalChanceModifier: 0
   criticalDamageModifier: 0
   afflictionChanceModifier: 0
+  gunFireRate: 0
 --- !u!1 &2659700380123081331
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +340,7 @@ MonoBehaviour:
   criticalChanceModifier: 0
   criticalDamageModifier: 0
   afflictionChanceModifier: 0
+  gunFireRate: 0
 --- !u!1 &3363051622732082189
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +486,7 @@ GameObject:
   - component: {fileID: 643607986106897383}
   - component: {fileID: 8680575912805027291}
   - component: {fileID: 6033561868206370170}
+  - component: {fileID: 5408195035065853857}
   m_Layer: 8
   m_Name: PlayerObject
   m_TagString: Player
@@ -1114,6 +1117,13 @@ MonoBehaviour:
       m_Calls: []
   lastShotBullet: {fileID: 0}
   hitInfoPlayer: {fileID: 6033561868206370170}
+  hitInfoEnemy: {fileID: 5408195035065853857}
+  AfflictionAppliedEventData:
+    appliedAffliction:
+      type: 0
+      afflictionActive: 0
+      remainingTime: 0
+    target: {fileID: 0}
   OnEnemyWeaponHitEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1159,6 +1169,12 @@ MonoBehaviour:
   OnTakeHealthDamageEvent:
     m_PersistentCalls:
       m_Calls: []
+  OnTakeCriticalHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeNonCritHit:
+    m_PersistentCalls:
+      m_Calls: []
   OnTakeShieldDamageEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1166,6 +1182,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnShieldRegenerationStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAfflictionReceived:
     m_PersistentCalls:
       m_Calls: []
   OnEnemyKillEvent:
@@ -1223,6 +1242,21 @@ MonoBehaviour:
   enemy: {fileID: 0}
   isWeakSpot: 0
   Simulate: 0
+--- !u!114 &5408195035065853857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4509776595623541335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7067ecfff167af541a7213cefc095bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4509776595623541290}
+  enemy: {fileID: 0}
+  weapon: {fileID: 0}
 --- !u!1 &6135379246055899293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,3 +1380,4 @@ MonoBehaviour:
   criticalChanceModifier: 0
   criticalDamageModifier: 0
   afflictionChanceModifier: 0
+  gunFireRate: 0

@@ -63,6 +63,9 @@ public class ProjectileBehaviour : MonoBehaviour
     {
         // Remake along the HitInfoScript
 
+        if (data.bulletInfo.punchThrough <= 0)
+            return;
+
         //Debug.Log("Collistion Player");
         if (phantomBullet == true)
         {
@@ -81,7 +84,6 @@ public class ProjectileBehaviour : MonoBehaviour
         }
         if(owningFaction == ENUM_Faction.enemy)
         {
-            //Debug.Log("Player Hit");
             PlayerData player = other.gameObject.GetComponent<PlayerData>();
             if(PlayerList.Instance.GetMyPlayer() == player)
             {

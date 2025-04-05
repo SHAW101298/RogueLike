@@ -665,7 +665,7 @@ MonoBehaviour:
   critChance: 0
   critMultiplier: 1
   afflictionChance: 0
-  punchThrough: 0
+  punchThrough: 1
   projectilePrefab: {fileID: 8624074402406383019, guid: c66acb7610255a34595dba7f7f8bc424,
     type: 3}
   projectileSpawnPosition: {fileID: 6369748043423012790}
