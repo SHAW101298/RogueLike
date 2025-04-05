@@ -6,12 +6,12 @@ using UnityEngine;
 public class Enemy_Weapon : NetworkBehaviour
 {
     [Header("Damage Data")]
-    [SerializeField] List<DamageData> damage;
-    [SerializeField] ElementalTable afflictionModifiers;
-    [SerializeField] float critChance;
-    [SerializeField] float critMultiplier;
-    [SerializeField] float afflictionChance;
-    [SerializeField] int punchThrough;
+    public DamageData damage;
+    public ElementalTable afflictionModifiers;
+    public float critChance;
+    public float critMultiplier;
+    public float afflictionChance;
+    public int punchThrough;
     [Header("Ref")]
     [SerializeField] BulletData projectilePrefab;
     [SerializeField] Transform projectileSpawnPosition;
@@ -91,9 +91,11 @@ public class Enemy_Weapon : NetworkBehaviour
     {
         //newBullet.bulletInfo = projectilePrefab.bulletInfo;
         newBullet.projectileBehaviour.owningFaction = ENUM_Faction.enemy;
+        newBullet.owningUnit = ai.data;
         dir *= projectileSpeed;
 
-        newBullet.bulletInfo.damageData = damage;
+        newBullet.bulletInfo.damageData = new List<DamageData>();
+        newBullet.bulletInfo.damageData.Add(damage);
         newBullet.bulletInfo.damageModifierWhenAfflicted = afflictionModifiers;
         newBullet.bulletInfo.critChance = critChance;
         newBullet.bulletInfo.critDamageMultiplier = critMultiplier;

@@ -139,6 +139,7 @@ MonoBehaviour:
   criticalChanceModifier: 0
   criticalDamageModifier: 0
   afflictionChanceModifier: 0
+  gunFireRate: 0
 --- !u!1 &4397605737639720702
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +438,7 @@ MonoBehaviour:
   criticalChanceModifier: 0
   criticalDamageModifier: 0
   afflictionChanceModifier: 0
+  gunFireRate: 0
 --- !u!1 &6369748041881690598
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,7 +652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage:
-  - damage: 7
+    damage: 15
     damageType: 5
   afflictionModifiers:
     data:
@@ -1410,3 +1412,4 @@ MonoBehaviour:
   criticalChanceModifier: 0
   criticalDamageModifier: 0
   afflictionChanceModifier: 0
+  gunFireRate: 0

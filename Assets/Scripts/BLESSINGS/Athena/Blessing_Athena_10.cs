@@ -20,7 +20,7 @@ public class Blessing_Athena_10 : Blessing_Base
 
     public override void Remove()
     {
-        player.events.OnAbilityUseEvent.RemoveListener(BlessingLogicOnAfflictionApplied);
+        player.events.OnAfflictionAppliedEvent.RemoveListener(BlessingLogicOnAfflictionApplied);
     }
     public void BlessingLogicOnAfflictionApplied()
     {

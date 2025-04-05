@@ -116,6 +116,33 @@ public class PlayerData : UnitData
         }
         stats.DealDamage(fullDamage);
     }
+    public HitResult HitPlayer(DamageInfo info)
+    {
+        HitResult result = new HitResult();
+
+        if (finalStats.health == finalStats.healthMax)
+        {
+            result.firstHit = true;
+        }
+
+        float percent = info.GetDamageAmount() / finalStats.healthMax;
+        result.percentOfHealthDealt = percent;
+
+        if (percent >= 50)
+        {
+            result.halfhealth = true;
+        }
+
+        float predictedHealth = (finalStats.health + finalStats.shield) - info.GetDamageAmount();
+        if (predictedHealth <= 0)
+        {
+            result.death = true;
+        }
+        stats.DealDamage(info.GetDamageAmount());
+
+        return result;
+
+    }
     public bool AddCurrentHealth(float val)
     {
         if (finalStats.health >= finalStats.healthMax)

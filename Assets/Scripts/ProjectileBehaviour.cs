@@ -85,11 +85,13 @@ public class ProjectileBehaviour : MonoBehaviour
             PlayerData player = other.gameObject.GetComponent<PlayerData>();
             if(PlayerList.Instance.GetMyPlayer() == player)
             {
-                player.HitPlayer(data.bulletInfo);
+                //player.HitPlayer(data.bulletInfo);
+                HitInfo_Enemy hitInfo = player.events.hitInfoEnemy;
+                hitInfo.SetData(data.owningUnit.GetComponent<EnemyData>(), player);
+                hitInfo.CalculateForProjectile();
+                HitResult result = player.HitPlayer(hitInfo.damageInfo);
+                result.TriggerEvents();
             }
-
-
-
 
             data.bulletInfo.punchThrough--;
             if (data.bulletInfo.punchThrough <= 0)
@@ -97,7 +99,20 @@ public class ProjectileBehaviour : MonoBehaviour
                 Destroy(gameObject);
                 return;
             }
+
+            
         }
+        
+
+            //EnemyData enemyData = other.gameObject.GetComponentInParent<EnemyData>();
+            //HitInfo_Player hitInfo = data.owningGun.playerData.hitInfo;
+            //hitInfo.SetData(data.owningGun, enemyData, false);
+        //hitInfo.CalculateForGun();
+        //DamageInfo damageInfo = hitInfo.damageInfo;
+        //float calculatedDamage = damageInfo.GetDamageAmount();
+        //HitResult result = enemyData.HitEnemy(damageInfo);
+        //GameData.Instance.ModifyPlayersDamage(calculatedDamage);
+        //result.TriggerEvents();
 
     }
     void CollisionEnemy(Collider other)

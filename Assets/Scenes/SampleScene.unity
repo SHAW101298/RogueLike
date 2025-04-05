@@ -9942,6 +9942,10 @@ Transform:
   - {fileID: 475083908}
   - {fileID: 1383998056}
   - {fileID: 26954450}
+  - {fileID: 2051155311}
+  - {fileID: 1198167437}
+  - {fileID: 1362536447}
+  - {fileID: 793743616}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9958,9 +9962,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blessings:
-  - {fileID: 712040964}
-  - {fileID: 1114907550}
-  - {fileID: 143864405}
   - {fileID: 564728003}
   - {fileID: 949140165}
   - {fileID: 1143394663}
@@ -9971,6 +9972,10 @@ MonoBehaviour:
   - {fileID: 475083909}
   - {fileID: 1383998055}
   - {fileID: 26954449}
+  - {fileID: 2051155312}
+  - {fileID: 1198167436}
+  - {fileID: 1362536448}
+  - {fileID: 793743617}
   blessingPickUpPrefab: {fileID: 5624804656279370435, guid: f31a8dfebfe077b4c9e26eadf79db05e,
     type: 3}
 --- !u!1 &594970697
@@ -12469,6 +12474,59 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &793743615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 793743616}
+  - component: {fileID: 793743617}
+  m_Layer: 0
+  m_Name: Athena 13
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &793743616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793743615}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 591775503}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &793743617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793743615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3796d1b5fabd5384ebdf208d2afecc5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 13
+  title: Athena 13
+  description: After a critical hit, increase critical chance by " + criticalChanceIncrease
+    + "% for " + blessingTime + "seconds.
+  player: {fileID: 0}
+  counterPart: {fileID: 1362536448}
+  isCorrupted: 0
+  criticalChanceIncrease: 30
+  blessingTime: 3
 --- !u!1 &801116816
 GameObject:
   m_ObjectHideFlags: 0
@@ -20476,6 +20534,59 @@ Transform:
   m_Father: {fileID: 866994781}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1198167435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1198167437}
+  - component: {fileID: 1198167436}
+  m_Layer: 0
+  m_Name: Athena 11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1198167436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198167435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3184fe64e9f2b7149963314961b3c9b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 11
+  title: Athena 11
+  description: When applying affliction increase chance of applying Afflictions by
+    " + afflictionChanceIncreasePercent + "% for " + blessingTime + " seconds.
+  player: {fileID: 0}
+  counterPart: {fileID: 2051155312}
+  isCorrupted: 0
+  afflictionChanceIncreasePercent: 20
+  blessingTime: 6
+--- !u!4 &1198167437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198167435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 591775503}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1203688714
 GameObject:
   m_ObjectHideFlags: 0
@@ -22659,6 +22770,58 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1362536446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1362536447}
+  - component: {fileID: 1362536448}
+  m_Layer: 0
+  m_Name: Athena 12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1362536447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362536446}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 591775503}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1362536448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362536446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5885ef5424506246a60e7ec4fce8063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 12
+  title: Athena 12
+  description: After a critical hit, increase damage of next shot by " + damageIncreasePercent
+    + "%.
+  player: {fileID: 0}
+  counterPart: {fileID: 793743617}
+  isCorrupted: 0
+  damageIncreasePercent: 300
 --- !u!1 &1366985788
 GameObject:
   m_ObjectHideFlags: 0
@@ -32670,6 +32833,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050840452}
   m_CullTransparentMesh: 1
+--- !u!1 &2051155310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2051155311}
+  - component: {fileID: 2051155312}
+  m_Layer: 0
+  m_Name: Athena 10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2051155311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051155310}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 591775503}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2051155312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051155310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed5424c0f1582f4e8418546bd26e6cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 10
+  title: Athena 10
+  description: When applying affliction, there is " + afflictionChance + "% chance
+    to apply another random affliction.
+  player: {fileID: 0}
+  counterPart: {fileID: 1198167436}
+  isCorrupted: 0
+  afflictionChance: 35
 --- !u!1 &2061449161
 GameObject:
   m_ObjectHideFlags: 0

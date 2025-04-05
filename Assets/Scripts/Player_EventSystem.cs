@@ -10,6 +10,7 @@ public class Player_EventSystem : MonoBehaviour
     public UnityEvent playerShotBullet;
     public BulletData lastShotBullet;
     public HitInfo_Player hitInfoPlayer;
+    public HitInfo_Enemy hitInfoEnemy;
     public AfflictionAppliedEventData AfflictionAppliedEventData;
 
 
@@ -32,9 +33,12 @@ public class Player_EventSystem : MonoBehaviour
     public UnityEvent OnGunPickUpEvent;
 
     public UnityEvent OnTakeHealthDamageEvent;
+    public UnityEvent OnTakeCriticalHit;
+    public UnityEvent OnTakeNonCritHit;
     public UnityEvent OnTakeShieldDamageEvent;
     public UnityEvent OnShieldDepletedEvent;
     public UnityEvent OnShieldRegenerationStartEvent;
+    public UnityEvent OnAfflictionReceived;
 
     public UnityEvent OnEnemyKillEvent;
     public UnityEvent OnDeathEvent;
@@ -51,6 +55,7 @@ public class Player_EventSystem : MonoBehaviour
     public UnityEvent OnFirstHit;
     public UnityEvent OnHalfHealthTap;
     public UnityEvent OnWeakPointHit;
+
 
     //Every X seconds
     //Every X meters moved

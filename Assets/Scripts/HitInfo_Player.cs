@@ -12,7 +12,7 @@ public enum ENUM_HitResult
 public class HitResult
 {
     ENUM_HitResult result;
-    float percentOfHealthDealt;
+    public float percentOfHealthDealt;
     public bool firstHit;
     public bool halfhealth;
     public bool death;
@@ -60,6 +60,11 @@ public class DamageInfo
     {
         damage = newDamage;
         type = newType;
+    }
+    public void SetData(DamageData data)
+    {
+        damage = data.damage;
+        type = data.damageType;
     }
     public void SetDamage(float newDamage)
     {
@@ -144,7 +149,7 @@ public class HitInfo_Player : MonoBehaviour
             random = Random.Range(0, 100);
             if(random <= critChance)
             {
-                damageInfo.SetDamage(damageInfo.GetDamageAmount() * (gun.baseStats.critMultiplier + gun.playerData.finalStats.criticalDamageModifier));
+                damageInfo.SetDamage(damageInfo.GetDamageAmount() * (gun.modifiedStats.critMultiplier + gun.playerData.finalStats.criticalDamageModifier));
                 isCrit = true;
                 gun.playerData.events.OnCriticalHitEvent.Invoke();
             }
@@ -166,7 +171,7 @@ public class HitInfo_Player : MonoBehaviour
         while(afflictionChance > 0)
         {
             random = Random.Range(0, 100);
-            if (random <= gun.baseStats.afflictionChance)
+            if (random <= afflictionChance)
             {
                 enemy.afflictions.ApplyAfflicion(gun.baseStats.basedamage.damageType);
                 gun.playerData.events.AfflictionAppliedEventData.SetData(enemy.afflictions.GetAffliction(gun.modifiedStats.basedamage.damageType), enemy);
